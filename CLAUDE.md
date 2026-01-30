@@ -16,14 +16,13 @@ This is a **documentation-only project** for the ePublisher Express trial. It co
 epublisher-express-trial/
 ├── express-trial/                    # NEW: Minimal quick-start guide
 │   ├── express-trial-guide.md        # ~60 lines, 2 steps + done
-│   └── images/                       # Product-prefixed screenshots
-│       ├── express-doc-manager.png
-│       └── express-generate-button.png
+│   └── images/                       # Product-prefixed screenshots (TODO)
 ├── legacy/                           # ARCHIVED: Original verbose guide
 │   ├── express-trial-guide.md        # 507 lines (reference only)
 │   └── images/                       # 40 PNG screenshots
 ├── docs/
-│   └── plans/                        # Implementation plans
+│   ├── plans/                        # Implementation plans
+│   └── prompts/                      # Prompt history for guide rewrite
 └── TRIAL-GUIDE-TEMPLATE.md           # Pattern for future guides
 ```
 
