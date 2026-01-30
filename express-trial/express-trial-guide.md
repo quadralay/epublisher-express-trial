@@ -29,16 +29,21 @@ Drag your Markdown++ files from the **Project Directory** to the **Document Mana
 Your output opens automatically in your default browser. Try these features:
 
 <!-- multiline -->
-| Feature | What to Try |
-|---------|-------------|
-| **Search** | Type a few characters in the search box |
-|            | Notice the breadcrumb context in results |
-| **Responsive** | Drag the browser edge to make it narrower |
-|                | Watch the TOC collapse into a menu |
-| **Share** | Click the Share widget on any page |
-|           | Copy a direct link to share with others |
-| **Images** | Click any image to view it larger |
-| **PDF** | Change target to **PDF-XSL-FO** and regenerate |
+| Feature        | What to Try                                    |
+|----------------|------------------------------------------------|
+| **Search**     | - Type a few characters in the search box      |
+|                | - Notice the breadcrumb context in results     |
+|                |                                                |
+| **Responsive** | - Drag the browser edge to make it narrower    |
+|                | - Watch the TOC collapse into a menu           |
+|                |                                                |
+| **Share**      | - Click the Share widget on any page           |
+|                | - Copy a direct link to share with others      |
+|                |                                                |
+| **Images**     | Click any image to view it larger              |
+|                |                                                |
+| **PDF**        | Change target to **PDF-XSL-FO** and regenerate |
+|                |                                                |
 
 <!--condition:show_ai_features-->
 **AI-Ready:** Your output includes Landmark IDs for deep-linking and a parallel Knowledge Base for AI integration.
