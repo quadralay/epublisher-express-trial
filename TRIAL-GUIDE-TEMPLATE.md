@@ -55,13 +55,37 @@ Your output opens automatically. Try these features:
 **Next:** [Single CTA to next product tier or customization]
 
 [Full documentation](https://static.webworks.com/docs/epublisher/latest/help/) | [Contact sales](mailto:sales@webworks.com)
+
+---
+
+<!-- #explore-more -->
+## Explore More (Optional)
+
+### Customize Output Behavior
+
+[Brief intro to Target Settings and how to access them]
+
+| Setting     | What It Controls                          |
+|-------------|-------------------------------------------|
+| **Header**  | [Description]                             |
+| **Footer**  | [Description]                             |
+| **Tabs**    | [Description]                             |
+
+### Take Full Control with Designer
+
+[Strong pitch for Designer with download link]
+
+### Automate with AutoMap
+
+[Equal-billing pitch for AutoMap with download link]
 ```
 
 ## Guidelines
 
 ### Length
-- Target: 60-80 lines maximum
-- Reading time: Under 2 minutes
+- Target: 80-100 lines maximum (including optional Explore More section)
+- Core guide (Steps 1-2 + Done): 60-70 lines
+- Reading time: Under 3 minutes
 
 ### Screenshots
 - Maximum: 2 screenshots per guide
