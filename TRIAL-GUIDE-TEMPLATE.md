@@ -36,12 +36,16 @@ This template defines the pattern for all ePublisher trial guides (Express, Auto
 Your output opens automatically. Try these features:
 
 <!-- multiline -->
-| Feature | What to Try |
-|---------|-------------|
-| **Search** | Type a few characters in the search box |
-| **Responsive** | Drag the browser edge to make it narrower |
-| **Share** | Click the Share widget to copy a link |
-| **PDF** | Change target to **PDF-XSL-FO** and regenerate |
+| Feature        | What to Try                                    |
+|----------------|------------------------------------------------|
+| **Search**     | Type a few characters in the search box        |
+|                |                                                |
+| **Responsive** | Drag the browser edge to make it narrower      |
+|                |                                                |
+| **Share**      | Click the Share widget to copy a link          |
+|                |                                                |
+| **PDF**        | Change target to **PDF-XSL-FO** and regenerate |
+|                |                                                |
 
 <!-- #done -->
 ## Done
