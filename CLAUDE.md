@@ -8,25 +8,33 @@ This is a **documentation-only project** for the ePublisher Express trial. It co
 
 - **Type:** Static documentation / trial guides
 - **Technology:** Markdown++ (backward compatible with Markdown)
-- **Primary File:** `express-trial/express-trial-guide.md`
+- **Primary File:** `latest/online-trial-guide/express-trial/express-trial-guide.md`
 
 ## Project Structure
 
 ```
 epublisher-express-trial/
-├── express-trial/                    # NEW: Minimal quick-start guide
-│   ├── express-trial-guide.md        # ~60 lines, 2 steps + done
-│   └── images/                       # Product-prefixed screenshots (TODO)
-├── legacy/                           # ARCHIVED: Original verbose guide
-│   ├── express-trial-guide.md        # 507 lines (reference only)
-│   └── images/                       # 40 PNG screenshots
+├── latest/                              # ACTIVE: Current versions
+│   ├── local-express-trial-project/     # (Reserved for future sample project)
+│   └── online-trial-guide/              # Online quick-start guide
+│       └── express-trial/
+│           ├── express-trial-guide.md   # ~85 lines, 2 steps + done
+│           └── images/                  # Product-prefixed screenshots
+├── legacy/                              # ARCHIVED: Previous versions
+│   ├── local-express-trial-project/     # Sample project for trial users
+│   │   └── ePublisher Express Trial Project/
+│   │       └── Source Docs/             # FrameMaker, DITA, Markdown content
+│   └── online-express-trial-guide/      # Original verbose guide
+│       ├── express-trial-guide.md       # 507 lines (reference only)
+│       └── images/                      # 40 PNG screenshots
 ├── docs/
-│   ├── plans/                        # Implementation plans
-│   └── prompts/                      # Prompt history for guide rewrite
-└── TRIAL-GUIDE-TEMPLATE.md           # Pattern for future guides
+│   ├── brainstorms/                     # Feature brainstorming documents
+│   ├── plans/                           # Implementation plans
+│   └── prompts/                         # Prompt history for guide rewrite
+└── TRIAL-GUIDE-TEMPLATE.md              # Pattern for future guides
 ```
 
-## Active Guide: express-trial/
+## Active Guide: latest/online-trial-guide/
 
 The new guide follows a ruthlessly minimal 2-step structure optimized for time-to-value:
 
@@ -44,24 +52,28 @@ The new guide follows a ruthlessly minimal 2-step structure optimized for time-t
 
 ### Design Principles
 
-- Under 80 lines total
+- Under 100 lines total
 - 2 screenshots maximum
 - No welcome/value proposition (users already committed)
 - Single CTA at completion
 - Link to full docs for details
 
-## Legacy Guide: legacy/
+## Legacy Content: legacy/
 
+### legacy/online-express-trial-guide/
 The original 507-line guide is archived for reference. It includes:
 - 4 detailed hands-on TASKs
 - 40 screenshots
 - Support for Word, FrameMaker, DITA (now focused on Markdown++ only)
 
+### legacy/local-express-trial-project/
+Contains the sample ePublisher Express project with source documents in multiple formats (FrameMaker, DITA, Markdown).
+
 ## Scalability
 
 Future trial guides (AutoMap, Designer) will follow the same pattern:
 - Product-prefixed image names: `automap-*.png`, `designer-*.png`
-- Self-contained directories: `automap-trial/`, `designer-trial/`
+- Self-contained directories within `latest/`
 - Same 2-step + done structure
 
 ## External References
