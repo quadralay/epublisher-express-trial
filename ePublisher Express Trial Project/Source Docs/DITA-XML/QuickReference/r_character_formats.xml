@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<reference id = "i721335">
+<title>Character Formats</title>
+<shortdesc>Character formats allow you to override paragraph formats
+when you need to change the format attributes for a small amount
+of text.</shortdesc>
+<refbody>
+<section id = "i721324">
+  <p>For example, you can use character formats when you want to italicize or
+  underline a specific word in a paragraph without overriding the existing paragraph
+  format.
+    <dl>
+	  <dlentry>
+	    <dt>Bold</dt>
+        <dd>The Bold format allows you to stress certain words or phrases throughout
+	    your content.</dd>
+	  </dlentry>
+      <dlentry>
+	    <dt>Code</dt>
+        <dd>The Code format allows you to apply a monospace font to text that will 
+	    appear as code in your content.</dd>
+	  </dlentry>
+      <dlentry>
+	    <dt>Emphasis</dt>
+        <dd>The Emphasis format allows you to italicize certain words or phrases 
+	    throughout your content.</dd>
+	  </dlentry>
+      <dlentry>
+	    <dt>Hyperlink</dt>
+        <dd>The Hyperlink format applies a blue font and underline to text, which allows
+	    you to clearly display URL addresses and other links as clickable items.</dd>
+	  </dlentry>
+      <dlentry>
+	    <dt>Sub</dt>
+        <dd>The Sub format allows you to apply a subscript font to text. Any text with
+	    the Sub format applied displays below the baseline of the normal text.</dd>
+	  </dlentry>
+      <dlentry>
+	    <dt>Super</dt>
+        <dd>The Super format allows you to apply a superscript font to text. Any text 
+	    with the Super format applied displays above the baseline of the normal text.</dd></dlentry>
+      <dlentry>
+	    <dt>Underline</dt>
+        <dd>The Underline format allows you to add an underline underneath text.</dd>
+	  </dlentry>
+    </dl>
+  </p>
+</section>
+</refbody>
+</reference>

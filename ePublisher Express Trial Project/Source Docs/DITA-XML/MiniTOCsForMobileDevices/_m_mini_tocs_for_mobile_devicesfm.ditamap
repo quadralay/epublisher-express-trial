@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map>
+    <topicref scope="local" format="dita" href="mini_tocs_for_mobile_devices.xml"
+        navtitle="Mini Table of Contents for Mobile Devices" type="topic">
+        <topicref scope="local" format="ditamap" href="creating_a_mini_toc.ditamap"
+		navtitle="Creating a Mini Table of Contents" type="map"/>
+		<topicref scope="local" format="ditamap" href="creating_your_first_mini_toc.ditamap"
+		navtitle="Creating Your First Mini Table of Contents" type="map"/>
+    </topicref>
+</map>

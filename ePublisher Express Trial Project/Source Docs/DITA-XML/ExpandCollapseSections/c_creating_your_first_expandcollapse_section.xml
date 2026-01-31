@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+<!ENTITY ePEX "ePublisher Express">
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<concept id = "i720761"><title outputclass="Heading 2 Relevance">Creating Your First Expand/Collapse Section</title>
+<shortdesc>In this section, you will create your first
+expand/collapse section using the &ePEX; Trial source
+documents and stationery.</shortdesc>
+  <conbody>
+    <p>
+	  <indexterm>expand/collapse sections
+	    <indexterm>creating
+		</indexterm>
+	  </indexterm>
+	The previous section described the steps involved in implementing expand/collapse in the Sample Stationery.
+	In this section, the steps for impolementing expand/collapse sections in your own DITA documents.
+	</p>
+  </conbody>
+</concept>

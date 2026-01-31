@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i720762">
+<title>Expand/Collapse Sections</title>
+<shortdesc>This section explains how you can mark expand/collapse
+sections in the source documents provided with the trial.</shortdesc>
+  <conbody>
+    <p>The procedure will be the same when you
+    use your documents; the only difference might be the output class name
+    you use to mark the area to expand/collapse.</p>
+  </conbody>
+</concept>

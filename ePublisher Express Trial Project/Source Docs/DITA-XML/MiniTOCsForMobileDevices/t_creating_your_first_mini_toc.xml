@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<task id = "i721078">
+<title outputclass="ProcedureTitle">Creating Your First Mini Table of Contents</title>
+<shortdesc>These are the steps you will perform in the source documents to create abbrev
+mini Table of Contents.</shortdesc>
+<taskbody>
+  <context>
+    <p>You will need to tag the title of the file "mini_tocs_for_moobile_devices.xml. This 
+	file can be found in the folder MiniTOCsForMobileDevices. 
+	</p>
+  </context>
+  <steps>
+      <step>
+	  <cmd>
+	    Find the DITA map Exploring-ePublisher.ditamap in the ePublisher Express Document Manager. 
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	    Right click on the Exploring-ePublisher.ditamap and select Explore Location.
+        <image href="Images/explore_to.png" placement="break"/>
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	  Open the folder MiniTOCsForMobileDevices.
+	  <image href="Images/DITA_folders.png" placement="break"/>
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>	   
+	  Open the DITA file t_creating_your_fist_mini_toc.xml in your preferred editing tool.
+	  <image href="Images/Mini_TOC_file.png" placement="break"/>        
+      </cmd>
+    </step>
+    <step>
+	  <cmd>Open the DITA file "mini_tocs_for_mobile_devices.xml"</cmd>
+	</step>
+	<step>
+	  <cmd>In the title element, apply the output class “Title w_Mini TOC”</cmd>
+	</step>
+    <step>
+	  <cmd>Save this source document</cmd>
+	</step>
+    <step>
+	  <cmd>Generate output using ePublisher Express Trial project.</cmd>
+	</step>
+    <step>
+	  <cmd>Navigate to the topic in the generated output and verify the mini-TOC.</cmd>
+	</step>
+  </steps>
+  <result>
+    <p>Yep, it is that easy. This feature was enabled in the stationery using ePublisher
+	Designer. The styling information of Title and Title w_Mini TOC are the same, so the
+	output looks uninformed. The only difference is that under the latter, ePublisher sees
+	the command to generate a mini Table of Contents after this topic. This gives the 
+	content creator the ability to place a mini Table of Contents on any title they choose,
+	simply by labeling it with the correct paragraph style name.
+	</p>
+  </result>
+</taskbody>
+</task>

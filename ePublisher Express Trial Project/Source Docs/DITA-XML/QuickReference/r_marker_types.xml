@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<reference id = "i721289">
+<title>Marker Types</title>
+<shortdesc>Marker types allow you to embed information in your source
+documents and add functional elements to your generated output.</shortdesc>
+<refbody>
+<section id = "i721279">
+  <p>For example, you can use markers to create popup windows and context-sensitive
+  help topics.
+    <dl>
+	  <dlentry>
+        <dt>DropDownEnd</dt>
+        <dd>The DropdownEnd marker should be inserted at the end of the text that you
+		want to display in an expand/collapse section. This marker indicates the end
+		of the content you want to display in an expand/collapse section.</dd>
+      </dlentry>
+      <dlentry>
+	    <dt>Filename</dt>
+        <dd>The Filename marker should be inserted if you want to specify output 
+	    filenames when FrameMaker generated output. Specify the desired name for the 
+	    file as the marker text for the marker.</dd>
+	  </dlentry>
+      <dlentry>
+	    <dt>PopupEnd</dt>
+        <dd>The PopupEnd marker should be inserted at the text that will display in a
+		popup window. This marker indicates the end of the text you want to display 
+		in a popup window.</dd>
+	  </dlentry>
+      <dlentry>
+	    <dt>TopicAlias</dt>
+        <dd>The TopicAlias marker should be inserted in any topic that you want to use
+		as a context-sensitive help topic. Specify the topic ID you wish to assign to
+		the topic as the marker text for the marker.</dd>
+	  </dlentry>
+	</dl>
+  </p>
+</section>
+</refbody>
+</reference>

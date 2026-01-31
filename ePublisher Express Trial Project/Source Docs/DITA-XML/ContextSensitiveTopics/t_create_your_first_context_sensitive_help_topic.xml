@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<task id="i721334">
+<title outputclass="ProcedureTitle">Creating Your First Context-Sensitive Help
+ Topic</title>
+<taskbody>
+  <steps>
+     <step>
+	  <cmd>
+	    Find the DITA map Exploring-ePublisher.ditamap in the ePublisher Express Document Manager. 
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	    Right click on the Exploring-ePublisher.ditamap and select Explore Location.
+        <image href="Images/explore_to.png" placement="break"/>
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	  Open the folder ContextSensitiveTopics.
+	  <image href="Images/DITA_folders.png" placement="break"/>
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>	   
+	  Open the DITA file t_create_your_fist_context_sensitive_help_topic.xml in your preferred editing tool.
+	  <image href="Images/ContextSen_file.png" placement="break"/>        
+      </cmd>
+    </step>
+    <step>
+	  <cmd>In the DITA topic,“<codeph>c_creating_your_first_context-sensitive-help-topic.xml</codeph>”
+      add a <codeph>&lt;prolog&gt;/&lt;metadata&gt;/&lt;othermeta&gt;</codeph>
+	  element under the <codeph>&lt;Title&gt;</codeph> "Creating Your First Context-Sensitive
+	  Help Topic,"</cmd>
+    </step>
+    <step>
+	  <cmd>Set the <i>name</i> attribute of the <codeph>&lt;othermeta&gt;</codeph>
+	  element to <b>TopicAlias</b>.</cmd>
+    </step>
+    <step>
+      <cmd>Set the <i>content</i> attribute of the <codeph>&lt;othermeta&gt;</codeph>
+	  element to <codeph>IDH_CreatingYourFirstContextSensitiveHelpTopic</codeph>.</cmd>
+    </step>	
+    <step>
+	  <cmd>Save the source document.</cmd>
+	</step>
+    <step>
+	  <cmd>Generate output and verify through the Topics Report (Printable) that ePublisher
+	  created your TopicAlias marker.</cmd>
+	</step>
+    <step>
+	  <cmd>Click on the Link “Output” to verify the path leads to the proper topic.</cmd>
+	</step>
+	<step>
+	  <cmd>Return to the ePublisher Express Trial Guide to continue.</cmd>
+	</step>
+  </steps>
+</taskbody>
+</task>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<task id = "i720987">
+<title outputclass="ProcedureTitle">Creating Your First Related Topics Links</title>
+<taskbody>
+  <steps>
+    <step>
+	  <cmd>
+	    Find the DITA map Exploring-ePublisher.ditamap in the ePublisher Express Document Manager. 
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	    Right click on the Exploring-ePublisher.ditamap and select Explore Location.
+        <image href="Images/explore_to.png" placement="break"/>
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	  Open the folder RelatedTopics.
+	  <image href="Images/DITA_folders.png" placement="break"/>
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>	   
+	  Open the DITA file t_create_your_fist_related_topics_links.xml in your preferred editing tool.
+	  <image href="Images/related_topics_file.png" placement="break"/>        
+      </cmd>
+    </step>
+    <step>
+	  <cmd>Apply the <xref href = "../QuickReference/r_paragraph_formats.xml#i721408">RelatedTopic</xref>
+	  paragraph style to the list of cross references inserted at the end of this section using the outputclass 
+	  attribute.
+	  </cmd>
+	</step>
+    <step>
+	  <cmd>Save this source document.
+	  </cmd>
+	</step>
+    <step>
+	  <cmd>Generate output.
+	  </cmd>
+	</step>
+    <step>
+	  <cmd>Verify that this topic now displays a related topics section at the bottom of the
+	  topic in the generated output.
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>Return to the ePublisher Express Trial Guide to continue. 
+	  </cmd>
+	  <stepxmp>
+	    <p>Below are the cross-references we have provided. Just add the outputclass 
+		<b>RelatedTopic</b>.
+		  <ul>
+		    <li><xref href = "../ContextSensitiveTopics/c_creating_your_first_context_sensitive_help_topic.xml#i721283">
+            Creating Your First Context-Sensitive Help Topic</xref>
+			</li>
+			<li><xref href = "../ExpandCollapseSections/c_creating_your_first_expandcollapse_section.xml#i720761">
+            Creating Your First Expand/Collapse Section</xref>
+			</li>
+		  </ul>
+		</p>  
+	  </stepxmp>
+	</step>
+  </steps>
+  <result>  
+    <p>If this is your first time generating this output, you should notice that there is no related topics
+    section at the bottom of this page. We didn’t want to have all the fun, so you are going to create a related
+    topics section on your own (with a little help from our instructions)
+    </p>
+  </result>
+</taskbody>
+</task>

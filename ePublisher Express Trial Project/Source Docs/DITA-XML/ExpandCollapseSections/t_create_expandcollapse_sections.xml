@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<task id="i720894">
+<title outputclass="ExpandCollapse">Creating an Expand/Collapse Section</title>
+<taskbody>
+  <steps>
+    <step>
+	  <cmd>
+	    <indexterm>
+		  expand/collapse sections
+		  <indexterm>
+		    instructions
+		  </indexterm>
+		</indexterm>
+	  Create a single task DITA file that includes all the informatin to be contained in the Expand/Collapse field.
+      </cmd>
+    </step>
+    <step>
+	  <cmd>
+	    In the <codeph>&lt;Title&gt;</codeph> element of the task DITA file, assign the output class that was preconfigured with the Expand/Collapse ePublisher feature.  
+	  </cmd>
+	</step>
+    <step>
+	  <cmd>
+	    Save the document
+	  </cmd>
+	</step>
+  </steps>
+</taskbody>
+</task>  
+	 

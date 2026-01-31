@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<task id = "i720920">
+<title outputclass="ProcedureTitle">Creating Your First Expand/Collapse Section</title>
+<taskbody>
+  <steps>
+    <step>
+	  <cmd>
+	    Find the DITA map Exploring-ePublisher.ditamap in the ePublisher Express Document Manager. 
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	    Right click on the Exploring-ePublisher.ditamap and select Explore Location.
+        <image href="Images/explore_to.png" placement="break"/>
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	  Open the folder ExpandCollapseSections.
+	  <image href="Images/DITA_folders.png" placement="break"/>
+	  </cmd>
+	</step>
+    <step>
+	  <cmd>
+	    <indexterm>expand/collapse sections</indexterm>
+        <indexterm>instructions</indexterm>
+	  Open the DITA file t_create_your_fist_expandcollapse_section.xml in your preferred editing tool.<image href="Images/Expand_Collapse_file.png" placement="break"/>        
+      </cmd>
+    </step>
+    <step>
+	  <cmd>
+	    In the <codeph>&lt;Title&gt;</codeph> element assign an output class of ExpandCollaspe. Your Title element should now look like this:
+		<codeph>&lt;Title outputclass="ExpandCollapse"&gt;</codeph>.
+	  </cmd>
+	</step>	
+	<step>
+      <cmd>
+        Save the document
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	    Generate the HTML5 document set using the ePublisher Express Trial project. 
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	    Navigate to this page in the generate HTML5 document set to verify the Expand/Collapse section was create.
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>
+	    Return to the ePublisher Express Trial guide. 
+	  </cmd>
+	</step>
+  </steps>			  
+</taskbody>
+</task>

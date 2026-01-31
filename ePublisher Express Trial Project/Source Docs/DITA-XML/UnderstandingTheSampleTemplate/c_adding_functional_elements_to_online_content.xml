@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+
+<concept id = "i720844"><title>Adding Functional Elements to Online
+Content Using ePublisher</title>
+  <shortdesc>When delivering your content through an online medium, there are many online features that
+  you can take advantage of to increase the satisfaction of your audience.</shortdesc>
+  <conbody>
+    <p>For example, online features such as "Expand/Collapse" sections, "Related Topics" links, and "mini 
+	Table of Contents" (great for mobile outputs.) <b>ePublisher</b> makes it easy to incorporate these 
+	features into your output by simply marking sections of your source documents with the appropriate
+	paragraph, character styles, marker types or output class. You do not need to write code for any of
+	these features.</p>
+    <p>The following sections explain how to implement these features using the <b>ePublisher</b> system. You
+	will use the proper paragraph or character styles, marker types or output class in the sample 
+	source documents to implement the following online features:
+      <ul>
+        <li><xref href="../ExpandCollapseSections/expandcollapse_sections.xml#i720762"
+                        >"Expand/Collapse Sections"</xref>
+	    </li>
+        <li><xref href="../RelatedTopics/related_topics_links.xml#i720834"
+                        >"Related Topics Links"</xref>
+	    </li>
+        <li><xref href="../ContextSensitiveTopics/context_sensitive_help_topics.xml#i721201"
+                        >"Context-Sensitive Help Topics"</xref>
+	    </li>
+        <li><xref href="../MiniTOCsForMobileDevices/mini_tocs_for_mobile_devices.xml#i720932"
+                        >"Mini Table of Content for Mobile Devices"</xref>
+	    </li>
+      </ul>
+    </p>
+    <p>Then in the “My Edits” section, you will see examples of how to incorporate different types 
+	of media assets using your authoring tools native insert ability, or by using conditional text. 
+	When installing <b>ePublisher</b>, we add a menu to give you the ability to use markers and conditional 
+	text if your authoring tool does not have that ability.</p>
+  </conbody>
+</concept>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<task id = "i720992"><title outputclass="ProcedureTitle">Creating Related Topics Links</title>
+<taskbody>
+  <steps>
+    <step>
+	  <cmd>In your source document, find the topic for which you want to create a Related Topics list.
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>Create a list of cross-references for the topics you want to display in the Related Topics
+	  list at the bottom of the topic.
+	  </cmd>
+	</step>
+	<step>
+	  <cmd>Apply the <xref href="../QuickReference/r_paragraph_formats.xml#i721408">RelatedTopic</xref>
+	  paragraph style to the list of cross-references by inserting the proper output class.
+	  </cmd>
+	  <stepxmp>
+	    <p>For example, the following list of cross-references has a <xref 
+	                  href="../QuickReference/r_paragraph_formats.xml#i721408">
+					  RelatedTopic</xref> paragraph style applied to it through a 
+					  DITA outputclass:
+	      <ul>
+		    <li outputclass="RelatedTopic">
+		      <xref href="../ContextSensitiveTopics/context_sensitive_help_topics.xml#i721201">
+	          Context-Sensitive Help Topics</xref>
+		    </li>
+		    <li outputclass="RelatedTopic">
+		      <xref href="../ExpandCollapseSections/expandcollapse_sections.xml#i720762">
+	          Expand/Collapse Sections</xref>  
+		    </li>
+		  </ul>
+        </p>
+	  </stepxmp>
+      </step>
+   </steps>
+   <result>
+     <p>In generated output, a related topics section displays at the bottom of this topic. If you are reading 
+      this in the output, you can see the related topics section at the bottom. Go ahead and
+	  click the links, they work.
+	  </p>
+	</result>  
+</taskbody>
+</task>

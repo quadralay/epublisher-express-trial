@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i920774">
+<title>Try Adding Some Pictures or Links to Videos</title>
+<shortdesc>This section is for you to add your multimedia assets to get a feel for
+how they work with ePublisher.</shortdesc>
+<conbody>
+  <p>For now, we recommend just using the native functions of your authoring tool to
+  add your media assets inline. You will see them appear in the output in the same 
+  manner. If you have a DITA authoring tool, then just use it to create links to 
+  images or videos.</p>
+  <p>When you have a full seat of ePublisher, you will be able to change some of the
+  asset behaviors in the generated output, but for now, you can see how easy it is 
+  to add multimedia to your outputs.</p>
+</conbody>
+</concept>

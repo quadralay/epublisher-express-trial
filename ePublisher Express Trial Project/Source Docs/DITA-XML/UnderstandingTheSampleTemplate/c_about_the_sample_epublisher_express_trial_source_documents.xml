@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i720813">
+<title>About The Sample <b><b>ePublisher</b> Express</b> Trial Source Documents</title>
+<shortdesc>These <b>WebWorks</b> sample source documents contain predetermined paragraph and character styles,
+ marker types, conditions, variables, and cross-reference definitions that you can use to explore 
+ <b>ePublisher</b> capabilities and generate output.</shortdesc>
+<conbody>
+    <p>For example, the <b>WebWorks</b> sample source documents contain sample paragraph styles, such as
+	Heading 1, Heading 2, Title, and Body paragraph styles, and sample character styles, such as Bold
+	and Emphasis, that are common in most source documents. These are not meant to show you all of <b>ePublisher's</b>
+	capabilities, but to give you enough information to make an informed decision.</p>
+    <p>The sample source documents provided were created to be used in the following ways:
+      <ol>
+	   <li>
+	   <p>You can follow the instructions in the <b><b>ePublisher</b> Express</b> Trial Guide (located on the start
+	   page.) The <b><b>ePublisher</b> Express</b> Trial guide will give you a good idea of how to use the <b>ePublisher</b>
+	   interface and it will explain the design of our HTML5 document set. It then takes you through 
+	   some tasks using the <b>ePublisher</b> system. During those task, you will use the instructions in this
+	   source document to edit the source before generating the HTML5 document set. Once generated, you
+	   will verify your work in the document set then return to the guide for the next task.</p>
+	   </li>
+       <li>
+	   <p>In the <b>My Edits</b> group, you can replace the existing content in the sample documents with some
+	   of your content, apply the provided paragraph and character styles and marker types available in
+	   the sample source documents to your content, and then generate and review output.</p>
+	   </li>
+	  </ol>
+    </p>
+	<p>The instructions provided in the sample source documents to help you explore <b>ePublisher</b> assume 
+	that you already know how to work within your preferred authoring tool and file format. The 
+	documents give hints to help you along, but if at any point you feel you need a little more 
+	instruction, or if you have a question specific to your work flow just click on the “Contact Us” 
+	link in Next Steps.</p>
+	<p>The source documents are meant to give you live examples of the <b>ePublisher</b> work flow. How you 
+	would use the system on a day to day basis. If you find any errors in the document, try making 
+	edits and then generating a new correct HTML5 document set. That is the closest we can get you to a
+	real-world example, so you can have enough information to make an informed decision.</p>
+</conbody>
+</concept>

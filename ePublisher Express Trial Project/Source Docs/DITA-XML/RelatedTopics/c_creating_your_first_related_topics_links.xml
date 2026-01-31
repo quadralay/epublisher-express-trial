@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+<!ENTITY ePEX "ePublisher Express">
+
+<!-- End Document Specific Declarations -->
+
+]>
+<concept id = "i720921">
+<title outputclass="Heading 2 Relevance">Creating Your First Related Topics Links</title>
+<shortdesc>The previous section explains how you can create related topics lists by inserting a list 
+of cross-references into a topic and then applying a Related Topics paragraph style.</shortdesc>
+<conbody>
+  <p>In this section, you will create your first related topics list using the &ePEX; Trial source 
+  documents and stationery.</p>
+</conbody>
+</concept>

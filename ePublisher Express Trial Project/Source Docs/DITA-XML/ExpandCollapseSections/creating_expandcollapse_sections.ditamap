@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map title="creating_expandcollapse_sections">
+    <topicref scope="local" format="dita" href="c_creating_expandcollapse_sections.xml"
+        navtitle="Creating Expand/Collapse Sections" type="concept">
+	</topicref>
+    <topicref scope="local" format="dita" type="task" href="t_create_expandcollapse_sections.xml"
+		navtitle="Create expand/collapse sections task">        
+    </topicref>
+</map>

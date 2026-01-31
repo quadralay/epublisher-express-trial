@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i720855"><title>Creating Expand/Collapse Sections</title>
+<shortdesc>Expand/collapse sections are links in your generated
+output that users can click on to expand and collapse content.</shortdesc>
+  <conbody>
+    <p>
+	  <indexterm>
+	    expand/collapse sections
+	    <indexterm>
+		  creating
+		</indexterm>
+	  </indexterm>
+	Creating expand/collapse sections are accomplished by setting the boundaries of an expansion 
+	section through ePublisher paragraph styles. In DITA ePublisher paragraph styles are applied 
+	through the outputclass attribute. For example, if you wanted to apply the ePublisher paragraph 
+	style <b>body</b> to a paragraph in a DITA topic, you would mark the paragraph like this:
+    </p>
+    <p>     <codeph><b>&lt;p outputclass="body"&gt;</b></codeph></p>	
+	<p>In this example, the procedure list below has the ExpandCollapse output class applied to the
+	<codeph>&lt;Title&gt;</codeph> element. Because the Stationery Designer defined the output class 
+	ExpandCollapse with the Expand/Collapse feature, the procedure introductory statement displays a
+	trigger next to it, and when users click the trigger, the steps in the procedure will display.
+    </p>
+	<p>In DITA, everything contained in the file will be included in the Expand/Collapse field. As a 
+	result, when creating an Expand/Collapse section, all the information should be written in a single
+	Task.
+	</p>
+	<p>
+	Click the arrow expand and collapse the information in the steps below.
+    </p>
+  </conbody>
+</concept>

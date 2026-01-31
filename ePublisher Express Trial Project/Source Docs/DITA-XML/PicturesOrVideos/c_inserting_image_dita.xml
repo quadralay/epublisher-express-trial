@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i920813">
+<title>Inserting an Image in DITA</title>
+<shortdesc>In this section, the process on how to insert an image in to DITA will 
+be included below. Use this space to insert any images you would like to see in ePublisher's
+HTML5 document set.</shortdesc>
+<conbody>
+  <p>This information is from the OASIS website and can be found here:
+  <xref href="https://docs.oasis-open.org/dita/v1.1/OS/langspec/langref/image.html">
+  <b>TO OASIS</b></xref></p>
+  <p><b>Image</b></p>
+  <p>Include artwork or images in a DITA topic by using the <codeph>&lt;image&gt;</codeph>
+  element. The <codeph>&lt;image&gt;</codeph> element has optional attributes that indicate
+  whether the placement of the included graphic or artwork should be inline (like a button or 
+  icon) or on a separate line for a larger image. There are also optional attributes
+  that indicate the size to which the included graphic or artwork should be scaled. 
+  An href attribute is required on the image element, as this attribute creates a 
+  pointer to the image, and allows the output formatting processor to bring the 
+  image into the text flow. To make the intent of the image more accessible for 
+  users using screen readers or text-only readers, always include a description of 
+  the image's content in the alt element.</p>
+  <p><b>Example</b></p>
+  <p><codeph>&lt;image href="bike.gif" placement="break"&gt;&lt;alt&gt;Two-wheeled
+  bicycle&lt;/alt&gt;&lt;/image&gt;</codeph></p>
+</conbody>
+</concept>

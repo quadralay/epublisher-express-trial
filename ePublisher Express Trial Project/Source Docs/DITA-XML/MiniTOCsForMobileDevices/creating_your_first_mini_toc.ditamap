@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map title="creating_your_first_mini_toc">
+  <topicref scope="local" format="dita" href="c_creating_your_first_mini_toc.xml"
+  navtitle="Creating a Mini-TOC" type="concept"/>
+  <topicref scope="local" format="dita" href="t_creating_your_first_mini_toc.xml"
+	navtitle="Creating Your First Mini-TOC Task" type="task"/>  
+</map>

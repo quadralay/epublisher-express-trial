@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map>
+    <topicref scope="local" format="dita" href="use_this_space_to_add_your_material.xml"
+        navtitle="Use This Space To Add Your Material" type="topic">
+        <topicref scope="local" format="dita" href="c_random_text_example.xml"
+            navtitle="Random Text Example" type="concept"/>
+        <topicref scope="local" format="dita" href="c_random_lorem_ipsum_example.xml"
+            navtitle="Random Lorem Ipsum Example" type="concept"/>
+        <topicref scope="local" format="dita" href="c_the_quick_brown_fox.xml"
+            navtitle="The Quick Brown Fox" type="concept"/>
+    </topicref>
+</map>

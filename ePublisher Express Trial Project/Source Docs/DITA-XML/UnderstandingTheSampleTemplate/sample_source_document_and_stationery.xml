@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<concept id = "i720774">
+<title>ePublisher Express And One-Click Publishing</title>
+  <shortdesc><b>ePublisher Express</b> uses a <b>One-Click Publishing</b> workflow. This workflow gives content creators more time to spend on documentation by providing a streamlined and efficient publishing work flow which helps increases product value and customer loyalty. With the <b>One-Click Publishing</b> work flow, content creators can customize output by placing cues or markers in the source documents. We at <b>WebWorks</b> understand that this type of work flow sounds like it can be complicated as mediums change and documentation grows, but with <b>ePublisher</b> it can be simple and efficient in any environment. To accomplish this, we developed the unique concept of the <b>ePublisher Stationery</b>.</shortdesc>
+  <conbody>
+    <p><b>ePublisher Stationery</b> is created in <b>ePublisher Designer</b> and then used by <b>ePublisher Express</b> in publishing jobs. <b>ePublisher Stationery</b> holds content styling information as well as instructions about the look and feel of the output. By creating and using Stationery to define and store publishing behavior, as content changes and grows, republishing new content with the same look and feel is as simple as a single click in <b>ePublisher Express</b>. Using the <b>One-Click Publishing</b> work flow, content creators know when it comes time to deliver, they can rely on the <b>ePublisher Stationery</b> to ensure that output generated will display properly for all audiences across all mediums. It does not matter how difficult the job, <b>ePublisher</b> can deliver to you – <b>One-Click Publishing</b></p>
+    
+	<p>To demonstrate the efficiency and ease of <b>ePublisher One-Click Publishing</b> work flow, when you requested and installed an <b>ePublisher Express Trial</b>, we supplied you with an <b>ePublisher Express</b> Project, pre-built <b>ePublisher Stationery</b>, and source documents . These can be found in the Documents area of your computer, in the folder "<b><i>ePublisher Express Projects</i></b>" and "<b><i>ePublisher Stationery</i></b>".</p>
+	<p>When you open the <b>Express</b> project for the first time, <b>ePublisher</b> will automatically load this Express project and you will follow the steps in the guide to load the source documents of your preferred format. This setup allows you to quickly and easily publish a HTML5 document set and PDF to learn more about our <b>One-Click Publishing</b> work flow. After you go through the <b>ePublisher Trial Guide</b>, if you would like a deeper understanding on how to customize <b>ePublisher Stationery</b> for your source documents, or multiple medium deliveries, visit the “<i>Next Steps</i>” window on the start page of your <b>ePublisher Express Trial</b> project.</p>
+  </conbody>
+</concept>

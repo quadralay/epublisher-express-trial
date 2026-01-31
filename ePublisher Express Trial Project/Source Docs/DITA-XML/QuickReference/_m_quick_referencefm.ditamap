@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map>
+    <topicref scope="local" format="dita" href="formats_quick_reference.xml"
+        navtitle="Formats Quick Reference" type="topic">
+        <topicref scope="local" format="dita" type="reference" href="r_paragraph_formats.xml"
+            navtitle="Paragraph Formats"/>
+        <topicref scope="local" format="dita" type="reference" href="r_character_formats.xml"
+            navtitle="Character Formats"/>
+        <topicref scope="local" format="dita" type="reference" href="r_marker_types.xml"
+            navtitle="Marker Types"/>
+        <topicref scope="local" format="ditamap" href="m_search_relevance_example.ditamap"
+            type="map" navtitle="Search Relevance Example"/>
+        <topicref scope="local" format="dita" type="concept"
+            href="c_creating_your_own_content_and_using_media_assets.xml"
+            navtitle="Creating Your Own Content and Using Media Assets"/>
+    </topicref>
+</map>

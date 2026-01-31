@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map title="Exploring ePublisher" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <topicref scope="local" format="ditamap" href="UnderstandingTheSampleTemplate/_m_understanding_the_ePublisher_Express_Trial.ditamap"
+  type="map">
+  </topicref>
+  <topicref scope="local" format="ditamap" href="ExpandCollapseSections/_m_expand_collapse_sections.ditamap"
+  type="map">
+  </topicref>
+  <topicref scope="local" format="ditamap" href="RelatedTopics/_m_related_topics.ditamap"
+  type="map">
+  </topicref>
+  <topicref scope="local" format="ditamap" href="ContextSensitiveTopics/_m_context_sensitive_help_topics.ditamap"
+  type="map">
+  </topicref>
+  <topicref scope="local" format="ditamap" href="MiniTOCsForMobileDevices/_m_mini_tocs_for_mobile_devicesfm.ditamap"
+  type="map">
+  </topicref>
+  <topicref scope="local" format="ditamap" href="QuickReference/_m_quick_referencefm.ditamap"
+  type="map">
+  </topicref>
+</map>

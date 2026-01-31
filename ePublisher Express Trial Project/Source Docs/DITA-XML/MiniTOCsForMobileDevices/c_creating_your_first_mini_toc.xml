@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i721007">
+<title outputclass="Heading 2 Relevance">Creating Your First Mini Table of Contents</title>
+<shortdesc>In this example, you are going to add the style “Title w_Mini TOC”
+ as an output class to the title of this section “Mini Table of Contents for Mobile Devices.”</shortdesc>
+  <conbody>
+    <p>Adding this output will add a mini Table of Contents underneath this
+	title in the generated output. The mini Table of Contents is a good way for
+	a content creator to increase the navigation features of their output for a
+	mobile audience, or a quick way to jump to sections within a topic.
+    </p>
+  </conbody>
+</concept>

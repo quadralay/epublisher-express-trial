@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map>
+    <topicref scope="local" format="dita" href="sample_source_document_and_stationery.xml"
+        navtitle="Sample Source Document and Stationery" type="topic">
+        <topicref scope="local" format="dita" type="concept"
+            href="c_about_the_sample_epublisher_express_trial_source_documents.xml"
+            navtitle="About the Sample ePublisher Express Trial Source Documents"/>
+        <topicref scope="local" format="dita" type="concept"
+            href="c_about_the_sample_epublisher_express_trial_stationery.xml"
+            navtitle="About the Sample ePublisher Express Trial Stationery"/>
+        <topicref scope="local" format="dita" type="concept"
+            href="c_adding_functional_elements_to_online_content.xml"
+            navtitle="Adding Functional Elements to Online Content"/>
+    </topicref>
+</map>

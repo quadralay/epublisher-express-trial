@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map title="creating_related_topics_links">
+  <topicref scope="local" format="dita" href="c_creating_related_topics_links.xml" 
+  navtitle="Creating Related Topics Links" type="concept"/>
+  <topicref scope="local" format="dita" type="task" href="t_create_related_topics_links.xml" 
+     navtitle="Create related topics links task"/>
+</map>

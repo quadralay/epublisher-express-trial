@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<concept id = "i720767"><title>About The Sample <b><b>ePublisher</b> Express</b>
+Trial Stationery</title>
+<shortdesc>This trial uses the <b><b>ePublisher</b> Express</b> Trial Stationery that was created using <b>ePublisher</b>
+Designer.</shortdesc>
+  <conbody>
+    <p>The <b>ePublisher</b> stationery is an electronic template that is designed for your specific needs.
+	It acts as your publishing assistant taking your specific instructions and then executing to them
+	every time it delivers content. Every <b><b>ePublisher</b> Express</b> project is synchronized to stationery. 
+	<b><b>ePublisher</b> Express</b> reads the content from the source documents, gets instructions from the 
+	synchronized stationery and then publishes the output.</p>
+	<p>The stationery for these source documents was created with <b><b>ePublisher</b> Designer</b> back in the 
+	WebWorks lab. <b><b>ePublisher</b> Designer</b> is for building stationery with customer styles, formatting 
+	information, and settings specific to your source documentation. <b><b>ePublisher</b> Designer</b> also gives 
+	you the ability to set specific conditions that apply during the publishing process. The 
+	stationeries created by <b><b>ePublisher</b> Designer</b> are portable, so they are usable with any Express 
+	project. Using the <b>ePublisher</b> work flow is how we are providing you with stationery already 
+	customized to the source documents for this trial.</p>
+	<p>During this trial you will be using the pre-built stationery with an <b><b>ePublisher</b> Express</b> project.
+	After this trial if you feel <b>ePublisher</b> might be the right solution for you, go to the Next Steps 
+	section in <b><b>ePublisher</b> Express</b> to schedule a demo for <b><b>ePublisher</b> Designer</b>.</p>
+  </conbody>
+</concept>

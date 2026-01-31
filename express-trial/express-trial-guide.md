@@ -6,17 +6,20 @@ Generate your first professional HTML5 output in 3 clicks.
 <!-- #add-documents -->
 ## Step 1: Add Documents
 
-Drag your Markdown++ files from the **Project Directory** to the **Document Manager**.
+The **ePublisher Express Trial Project** opens automatically on first launch.
+
+> **Returning user?** Choose **File > Open** and navigate to:
+> `Documents\ePublisher Express Projects\ePublisher Express Trial Project\ePublisher Express Trial Project.wrp`
+
+Add the sample source document to the Document Manager:
 
 1. Click **View** > **Project Directory**
-2. Open the `Source-Docs` folder
-3. Drag each `.md` file to its matching group in the Document Manager
+2. Open `Source Docs` > `Markdown`
+3. Drag `Exploring ePublisher.md` to the Document Manager
 
 ![Document Manager with drag target](images/express-doc-manager.png)
 
-> **Tip:** Markdown++ is fully backward compatible with standard Markdown. Your existing `.md` files work as-is.
-
-> **Note:** ePublisher also supports Word, FrameMaker, and DITA source documents.
+> **Tip:** This single file includes all the sample topics. Markdown++ uses `<!--include:-->` directives to compose documents.
 
 <!-- #generate -->
 ## Step 2: Generate

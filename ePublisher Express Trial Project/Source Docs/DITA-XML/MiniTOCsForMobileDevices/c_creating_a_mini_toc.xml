@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i721006">
+<title>Creating a Mini Table of Contents</title>
+<shortdesc>A Mini Table of Contents appears underneath a title.</shortdesc>
+  <conbody>
+    <p>It is an area that lists the subheading in the section and provides a link to each.
+	These are great for outputs without traditional Table of Contents and idea for smaller
+	screens.
+    </p>
+  </conbody>
+</concept>

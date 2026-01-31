@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map title="search_relevance_example">
+  <topicref scope="local" format="dita" href="c_search_relevance_example.xml"
+  navtitle="Search Relevance Example" type="concept">
+    <topicref scope="local" format="dita" type="topic" href="this_has_brown.xml"
+	navtitle="This Paragraph has Brown in it a lot and should be on top but is not"/>
+	<topicref scope="local" format="dita" type="topic" href="this_doesnt_have_brown.xml"
+	navtitle="This doesn’t have brown in it a lot, so why is it on top?"/>
+  </topicref>
+</map>

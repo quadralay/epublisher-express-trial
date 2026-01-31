@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "technicalContent/dtd/map.dtd" [
+]>
+
+<map>
+    <topicref scope="local" format="dita" href="try_adding_some_pictures_or_links_to_videos.xml"
+        navtitle="Try Adding Some Pictures or Links to Videos" type="topic">
+        <topicref scope="local" format="dita" href="c_inserting_image_dita.xml"
+            navtitle="Inserting An Image In DITA" type="concept"/>
+        <topicref scope="local" format="dita" href="c_inserting_video_dita_link.xml"
+            navtitle="Inserting A Video In DITA With The &lt;xref href&gt; Element" type="concept"/>
+        <topicref scope="local" format="dita" href="c_embed_video_dita_object.xml"
+            navtitle="Inserting A Video In DITA With The &lt;object&gt; Element" type="concept"/>        			
+    </topicref>
+</map>

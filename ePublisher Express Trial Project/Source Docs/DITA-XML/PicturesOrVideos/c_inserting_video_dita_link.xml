@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<concept id = "i920767">
+<title>Inserting a Video in DITA With The <codeph>&lt;xref href&gt;</codeph> Element</title>
+<shortdesc>In this section, the process on how to insert a video into DITA using
+the <codeph>&lt;href&gt;</codeph>element will be included below. Use this space to 
+link to any videos you would like to see in ePublisher's HTML5 document set.</shortdesc>
+<conbody>
+  <p>The information for linking in DITA can be found on the OASIS website here:
+  <xref href="https://docs.oasis-open.org/dita/v1.0/langspec/link.html">
+  <b>TO OASIS</b></xref></p>
+  <p><b>link</b></p>
+  <p>The <codeph>&lt;link&gt;</codeph> element defines a relationship to another 
+  topic. Links represent the types and roles of topics in a web of information, and
+  therefore represent navigational links within that web. Links are typically sorted
+  on output based on their attributes. The optional container elements for link
+  (<codeph>&lt;linkgroup&gt;</codeph> and <codeph>&lt;linklist&gt;</codeph>) allow 
+  authors to define groups with common attributes, or to preserve the authored 
+  sequence of links on output.</p>
+  <p><b><codeph>&lt;xref href&gt;</codeph></b></p>
+  <p>Description</p>
+  <p>A hyperlink to an external Web page (URL) or other non-DITA resource, or to 
+  another DITA topic in the same file or in another file. The format attribute 
+  identifies the format of the target. Non-DITA targets use standard URL syntax. 
+  DITA topics are targetted as follows:</p>
+  <p><codeph>Target elsewhere in the same file: href="#topicid"</codeph></p>
+  <p><codeph>First topic in different file: href="filename.dita"</codeph></p>
+  <p><codeph>Specific topic in different file: href="filename.dita#topicid"</codeph></p>
+  <p>Below is a link to a youtube video</p>
+  <p><xref href="https://www.youtube.com/watch?v=D4QoQWboM-U">
+  Click for video</xref></p>
+  <p>Inserting a video this way will open another browser. The next section 
+  will discusses how to embed a video</p>
+</conbody>
+</concept>

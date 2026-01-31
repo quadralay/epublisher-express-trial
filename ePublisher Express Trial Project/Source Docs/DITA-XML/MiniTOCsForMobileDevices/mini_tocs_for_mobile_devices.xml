@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<concept id = "i720932">
+<title>Mini Table of Contents For Mobile Devices</title>
+<shortdesc>WebWorks dedicates time and resources to understanding
+technologies and devices that content is created on and delivered
+too.</shortdesc>
+  <conbody>
+    <p>As we come to understand these elements, we develop features in our product to help
+    our customers take advantage of the new technology. You will find that ePublisher can
+    add rich HTML features to your output by simply assigning the proper style name to the
+    proper section. One of these features is Mini Table of Contents.
+    </p>
+  </conbody>
+</concept>

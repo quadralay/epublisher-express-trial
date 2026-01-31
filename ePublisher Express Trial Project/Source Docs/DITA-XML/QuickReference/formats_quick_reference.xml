@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<concept id = "i721197">
+<title>Formats Quick Reference</title>
+<shortdesc>FrameMaker formats are a collection of attributes and
+formatting information that can be used to ensure uniformity throughout
+source document and generated output.</shortdesc>
+<conbody>
+  <p>The following sections provide definitions for the formats used within this
+  source document. Use the information in this section to learn more about the 
+  different paragraph and character formats and marker types used within this source
+  document.</p>
+</conbody>
+</concept>

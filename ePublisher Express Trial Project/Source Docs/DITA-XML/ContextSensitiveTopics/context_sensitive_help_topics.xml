@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<concept id = "i721201">
+<title>Context-Sensitive Help Topics</title>
+<shortdesc>This section explains how you can create context-sensitive
+help topics in ePublisher.</shortdesc>
+  <conbody>
+    <p>The Context-Sensitive help feature in software products is a result of a combined effort
+	from the developers of the product along with the content creators for the product. This section
+	is an example of what the content creators would need to accomplish to do their part in bringing
+	context-sensitive help to their customers. You will create a context-sensitive help topic using the
+	sample ePublisher Express Trial source documents and stationery. For the trial, you will only create
+	the topic. In a real-world example, you would then hand that topic off to the developers so they could
+	include the path at the right location in the product.
+	</p>
+  </conbody>
+</concept>

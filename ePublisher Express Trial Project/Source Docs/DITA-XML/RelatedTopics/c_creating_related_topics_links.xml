@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i720929"><title>Creating Related Topics Links</title>
+<shortdesc>Related topics links are cross-references to other topics
+within your online content.</shortdesc>
+  <conbody>
+  <p>
+    <indexterm>related topics links
+	  <indexterm>creating
+	  </indexterm>
+	</indexterm>
+  Related topic links take users to other topics that content creators believe will provide users with useful
+  information about the topic they are currently viewing. ePublisher can display related topics links as text
+  in the generated output as well as in a related topics section below the content. In the sample ePublisher
+  Express Trial stationery, the Stationery Designer configured the related topics links to display in the text
+  and a related topics section at the bottom of the content.
+  </p>
+  <p>You create related topics links by applying a <xref href="../QuickReference/r_paragraph_formats.xml#i721408">
+  RelatedTopic</xref> paragraph format to a list of   cross-references you want to display as related topics for a
+  topic in your source documents. When you generated output, the list of cross-references will automatically display
+  as related topic links with the style information in the stationery.
+  </p>
+  </conbody>
+</concept>

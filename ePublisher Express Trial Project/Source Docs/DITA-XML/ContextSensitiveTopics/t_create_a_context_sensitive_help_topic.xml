@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "technicalContent/dtd/task.dtd" [
+]>
+
+<task id="i721353">
+<title outputclass="ProcedureTitle">Creating a Context-Sensitive Help Topic</title>
+<taskbody>
+  <steps>
+    <step>
+	  <cmd>Locate your context-sensitive help topic.</cmd>
+	</step>
+    <step>
+	  <cmd>In the <codeph>&lt;prolog&gt;</codeph> element of you topic, insert a 
+      <codeph>&lt;metadata&gt;</codeph> element and within the <codeph>&lt;metadata&gt;
+      </codeph> element, an <codeph>&lt;othermeta&gt;</codeph> element.</cmd>
+    </step>
+	<step>
+	  <cmd>Set the <i>name</i> attribute of the <codeph>&lt;othermeta&gt;</codeph>
+	  element to TopicAlias.</cmd>
+    </step>
+    <step>
+      <cmd>Set the <i>content</i> attribute of the <codeph>&lt;othermeta&gt;
+	  </codeph> element to the topic ID you want to specify for the 
+	  context-sensitive help topic.</cmd>
+    </step>
+	<step>
+	  <cmd>Save the source document</cmd>
+    </step>
+    <step>
+	  <cmd>Generate your HTML5 Document set using ePublisher</cmd>
+	</step>
+    <step>
+	  <cmd>Verify that the topics alias marker has been created through ePublisher's
+	  Topics report.</cmd>
+	</step>
+  </steps>
+</taskbody>
+</task>

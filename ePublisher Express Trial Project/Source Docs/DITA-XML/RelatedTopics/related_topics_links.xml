@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<concept id = "i720834" xtrc = "DocumentTitle">
+<title xtrc="DocumentTitle">Related Topics Links</title>
+<shortdesc>This section explains how you can create related topics
+links in ePublisher.</shortdesc>
+<conbody>
+  <p>This section also allows you to create related topics links in a topic using the sample
+  ePublisher Express Trial source documents and stationery.</p>
+</conbody>
+</concept>

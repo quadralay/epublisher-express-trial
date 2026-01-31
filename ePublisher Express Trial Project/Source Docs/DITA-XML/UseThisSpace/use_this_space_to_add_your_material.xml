@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<concept id = "i820774">
+<title>Use This Space to Add Your Material</title>
+  <shortdesc>Welcome to your little slice of ePublisher Express Trial. This is your
+  “My Edits” section. In this section, you will be able to add your content and then
+  see it in the generated output.</shortdesc>
+  <conbody>
+    <p>By now you should have a little bit of an idea of how ePublisher works. The
+	trial is generating output from pre-built stationery synchronized to the 
+	ePublisher Express Trial project.This document and the others have been imported
+	to the Express project and appear in the Documents window.</p>
+    <p>When you press the generation button, ePublisher opens each document and reads
+	the information contained within. ePublisher will never change the source 
+	documents, it reads them for the content and the style names. We have customized
+	the stationary to these source documents. Once you purchase a seat of ePublisher,
+	you will be able to customize a project to your styles. This process is a detail
+	in ePublisher Designer. For now, have some fun with the styles and space below we
+	have provided for you. We left everything simple, so feel free to use some of the
+	skills you just learned in the previous document. You can create related topics,
+	expand/collapse sections, or add some mini Table of Contents. Remember to edit in
+	this document and use the style names provided in the output class. Once done, 
+	just save the file and 	publish with one click to see the results.</p>
+    <p>If you are performing the task for the Search Showcase, here would be a good
+	place to put the links the task requested</p>
+	<p><b>Link to PDF - </b></p>
+	<p><b><xref href="http://www.webworks.com/Products/ePublisher">Link to WebPage - </xref></b></p>
+  </conbody>
+</concept>

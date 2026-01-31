@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<concept id = "i920768">
+<title>Embedding a Video in DITA Using The <codeph>&lt;object&gt;</codeph>
+ Element</title>
+<shortdesc>In this section will show an example of embedding a video using the 
+<codeph>&lt;object&gt;</codeph> element.</shortdesc>
+<conbody>
+  <p>The information for the <codeph>&lt;object&gt;</codeph> element can be found
+  on the OASIS website here:
+  <xref href="https://docs.oasis-open.org/dita/v1.1/OS/langspec/langref/object.html">
+  <b>TO OASIS</b></xref></p>
+  <p><b>Object</b></p>
+  <p>DITA's <codeph>&lt;object&gt;</codeph> element corresponds to the HTML 
+  <codeph>&lt;object&gt;</codeph> element. The <codeph>&lt;object&gt;</codeph> element
+  allows authors to include animated images, applets, plug-ins, ActiveX controls, 
+  video clips, and other multimedia objects in a topic for rendering after transformation
+  to HTML. To support Flash animations and movies, the value swflash.cab is checked in
+  the codebase attribute. That enables the OBJECT tag in the HTML to display Flash 
+  objects in Intenet Explorer. The enable these to display in browsers such as NetScape
+  and FireFox, an EMBED tag is also added to the HTML. Note that while the Embed tag is
+  required to display these objects, the Embed tag is not in the XHTML 1.0 Transitional
+  tag set.</p>
+  <p><b>Example format for ePublisher</b></p>
+  <p>
+  <codeph>&lt;p&gt;</codeph></p>
+  <p>
+  <codeph>  &lt;object width="560" height="315" data="https://www.youtube.com/embed/D4QoQWboM-U"&gt;</codeph></p>
+  <p>
+  <codeph>    &lt;param name="src" value="https://www.youtube.com/embed/D4QoQWboM-U"&gt;&lt;/param&gt;</codeph></p>
+  <p>
+  <codeph>    &lt;param name="movie" value="https://www.youtube.com/embed/D4QoQWboM-U"&gt;&lt;/param&gt;</codeph></p>        
+  <p>
+  <codeph>    &lt;param name="allowFullScreen" value="true"&gt;&lt;/param&gt;</codeph></p>
+  <p>
+  <codeph>    &lt;param name="allowscriptaccess" value="always"&gt;&lt;/param&gt;</codeph></p>
+  <p>
+  <codeph>    &lt;param name="controls" value="true" /&gt;</codeph></p>
+  <p>
+  <codeph>  &lt;/object&gt;</codeph></p>
+  <p>
+  <codeph>&lt;/p&gt;</codeph></p>
+  <p>The above example result is shown below</p>
+  <p>Via YouTube...</p>
+    <p>
+      <object width="560" height="315" data="https://www.youtube.com/embed/D4QoQWboM-U">
+        <param name="src" value="https://www.youtube.com/embed/D4QoQWboM-U"></param>
+		<param name="movie" value="https://www.youtube.com/embed/D4QoQWboM-U"></param>        
+        <param name="allowFullScreen" value="true"></param>
+        <param name="allowscriptaccess" value="always"></param>
+        <param name="controls" value="true" />
+      </object>
+    </p>
+</conbody>
+</concept>

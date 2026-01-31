@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i721283">
+<title outputclass="Heading 2 Relevance">Creating Your First Context-Sensitive Help
+ Topic</title>
+<shortdesc>The previous section explains how you can create context-sensitive
+help topics by inserting a TopicAlias marker and specifying a topic
+ID as the marker text.</shortdesc>
+  <conbody>
+    <p>In this section, you will create your first context-sensitive help topic
+	using the ePublisher system for DITA. This will involved entering the 
+	information listed in the task into the <codeph>&lt;prolog&gt;</codeph> section
+	of the topic DITA file.</p>
+  </conbody>
+</concept>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+<concept id = "i721118">
+<title>Search Relevance Example</title>
+<shortdesc>This next section is so we can show an example of the
+Relevance Ranking search feature in Reverb 2.0.</shortdesc>
+<conbody>
+  <p>The ePublisher Express Trial guild talks about this feature and others. We walk
+  you through all the features in the Search Showcase section of the guide. So, you
+  can ignore the next couple of sections and move on down to 
+  <xref href="c_creating_your_own_content_and_using_media_assets.xml#i721118">
+  Creating Your Own Content and Using Media Assets</xref></p>
+</conbody>
+</concept>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<task id = "i721077">
+<title outputclass="ProcedureTitle">Creating a Mini Table of Contents</title>
+<shortdesc>These are the steps for creating a Mini Table of Contents using the ePublisher
+system.</shortdesc>
+<taskbody>
+  <context>
+    <p>As in all the previous examples, the ePublisher systems allows the content creator
+	to include special tags in the source documents. ePublisher will read these tags and
+	then alter the HTML5 document set according to the instructions provided from the 
+	ePublisher stationery. The steps below list how and where to add the tag to the source
+	documents. 
+	</p>
+  </context>
+  <steps>
+    <step>
+	  <cmd>Locate a topic in your source documents where you would like a Mini Table
+	  of Contents to appear.</cmd>
+	</step>
+    <step>
+	  <cmd>Apply a predetermined output class to the title within the &lt;Title&gt; element.</cmd>
+	</step>
+    <step>
+	  <cmd>Save the source document</cmd>
+	</step>
+    <step>
+	  <cmd>Use ePublisher to generate the HTML5 Document set.</cmd>
+	</step>
+    <step>
+	  <cmd>In the generated HTML5 document set, navigate to the tagged area to verify
+	  the mini Table of Contents was created. </cmd>
+	</step>
+  </steps>
+  <result>
+    <p>Those are the steps needed to generate a fully functional mini Table of Contents
+	in an ePublisher generated HTML5 document set. This is just one of the several features
+	ePublisher comes pre-programed with to help you get the most out of your documentation.
+	</p>
+  </result>
+</taskbody>
+</task>

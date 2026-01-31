@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Composite//EN" "technicalContent/dtd/ditabase.dtd" [
+]>
+
+
+<reference id = "i721408">
+<title>Paragraph Formats</title>
+<shortdesc>Paragraph formats apply to entire paragraphs of text.</shortdesc>
+<refbody>
+<section id = "i721398">
+  <p>Use paragraph formats if you want to apply a certain formatting to a particular
+   section of your content.
+   <dl>
+     <dlentry>
+	   <dt>Body</dt>
+	   <dd>All content that serves as the body of this document uses the Body paragraph
+	   format. For example, any text that is not part of a table, numbered or bulleted
+	   list should use the Body paragraph format.</dd>
+	 </dlentry>
+	 <dlentry>
+	   <dt>Bullet, Bullet2</dt>
+	   <dd>The Bullet formats allow you to create unordered lists. The Bullet formats
+	   provide you with a level of indentation that matches exactly with your Body
+	   paragraph format. The Bullet2 format provides you with one level of indentation
+	   from the Body paragraph format.</dd>
+	 </dlentry>
+	 <dlentry>
+	   <dt>Chapter Title</dt>
+	   <dd>The Chapter Title paragraph format allows you to identify new chapters in
+	   your document. This format uses autonumbering to append chapter numbers to your
+	   headings.</dd>
+	 </dlentry>
+     <dlentry>
+	   <dt>ExpandCollapse</dt>
+       <dd>The ExpandCollapse format creates links that display or hide content in an
+	   expand/collapse section in generated output. Apply this format to any text
+	   that you want to serve as a link for an expand/collapse section.</dd>
+	 </dlentry>
+     <dlentry>
+	   <dt>GlossDef</dt>
+       <dd>The GlossDef format should be applied to the glossary definition for 
+	   glossary terms.</dd>
+	 </dlentry>
+     <dlentry>
+	   <dt>GlossTerm</dt>
+       <dd>Content with the GlossTerm format should always precede the GlossDef
+	   format.</dd>
+	 </dlentry>
+     <dlentry>
+	   <dt>Heading1, Heading 2, and Heading 3</dt>
+       <dd>Heading formats can be used to label titles for major sections in source 
+	   documents. Each heading format differs in font size and font weight.</dd>
+	 </dlentry>
+     <dlentry>
+	   <dt>Indent1, Indent2</dt>
+       <dd>The Indent formats should be used when you want to apply a greater level of 
+	   indentation to your Body format. Use Indent1 if you want to indent your content
+	   one level in from the Body format. Use Indent2 if you want to indent your 
+	   content two levels in from the Body format.</dd>
+	 </dlentry>
+     <dlentry>
+	   <dt>Number, Number1</dt>
+       <dd>The Number formats allow you to create ordered lists. The first item in 
+	   your list should use the Number1 format, and the content following the first
+	   item should use the Number format.</dd>
+	 </dlentry>
+     <dlentry>
+	   <dt>ProcedureTitle</dt>
+       <dd>The ProcedureTitle format should be used for procedure introductory statements.
+	   Apply this format to any text that introduces the procedure. This format does not
+	   create expand/collapse sections that display or hide steps in a procedure. If you
+	   want to create procedure introductory statements that display or hide steps in a 
+	   procedure, use the ExpandCollapse paragraph format.</dd>
+	 </dlentry>
+     <dlentry>
+	   <dt>RelatedTopic</dt>
+       <dd>The RelatedTopic format creates related topics links in generated output. Apply
+	   this format to a list of cross-references that you want to display as links in your
+	   generated output.</dd>
+	 </dlentry>
+    </dl>
+  </p>
+</section>
+</refbody>
+</reference>
