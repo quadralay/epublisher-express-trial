@@ -1,6 +1,4 @@
-<!--markers:{"Keywords": "features, real-time sync, version history, sharing, encryption, collaboration", "Description": "Comprehensive overview of Quantum Sync features including sync, sharing, and security capabilities"}-->
-<!-- #features -->
-
+<!--markers:{"Keywords": "features, real-time sync, version history, sharing, encryption, collaboration", "Description": "Comprehensive overview of Quantum Sync features including sync, sharing, and security capabilities"} ; #features-->
 ## Features
 
 $ProductName; $Version; includes a comprehensive set of features designed for both individual users and enterprise teams. This section provides detailed information about each major capability.

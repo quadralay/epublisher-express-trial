@@ -1,5 +1,4 @@
 <!--markers:{"Keywords": "quantum sync, documentation, cloud storage, file synchronization", "Description": "Complete documentation for Quantum Sync cloud synchronization service"}-->
-
 Quantum Sync Documentation
 ==========================
 

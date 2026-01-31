@@ -1,6 +1,4 @@
-<!--markers:{"Keywords": "troubleshooting, errors, sync issues, conflicts, diagnostics, support", "Description": "Resolve common Quantum Sync issues including sync failures, conflicts, and connection problems"}-->
-<!-- #troubleshooting -->
-
+<!--markers:{"Keywords": "troubleshooting, errors, sync issues, conflicts, diagnostics, support", "Description": "Resolve common Quantum Sync issues including sync failures, conflicts, and connection problems"} ; #troubleshooting-->
 ## Troubleshooting
 
 This section covers common issues and their solutions. If you cannot resolve a problem using these steps, contact support at $SupportEmail;.

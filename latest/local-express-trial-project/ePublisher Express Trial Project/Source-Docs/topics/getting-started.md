@@ -1,6 +1,4 @@
-<!--markers:{"Keywords": "getting started, setup, installation, quickstart, prerequisites", "Description": "Step-by-step guide to installing and configuring Quantum Sync on your device"}-->
-<!-- #getting-started -->
-
+<!--markers:{"Keywords": "getting started, setup, installation, quickstart, prerequisites", "Description": "Step-by-step guide to installing and configuring Quantum Sync on your device"} ; #getting-started-->
 ## Getting Started
 
 This guide walks you through the initial setup of $ProductName; on your device. The entire process takes approximately five minutes.

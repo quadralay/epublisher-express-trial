@@ -1,6 +1,4 @@
-<!--markers:{"Keywords": "settings, configuration, preferences, bandwidth, notifications, admin", "Description": "Configure Quantum Sync preferences including sync behavior, bandwidth limits, and notifications"}-->
-<!-- #settings -->
-
+<!--markers:{"Keywords": "settings, configuration, preferences, bandwidth, notifications, admin", "Description": "Configure Quantum Sync preferences including sync behavior, bandwidth limits, and notifications"} ; #settings-->
 ## Settings
 
 $ProductName; $Version; provides extensive configuration options to customize sync behavior for your environment. Access settings through the system tray icon or menu bar application.
