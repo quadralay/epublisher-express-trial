@@ -1,4 +1,4 @@
-<!--markers:{"Keywords": "settings, configuration, preferences, bandwidth, notifications, admin", "Description": "Configure Quantum Sync preferences including sync behavior, bandwidth limits, and notifications"} ; #settings-->
+<!-- markers:{"Keywords": "settings, configuration, preferences, bandwidth, notifications, admin", "Description": "Configure Quantum Sync preferences including sync behavior, bandwidth limits, and notifications"}; #settings -->
 ## Settings
 
 $ProductName; $Version; provides extensive configuration options to customize sync behavior for your environment. Access settings through the system tray icon or menu bar application.
@@ -34,7 +34,7 @@ Configure proxy servers and network preferences for environments with restricted
 | Proxy port | Port number for proxy connection |
 | Proxy authentication | Username and password if required |
 
-<!--condition:advanced-->
+<!-- condition:advanced -->
 ### Administrator Settings
 
 The following settings are only available to users with administrator privileges or when $ProductName; is deployed via enterprise management tools.
@@ -47,4 +47,4 @@ The following settings are only available to users with administrator privileges
 | Remote wipe | Enable ability to erase sync folders remotely |
 
 Contact your IT administrator or $SupportEmail; for assistance with enterprise deployment options.
-<!--/condition-->
+<!-- /condition -->

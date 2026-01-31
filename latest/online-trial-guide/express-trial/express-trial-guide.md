@@ -14,8 +14,8 @@ The **ePublisher Express Trial Project** opens automatically on first launch.
 Add the sample source document to the Document Manager:
 
 1. Click **View** > **Project Directory**
-2. Open `Source Docs` > `Markdown`
-3. Drag `Exploring ePublisher.md` to the Document Manager
+2. Open `Source-Docs`
+3. Drag `quantum-sync.md` to the Document Manager
 
 ![Document Manager with drag target](images/express-doc-manager.png)
 
@@ -33,23 +33,17 @@ Add the sample source document to the Document Manager:
 
 Your output opens automatically in your default browser. Here's what you get:
 
-<!-- multiline -->
-| Feature        | What You Get                                   |
-|----------------|------------------------------------------------|
-| **Search**     | Instant answers with breadcrumb context        |
-|                |                                                |
-| **Responsive** | Perfect reading on any device                  |
-|                |                                                |
-| **Share**      | Direct links to any page                       |
-|                |                                                |
-| **Images**     | Click-to-zoom for details                      |
-|                |                                                |
-| **PDF**        | One-click format switching                     |
-|                |                                                |
+| Feature        | What You Get                            |
+|----------------|-----------------------------------------|
+| **Search**     | Instant answers with breadcrumb context |
+| **Responsive** | Perfect reading on any device           |
+| **Share**      | Direct links to any page                |
+| **Images**     | Click-to-zoom for details               |
+| **PDF**        | One-click format switching              |
 
-<!--condition:show_ai_features-->
+<!-- condition:show_ai_features -->
 **AI-Ready:** Your output includes Landmark IDs for deep-linking and a parallel Knowledge Base for AI integration.
-<!--/condition-->
+<!-- /condition -->
 
 <!-- #done -->
 ## Done

@@ -1,4 +1,4 @@
-<!--markers:{"Keywords": "getting started, setup, installation, quickstart, prerequisites", "Description": "Step-by-step guide to installing and configuring Quantum Sync on your device"} ; #getting-started-->
+<!-- markers:{"Keywords": "getting started, setup, installation, quickstart, prerequisites", "Description": "Step-by-step guide to installing and configuring Quantum Sync on your device"}; #getting-started -->
 ## Getting Started
 
 This guide walks you through the initial setup of $ProductName; on your device. The entire process takes approximately five minutes.
@@ -27,13 +27,13 @@ Follow these steps to install and configure $ProductName;:
 
 > **Tip:** For the fastest initial sync, connect to a wired network if available. $ProductName; can download large file sets significantly faster over ethernet than Wi-Fi.
 
-<!--condition:online_only-->
+<!-- condition:online_only -->
 ### Video Tutorial
 
 Watch our 3-minute setup video for a visual walkthrough of the installation process.
 
 [Watch Setup Video](https://quantumsync.example/videos/setup)
-<!--/condition-->
+<!-- /condition -->
 
 ### Next Steps
 
