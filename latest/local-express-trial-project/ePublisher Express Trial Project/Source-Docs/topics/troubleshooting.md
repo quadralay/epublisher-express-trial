@@ -5,7 +5,8 @@ This section covers common issues and their solutions. If you cannot resolve a p
 
 ### Common Issues
 
-**Files not syncing**
+<!--style:Issue ; #issue-files-not-syncing-->
+#### Files not syncing
 
 If files in your sync folder are not uploading or downloading:
 
@@ -14,9 +15,10 @@ If files in your sync folder are not uploading or downloading:
 - Ensure you have not paused synchronization
 - Check available storage in your cloud account
 
-**Sync conflicts**
+<!--style:Issue ; #issue-sync-conflicts-->
+#### Sync conflicts
 
-[Conflicts](#conflict) occur when the same file is modified on multiple devices before syncing completes. $ProductName; preserves both versions by renaming the conflicting copy with a timestamp suffix.
+[Conflicts](#gloss-term-conflict) occur when the same file is modified on multiple devices before syncing completes. $ProductName; preserves both versions by renaming the conflicting copy with a timestamp suffix.
 
 To resolve a conflict:
 
@@ -25,7 +27,8 @@ To resolve a conflict:
 3. Merge the changes into a single file
 4. Delete the conflicting copy
 
-**Connection errors**
+<!--style:Issue ; #issue-connection-errors-->
+#### Connection errors
 
 If $ProductName; cannot connect to the server, check your network settings and firewall configuration. The application requires outbound access on ports 443 (HTTPS) and 8443 (WebSocket).
 
