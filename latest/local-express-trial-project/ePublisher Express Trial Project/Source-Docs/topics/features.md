@@ -39,6 +39,7 @@ $ProductName; $Version; includes a comprehensive set of features designed for bo
 |                    | - Mark files and folders for offline availability |
 |                    | - Changes queue and sync when connection resumes |
 |                    | - Conflict detection for concurrent offline edits |
+| | |
 
 ### Feature Comparison by Plan
 
