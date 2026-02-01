@@ -1,0 +1,12 @@
+# ePublisher generated files
+**/Output/*
+**/Logs/*
+**/Reports/*
+
+# Windows
+nul
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
