@@ -41,9 +41,7 @@ Your output opens automatically in your default browser. Here's what you get:
 | **Images**     | Click-to-zoom for details               |
 | **PDF**        | One-click format switching              |
 
-<!-- condition:show_ai_features -->
 **AI-Ready:** Your output includes Landmark IDs for deep-linking and a parallel Knowledge Base for AI integration.
-<!-- /condition -->
 
 <!-- #done -->
 ## Done

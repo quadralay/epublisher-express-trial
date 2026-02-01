@@ -76,6 +76,13 @@ Future trial guides (AutoMap, Designer) will follow the same pattern:
 - Self-contained directories within `latest/`
 - Same 2-step + done structure
 
+## Claude Instructions
+
+Project-specific documentation patterns are in `.claude/instructions/`:
+- `documentation-patterns.md` - Glossary and Troubleshooting Issue styles
+
+For general Markdown++ syntax, use the `webworks-claude-skills:markdown-plus-plus` skill.
+
 ## External References
 
 - Full documentation: https://static.webworks.com/docs/epublisher/latest/help/

@@ -19,6 +19,6 @@ $ProductName; offers several advantages over traditional file synchronization so
 
 $ProductName; uses a distributed architecture with regional data centers to ensure low latency and high availability. See the architecture diagram below for an overview of how data flows through the system.
 
-![Quantum Sync Architecture](images/quantum-sync-architecture.svg)
+![Quantum Sync Architecture](../images/quantum-sync-architecture.svg)
 
 For detailed information about specific features, see the [Features](#features) section.
