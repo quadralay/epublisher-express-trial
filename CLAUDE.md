@@ -31,7 +31,8 @@ epublisher-express-trial/
 │   ├── brainstorms/                     # Feature brainstorming documents
 │   ├── plans/                           # Implementation plans
 │   └── prompts/                         # Prompt history for guide rewrite
-└── TRIAL-GUIDE-TEMPLATE.md              # Pattern for future guides
+└── .claude/
+    └── instructions/                    # Claude authoring patterns
 ```
 
 ## Active Guide: latest/online-trial-guide/
@@ -78,8 +79,9 @@ Future trial guides (AutoMap, Designer) will follow the same pattern:
 
 ## Claude Instructions
 
-Project-specific documentation patterns are in `.claude/instructions/`:
+Project-specific patterns are in `.claude/instructions/`:
 - `documentation-patterns.md` - Glossary and Troubleshooting Issue styles
+- `trial-guide-template.md` - Structure and guidelines for trial guides
 
 For general Markdown++ syntax, use the `webworks-claude-skills:markdown-plus-plus` skill.
 
