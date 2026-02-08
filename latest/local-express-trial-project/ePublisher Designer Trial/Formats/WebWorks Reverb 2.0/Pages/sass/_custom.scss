@@ -1,0 +1,59 @@
+// _custom.scss - Skin Overrides
+//
+// Purpose: Custom style overrides for Reverb 2.0 skin
+// Location: Copy to Formats\WebWorks Reverb 2.0\Pages\sass\_custom.scss
+//           or Targets\[TargetName]\Pages\sass\_custom.scss
+//
+// Usage:
+//   1. Copy this file to your project customization location
+//   2. Add @import "_custom"; to the END of skin.scss
+//   3. Modify variables and styles below
+//   4. Rebuild project with AutoMap (or manually with Designer)
+//
+// Best Practice: Keep ALL skin custom styles in this file for easier maintenance
+//
+// Modified: 2026-02-02 - Initial custom styles
+
+// Create Card layout for page content excluding breadcrumbs
+//
+#page_div {
+  background: $secondary_brand_color;
+}
+
+#ww_content_container {
+  background: $secondary_brand_color;
+  padding: 8px 12px 12px 12px; // drop-shadow from toolbar may impact value of top padding
+}
+
+.ww_skin_breadcrumbs {
+  background: none;
+}
+
+.ww_skin_page_toolbar {
+  border-radius: 12px 12px 0 0;
+  background: $content_background_color;
+}
+
+.ww_skin_was_this_helpful_container {
+  background: $content_background_color;
+}
+
+#page_content_container {
+  background: $content_background_color;
+	border-radius: 0 0 12px 12px;
+}
+//
+// End Card layout for page content excluding breadcrumbs
+
+#page_loading {
+  color: $primary_brand_color;
+}
+
+.ww_skin_breadcrumbs {
+  text-align: left;
+}
+
+#popup_div {
+  box-shadow: 0px 5px 10px -5px #aaaaaa;
+}
+

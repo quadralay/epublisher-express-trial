@@ -35,9 +35,10 @@ Your output opens automatically in your default browser. Here's what you get:
 
 | Feature        | What You Get                            |
 |----------------|-----------------------------------------|
+| **Toolbar**    | Configurable features: menu, search, navigation buttons |
 | **Search**     | Instant answers with breadcrumb context |
 | **Responsive** | Perfect reading on any device           |
-| **Share**      | Direct links to any page                |
+| **Share**      | Share widget provides Stable links to any page |
 | **Images**     | Click-to-zoom for details               |
 | **PDF**        | One-click format switching              |
 
