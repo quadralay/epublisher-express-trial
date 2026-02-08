@@ -1,18 +1,19 @@
 /*~~~~~ COLORS ~~~~~*/
 /*~~~~~~~~~~~~~~~~~~*/
 
-/* custom colors                               */
+/* Quantum Sync custom colors (qs_ prefix)     */
 /*                                             */
-/* define custom values here for easy tracking */
-$primary_brand_color: #0a4d8c;      // Quantum Sync deep blue
-$primary_text_color: #1a1a2e;       // Near-black for readability
-$skin_background_color: #ffffff;    // White toolbar background
-$secondary_brand_color: #c8e2ed;    // Cool light blue (visible contrast)
-$secondary_text_color: #ffffff;     // White on dark backgrounds
-$tertiary_brand_color: #00b8d4;     // Bright cyan accent
-$content_background_color: #f4f7fa; // Cool off-white page background
-$menu_panel_color: #e8eef4;         // Sidebar background (distinct from content)
-$footer_panel_color: $secondary_brand_color; // Footer background (matches page area)
+/* All $qs_ variables are intentional mods.    */
+/* grep 'qs_' to find every customization.     */
+$qs_primary_brand_color: #0a4d8c;      // Quantum Sync deep blue
+$qs_primary_text_color: #1a1a2e;       // Near-black for readability
+$qs_skin_background_color: #ffffff;    // White toolbar background
+$qs_secondary_brand_color: #c8e2ed;    // Cool light blue (visible contrast)
+$qs_secondary_text_color: #ffffff;     // White on dark backgrounds
+$qs_tertiary_brand_color: #00b8d4;     // Bright cyan accent
+$qs_content_background_color: #f4f7fa; // Cool off-white page background
+$qs_menu_panel_color: #e8eef4;         // Sidebar background (distinct from content)
+$qs_footer_panel_color: $qs_secondary_brand_color; // Footer background (matches page area)
 
 $neo_main_color: #008bff;
 $neo_main_text_color: #222222;
@@ -39,12 +40,12 @@ $linkedin_teal: #0077b5;
 /* layout colors: set these for a quick application to the output.                                   */
 /*                                                                                                   */
 
-$_layout_color_1: $primary_brand_color;
-$_layout_color_2: $primary_text_color;
-$_layout_color_3: $secondary_brand_color;
-$_layout_color_4: $secondary_text_color;
-$_layout_color_5: $tertiary_brand_color;
-$_layout_color_6: $content_background_color;
+$_layout_color_1: $qs_primary_brand_color;
+$_layout_color_2: $qs_primary_text_color;
+$_layout_color_3: $qs_secondary_brand_color;
+$_layout_color_4: $qs_secondary_text_color;
+$_layout_color_5: $qs_tertiary_brand_color;
+$_layout_color_6: $qs_content_background_color;
 
 /* Defaults for structure items */
 /*                              */
@@ -80,13 +81,13 @@ $search_result_highlight_color: yellow;
 /* colors for specific items */
 /*                           */
 /* toolbar */
-$toolbar_background_color: $skin_background_color;
+$toolbar_background_color: $qs_skin_background_color;
 $toolbar_text_color: $_layout_color_2;
 $toolbar_icon_color: $_layout_color_2;
 
 $toolbar_button_background_color: $toolbar_background_color;
 $toolbar_button_icon_color: $toolbar_icon_color;
-$toolbar_button_icon_color_disabled: darken($skin_background_color, 50);
+$toolbar_button_icon_color_disabled: darken($qs_skin_background_color, 50);
 
 $toolbar_button_menu_background_color: $toolbar_button_background_color;
 $toolbar_button_menu_background_color_hover: darken($toolbar_button_menu_background_color, 10%);
@@ -94,7 +95,7 @@ $toolbar_button_menu_background_color_click: lighten($toolbar_button_menu_backgr
 $toolbar_button_menu_icon_color: $toolbar_button_icon_color;
 $toolbar_button_menu_icon_color_hover: darken($toolbar_button_menu_icon_color, 20%);
 $toolbar_button_menu_icon_color_click: lighten($toolbar_button_menu_icon_color, 20%);
-$toolbar_button_menu_icon_color_disabled: darken($skin_background_color, 50%);
+$toolbar_button_menu_icon_color_disabled: darken($qs_skin_background_color, 50%);
 $toolbar_logo_section_background_color: $toolbar_background_color;
 $toolbar_logo_text_color: $toolbar_text_color;
 $toolbar_logo_link_text_color: $toolbar_logo_text_color;
@@ -153,27 +154,27 @@ $toolbar_button_translate_icon_color: $toolbar_button_icon_color;
 $toolbar_button_translate_icon_color_hover: darken($toolbar_button_translate_icon_color, 20%);
 $toolbar_button_translate_icon_color_click: lighten($toolbar_button_translate_icon_color, 20%);
 
-$toolbar_tabs_container_background_color: $skin_background_color;
-$toolbar_tab_background_color: $skin_background_color;
-$toolbar_tab_background_color_hover: lighten($primary_brand_color, 30%);
+$toolbar_tabs_container_background_color: $qs_skin_background_color;
+$toolbar_tab_background_color: $qs_skin_background_color;
+$toolbar_tab_background_color_hover: lighten($qs_primary_brand_color, 30%);
 $toolbar_tab_text_color: $_layout_color_2;
-$toolbar_tab_text_color_hover: $primary_text_color;
-$toolbar_tab_current_background_color: lighten($primary_brand_color, 10%);
+$toolbar_tab_text_color_hover: $qs_primary_text_color;
+$toolbar_tab_current_background_color: lighten($qs_primary_brand_color, 10%);
 $toolbar_tab_current_background_color_hover: $toolbar_tab_current_background_color;
-$toolbar_tab_current_text_color: darken($primary_text_color, 10%);
+$toolbar_tab_current_text_color: darken($qs_primary_text_color, 10%);
 $toolbar_tab_current_text_color_hover: $toolbar_tab_current_text_color;
 
 
 /* menu (nav & toc/index) */
-$menu_background_color: $menu_panel_color;
+$menu_background_color: $qs_menu_panel_color;
 $menu_text_color: $_layout_color_2;
 
 $menu_nav_buttons_icon_color: $menu_text_color;
-$menu_nav_buttons_icon_color_hover: darken($primary_text_color, 20%);
-$menu_nav_buttons_icon_color_click: lighten($primary_text_color, 20%);
+$menu_nav_buttons_icon_color_hover: darken($qs_primary_text_color, 20%);
+$menu_nav_buttons_icon_color_click: lighten($qs_primary_text_color, 20%);
 $menu_nav_buttons_background_color: $menu_background_color;
-$menu_nav_buttons_background_color_hover: darken($content_background_color, 5%);
-$menu_nav_buttons_background_color_click: lighten($content_background_color, 5%);
+$menu_nav_buttons_background_color_hover: darken($qs_content_background_color, 5%);
+$menu_nav_buttons_background_color_click: lighten($qs_content_background_color, 5%);
 $menu_nav_buttons_current_icon_color: $menu_nav_buttons_icon_color;
 $menu_nav_buttons_current_icon_color_hover: $menu_nav_buttons_icon_color;
 $menu_nav_buttons_current_icon_color_click: $menu_nav_buttons_icon_color;
@@ -199,7 +200,7 @@ $menu_toc_item_current_text_color_click: $menu_toc_item_current_text_color;
 $menu_toc_item_current_icon_color: $menu_toc_item_current_text_color;
 $menu_toc_item_current_icon_color_hover: $menu_toc_item_current_icon_color;
 $menu_toc_item_current_icon_color_click: $menu_toc_item_current_icon_color;
-$menu_toc_item_current_highlight_color: $primary_brand_color;
+$menu_toc_item_current_highlight_color: $qs_primary_brand_color;
 
 $menu_index_background_color: $menu_background_color;
 $menu_index_text_color: $menu_text_color;
@@ -211,15 +212,15 @@ $menu_index_link_color_hover: lighten($menu_index_link_color, 20%);
 /* page */
 $page_background_color: $_layout_color_6;
 
-$page_breadcrumbs_background_color: $secondary_brand_color;
-$page_breadcrumbs_text_color: $primary_text_color;
+$page_breadcrumbs_background_color: $qs_secondary_brand_color;
+$page_breadcrumbs_text_color: $qs_primary_text_color;
 $page_breadcrumbs_link_color: $link_default_color;
 $page_breadcrumbs_link_color_hover: $page_breadcrumbs_link_color;
 $page_breadcrumbs_link_color_visited: $link_visited_color;
 $page_breadcrumbs_link_color_visited_hover: $page_breadcrumbs_link_color_visited;
 
 $page_toolbar_tool_icon_color: $_layout_color_2;
-$page_toolbar_tool_icon_color_hover: lighten($primary_text_color, 20%);
+$page_toolbar_tool_icon_color_hover: lighten($qs_primary_text_color, 20%);
 $page_toolbar_tool_icon_color_click: darken($page_toolbar_tool_icon_color, 20%);
 $page_toolbar_icon_divider_color: $page_toolbar_tool_icon_color;
 $page_toolbar_social_icon_color: $page_toolbar_tool_icon_color;
@@ -235,8 +236,8 @@ $page_dropdown_arrow_color: $_layout_color_2;
 $page_dropdown_arrow_color_hover: darken($page_dropdown_arrow_color, 20%);
 $page_dropdown_arrow_color_click: lighten($page_dropdown_arrow_color, 20%);
 
-$page_publish_date_color: $primary_text_color;
-$page_modified_date_color: $primary_text_color;
+$page_publish_date_color: $qs_primary_text_color;
+$page_modified_date_color: $qs_primary_text_color;
 
 $page_helpful_message_text_color: $_layout_color_2;
 $page_helpful_button_icon_color: $page_toolbar_tool_icon_color;
@@ -296,18 +297,18 @@ $header_link_color: $link_default_color;
 $header_link_color_visited: $link_visited_color;
 
 /* footer */
-$footer_background_color: $footer_panel_color;
-$footer_text_color: $primary_text_color;
+$footer_background_color: $qs_footer_panel_color;
+$footer_text_color: $qs_primary_text_color;
 $footer_link_color: $link_default_color;
 $footer_link_color_visited: $link_visited_color;
-$footer_hr_color: darken($secondary_brand_color, 15%);
-$footer_publish_date_text_color: lighten($primary_text_color, 20%);
-$footer_copyright_message_text_color: lighten($primary_text_color, 20%);
+$footer_hr_color: darken($qs_secondary_brand_color, 15%);
+$footer_publish_date_text_color: lighten($qs_primary_text_color, 20%);
+$footer_copyright_message_text_color: lighten($qs_primary_text_color, 20%);
 
 /* back-to-top button */
 $back_to_top_background_color: $_layout_color_1;
 $back_to_top_background_color_hover: darken($back_to_top_background_color, 20%);
-$back_to_top_caret_color: $secondary_text_color;
+$back_to_top_caret_color: $qs_secondary_text_color;
 $back_to_top_caret_color_hover: darken($back_to_top_caret_color, 20%);
 
 /*
