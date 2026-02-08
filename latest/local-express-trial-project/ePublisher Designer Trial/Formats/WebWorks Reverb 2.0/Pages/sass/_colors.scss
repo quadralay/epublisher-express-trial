@@ -7,10 +7,12 @@
 $primary_brand_color: #0a4d8c;      // Quantum Sync deep blue
 $primary_text_color: #1a1a2e;       // Near-black for readability
 $skin_background_color: #ffffff;    // White toolbar background
-$secondary_brand_color: #e8f4f8;    // Cool light blue-gray
+$secondary_brand_color: #c8e2ed;    // Cool light blue (visible contrast)
 $secondary_text_color: #ffffff;     // White on dark backgrounds
 $tertiary_brand_color: #00b8d4;     // Bright cyan accent
 $content_background_color: #f4f7fa; // Cool off-white page background
+$menu_panel_color: #e8eef4;         // Sidebar background (distinct from content)
+$footer_panel_color: $secondary_brand_color; // Footer background (matches page area)
 
 $neo_main_color: #008bff;
 $neo_main_text_color: #222222;
@@ -163,7 +165,7 @@ $toolbar_tab_current_text_color_hover: $toolbar_tab_current_text_color;
 
 
 /* menu (nav & toc/index) */
-$menu_background_color: $content_background_color;
+$menu_background_color: $menu_panel_color;
 $menu_text_color: $_layout_color_2;
 
 $menu_nav_buttons_icon_color: $menu_text_color;
@@ -197,7 +199,7 @@ $menu_toc_item_current_text_color_click: $menu_toc_item_current_text_color;
 $menu_toc_item_current_icon_color: $menu_toc_item_current_text_color;
 $menu_toc_item_current_icon_color_hover: $menu_toc_item_current_icon_color;
 $menu_toc_item_current_icon_color_click: $menu_toc_item_current_icon_color;
-$menu_toc_item_current_highlight_color: $toolbar_background_color;
+$menu_toc_item_current_highlight_color: $primary_brand_color;
 
 $menu_index_background_color: $menu_background_color;
 $menu_index_text_color: $menu_text_color;
@@ -294,18 +296,18 @@ $header_link_color: $link_default_color;
 $header_link_color_visited: $link_visited_color;
 
 /* footer */
-$footer_background_color: $secondary_brand_color;
+$footer_background_color: $footer_panel_color;
 $footer_text_color: $primary_text_color;
 $footer_link_color: $link_default_color;
 $footer_link_color_visited: $link_visited_color;
-$footer_hr_color: $secondary_brand_color;
+$footer_hr_color: darken($secondary_brand_color, 15%);
 $footer_publish_date_text_color: lighten($primary_text_color, 20%);
 $footer_copyright_message_text_color: lighten($primary_text_color, 20%);
 
 /* back-to-top button */
 $back_to_top_background_color: $_layout_color_1;
 $back_to_top_background_color_hover: darken($back_to_top_background_color, 20%);
-$back_to_top_caret_color: $_layout_color_2;
+$back_to_top_caret_color: $secondary_text_color;
 $back_to_top_caret_color_hover: darken($back_to_top_caret_color, 20%);
 
 /*
