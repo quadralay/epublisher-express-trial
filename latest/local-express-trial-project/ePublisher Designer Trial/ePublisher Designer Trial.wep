@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Version="1.1.2.0" ProjectID="hMDzxVACF5I" ChangeID="j4RMLYpPIwo" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
+<Project Version="1.1.2.0" ProjectID="hMDzxVACF5I" ChangeID="2VM0F9ojac4" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
   <Formats>
     <Format TargetName="Web Help" Name="WebWorks Reverb 2.0" Type="Application" TargetID="Lf3DjZlhl_A">
       <OutputDirectory>Output\Web Help</OutputDirectory>
+    </Format>
+    <Format TargetName="PDF" Name="PDF - XSL-FO" Type="Application" TargetID="i_BgDzzGOlc">
+      <OutputDirectory>Output\PDF</OutputDirectory>
     </Format>
   </Formats>
   <Groups>
     <Group Name="Help" Type="normal" Included="true" GroupID="QeGxWoyPnS0" ChangeID="w7itrLekIEc">
       <Document Type="normal" Included="true" DocumentID="7A1o0pIFhRQ" ChangeID="" Path="..\ePublisher Express Trial Project\Source-Docs\quantum-sync.md" />
     </Group>
-    <Group Name="Resources" Type="normal" Included="true" GroupID="-q27HfLMM70" ChangeID="A2oENdBgu1M">
-      <Document Type="normal" Included="true" DocumentID="YD-7sDP2H1k" ChangeID="" Path="..\ePublisher Express Trial Project\Source-Docs\topics\troubleshooting.md" />
-    </Group>
   </Groups>
-  <GlobalConfiguration ChangeID="D0RG0gzWnbA">
+  <GlobalConfiguration ChangeID="jcNbpDYypTA">
     <Rules Type="Paragraph" Default="{WWDefaultRule}" ChangeID="">
       <Rule Key="{WWDefaultRule}" ChangeID="DdSLs2ByvOc" />
       <Rule Key="Blockquote" />
@@ -51,6 +51,22 @@
       <Rule Key="OList Item" />
       <Rule Key="OList Paragraph" />
       <Rule Key="Paragraph" />
+      <Rule Key="PDF Cover Date" ChangeID="cB9DQZd3cGc">
+        <Properties>
+          <Property Name="color" Value="White" Source="Explicit" />
+          <Property Name="font-size" Value="9pt" Source="Explicit" />
+          <Property Name="top" Value="3.5in" Source="Explicit" />
+          <Property Name="xsl-text-align" Value="center" Source="Explicit" />
+        </Properties>
+      </Rule>
+      <Rule Key="PDF Cover Title" ChangeID="BOejXOrfFnI">
+        <Properties>
+          <Property Name="absolute-position" Value="auto" Source="Explicit" />
+          <Property Name="color" Value="White" Source="Explicit" />
+          <Property Name="top" Value="3.25in" Source="Explicit" />
+          <Property Name="xsl-text-align" Value="center" Source="Explicit" />
+        </Properties>
+      </Rule>
       <Rule Key="Table Cell Body" />
       <Rule Key="Table Cell Head" />
       <Rule Key="Title 1" ChangeID="yQkmVWMkLDE" />
@@ -151,6 +167,27 @@
         </Properties>
       </Rule>
       <Rule Key="Default" />
+      <Rule Key="PDF Cover" ChangeID="cs4USlCjAYU">
+        <Properties>
+          <Property Name="odd-master-page-body-background-image" Value="pdf-cover.png" Source="Explicit" />
+          <Property Name="odd-master-page-body-margin-bottom" Value="0in" Source="Explicit" />
+          <Property Name="odd-master-page-body-margin-left" Value="0in" Source="Explicit" />
+          <Property Name="odd-master-page-body-margin-right" Value="0in" Source="Explicit" />
+          <Property Name="odd-master-page-body-margin-top" Value="0in" Source="Explicit" />
+          <Property Name="odd-master-page-margin-bottom" Value="0in" Source="Explicit" />
+          <Property Name="odd-master-page-margin-left" Value="0in" Source="Explicit" />
+          <Property Name="odd-master-page-margin-right" Value="0in" Source="Explicit" />
+          <Property Name="odd-master-page-margin-top" Value="0in" Source="Explicit" />
+          <Property Name="odd-master-page-region-after-extent" Value="0in" Source="Explicit" />
+          <Property Name="odd-master-page-region-before-extent" Value="0in" Source="Explicit" />
+          <Property Name="page-sequence-format" Value="i" Source="Explicit" />
+        </Properties>
+      </Rule>
+      <Rule Key="PDF TOC" ChangeID="wAFyZvUkZ0I">
+        <Properties>
+          <Property Name="page-sequence-format" Value="i" Source="Explicit" />
+        </Properties>
+      </Rule>
       <Rule Key="Popup" ChangeID="dOp06fDp1hc">
         <Options>
           <Option Name="breadcrumbs-generate" Value="false" Source="Explicit" />
@@ -160,24 +197,19 @@
     </Rules>
   </GlobalConfiguration>
   <FormatConfigurations>
-    <FormatConfiguration TargetID="Lf3DjZlhl_A" ChangeID="uNB3uARmQjI">
+    <FormatConfiguration TargetID="Lf3DjZlhl_A" ChangeID="ojEakQ0-g8w">
       <Rules Type="Paragraph" ChangeID="" />
-      <Rules Type="Graphic" ChangeID="" />
-      <Rules Type="Table" ChangeID="" />
-      <Rules Type="Page" ChangeID="" />
       <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="True">
-        <Condition Name="online-only" Value="Hidden" Passthrough="False" UseDocumentValue="False" />
-        <Condition Name="print-only" Value="Hidden" Passthrough="False" UseDocumentValue="False" />
-        <Condition Name="advanced" Value="Hidden" Passthrough="False" UseDocumentValue="False" />
-        <Condition Name="online_only" Value="Visible" Passthrough="False" UseDocumentValue="True" />
-        <Condition Name="print_only" Value="Visible" Passthrough="False" UseDocumentValue="True" />
+        <Condition Name="advanced" Value="Visible" Passthrough="False" UseDocumentValue="False" />
+        <Condition Name="online_only" Value="Visible" Passthrough="False" UseDocumentValue="False" />
+        <Condition Name="print_only" Value="Hidden" Passthrough="False" UseDocumentValue="False" />
       </Conditions>
       <Variables>
         <Variable Name="ProductName" Value="Quantum Sync" UseDocumentValue="False" />
         <Variable Name="SupportEmail" Value="support@quantum-sync.com" UseDocumentValue="False" />
         <Variable Name="Version" Value="2.0" UseDocumentValue="False" />
+        <Variable Name="ProductGuideTitle" Value="User Manual" UseDocumentValue="False" />
       </Variables>
-      <XRefFormatSet />
       <FormatSettings>
         <FormatSetting Name="company-copyright" Value="© 2026 Quantum Sync" />
         <FormatSetting Name="company-email" Value="info@quantum-sync.com" />
@@ -190,6 +222,7 @@
         <FormatSetting Name="footer-location" Value="end-of-page" />
         <FormatSetting Name="footer-logo-override" Value="footer-logo.svg" />
         <FormatSetting Name="google-translate" Value="true" />
+        <FormatSetting Name="index-generate" Value="true" />
         <FormatSetting Name="seo-og-image" Value="og.png" />
         <FormatSetting Name="show-first-document" Value="true" />
         <FormatSetting Name="sitemap-base-url" Value="https://www.quantum-sync.com" />
@@ -197,17 +230,43 @@
         <FormatSetting Name="toolbar-logo-linked" Value="false" />
         <FormatSetting Name="toolbar-logo-override" Value="toolbar-logo.svg" />
       </FormatSettings>
-      <NodeConfigurations ChangeID="63R5Tz93FZI">
-        <NodeConfiguration NodeID="-q27HfLMM70" ChangeID="17GPEOfkXCU">
-          <NodeConfigurationEntry Name="include" Value="false" />
-        </NodeConfiguration>
-        <NodeConfiguration NodeID="YD-7sDP2H1k" ChangeID="_VzfZuUeWi4">
-          <NodeConfigurationEntry Name="include" Value="false" />
-        </NodeConfiguration>
-      </NodeConfigurations>
       <MergeSettings Title="">
         <MergeGroup GroupID="QeGxWoyPnS0" />
-        <MergeGroup GroupID="-q27HfLMM70" />
+      </MergeSettings>
+    </FormatConfiguration>
+    <FormatConfiguration TargetID="i_BgDzzGOlc" ChangeID="z5OYYjqrgKs">
+      <Rules Type="Paragraph" ChangeID="">
+        <Rule Key="Heading 2" ChangeID="1u3da7o5PYw">
+          <Options>
+            <Option Name="minitoc-sublevels" Value="none" Source="Explicit" />
+          </Options>
+        </Rule>
+      </Rules>
+      <Rules Type="Page" ChangeID="" />
+      <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="True">
+        <Condition Name="advanced" Value="Visible" Passthrough="False" UseDocumentValue="False" />
+        <Condition Name="online_only" Value="Hidden" Passthrough="False" UseDocumentValue="False" />
+        <Condition Name="print_only" Value="Visible" Passthrough="False" UseDocumentValue="False" />
+      </Conditions>
+      <Variables>
+        <Variable Name="ProductName" Value="Quantum Sync" UseDocumentValue="False" />
+        <Variable Name="SupportEmail" Value="support@quantum-sync.com" UseDocumentValue="False" />
+        <Variable Name="Version" Value="2.0" UseDocumentValue="False" />
+        <Variable Name="ProductGuideTitle" Value="User Manual" UseDocumentValue="False" />
+      </Variables>
+      <XRefFormatSet />
+      <FormatSettings>
+        <FormatSetting Name="generate-group-result" Value="false" />
+        <FormatSetting Name="generate-project-result" Value="true" />
+        <FormatSetting Name="title-page-publish-date-style" Value="PDF Cover Date" />
+        <FormatSetting Name="title-page-style" Value="PDF Cover" />
+        <FormatSetting Name="title-page-subtitle" Value="none" />
+        <FormatSetting Name="title-page-title" Value="$ProductGuideTitle;" />
+        <FormatSetting Name="title-page-title-style" Value="PDF Cover Title" />
+        <FormatSetting Name="toc-page-style" Value="PDF TOC" />
+      </FormatSettings>
+      <MergeSettings Title="Quantum Sync Manual">
+        <MergeGroup GroupID="QeGxWoyPnS0" />
       </MergeSettings>
     </FormatConfiguration>
   </FormatConfigurations>

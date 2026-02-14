@@ -12,7 +12,7 @@ $qs_secondary_brand_color: #c8e2ed;    // Cool light blue (visible contrast)
 $qs_secondary_text_color: #ffffff;     // White on dark backgrounds
 $qs_tertiary_brand_color: #00b8d4;     // Bright cyan accent
 $qs_content_background_color: #f4f7fa; // Cool off-white page background
-$qs_menu_panel_color: #e8eef4;         // Sidebar background (distinct from content)
+$qs_menu_panel_color: #e4eef2;         // Sidebar background (distinct from content)
 $qs_footer_panel_color: $qs_secondary_brand_color; // Footer background (matches page area)
 
 $neo_main_color: #008bff;
@@ -172,7 +172,7 @@ $menu_text_color: $_layout_color_2;
 $menu_nav_buttons_icon_color: $menu_text_color;
 $menu_nav_buttons_icon_color_hover: darken($qs_primary_text_color, 20%);
 $menu_nav_buttons_icon_color_click: lighten($qs_primary_text_color, 20%);
-$menu_nav_buttons_background_color: $menu_background_color;
+$menu_nav_buttons_background_color: $qs_content_background_color;
 $menu_nav_buttons_background_color_hover: darken($qs_content_background_color, 5%);
 $menu_nav_buttons_background_color_click: lighten($qs_content_background_color, 5%);
 $menu_nav_buttons_current_icon_color: $menu_nav_buttons_icon_color;

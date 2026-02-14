@@ -1,4 +1,4 @@
-<!-- markers:{"Keywords": "getting started, setup, installation, quickstart, prerequisites", "Description": "Step-by-step guide to installing and configuring Quantum Sync on your device"}; #getting-started -->
+<!-- markers:{"Keywords": "getting started, setup, installation, quickstart, prerequisites", "Description": "Step-by-step guide to installing and configuring Quantum Sync on your device", "IndexMarker": "installation,setup:initial"}; #getting-started -->
 ## Getting Started
 
 This guide walks you through the initial setup of $ProductName; on your device. The entire process takes approximately five minutes.
@@ -32,7 +32,13 @@ Follow these steps to install and configure $ProductName;:
 
 Watch our 3-minute setup video for a visual walkthrough of the installation process.
 
-[Watch Setup Video](https://quantumsync.example/videos/setup)
+<a href="https://www.youtube.com/watch?v=D4QoQWboM-U" target="_blank" rel="noopener"
+   style="display:inline-block; position:relative;">
+  <img src="https://img.youtube.com/vi/D4QoQWboM-U/maxresdefault.jpg"
+       width="660" alt="Watch the setup video tutorial"
+       style="border-radius:8px; display:block;" />
+  <span style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:64px; color:rgba(255,255,255,0.9); text-shadow:0 2px 8px rgba(0,0,0,0.5);">&#9654;</span>
+</a>
 <!-- /condition -->
 
 ### Next Steps

@@ -18,7 +18,7 @@ epublisher-express-trial/
 │   ├── local-express-trial-project/     # (Reserved for future sample project)
 │   └── online-trial-guide/              # Online quick-start guide
 │       └── express-trial/
-│           ├── express-trial-guide.md   # ~85 lines, 2 steps + done
+│           ├── express-trial-guide.md   # ~137 lines, 2 steps + done + explore more
 │           └── images/                  # Product-prefixed screenshots
 ├── legacy/                              # ARCHIVED: Previous versions
 │   ├── local-express-trial-project/     # Sample project for trial users
@@ -37,11 +37,20 @@ epublisher-express-trial/
 
 ## Active Guide: latest/online-trial-guide/
 
-The new guide follows a ruthlessly minimal 2-step structure optimized for time-to-value:
+The guide uses a dual-audience structure: fast activation for "just let me click" users, with deeper evaluation content for prospects deciding whether to buy.
 
+**Core steps (~45 lines) — unchanged activation experience:**
 1. **Step 1: Add Documents** - Drag Markdown++ files to Document Manager
 2. **Step 2: Generate** - Click Generate All, explore the output
-3. **Done** - Single CTA to Designer for customization
+3. **Done** - CTA to Designer + bridge to Explore More
+
+**Explore More (~90 lines) — evaluation content:**
+4. **What You Just Did** - 3-part workflow explanation, Stationery definition
+5. **Try These Features** - Action-oriented guided tour
+6. **Customize Output Behavior** - Target Settings table
+7. **The ePublisher Product Family** - Express/Designer/AutoMap comparison
+8. **Take Full Control with Designer** - Capability list + workflow
+9. **Automate with AutoMap** - CI/CD, AI agent access, Landmark IDs
 
 ### Markdown++ Features Used
 
@@ -53,11 +62,13 @@ The new guide follows a ruthlessly minimal 2-step structure optimized for time-t
 
 ### Design Principles
 
-- Under 100 lines total
-- 2 screenshots maximum
+- Core steps: Under 45 lines (fast activation)
+- Explore More: Up to 90 additional lines (evaluation depth)
+- Total: 120-150 lines maximum
+- 2 screenshots maximum (core steps only)
 - No welcome/value proposition (users already committed)
-- Single CTA at completion
-- Link to full docs for details
+- CTA at Done bridges to Explore More for evaluators
+- Format references (Word, FrameMaker, DITA) allowed in Explore More only
 
 ## Legacy Content: legacy/
 

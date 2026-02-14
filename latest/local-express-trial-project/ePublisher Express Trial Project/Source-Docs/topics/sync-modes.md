@@ -1,4 +1,4 @@
-<!-- markers:{"Keywords": "sync modes, automatic, manual, selective, synchronization, bandwidth", "Description": "Choose the right synchronization mode for your workflow: automatic, manual, or selective sync"}; #sync-modes -->
+<!-- markers:{"Keywords": "sync modes, automatic, manual, selective, synchronization, bandwidth", "Description": "Choose the right synchronization mode for your workflow: automatic, manual, or selective sync", "IndexMarker": "synchronization:modes"}; #sync-modes -->
 ## Sync Modes
 
 $ProductName; offers three synchronization modes to accommodate different workflows and network conditions. You can switch between modes at any time through the application settings or system tray menu.

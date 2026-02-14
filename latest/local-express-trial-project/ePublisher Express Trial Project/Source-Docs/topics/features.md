@@ -3,7 +3,7 @@
 
 $ProductName; $Version; includes a comprehensive set of features designed for both individual users and enterprise teams. This section provides detailed information about each major capability.
 
-<!-- multiline -->
+<!-- multiline; marker:IndexMarker="encryption:end-to-end,synchronization:real-time,version history" -->
 | Feature | Description |
 |---------|-------------|
 | **Real-Time Sync** | Files synchronize across all connected devices within seconds of saving. |
