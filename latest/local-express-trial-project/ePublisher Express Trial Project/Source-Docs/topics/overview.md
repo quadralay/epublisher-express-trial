@@ -1,4 +1,4 @@
-<!-- markers:{"Keywords": "quantum sync, overview, cloud storage, file synchronization, benefits", "Description": "Learn what Quantum Sync is and why it's the ideal solution for cloud file synchronization"}; #overview -->
+<!-- markers:{"Keywords": "quantum sync, overview, cloud storage, file synchronization, benefits", "Description": "Learn what Quantum Sync is and why it's the ideal solution for cloud file synchronization", "IndexMarker": "cloud synchronization"}; #overview -->
 ## Overview
 
 $ProductName; is a next-generation cloud synchronization service designed for teams and individuals who need reliable, secure file access across all their devices. Built with enterprise-grade security and consumer-friendly simplicity, $ProductName; bridges the gap between powerful functionality and ease of use.

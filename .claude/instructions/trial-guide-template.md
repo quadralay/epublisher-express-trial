@@ -59,7 +59,19 @@ Your output opens automatically. Try these features:
 ---
 
 <!-- #explore-more -->
-## Explore More (Optional)
+## Explore More
+
+[1-line intro connecting activation to evaluation]
+
+### What You Just Did
+
+[Explain the 3-part ePublisher workflow: source documents, Stationery, target]
+[Define Stationery in one sentence]
+[Blockquote callout mentioning additional source formats]
+
+### Try These Features
+
+[Action-oriented table: verb + what to observe]
 
 ### Customize Output Behavior
 
@@ -71,21 +83,31 @@ Your output opens automatically. Try these features:
 | **Footer**  | [Description]                             |
 | **Tabs**    | [Description]                             |
 
+### The ePublisher Product Family
+
+[Comparison table: Express vs Designer vs AutoMap across key dimensions]
+
 ### Take Full Control with Designer
 
-[Strong pitch for Designer with download link]
+[Capability list: brand identity, page layout, search behavior, output formats]
+[Stationery creation-distribution workflow]
+[Download link with install detail]
 
 ### Automate with AutoMap
 
-[Equal-billing pitch for AutoMap with download link]
+[Capability list: CI/CD, scheduled publishing, AI agent access, headless operation]
+[Connect to Landmark IDs + Knowledge Base from Step 2]
+[Download link]
 ```
 
 ## Guidelines
 
 ### Length
-- Target: 80-100 lines maximum (including optional Explore More section)
-- Core guide (Steps 1-2 + Done): 60-70 lines
-- Reading time: Under 3 minutes
+- Core steps (Steps 1-2 + Done): Under 45 lines
+- Explore More: Up to 90 additional lines
+- Total: 120-150 lines maximum
+- Core reading time: Under 2 minutes
+- Full guide reading time: Under 5 minutes
 
 ### Screenshots
 - Maximum: 2 screenshots per guide
@@ -100,12 +122,19 @@ Use lightly to keep source simple:
 - **Content islands:** One tip callout maximum
 - **Conditions:** Optional, for audience-specific content
 
-### What to Avoid
+### What to Avoid in Core Steps
 - Welcome/value proposition sections
 - Multiple "Next Steps" options
 - Feature explanations (link to full docs)
 - Legacy format references (Word, FrameMaker, DITA)
 - More than 2 screenshots
+
+### Allowed in Explore More
+- Format references (Word, FrameMaker, DITA) in evaluation context
+- Product comparisons and product ladder tables
+- Stationery concept explanation
+- Guided feature exploration with action-oriented tables
+- Capability lists for Designer and AutoMap
 
 ## Product-Specific Customization
 

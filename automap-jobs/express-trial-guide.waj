@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Job name="express-trial-guide" version="1.0">
+  <Project path="C:\Projects\epublisher-docs-publish\webworks\ePublisher Stationery 2025.1\ePublisher Stationery 2025.1.wxsp" />
+  <Files>
+    <Group name="Express Trial Guide">
+      <Document path="..\latest\online-trial-guide\express-trial\express-trial-guide.md" />
+    </Group>
+  </Files>
+  <Targets>
+    <Target name="Online Guides" format="WebWorks Reverb 2.0" formatType="Application" build="True" deployTarget="" cleanOutput="True">
+      <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="True">
+        <Condition name="AutomapOnly" value="True" Passthrough="False" UseDocumentValue="False" />
+        <Condition name="DesignerOnly" value="True" Passthrough="False" UseDocumentValue="False" />
+        <Condition name="OnlineOnly" value="True" Passthrough="False" UseDocumentValue="False" />
+        <Condition name="PrintOnly" value="False" Passthrough="False" UseDocumentValue="False" />
+        <Condition name="TransitOnly" value="False" Passthrough="False" UseDocumentValue="False" />
+      </Conditions>
+      <Variables>
+        <Variable name="ProductVersion" value="2025.1" UseDocumentValue="False" />
+        <Variable name="Copyright" value="2001-2026" UseDocumentValue="False" />
+        <Variable name="PublicationDate" value="February 9, 2026" UseDocumentValue="False" />
+      </Variables>
+      <MergeSettings title="Express Trial Guide">
+        <Group name="Express Trial Guide" />
+      </MergeSettings>
+    </Target>
+  </Targets>
+</Job>
