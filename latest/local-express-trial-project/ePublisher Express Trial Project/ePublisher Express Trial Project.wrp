@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Version="1.1.2.0" ProjectID="hMDzxVACF5I" ChangeID="jjObYhhzSv4" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
+<Project Version="1.1.2.0" ProjectID="P03m6LWnOVw" ChangeID="b0BqqwJR_us" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
+  <Origin>
+    <Path Checksum="034FC3C6F1F54612A60F48F0E0059614CDD2D3E5" LastModified="2026-02-14T22:48:52.7867936Z">..\..\ePublisher Stationery\ePublisher Express Trial Stationery\ePublisher Express Trial Stationery.wxsp</Path>
+  </Origin>
   <Formats>
     <Format TargetName="Web Help" Name="WebWorks Reverb 2.0" Type="Application" TargetID="Lf3DjZlhl_A">
       <OutputDirectory>Output\Web Help</OutputDirectory>
@@ -9,39 +12,37 @@
     </Format>
   </Formats>
   <Groups>
-    <Group Name="Help" Type="normal" Included="true" GroupID="QeGxWoyPnS0" ChangeID="fkeKL9RkVr4">
-      <Document Type="normal" Included="true" DocumentID="HBJPqe-l9Jk" ChangeID="" Path="Source Docs\quantum-sync.md" />
-    </Group>
+    <Group Name="Help" Type="normal" Included="true" GroupID="2dneiXg3AfI" ChangeID="rw5QRE4uiFs" />
   </Groups>
-  <GlobalConfiguration ChangeID="jcNbpDYypTA">
+  <GlobalConfiguration ChangeID="">
     <Rules Type="Paragraph" Default="{WWDefaultRule}" ChangeID="">
-      <Rule Key="{WWDefaultRule}" ChangeID="DdSLs2ByvOc" />
+      <Rule Key="{WWDefaultRule}" />
       <Rule Key="Blockquote" />
       <Rule Key="Blockquote Paragraph" />
       <Rule Key="Code Fence" />
-      <Rule Key="GlossaryDef" ChangeID="pB-Mzx_PAXw">
+      <Rule Key="GlossaryDef">
         <Options>
           <Option Name="popup" Value="append" Source="Explicit" />
         </Options>
       </Rule>
-      <Rule Key="GlossaryTerm" ChangeID="FioVwxupQWY">
+      <Rule Key="GlossaryTerm">
         <Options>
           <Option Name="popup" Value="define" Source="Explicit" />
           <Option Name="split-priority" Value="none" Source="Explicit" />
         </Options>
       </Rule>
-      <Rule Key="Heading 2" ChangeID="OxexL5VVJuM">
+      <Rule Key="Heading 2">
         <Options>
           <Option Name="minitoc-sublevels" Value="1" Source="Explicit" />
         </Options>
       </Rule>
-      <Rule Key="Heading 3" ChangeID="Cl3ccCCws5A">
+      <Rule Key="Heading 3">
         <Options>
           <Option Name="dropdown" Value="break" Source="Explicit" />
           <Option Name="split-priority" Value="none" Source="Explicit" />
         </Options>
       </Rule>
-      <Rule Key="Issue" ChangeID="fligfHw8Org">
+      <Rule Key="Issue">
         <Options>
           <Option Name="dropdown" Value="start-open" Source="Explicit" />
           <Option Name="split-priority" Value="none" Source="Explicit" />
@@ -51,7 +52,7 @@
       <Rule Key="OList Item" />
       <Rule Key="OList Paragraph" />
       <Rule Key="Paragraph" />
-      <Rule Key="PDF Cover Date" ChangeID="cB9DQZd3cGc">
+      <Rule Key="PDF Cover Date">
         <Properties>
           <Property Name="color" Value="White" Source="Explicit" />
           <Property Name="font-size" Value="9pt" Source="Explicit" />
@@ -59,7 +60,7 @@
           <Property Name="xsl-text-align" Value="center" Source="Explicit" />
         </Properties>
       </Rule>
-      <Rule Key="PDF Cover Title" ChangeID="BOejXOrfFnI">
+      <Rule Key="PDF Cover Title">
         <Properties>
           <Property Name="absolute-position" Value="auto" Source="Explicit" />
           <Property Name="color" Value="White" Source="Explicit" />
@@ -69,7 +70,7 @@
       </Rule>
       <Rule Key="Table Cell Body" />
       <Rule Key="Table Cell Head" />
-      <Rule Key="Title 1" ChangeID="yQkmVWMkLDE" />
+      <Rule Key="Title 1" />
       <Rule Key="UList" />
       <Rule Key="UList Item" />
       <Rule Key="UList Paragraph" />
@@ -82,25 +83,25 @@
     </Rules>
     <Rules Type="Marker" Default="{WWDefaultRule}" ChangeID="">
       <Rule Key="{WWDefaultRule}" />
-      <Rule Key="Description" ChangeID="elZTwolN1qA">
+      <Rule Key="Description">
         <Options>
           <Option Name="marker-type" Value="description" Source="Explicit" />
         </Options>
       </Rule>
-      <Rule Key="Keywords" ChangeID="PSoKKB2vSIc">
+      <Rule Key="Keywords">
         <Options>
           <Option Name="marker-type" Value="keywords" Source="Explicit" />
           <Option Name="search-relevance-weight" Value="50" Source="Explicit" />
         </Options>
       </Rule>
-      <Rule Key="PassThrough" ChangeID="Gey2fabx8o8">
+      <Rule Key="PassThrough">
         <Options>
           <Option Name="marker-type" Value="pass-through" Source="Explicit" />
         </Options>
       </Rule>
     </Rules>
     <Rules Type="Graphic" Default="{WWDefaultRule}" ChangeID="">
-      <Rule Key="{WWDefaultRule}" ChangeID="7K_V5IFPnP8">
+      <Rule Key="{WWDefaultRule}">
         <Options>
           <Option Name="click-to-zoom" Value="true" Source="Explicit" />
           <Option Name="max-height" Value="700" Source="Explicit" />
@@ -110,7 +111,7 @@
       <Rule Key="Image" />
     </Rules>
     <Rules Type="Table" Default="{WWDefaultRule}" ChangeID="">
-      <Rule Key="{WWDefaultRule}" ChangeID="4mdv-Oqmz9w">
+      <Rule Key="{WWDefaultRule}">
         <Properties>
           <Property Name="border-bottom-color" Value="#222222" Source="Explicit" />
           <Property Name="border-bottom-style" Value="solid" Source="Explicit" />
@@ -167,7 +168,7 @@
         </Properties>
       </Rule>
       <Rule Key="Default" />
-      <Rule Key="PDF Cover" ChangeID="cs4USlCjAYU">
+      <Rule Key="PDF Cover">
         <Properties>
           <Property Name="odd-master-page-body-background-image" Value="pdf-cover.png" Source="Explicit" />
           <Property Name="odd-master-page-body-margin-bottom" Value="0in" Source="Explicit" />
@@ -183,12 +184,12 @@
           <Property Name="page-sequence-format" Value="i" Source="Explicit" />
         </Properties>
       </Rule>
-      <Rule Key="PDF TOC" ChangeID="wAFyZvUkZ0I">
+      <Rule Key="PDF TOC">
         <Properties>
           <Property Name="page-sequence-format" Value="i" Source="Explicit" />
         </Properties>
       </Rule>
-      <Rule Key="Popup" ChangeID="dOp06fDp1hc">
+      <Rule Key="Popup">
         <Options>
           <Option Name="breadcrumbs-generate" Value="false" Source="Explicit" />
           <Option Name="breadcrumbs-top-generate" Value="false" Source="Explicit" />
@@ -197,7 +198,7 @@
     </Rules>
   </GlobalConfiguration>
   <FormatConfigurations>
-    <FormatConfiguration TargetID="Lf3DjZlhl_A" ChangeID="ojEakQ0-g8w">
+    <FormatConfiguration TargetID="Lf3DjZlhl_A" ChangeID="3c-JldTQ-vE">
       <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="True">
         <Condition Name="advanced" Value="Visible" Passthrough="False" UseDocumentValue="False" />
         <Condition Name="online_only" Value="Visible" Passthrough="False" UseDocumentValue="False" />
@@ -230,12 +231,12 @@
         <FormatSetting Name="toolbar-logo-override" Value="toolbar-logo.svg" />
       </FormatSettings>
       <MergeSettings Title="">
-        <MergeGroup GroupID="QeGxWoyPnS0" />
+        <MergeGroup GroupID="2dneiXg3AfI" />
       </MergeSettings>
     </FormatConfiguration>
-    <FormatConfiguration TargetID="i_BgDzzGOlc" ChangeID="z5OYYjqrgKs">
+    <FormatConfiguration TargetID="i_BgDzzGOlc" ChangeID="En0NhexQOdM">
       <Rules Type="Paragraph" ChangeID="">
-        <Rule Key="Heading 2" ChangeID="1u3da7o5PYw">
+        <Rule Key="Heading 2">
           <Options>
             <Option Name="minitoc-sublevels" Value="none" Source="Explicit" />
           </Options>
@@ -262,11 +263,26 @@
         <FormatSetting Name="title-page-title-style" Value="PDF Cover Title" />
         <FormatSetting Name="toc-page-style" Value="PDF TOC" />
       </FormatSettings>
-      <MergeSettings Title="Quantum Sync Manual">
-        <MergeGroup GroupID="QeGxWoyPnS0" />
+      <MergeSettings Title="">
+        <MergeGroup GroupID="2dneiXg3AfI" />
       </MergeSettings>
     </FormatConfiguration>
   </FormatConfigurations>
+  <FileMappings>
+    <FileMapping extension=".fm" adapter="Adobe FrameMaker" />
+    <FileMapping extension=".mif" adapter="Adobe FrameMaker" />
+    <FileMapping extension=".bk" adapter="Adobe FrameMaker" />
+    <FileMapping extension=".book" adapter="Adobe FrameMaker" />
+    <FileMapping extension=".txt" adapter="Adobe FrameMaker" />
+    <FileMapping extension=".doc" adapter="Microsoft Word" />
+    <FileMapping extension=".docx" adapter="Microsoft Word" />
+    <FileMapping extension=".docm" adapter="Microsoft Word" />
+    <FileMapping extension=".rtf" adapter="Microsoft Word" />
+    <FileMapping extension=".md" adapter="Helper Adapter" />
+    <FileMapping extension=".xml" adapter="Xml Adapter" />
+    <FileMapping extension=".ditamap" adapter="Xml Adapter" />
+    <FileMapping extension=".dita" adapter="Xml Adapter" />
+  </FileMappings>
   <AdapterConfigurations ChangeID="8Lhn5x923ec">
     <AdapterConfiguration Name="Adobe FrameMaker" ChangeID="bHQWuYTITFA" />
     <AdapterConfiguration Name="Helper Adapter" ChangeID="dNJ-Zvamyps" />
