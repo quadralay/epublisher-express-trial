@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Version="1.1.2.0" ProjectID="hMDzxVACF5I" ChangeID="jjObYhhzSv4" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
+<Project Version="1.1.2.0" ProjectID="hMDzxVACF5I" ChangeID="oLSVJNrQqRA" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
   <Formats>
     <Format TargetName="Web Help" Name="WebWorks Reverb 2.0" Type="Application" TargetID="Lf3DjZlhl_A">
       <OutputDirectory>Output\Web Help</OutputDirectory>
@@ -9,11 +9,9 @@
     </Format>
   </Formats>
   <Groups>
-    <Group Name="Help" Type="normal" Included="true" GroupID="QeGxWoyPnS0" ChangeID="fkeKL9RkVr4">
-      <Document Type="normal" Included="true" DocumentID="HBJPqe-l9Jk" ChangeID="" Path="Source Docs\quantum-sync.md" />
-    </Group>
+    <Group Name="Help" Type="normal" Included="true" GroupID="QeGxWoyPnS0" ChangeID="_I0xfrsx16c" />
   </Groups>
-  <GlobalConfiguration ChangeID="jcNbpDYypTA">
+  <GlobalConfiguration ChangeID="3HvctATJxB8">
     <Rules Type="Paragraph" Default="{WWDefaultRule}" ChangeID="">
       <Rule Key="{WWDefaultRule}" ChangeID="DdSLs2ByvOc" />
       <Rule Key="Blockquote" />
@@ -59,9 +57,8 @@
           <Property Name="xsl-text-align" Value="center" Source="Explicit" />
         </Properties>
       </Rule>
-      <Rule Key="PDF Cover Title" ChangeID="BOejXOrfFnI">
+      <Rule Key="PDF Cover Title" ChangeID="kF3pzLfcjYs">
         <Properties>
-          <Property Name="absolute-position" Value="auto" Source="Explicit" />
           <Property Name="color" Value="White" Source="Explicit" />
           <Property Name="top" Value="3.25in" Source="Explicit" />
           <Property Name="xsl-text-align" Value="center" Source="Explicit" />

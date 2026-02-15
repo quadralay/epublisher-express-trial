@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FormatTraitInfo version="1.0" xmlns="urn:WebWorks-Engine-FormatTraitInfo-Schema">
+
+ <Groups>
+  <Group name="reverb-2.0-seo" />
+ </Groups>
+
+ <Settings>
+  <!-- Sitemap -->
+  <!--         -->
+  <Setting name="sitemap-generate" group="reverb-2.0-seo" default="true">
+   <SettingClass name="boolean" />
+  </Setting>
+  <Setting name="sitemap-base-url" group="reverb-2.0-seo" default="">
+   <SettingClass name="string" />
+  </Setting>
+
+  <!-- Robots.txt -->
+  <!--            -->
+  <Setting name="robots-txt-generate" group="reverb-2.0-seo" default="true">
+   <SettingClass name="boolean" />
+  </Setting>
+
+  <!-- Open Graph Image -->
+  <!--                  -->
+  <Setting name="seo-og-image" group="reverb-2.0-seo" default="">
+   <SettingClass name="project-file-path" />
+  </Setting>
+ </Settings>
+
+</FormatTraitInfo>

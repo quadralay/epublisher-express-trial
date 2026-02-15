@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FormatTraitInfo version="1.0" xmlns="urn:WebWorks-Engine-FormatTraitInfo-Schema">
+ <Classes />
+
+ <Groups>
+  <Group name="toc" />
+ </Groups>
+
+ <Settings>
+  <!-- TOC -->
+  <!--     -->
+  <Setting name="toc-generate" group="toc" default="true">
+   <SettingClass name="boolean" />
+  </Setting>
+  <Setting name="toc-page-style" group="toc" default="Default">
+   <SettingClass name="page-rule" />
+  </Setting>
+  <Setting name="toc-style-prefix" group="toc" default="TOC">
+   <SettingClass name="string" />
+  </Setting>
+  <Setting name="toc-title-style" group="toc" default="">
+   <SettingClass name="paragraph-rule" />
+  </Setting>
+ </Settings>
+
+ <RuleTraitsSet />
+</FormatTraitInfo>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Version="1.1.2.0" ProjectID="P03m6LWnOVw" ChangeID="b0BqqwJR_us" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
+<Project Version="1.1.2.0" ProjectID="P03m6LWnOVw" ChangeID="7NsSTifm4TQ" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
   <Origin>
-    <Path Checksum="034FC3C6F1F54612A60F48F0E0059614CDD2D3E5" LastModified="2026-02-14T22:48:52.7867936Z">..\..\ePublisher Stationery\ePublisher Express Trial Stationery\ePublisher Express Trial Stationery.wxsp</Path>
+    <Path Checksum="1E1233F0E43A0A4CB6F611EBAF5E4C5A604EB289" LastModified="2026-02-15T22:59:36.1401854Z">..\..\..\..\..\Users\mcdow\OneDrive\Documents\ePublisher Stationery\ePublisher Express Trial Stationery\ePublisher Express Trial Stationery.wxsp</Path>
   </Origin>
   <Formats>
     <Format TargetName="Web Help" Name="WebWorks Reverb 2.0" Type="Application" TargetID="Lf3DjZlhl_A">
@@ -12,9 +12,9 @@
     </Format>
   </Formats>
   <Groups>
-    <Group Name="Help" Type="normal" Included="true" GroupID="2dneiXg3AfI" ChangeID="rw5QRE4uiFs" />
+    <Group Name="Help" Type="normal" Included="true" GroupID="2dneiXg3AfI" ChangeID="1H0d0XMlE24" />
   </Groups>
-  <GlobalConfiguration ChangeID="">
+  <GlobalConfiguration ChangeID="wCs1exsrAd4">
     <Rules Type="Paragraph" Default="{WWDefaultRule}" ChangeID="">
       <Rule Key="{WWDefaultRule}" />
       <Rule Key="Blockquote" />
@@ -42,6 +42,7 @@
           <Option Name="split-priority" Value="none" Source="Explicit" />
         </Options>
       </Rule>
+      <Rule Key="HTML" />
       <Rule Key="Issue">
         <Options>
           <Option Name="dropdown" Value="start-open" Source="Explicit" />
@@ -60,9 +61,8 @@
           <Property Name="xsl-text-align" Value="center" Source="Explicit" />
         </Properties>
       </Rule>
-      <Rule Key="PDF Cover Title">
+      <Rule Key="PDF Cover Title" ChangeID="kcY4N0OPMIM">
         <Properties>
-          <Property Name="absolute-position" Value="auto" Source="Explicit" />
           <Property Name="color" Value="White" Source="Explicit" />
           <Property Name="top" Value="3.25in" Source="Explicit" />
           <Property Name="xsl-text-align" Value="center" Source="Explicit" />
@@ -253,6 +253,7 @@
         <Variable Name="Version" Value="2.0" UseDocumentValue="False" />
         <Variable Name="ProductGuideTitle" Value="User Manual" UseDocumentValue="False" />
       </Variables>
+      <XRefFormatSet />
       <FormatSettings>
         <FormatSetting Name="generate-group-result" Value="false" />
         <FormatSetting Name="generate-project-result" Value="true" />
