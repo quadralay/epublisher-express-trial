@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FormatTraitInfo version="1.0" xmlns="urn:WebWorks-Engine-FormatTraitInfo-Schema">
+ <Classes />
+
+ <Groups>
+  <Group name="index" />
+ </Groups>
+
+ <Settings>
+  <!-- Index -->
+  <!--       -->
+  <Setting name="index-generate" group="index" default="true">
+   <SettingClass name="boolean" />
+  </Setting>
+  <Setting name="index-page-style" group="index" default="Default">
+   <SettingClass name="page-rule" />
+  </Setting>
+  <Setting name="index-style-prefix" group="index" default="IX">
+   <SettingClass name="string" />
+  </Setting>
+  <Setting name="index-title-style" group="index" default="">
+   <SettingClass name="paragraph-rule" />
+  </Setting>
+ </Settings>
+
+ <RuleTraitsSet />
+</FormatTraitInfo>
