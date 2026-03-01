@@ -4,19 +4,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **documentation-only project** for the ePublisher Express trial. It contains tutorial guides written in Markdown++ format.
+This is a **documentation-only project** for ePublisher trial experiences. It contains tutorial guides written in Markdown++ format and sample projects for Express and Designer trials.
 
 - **Type:** Static documentation / trial guides
 - **Technology:** Markdown++ (backward compatible with Markdown)
-- **Primary File:** `latest/online-trial-guide/express-trial/express-trial-guide.md`
+- **Primary File:** `latest/online-trial-guides/express-trial/express-trial-guide.md`
 
 ## Project Structure
 
 ```
 epublisher-express-trial/
 ├── latest/                              # ACTIVE: Current versions
-│   ├── local-express-trial-project/     # (Reserved for future sample project)
-│   └── online-trial-guide/              # Online quick-start guide
+│   ├── local-trial-projects/            # Sample ePublisher projects
+│   │   ├── ePublisher Designer Trial/   # Designer trial project
+│   │   └── ePublisher Express Trial Project/  # Express trial project
+│   └── online-trial-guides/             # Online quick-start guides
 │       └── express-trial/
 │           ├── express-trial-guide.md   # ~137 lines, 2 steps + done + explore more
 │           └── images/                  # Product-prefixed screenshots
@@ -35,7 +37,7 @@ epublisher-express-trial/
     └── instructions/                    # Claude authoring patterns
 ```
 
-## Active Guide: latest/online-trial-guide/
+## Active Guides: latest/online-trial-guides/
 
 The guide uses a dual-audience structure: fast activation for "just let me click" users, with deeper evaluation content for prospects deciding whether to buy.
 
@@ -79,7 +81,7 @@ The original 507-line guide is archived for reference. It includes:
 - Support for Word, FrameMaker, DITA (now focused on Markdown++ only)
 
 ### legacy/local-express-trial-project/
-Contains the sample ePublisher Express project with source documents in multiple formats (FrameMaker, DITA, Markdown).
+Contains the legacy sample ePublisher Express project with source documents in multiple formats (FrameMaker, DITA, Markdown).
 
 ## Scalability
 

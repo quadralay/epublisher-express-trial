@@ -14,8 +14,8 @@ This repository contains:
 ```
 epublisher-express-trial/
 ├── latest/                          # Current versions
-│   ├── local-express-trial-project/ # Sample ePublisher project
-│   └── online-trial-guide/          # Online quick-start guide
+│   ├── local-trial-projects/        # Sample ePublisher projects
+│   └── online-trial-guides/         # Online quick-start guides
 ├── legacy/                          # Archived previous versions
 └── docs/                            # Planning and prompt history
 ```

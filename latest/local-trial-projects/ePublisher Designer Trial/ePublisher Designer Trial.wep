@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Version="1.1.2.0" ProjectID="hMDzxVACF5I" ChangeID="oLSVJNrQqRA" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
+<Project Version="1.1.2.0" ProjectID="hMDzxVACF5I" ChangeID="UQy2-ErkdDU" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
   <Formats>
     <Format TargetName="Web Help" Name="WebWorks Reverb 2.0" Type="Application" TargetID="Lf3DjZlhl_A">
       <OutputDirectory>Output\Web Help</OutputDirectory>
@@ -9,7 +9,16 @@
     </Format>
   </Formats>
   <Groups>
-    <Group Name="Help" Type="normal" Included="true" GroupID="QeGxWoyPnS0" ChangeID="_I0xfrsx16c" />
+    <Group Name="Help" Type="normal" Included="true" GroupID="QeGxWoyPnS0" ChangeID="l1cAoWYew_4">
+      <Document Type="normal" Included="true" DocumentID="fID4z7dZCjw" ChangeID="" Path="Source Docs\title.md" />
+      <Document Type="normal" Included="true" DocumentID="aHT2xKmPq1w" ChangeID="" Path="Source Docs\topics\headings-and-text.md" />
+      <Document Type="normal" Included="true" DocumentID="bJU3yLnQr2x" ChangeID="" Path="Source Docs\topics\procedures.md" />
+      <Document Type="normal" Included="true" DocumentID="cKV4zMoRs3y" ChangeID="" Path="Source Docs\topics\tables.md" />
+      <Document Type="normal" Included="true" DocumentID="dLW5ANpSt4z" ChangeID="" Path="Source Docs\topics\conditions-and-variables.md" />
+      <Document Type="normal" Included="true" DocumentID="eMX6BOqTu5A" ChangeID="" Path="Source Docs\topics\content-islands.md" />
+      <Document Type="normal" Included="true" DocumentID="fNY7CPrUv6B" ChangeID="" Path="Source Docs\topics\expandable-sections.md" />
+      <Document Type="normal" Included="true" DocumentID="gOZ8DQsVw7C" ChangeID="" Path="Source Docs\topics\glossary.md" />
+    </Group>
   </Groups>
   <GlobalConfiguration ChangeID="3HvctATJxB8">
     <Rules Type="Paragraph" Default="{WWDefaultRule}" ChangeID="">
