@@ -1,13 +1,14 @@
-# ePublisher Express Trial
+# ePublisher Trial Guides
 
-Documentation and sample project for the WebWorks ePublisher Express trial experience.
+Documentation and sample projects for the WebWorks ePublisher trial experiences.
 
 ## Overview
 
 This repository contains:
 
-- **Trial Guide** - Quick-start guide for new Express trial users
-- **Sample Project** - Markdown++ source documents demonstrating ePublisher capabilities
+- **Express Trial Guide** - Quick-start guide for new Express trial users (generate output in 3 clicks)
+- **Designer Trial Guide** - Customization guide for Designer trial users (branding, content rules, multi-target publishing)
+- **Sample Projects** - Markdown++ source documents demonstrating ePublisher capabilities
 
 ## Project Structure
 
@@ -15,7 +16,11 @@ This repository contains:
 epublisher-express-trial/
 ├── latest/                          # Current versions
 │   ├── local-trial-projects/        # Sample ePublisher projects
+│   │   ├── ePublisher Designer Trial/
+│   │   └── ePublisher Express Trial Project/
 │   └── online-trial-guides/         # Online quick-start guides
+│       ├── designer-trial/
+│       └── express-trial/
 ├── legacy/                          # Archived previous versions
 └── docs/                            # Planning and prompt history
 ```
@@ -34,6 +39,7 @@ Source documents are authored in [Markdown++](https://static.webworks.com/docs/e
 ## Resources
 
 - [ePublisher Documentation](https://static.webworks.com/docs/epublisher/latest/help/)
+- [WebWorks Claude Skills](https://github.com/quadralay/webworks-claude-skills) - AI skills for ePublisher
 - [WebWorks](https://www.webworks.com/)
 
 ## License

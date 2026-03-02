@@ -19,6 +19,9 @@ epublisher-express-trial/
 │   │   ├── ePublisher Designer Trial/   # Designer trial project
 │   │   └── ePublisher Express Trial Project/  # Express trial project
 │   └── online-trial-guides/             # Online quick-start guides
+│       ├── designer-trial/
+│       │   ├── designer-trial-guide.md  # ~122 lines, 3 steps + done + explore more
+│       │   └── images/                  # Product-prefixed screenshots
 │       └── express-trial/
 │           ├── express-trial-guide.md   # ~137 lines, 2 steps + done + explore more
 │           └── images/                  # Product-prefixed screenshots

@@ -142,7 +142,7 @@ Use lightly to keep source simple:
 |---------|---------------|-------------------|
 | Express | Add Markdown++ documents | Document Manager drag target |
 | AutoMap | Select source files/folders | Source selection dialog |
-| Designer | Customize stationery styles | Style Designer panel |
+| Designer | Customize content rules | Target Settings panel |
 
 ## Directory Structure
 
