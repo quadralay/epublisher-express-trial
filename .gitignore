@@ -3,10 +3,10 @@
 **/Output.*/*
 **/Logs/*
 **/Reports/*
-latest/local-express-trial-project/ePublisher Express Trial Project/Files/*
-latest/local-express-trial-project/ePublisher Express Trial Project/Formats/*
-latest/local-express-trial-project/ePublisher Express Trial Project/stationery.manifest
-latest/online-trial-guide/help/*
+latest/local-trial-projects/ePublisher Express Trial Project/Files/*
+latest/local-trial-projects/ePublisher Express Trial Project/Formats/*
+latest/local-trial-projects/ePublisher Express Trial Project/stationery.manifest
+latest/online-trial-guides/help/*
 
 # Windows
 nul

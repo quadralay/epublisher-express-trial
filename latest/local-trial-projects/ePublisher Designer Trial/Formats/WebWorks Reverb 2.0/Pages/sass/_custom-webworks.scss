@@ -1,0 +1,18 @@
+// _custom-webworks.scss - Content Page Overrides
+//
+// Purpose: Custom style overrides for webworks.scss (content page styles)
+// Location: Formats\WebWorks Reverb 2.0\Pages\sass\_custom-webworks.scss
+//
+// To activate:
+//   1. Copy the installed webworks.scss to Formats\WebWorks Reverb 2.0\Pages\sass\
+//   2. Add @import "custom-webworks"; // WEBWORKS to the END of webworks.scss
+//   3. Add overrides below
+//   4. Rebuild project
+//
+// This file is imported at the end of webworks.scss so overrides apply at the
+// correct cascade level — before skin.scss, not after it.
+//
+// Use for: custom fonts, link styling, paragraph/list formatting
+// Use _custom-skin.scss for: toolbar, TOC, navigation, breadcrumbs, lightbox
+//
+// Modified: 2026-02-22 - Initial template
