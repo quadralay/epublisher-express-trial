@@ -1,4 +1,4 @@
-<!-- markers:{"Keywords": "designer, trial, customization, branding, stationery", "Description": "First-time user introduction to ePublisher Designer customization"}; #quick-start -->
+<!-- markers:{"Keywords": "designer, trial, getting started, customization, branding, stationery", "Description": "First-time user introduction to ePublisher Designer customization"}; #quick-start -->
 # Quick Start
 
 Customize branding, content rules, and output formats for professional documentation.
@@ -38,7 +38,7 @@ Make the output yours with custom colors and a branded PDF cover.
 4. Optionally change `$qs_secondary_brand_color` and `$qs_content_background_color`
 5. Click **Generate All** — the entire web theme transforms
 
-VS Code users: open `_colors.scss` in VS Code for a built-in color picker.
+> **VS Code users:** Open `_colors.scss` in VS Code for a built-in color picker.
 
 **Replace the PDF cover:**
 
@@ -53,8 +53,9 @@ Your project includes two configured targets: **Web Help** and **PDF**.
 
 1. Switch **Active Target** to **Web Help** → click **Generate All** → view the branded web output
 2. Switch **Active Target** to **PDF** → click **Generate All** → view the print-ready PDF
-3. Same source documents, same style rules — two completely different output formats
-4. Conditions adjust per target: `online_only` content appears in Web Help, `print_only` content appears in PDF
+3. Conditions are configured per target: `online_only` content appears in Web Help, `print_only` content appears in PDF
+
+Same source documents, same style rules — two completely different output formats.
 
 <!-- #done -->
 ## Done
@@ -100,12 +101,9 @@ One Designer user controls publishing standards. Many Express users publish agai
 <!-- #multiple-targets-detail -->
 ### Multiple Targets, One Source
 
-Multi-target publishing scales beyond two formats:
+Targets are not limited to different formats. The most common use is multiple targets of the *same* format with different configurations — different conditions for different product versions, different branding for different customers, or different variable values for different editions. Create a new target, adjust its settings, and publish a distinct output without duplicating source documents.
 
-- **Conditions** tailor content per target — `online_only` for web interactivity, `print_only` for page references
-- **Style rules** can map differently per target — the same source style produces different visual treatments in web versus PDF
-- **Additional formats** beyond Web Help and PDF: EPUB, Eclipse Help, HTML Help, and more
-- Add new output formats without touching source documents
+Designer also supports additional output formats beyond Web Help and PDF: EPUB, Eclipse Help, HTML Help, and more.
 
 <!-- #ai-skills -->
 ### AI-Assisted Theme Design
@@ -118,5 +116,16 @@ A complete set of [AI skills for Claude Code](https://github.com/quadralay/webwo
 - Automate repetitive publishing tasks
 
 Designer is AI-augmented — AI skills accelerate design work that would otherwise require manual SCSS editing and trial-and-error iteration.
+
+<!-- #product-family -->
+### The ePublisher Product Family
+
+| | **Express** | **Designer** | **AutoMap** |
+|---|---|---|---|
+| **Who it's for** | Authors publishing content | Teams controlling brand and design | DevOps automating builds |
+| **What it does** | Generate output from Stationery | Create and customize Stationery | CLI and scheduled builds |
+| **Source formats** | Markdown++, Word, FrameMaker, DITA | Same | Same |
+| **Output formats** | Reverb 2.0, PDF, others | Same + full skin editing | Same |
+| **Key capability** | One-click publish | Pixel-level design control | CI/CD and AI agent access |
 
 [Download ePublisher Designer](https://webworks.com/products/epublisher/download) — includes Express for your authors.
