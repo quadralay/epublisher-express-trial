@@ -20,12 +20,12 @@
       <Rule Key="Blockquote" />
       <Rule Key="Blockquote Paragraph" />
       <Rule Key="Code Fence" />
-      <Rule Key="GlossaryDef">
+      <Rule Key="Glossary Def">
         <Options>
           <Option Name="popup" Value="append" Source="Explicit" />
         </Options>
       </Rule>
-      <Rule Key="GlossaryTerm">
+      <Rule Key="Glossary Term">
         <Options>
           <Option Name="popup" Value="define" Source="Explicit" />
           <Option Name="split-priority" Value="none" Source="Explicit" />

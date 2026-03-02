@@ -20,7 +20,7 @@ Before you begin, ensure you have the following:
 
 ### Installation
 
-<!-- style:ProcedureTitle ; #installation -->
+<!-- style:Procedure Title ; #installation -->
 To install $ProductName; on your device:
 
 1. **Download the installer**
@@ -92,7 +92,7 @@ The `--diagnose` command runs a connectivity test and reports any configuration 
 
 ### Configuring Selective Sync
 
-<!-- style:ProcedureTitle ; #configure-selective-sync -->
+<!-- style:Procedure Title ; #configure-selective-sync -->
 To choose which cloud folders sync to this device:
 
 1. Open $ProductName; settings
