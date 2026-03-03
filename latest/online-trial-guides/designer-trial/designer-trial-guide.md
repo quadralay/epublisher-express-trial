@@ -1,44 +1,57 @@
-<!-- markers:{"Keywords": "designer, trial, getting started, customization, branding, stationery", "Description": "First-time user introduction to ePublisher Designer customization"}; #quick-start -->
+<!-- markers:{"Keywords": "designer, trial, getting started, customization, branding, stationery, style designer", "Description": "ePublisher Designer trial — customize branding, content rules, and output formats"}; #quick-start -->
 # Quick Start
 
-Customize branding, content rules, and output formats for professional documentation.
+Design custom publishing experiences for DITA, FrameMaker, Word, and Markdown++ source documents. This trial uses Markdown++ for transparency and ease of evaluation — every concept here applies to all authoring environments.
 
-If you completed the Express trial, you already know how to generate — now you'll customize what Express produces. New to ePublisher? This guide is self-contained.
+<!-- #open-generate -->
+## Step 1: Open & Generate
+
+The **ePublisher Designer Trial** project opens automatically on first launch.
+
+> **Returning user?** Choose **File > Open** and navigate to:
+> `Documents\ePublisher Designer Projects\ePublisher Designer Trial\ePublisher Designer Trial.wep`
+
+The Document Manager (left panel) shows your source documents already loaded. Generate the baseline output:
+
+1. Verify the **Active Target** shows **Web Help**
+2. Click **Generate All**
+3. When the completion dialog appears, click **Yes** to view your output
+
+<!-- style:Screenshot -->
+![Document Manager with source documents and Generate All button](images/designer-doc-manager.png)
 
 <!-- #content-rules -->
-## Step 1: Customize Content Rules
-
-Variables and conditions let you personalize and filter content without editing source documents.
+## Step 2: Customize Content Rules
 
 **Change the product name everywhere at once:**
 
-1. Select the **Web Help** target in the Target menu
-2. Open **Target** > **Target Settings**
-3. Find the **Variables** section — change `ProductName` from "Quantum Sync" to your product name
-4. Click **Generate All** — every page now displays your product name
+1. Open **Target** > **Target Settings**
+2. Find the **Variables** section — change `ProductName` from "Quantum Sync" to your product name
+3. Click **Generate All** — every page now displays your product name
+
+<!-- style:Screenshot -->
+![Target Settings showing Variables section](images/designer-target-settings-variables.png)
 
 **Control what content appears:**
 
 1. In the same Target Settings, find the **Conditions** section
 2. Change `advanced` from **Visible** to **Hidden**
-3. Click **Generate All** — administrator settings and deployment details disappear
+3. Click **Generate All** — advanced content disappears from the output
 
-> **Tip:** One project, different outputs per audience. Toggle conditions per target to publish beginner and advanced guides from the same source documents.
+> **Tip:** Toggle conditions per target to publish beginner and advanced guides from the same source documents.
 
 <!-- #brand-output -->
-## Step 2: Brand the Output
-
-Make the output yours with custom colors and a branded PDF cover.
+## Step 3: Brand the Output
 
 **Change the color theme:**
 
-1. Click **Format** > **View Differences** to see default styles (left) versus your overrides (right)
+1. Click **Format** > **View Differences** to see which files have been customized in the active target
 2. Open `Formats/WebWorks Reverb 2.0/Pages/sass/_colors.scss`
 3. Find `$qs_primary_brand_color: #0a4d8c` — change `#0a4d8c` to your brand color
-4. Optionally change `$qs_secondary_brand_color` and `$qs_content_background_color`
-5. Click **Generate All** — the entire web theme transforms
+4. Click **Generate All** — the entire web theme transforms
 
-> **VS Code users:** Open `_colors.scss` in VS Code for a built-in color picker.
+<!-- style:Screenshot -->
+![SCSS color variables in _colors.scss](images/designer-scss-colors.png)
 
 **Replace the PDF cover:**
 
@@ -46,23 +59,41 @@ Make the output yours with custom colors and a branded PDF cover.
 2. Replace `pdf-cover.png` with your own cover image (keep the same filename)
 3. Switch **Active Target** to **PDF** and click **Generate All** — your cover appears on page one
 
+<!-- #style-designer -->
+## Step 4: Explore the Style Designer
+
+1. Open **View** > **Style Designer**
+2. Notice that all styles inherit from **[Prototype]** — properties set on [Prototype] cascade to every style in the project
+3. Select **[Prototype]** and change a property (for example, set **font-family** in the **Font** category)
+4. Click **Generate All** — the change cascades to all styles that inherit from [Prototype]
+
+<!-- style:Screenshot -->
+![Style Designer showing prototype inheritance hierarchy](images/designer-style-designer.png)
+
+Styles also support parent relationships, creating inheritance chains — set a property once to affect all children.
+
 <!-- #multiple-targets -->
-## Step 3: Generate Multiple Targets
+## Step 5: Generate Multiple Targets
 
 Your project includes two configured targets: **Web Help** and **PDF**.
 
 1. Switch **Active Target** to **Web Help** → click **Generate All** → view the branded web output
 2. Switch **Active Target** to **PDF** → click **Generate All** → view the print-ready PDF
-3. Conditions are configured per target: `online_only` content appears in Web Help, `print_only` content appears in PDF
 
-Same source documents, same style rules — two completely different output formats.
+<!-- style:Screenshot -->
+![Active Target dropdown showing Web Help and PDF](images/designer-target-menu.png)
+
+Conditions filter per target: `online_only` appears in Web Help, `print_only` in PDF. Same source, different outputs.
 
 <!-- #done -->
 ## Done
 
-You've branded a professional documentation site, controlled content per audience, and published to multiple formats — all from one set of source documents.
+You've customized content rules, branded the theme, explored style inheritance, and published to multiple formats — all from one set of source documents.
 
-**Next:** Save your design as reusable Stationery and distribute it to Express users, or keep reading to understand the architecture.
+<!-- style:Screenshot -->
+![Branded Reverb output with customized theme](images/designer-output-result.png)
+
+**Next:** Save your design as reusable Stationery, or keep reading to understand the architecture.
 
 [Full documentation](https://static.webworks.com/docs/epublisher/latest/help/) | [Contact sales](mailto:sales@webworks.com)
 
@@ -76,15 +107,30 @@ You customized a complete publishing project. Here's how the pieces connect.
 <!-- #what-you-just-did -->
 ### What You Just Did
 
-The three steps map to Designer's three control layers:
+The five steps map to Designer's control layers:
 
-1. **Content rules** (Step 1) — Variables and conditions control what content appears and how it's personalized, per target
-2. **Visual theme** (Step 2) — SCSS stylesheets and branding assets control the look and feel
-3. **Output targets** (Step 3) — Format configurations control the delivery medium
+1. **Baseline output** (Step 1) — Generate from pre-configured source documents and Stationery
+2. **Content rules** (Step 2) — Variables and conditions control what content appears and how it's personalized, per target
+3. **Visual theme** (Step 3) — SCSS stylesheets and branding assets control the look and feel
+4. **Style mapping** (Step 4) — The Style Designer controls how source styles map to output, with inheritance from [Prototype]
+5. **Output targets** (Step 5) — Format configurations control the delivery medium
 
 ePublisher separates *design* from *production*. Designer is where you create publishing standards. Express is where authors publish day-to-day against those standards — without needing Designer installed. The bridge between them is Stationery.
 
-> **Beyond Markdown:** ePublisher also processes Adobe FrameMaker, Microsoft Word, and DITA-XML source documents using the same Designer workflow.
+> **Beyond Markdown:** ePublisher processes DITA-XML, Adobe FrameMaker, and Microsoft Word source documents using the same Designer workflow.
+
+<!-- #try-these-features -->
+### Try These Features
+
+Open your generated Web Help output and try each of these:
+
+| Action                              | What to Notice                              |
+|-------------------------------------|---------------------------------------------|
+| Type in the search box              | Instant results with breadcrumb context     |
+| Drag browser edge narrower          | Responsive reflow, TOC collapses to menu    |
+| Click any image                     | Lightbox zoom at full resolution            |
+| Click the Share widget              | Stable link to that specific page           |
+| Switch to PDF target, regenerate    | Same content, print-ready PDF output        |
 
 <!-- #stationery -->
 ### Create & Distribute Stationery
@@ -96,14 +142,12 @@ Stationery is the architectural core of ePublisher:
 - Authors publish with your brand, rules, and targets — without needing Designer
 - Update the Stationery once when standards change → all Express projects pick up the changes
 
-One Designer user controls publishing standards. Many Express users publish against them.
-
 <!-- #multiple-targets-detail -->
 ### Multiple Targets, One Source
 
-Targets are not limited to different formats. The most common use is multiple targets of the *same* format with different configurations — different conditions for different product versions, different branding for different customers, or different variable values for different editions. Create a new target, adjust its settings, and publish a distinct output without duplicating source documents.
+Targets are not limited to different formats. Create multiple targets of the *same* format with different configurations — different conditions per product version, different branding per customer, or different variable values per edition.
 
-Designer also supports additional output formats beyond Web Help and PDF: EPUB, Eclipse Help, HTML Help, and more.
+Designer also supports EPUB, Eclipse Help, HTML Help, and more.
 
 <!-- #ai-skills -->
 ### AI-Assisted Theme Design
@@ -115,7 +159,17 @@ A complete set of [AI skills for Claude Code](https://github.com/quadralay/webwo
 - Author and validate Markdown++ source documents
 - Automate repetitive publishing tasks
 
-Designer is AI-augmented — AI skills accelerate design work that would otherwise require manual SCSS editing and trial-and-error iteration.
+<!-- #automap -->
+### Automate with AutoMap
+
+AutoMap adds command-line and scheduled publishing to your workflow:
+
+- **CI/CD integration** — trigger builds from Jenkins, GitHub Actions, or any pipeline
+- **Scheduled publishing** — regenerate on a timer without manual intervention
+- **AI agent access** — CLI interface for autonomous documentation workflows
+- **Headless operation** — no GUI required, runs on build servers
+
+[Download ePublisher AutoMap](https://webworks.com/products/epublisher/download) — works with your existing Designer installation.
 
 <!-- #product-family -->
 ### The ePublisher Product Family

@@ -103,16 +103,17 @@ Your output opens automatically. Try these features:
 ## Guidelines
 
 ### Length
-- Core steps (Steps 1-2 + Done): Under 45 lines
-- Explore More: Up to 90 additional lines
-- Total: 120-150 lines maximum
-- Core reading time: Under 2 minutes
-- Full guide reading time: Under 5 minutes
+- Core steps + Done: Under 45 lines (Express, 2 steps) or under 75 lines (Designer, 5 steps)
+- Explore More: Up to 95 additional lines
+- Total: 120-150 lines (Express) or 150-180 lines (Designer)
+- Core reading time: Under 2 minutes (Express) or under 4 minutes (Designer)
+- Full guide reading time: Under 5 minutes (Express) or under 8 minutes (Designer)
 
 ### Screenshots
-- Maximum: 2 screenshots per guide
+- 1-2 per step, as needed for visual confirmation of menus, dialogs, and actions
 - Naming: `[product]-[descriptive-name].png`
-- Only include where UI is not self-explanatory
+- Only include where UI is not self-explanatory or users might look in the wrong place
+- Use `<!-- style:Screenshot -->` on the line immediately before the image markdown
 
 ### Markdown++ Features
 Use lightly to keep source simple:
@@ -138,11 +139,11 @@ Use lightly to keep source simple:
 
 ## Product-Specific Customization
 
-| Product | Step 1 Action | Step 1 Screenshot |
-|---------|---------------|-------------------|
-| Express | Add Markdown++ documents | Document Manager drag target |
-| AutoMap | Select source files/folders | Source selection dialog |
-| Designer | Customize content rules | Target Settings panel |
+| Product | Steps | Core Step Structure |
+|---------|-------|---------------------|
+| Express | 2 | Step 1: Add Documents → Step 2: Generate |
+| Designer | 5 | Step 1: Open & Generate → Step 2: Content Rules → Step 3: Brand Output → Step 4: Style Designer → Step 5: Multiple Targets |
+| AutoMap | 2 | Step 1: Select source files → Step 2: Generate |
 
 ## Directory Structure
 
@@ -150,6 +151,6 @@ Use lightly to keep source simple:
 [product]-trial/
 ├── [product]-trial-guide.md
 └── images/
-    ├── [product]-[step1-action].png
-    └── [product]-generate-button.png
+    ├── [product]-[descriptive-name].png
+    └── ...
 ```

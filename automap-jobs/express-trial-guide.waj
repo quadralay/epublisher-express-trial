@@ -3,7 +3,7 @@
   <Project path="C:\Projects\epublisher-docs-publish\webworks\ePublisher Stationery 2025.1\ePublisher Stationery 2025.1.wxsp" />
   <Files>
     <Group name="Express Trial Guide">
-      <Document path="..\latest\online-trial-guide\express-trial\express-trial-guide.md" />
+      <Document path="..\latest\online-trial-guides\express-trial\express-trial-guide.md" />
     </Group>
   </Files>
   <Targets>

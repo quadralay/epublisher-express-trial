@@ -8,7 +8,7 @@ This is a **documentation-only project** for ePublisher trial experiences. It co
 
 - **Type:** Static documentation / trial guides
 - **Technology:** Markdown++ (backward compatible with Markdown)
-- **Primary File:** `latest/online-trial-guides/express-trial/express-trial-guide.md`
+- **Primary File:** `latest/online-trial-guides/designer-trial/designer-trial-guide.md`
 
 ## Project Structure
 
@@ -20,11 +20,11 @@ epublisher-express-trial/
 │   │   └── ePublisher Express Trial Project/  # Express trial project
 │   └── online-trial-guides/             # Online quick-start guides
 │       ├── designer-trial/
-│       │   ├── designer-trial-guide.md  # ~122 lines, 3 steps + done + explore more
-│       │   └── images/                  # Product-prefixed screenshots
+│       │   ├── designer-trial-guide.md  # ~175 lines, 5 steps + done + explore more
+│       │   └── images/                  # Product-prefixed screenshots (designer-*)
 │       └── express-trial/
-│           ├── express-trial-guide.md   # ~137 lines, 2 steps + done + explore more
-│           └── images/                  # Product-prefixed screenshots
+│           ├── express-trial-guide.md   # ~140 lines, 2 steps + done + explore more
+│           └── images/                  # Product-prefixed screenshots (express-*)
 ├── legacy/                              # ARCHIVED: Previous versions
 │   ├── local-express-trial-project/     # Sample project for trial users
 │   │   └── ePublisher Express Trial Project/
@@ -42,20 +42,22 @@ epublisher-express-trial/
 
 ## Active Guides: latest/online-trial-guides/
 
-The guide uses a dual-audience structure: fast activation for "just let me click" users, with deeper evaluation content for prospects deciding whether to buy.
+Both guides use a dual-audience structure: fast activation for "just let me click" users, with deeper evaluation content for prospects deciding whether to buy.
 
-**Core steps (~45 lines) — unchanged activation experience:**
+**Designer Trial Guide (primary, 5 steps, ~175 lines):**
+1. **Step 1: Open & Generate** - Launch project, observe Document Manager, generate, view output
+2. **Step 2: Content Rules** - Variables and conditions customization
+3. **Step 3: Brand Output** - SCSS colors and PDF cover
+4. **Step 4: Style Designer** - Prototype inheritance and style properties
+5. **Step 5: Multiple Targets** - Web Help vs PDF from same source
+6. **Done** - Inspiring CTA with output screenshot
+7. **Explore More** - What You Just Did, Try Features, Stationery, AutoMap, Product Family, AI Skills
+
+**Express Trial Guide (2 steps, ~140 lines):**
 1. **Step 1: Add Documents** - Drag Markdown++ files to Document Manager
 2. **Step 2: Generate** - Click Generate All, explore the output
 3. **Done** - CTA to Designer + bridge to Explore More
-
-**Explore More (~90 lines) — evaluation content:**
-4. **What You Just Did** - 3-part workflow explanation, Stationery definition
-5. **Try These Features** - Action-oriented guided tour
-6. **Customize Output Behavior** - Target Settings table
-7. **The ePublisher Product Family** - Express/Designer/AutoMap comparison
-8. **Take Full Control with Designer** - Capability list + workflow
-9. **Automate with AutoMap** - CI/CD, AI agent access, Landmark IDs
+4. **Explore More** - What You Just Did, Try Features, Customize, Product Family, Designer, AutoMap
 
 ### Markdown++ Features Used
 
@@ -67,13 +69,13 @@ The guide uses a dual-audience structure: fast activation for "just let me click
 
 ### Design Principles
 
-- Core steps: Under 45 lines (fast activation)
-- Explore More: Up to 90 additional lines (evaluation depth)
-- Total: 120-150 lines maximum
-- 2 screenshots maximum (core steps only)
+- Core steps: Under 45 lines for Express (2 steps), under 75 lines for Designer (5 steps)
+- Explore More: Up to 95 additional lines (evaluation depth)
+- Total: 120-150 lines (Express) or 150-180 lines (Designer)
+- Screenshots: 1-2 per step as needed for visual confirmation
 - No welcome/value proposition (users already committed)
 - CTA at Done bridges to Explore More for evaluators
-- Format references (Word, FrameMaker, DITA) allowed in Explore More only
+- Format references (Word, FrameMaker, DITA) allowed in intro positioning and Explore More
 
 ## Legacy Content: legacy/
 
@@ -88,10 +90,11 @@ Contains the legacy sample ePublisher Express project with source documents in m
 
 ## Scalability
 
-Future trial guides (AutoMap, Designer) will follow the same pattern:
+Future trial guides (AutoMap) will follow the same dual-audience pattern:
 - Product-prefixed image names: `automap-*.png`, `designer-*.png`
 - Self-contained directories within `latest/`
-- Same 2-step + done structure
+- Step count varies by product (2 for Express, 5 for Designer)
+- Each guide is fully standalone — no dependencies between guides
 
 ## Claude Instructions
 
