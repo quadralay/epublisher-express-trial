@@ -72,7 +72,7 @@ Your published output represents your brand. Designer gives you full control ove
 <!-- style:Screenshot -->
 ![**File Differences Viewer** showing default (left) and customized (right) `_colors.scss`](images/designer-file-differences-viewer.png)
 
-The File Differences Viewer shows the installed default file on the left and your customized version on the right. You can edit the right side directly — change `$qs_primary_brand_color: #0a4d8c` to your brand color and click **Save**. As the Reverb format evolves across releases, this viewer helps you see exactly what you've customized so you can maintain your changes confidently.
+The File Differences Viewer shows the installed default file on the left and your customized version on the right. You can edit the right side directly — change `$theme_primary: #0a4d8c` to your brand color and click **Save**. As the Reverb format evolves across releases, this viewer helps you see exactly what you've customized so you can maintain your changes confidently.
 
 > **Tip:** Right-click any file and select **Edit File...** to open it in an external editor instead. Editors like VS Code show inline color swatches for hex values, making it easy to pick and preview brand colors.
 
