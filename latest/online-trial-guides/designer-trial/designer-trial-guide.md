@@ -8,6 +8,8 @@ Design custom publishing experiences for DITA, FrameMaker, Word, and Markdown so
 <!-- #open-generate -->
 ## Step 1: Open & Generate
 
+Before customizing, you need a baseline to see what the default output looks like and confirm everything works.
+
 The **ePublisher Designer Trial** project opens automatically on first launch.
 
 > **Returning user?** Choose **File > Open** and navigate to:
@@ -63,12 +65,12 @@ Your published output represents your brand. Designer gives you full control ove
 2. Expand **Pages** > **sass** and select `_colors.scss`
 
 <!-- style:Screenshot -->
-![`Manage Format Customizations showing `_colors.scss` in `Pages/sass`](images/designer-manage-format-customizations.png)
+![**Manage Format Customizations** showing `_colors.scss` in `Pages/sass`](images/designer-manage-format-customizations.png)
 
 3. Right-click `_colors.scss` and select **View File Differences...** to open the built-in File Differences Viewer
 
 <!-- style:Screenshot -->
-![File Differences Viewer showing default (left) and customized (right) `_colors.scss`](images/designer-file-differences-viewer.png)
+![**File Differences Viewer** showing default (left) and customized (right) `_colors.scss`](images/designer-file-differences-viewer.png)
 
 The File Differences Viewer shows the installed default file on the left and your customized version on the right. You can edit the right side directly — change `$qs_primary_brand_color: #0a4d8c` to your brand color and click **Save**. As the Reverb format evolves across releases, this viewer helps you see exactly what you've customized so you can maintain your changes confidently.
 

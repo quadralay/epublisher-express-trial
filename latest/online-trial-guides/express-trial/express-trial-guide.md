@@ -31,7 +31,7 @@ Add the sample source document to the Document Manager:
 
 One click transforms your source documents into a complete documentation site with search, responsive layout, and more.
 
-1. Verify the **Active Target** shows **WebWorks Reverb 2.0**
+1. Verify the **Active Target** shows **Web Help**
 2. Click **Generate All**
 
    <!-- style:Screenshot -->
@@ -95,6 +95,7 @@ Open your generated output and try each of these:
 | Click the Share widget              | Stable link to that specific page           |
 | Switch to PDF target, regenerate    | Same content, print-ready PDF output        |
 
+<!-- #customize-output -->
 ### Customize Output Behavior
 
 ePublisher Express includes configurable Target Settings. Access them via **Target** > **Target Settings**.

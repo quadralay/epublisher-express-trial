@@ -109,7 +109,7 @@ Your output opens automatically. Try these features:
 ### Length
 - Core steps + Done: Under 45 lines (Express, 2 steps) or under 75 lines (Designer, 5 steps)
 - Explore More: Up to 95 additional lines
-- Total: 120-150 lines (Express) or 150-180 lines (Designer)
+- Total: 120-150 lines (Express) or 150-215 lines (Designer)
 - Core reading time: Under 2 minutes (Express) or under 4 minutes (Designer)
 - Full guide reading time: Under 5 minutes (Express) or under 8 minutes (Designer)
 
@@ -134,8 +134,7 @@ Each step should open with 1-2 sentences that frame the business problem the ste
 - Welcome/value proposition sections
 - Multiple "Next Steps" options
 - Feature explanations (link to full docs)
-- Legacy format references (Word, FrameMaker, DITA)
-- More than 2 screenshots
+- Legacy format references in procedures (allowed in intro positioning and Explore More)
 
 ### Allowed in Explore More
 - Format references (Word, FrameMaker, DITA) in evaluation context

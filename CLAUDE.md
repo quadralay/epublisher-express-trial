@@ -20,7 +20,7 @@ epublisher-express-trial/
 │   │   └── ePublisher Express Trial Project/  # Express trial project
 │   └── online-trial-guides/             # Online quick-start guides
 │       ├── designer-trial/
-│       │   ├── designer-trial-guide.md  # ~175 lines, 5 steps + done + explore more
+│       │   ├── designer-trial-guide.md  # ~212 lines, 5 steps + done + explore more
 │       │   └── images/                  # Product-prefixed screenshots (designer-*)
 │       └── express-trial/
 │           ├── express-trial-guide.md   # ~140 lines, 2 steps + done + explore more
@@ -44,7 +44,7 @@ epublisher-express-trial/
 
 Both guides use a dual-audience structure: fast activation for "just let me click" users, with deeper evaluation content for prospects deciding whether to buy.
 
-**Designer Trial Guide (primary, 5 steps, ~175 lines):**
+**Designer Trial Guide (primary, 5 steps, ~212 lines):**
 1. **Step 1: Open & Generate** - Launch project, observe Document Manager, generate, view output
 2. **Step 2: Content Rules** - Variables and conditions customization
 3. **Step 3: Brand Output** - SCSS colors and PDF cover
@@ -53,7 +53,7 @@ Both guides use a dual-audience structure: fast activation for "just let me clic
 6. **Done** - Inspiring CTA with output screenshot
 7. **Explore More** - What You Just Did, Try Features, Stationery, AutoMap, Product Family, AI Skills
 
-**Express Trial Guide (2 steps, ~140 lines):**
+**Express Trial Guide (2 steps, ~145 lines):**
 1. **Step 1: Add Documents** - Drag Markdown++ files to Document Manager
 2. **Step 2: Generate** - Click Generate All, explore the output
 3. **Done** - CTA to Designer + bridge to Explore More
@@ -71,7 +71,7 @@ Both guides use a dual-audience structure: fast activation for "just let me clic
 
 - Core steps: Under 45 lines for Express (2 steps), under 75 lines for Designer (5 steps)
 - Explore More: Up to 95 additional lines (evaluation depth)
-- Total: 120-150 lines (Express) or 150-180 lines (Designer)
+- Total: 120-150 lines (Express) or 150-215 lines (Designer)
 - Screenshots: 1-2 per step as needed for visual confirmation
 - No welcome/value proposition (users already committed)
 - CTA at Done bridges to Explore More for evaluators
