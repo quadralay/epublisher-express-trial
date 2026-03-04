@@ -13,6 +13,8 @@ This template defines the pattern for all ePublisher trial guides (Express, Auto
 <!-- #step-1 -->
 ## Step 1: [Product-Specific Action]
 
+[1-2 sentences: Why this matters — frame the business problem this step solves]
+
 [Brief description of what this step accomplishes]
 
 1. [First action]
@@ -25,6 +27,8 @@ This template defines the pattern for all ePublisher trial guides (Express, Auto
 
 <!-- #generate -->
 ## Step 2: Generate
+
+[1-2 sentences: Why this matters — frame what generation achieves]
 
 1. Verify the **Active Target** shows **WebWorks Reverb 2.0**
 2. Click **Generate All**
@@ -122,6 +126,9 @@ Use lightly to keep source simple:
 - **Multiline tables:** For feature exploration
 - **Content islands:** One tip callout maximum
 - **Conditions:** Optional, for audience-specific content
+
+### Why Framing
+Each step should open with 1-2 sentences that frame the business problem the step solves. This helps evaluators see themselves in the problem before the procedure shows the solution. Keep it concise — the "why" motivates, the procedure demonstrates.
 
 ### What to Avoid in Core Steps
 - Welcome/value proposition sections

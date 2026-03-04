@@ -1,10 +1,14 @@
 <!-- markers:{"Keywords": "trial, getting started, quick start, ePublisher Express", "Description": "First-time user introduction to ePublisher Express"}; #quick-start -->
 # Quick Start
 
-Generate your first professional HTML5 output in 3 clicks.
+Generate professional output from DITA, FrameMaker, Word, and Markdown source documents. This trial uses Markdown for transparency and ease of evaluation — every concept here applies to all authoring environments.
+
+> **About Markdown in ePublisher:** ePublisher works with any Markdown that follows the CommonMark standard (the same spec behind GitHub-flavored Markdown). This trial uses Markdown++, a backward-compatible extension that adds conditions, variables, style mappings, and other advanced technical documentation features.
 
 <!-- #add-documents -->
 ## Step 1: Add Documents
+
+ePublisher transforms your source documents into professional output. The Document Manager organizes the files ePublisher will process — add documents here and they become part of your published output.
 
 The **ePublisher Express Trial Project** opens automatically on first launch.
 
@@ -24,6 +28,8 @@ Add the sample source document to the Document Manager:
 
 <!-- #generate -->
 ## Step 2: Generate
+
+One click transforms your source documents into a complete documentation site with search, responsive layout, and more.
 
 1. Verify the **Active Target** shows **WebWorks Reverb 2.0**
 2. Click **Generate All**

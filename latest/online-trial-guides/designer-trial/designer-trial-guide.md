@@ -1,7 +1,9 @@
 <!-- markers:{"Keywords": "designer, trial, getting started, customization, branding, stationery, style designer", "Description": "ePublisher Designer trial — customize branding, content rules, and output formats"}; #quick-start -->
 # Quick Start
 
-Design custom publishing experiences for DITA, FrameMaker, Word, and Markdown++ source documents. This trial uses Markdown++ for transparency and ease of evaluation — every concept here applies to all authoring environments.
+Design custom publishing experiences for DITA, FrameMaker, Word, and Markdown source documents. This trial uses Markdown for transparency and ease of evaluation — every concept here applies to all authoring environments.
+
+> **About Markdown in ePublisher:** ePublisher works with any Markdown that follows the CommonMark standard (the same spec behind GitHub-flavored Markdown). This trial uses Markdown++, a backward-compatible extension that adds conditions, variables, style mappings, and other advanced technical documentation features.
 
 <!-- #open-generate -->
 ## Step 1: Open & Generate
@@ -13,7 +15,11 @@ The **ePublisher Designer Trial** project opens automatically on first launch.
 
 The Document Manager (left panel) shows your source documents already loaded. Generate the baseline output:
 
-1. Verify the **Active Target** shows **Web Help**
+1. Find the **Active Target** dropdown in the toolbar — this controls which output format ePublisher generates. Verify it shows **Web Help**
+
+<!-- style:Screenshot -->
+![Active Target dropdown in the toolbar showing Web Help](images/designer-active-target.png)
+
 2. Click **Generate All**
 3. When the completion dialog appears, click **Yes** to view your output
 
@@ -23,57 +29,78 @@ The Document Manager (left panel) shows your source documents already loaded. Ge
 <!-- #content-rules -->
 ## Step 2: Customize Content Rules
 
+Documentation uses product names, versions, and other values that change over time. Variables let authors write content once and update every occurrence from a single setting.
+
 **Change the product name everywhere at once:**
 
-1. Open **Target** > **Target Settings**
-2. Find the **Variables** section — change `ProductName` from "Quantum Sync" to your product name
-3. Click **Generate All** — every page now displays your product name
+1. Open **Target** > **Variables...**
+2. Find `ProductName` and change it from "Quantum Sync" to your product name
+3. Select the **OK** button to confirm your variable change and close the dialog
+4. Click **Generate All** — every page now displays your product name
 
 <!-- style:Screenshot -->
-![Target Settings showing Variables section](images/designer-target-settings-variables.png)
+![Target Variables dialog](images/designer-target-variables.png)
+
+Different audiences need different content. Conditions let you show or hide sections per output without maintaining separate documents.
 
 **Control what content appears:**
 
-1. In the same Target Settings, find the **Conditions** section
+1. Open **Target** > **Conditions...**
 2. Change `advanced` from **Visible** to **Hidden**
-3. Click **Generate All** — advanced content disappears from the output
+3. Select the **OK** button to confirm your condition change and close the dialog
+4. Click **Generate All** — now look at the table of contents: the "Administrator Settings" heading and its content are gone. Sections like "REST API" and "Command-Line Verification" also disappear. Change `advanced` back to **Visible** and regenerate to restore them.
 
 > **Tip:** Toggle conditions per target to publish beginner and advanced guides from the same source documents.
 
 <!-- #brand-output -->
 ## Step 3: Brand the Output
 
+Your published output represents your brand. Designer gives you full control over every visual element — logos, toolbar and footer layouts, typography, and color schemes. ePublisher separates visual design from content, so you can change the entire look without touching source documents. In this step, you'll customize the color scheme to see how branding works.
+
 **Change the color theme:**
 
-1. Click **Format** > **View Differences** to see which files have been customized in the active target
-2. Open `Formats/WebWorks Reverb 2.0/Pages/sass/_colors.scss`
-3. Find `$qs_primary_brand_color: #0a4d8c` — change `#0a4d8c` to your brand color
-4. Click **Generate All** — the entire web theme transforms
+1. Click **Advanced** > **Manage Format Customizations** — a new tab opens showing the format file tree
+2. Expand **Pages** > **sass** and select `_colors.scss`
 
 <!-- style:Screenshot -->
-![SCSS color variables in _colors.scss](images/designer-scss-colors.png)
+![`Manage Format Customizations showing `_colors.scss` in `Pages/sass`](images/designer-manage-format-customizations.png)
+
+3. Right-click `_colors.scss` and select **View File Differences...** to open the built-in File Differences Viewer
+
+<!-- style:Screenshot -->
+![File Differences Viewer showing default (left) and customized (right) `_colors.scss`](images/designer-file-differences-viewer.png)
+
+The File Differences Viewer shows the installed default file on the left and your customized version on the right. You can edit the right side directly — change `$qs_primary_brand_color: #0a4d8c` to your brand color and click **Save**. As the Reverb format evolves across releases, this viewer helps you see exactly what you've customized so you can maintain your changes confidently.
+
+> **Tip:** Right-click any file and select **Edit File...** to open it in an external editor instead. Editors like VS Code show inline color swatches for hex values, making it easy to pick and preview brand colors.
+
+4. Click **Generate All** — the entire web theme transforms
 
 **Replace the PDF cover:**
 
-1. Click **View** > **Project Directory** and open `Files`
+1. Click **View** > **User Files** to open the Windows File Explorer in the Project Directory's `Files` folder
 2. Replace `pdf-cover.png` with your own cover image (keep the same filename)
 3. Switch **Active Target** to **PDF** and click **Generate All** — your cover appears on page one
 
 <!-- #style-designer -->
 ## Step 4: Explore the Style Designer
 
-1. Open **View** > **Style Designer**
-2. Notice that all styles inherit from **[Prototype]** — properties set on [Prototype] cascade to every style in the project
+As documentation grows, managing hundreds of individual style properties becomes impractical. The Style Designer uses prototype inheritance so you can set a property once and have it cascade across all styles.
+
+1. Open **View** > **Style Designer** — notice the tabs along the top: **Paragraph Styles**, **Character Styles**, **Table Styles**, and others. Each tab controls a different category of style mappings. The **Paragraph Styles** tab is selected by default.
+2. Notice that all paragraph styles inherit from **[Prototype]** — properties set on [Prototype] cascade to every style in the list
 3. Select **[Prototype]** and change a property (for example, set **font-family** in the **Font** category)
 4. Click **Generate All** — the change cascades to all styles that inherit from [Prototype]
 
 <!-- style:Screenshot -->
 ![Style Designer showing prototype inheritance hierarchy](images/designer-style-designer.png)
 
-Styles also support parent relationships, creating inheritance chains — set a property once to affect all children.
+Not every style used in your source documents needs to appear in the Style Designer — styles that aren't explicitly listed automatically inherit all properties and options from [Prototype]. This means new projects work out of the box with minimal setup. Styles also support parent relationships, creating inheritance chains — set a property once to affect all children.
 
 <!-- #multiple-targets -->
 ## Step 5: Generate Multiple Targets
+
+Organizations publish the same content in multiple formats — web help for online access, PDF for offline distribution. ePublisher generates both from one source without duplicating content.
 
 Your project includes two configured targets: **Web Help** and **PDF**.
 
@@ -182,4 +209,4 @@ AutoMap adds command-line and scheduled publishing to your workflow:
 | **Output formats** | Reverb 2.0, PDF, others | Same + full skin editing | Same |
 | **Key capability** | One-click publish | Pixel-level design control | CI/CD and AI agent access |
 
-[Download ePublisher Designer](https://webworks.com/products/epublisher/download) — includes Express for your authors.
+[Download ePublisher Designer](https://webworks.com/products/epublisher/download) — ePublisher Express and AutoMap are also available for download and use by authors.
