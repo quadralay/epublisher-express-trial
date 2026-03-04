@@ -15,11 +15,11 @@
 // Create Card layout for page content excluding breadcrumbs
 //
 #page_div {
-  background: $qs_secondary_brand_color;
+  background: $theme_surface_nav;
 }
 
 #ww_content_container {
-  background: $qs_secondary_brand_color;
+  background: $theme_surface_nav;
   padding: 8px 12px 12px 12px; // drop-shadow from toolbar may impact value of top padding
 }
 
@@ -29,22 +29,22 @@
 
 .ww_skin_page_toolbar {
   border-radius: 12px 12px 0 0;
-  background: $qs_content_background_color;
+  background: $theme_surface;
 }
 
 .ww_skin_was_this_helpful_container {
-  background: $qs_content_background_color;
+  background: $theme_surface;
 }
 
 #page_content_container {
-  background: $qs_content_background_color;
+  background: $theme_surface;
 	border-radius: 0 0 12px 12px;
 }
 //
 // End Card layout for page content excluding breadcrumbs
 
 #page_loading {
-  color: $qs_primary_brand_color;
+  color: $theme_primary;
 }
 
 #toolbar_div {
