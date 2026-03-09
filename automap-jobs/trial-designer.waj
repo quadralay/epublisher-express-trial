@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Job name="express-trial-guide" version="1.0">
+<?xml version="1.0" encoding="utf-8"?>
+<Job name="trial-designer" version="1.0">
   <Project path="C:\Projects\epublisher-docs-publish\webworks\ePublisher Stationery 2025.1\ePublisher Stationery 2025.1.wxsp" />
   <Files>
-    <Group name="Express Trial Guide">
-      <Document path="..\latest\online-trial-guides\express-trial\express-trial-guide.md" />
+    <Group name="Designer Trial Guide">
+      <Document path="..\latest\online-trial-guides\designer-trial\designer-trial-guide.md" />
     </Group>
   </Files>
   <Targets>
@@ -20,8 +20,8 @@
         <Variable name="Copyright" value="2001-2026" UseDocumentValue="False" />
         <Variable name="PublicationDate" value="February 9, 2026" UseDocumentValue="False" />
       </Variables>
-      <MergeSettings title="Express Trial Guide">
-        <Group name="Express Trial Guide" />
+      <MergeSettings title="Designer Trial Guide">
+        <Group name="Designer Trial Guide" />
       </MergeSettings>
     </Target>
   </Targets>
