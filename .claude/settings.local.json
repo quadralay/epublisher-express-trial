@@ -1,5 +1,6 @@
 {
   "env": {
+    "SVN_LOCAL_PATH": "C:\\Repo\\ePublisher_debug\\trunk",
     "AUTOMAP_DEPLOY_PATH": "C:\\Projects\\epublisher-docs-publish\\deploy\\trial-guides",
     "EPUBLISHER_STATIONERY_PATH": "C:\\Projects\\epublisher-docs-publish\\webworks\\ePublisher Stationery 2025.1\\ePublisher Stationery 2025.1.wxsp"
   },
