@@ -33,26 +33,32 @@ Each archive is created by zipping the **contents** of a project folder (no pare
 2. **Package Designer project** (`Exp_Design.wez`):
    - Source: `LOCAL_PROJECTS/ePublisher Designer Projects/ePublisher Designer Trial/`
    - Delete existing archive at destination if present
-   - Create archive from the project folder contents:
+   - `cd` into the source folder and create archive using `./*` so paths are rooted at the project level:
      ```bash
-     "/c/Program Files/7-Zip/7z.exe" a -tzip -mx=9 "$SVN_LOCAL_PATH/products/ePublisher/Evaluation/Exp_Design.wez" "$LOCAL_PROJECTS/ePublisher Designer Projects/ePublisher Designer Trial/*"
+     rm -f "$SVN_LOCAL_PATH/products/ePublisher/Evaluation/Exp_Design.wez"
+     cd "$LOCAL_PROJECTS/ePublisher Designer Projects/ePublisher Designer Trial"
+     "/c/Program Files/7-Zip/7z.exe" a -tzip -mx=9 "$SVN_LOCAL_PATH/products/ePublisher/Evaluation/Exp_Design.wez" ./*
      ```
 
 3. **Package Express project** (`Exp_ePub.wez`):
    - Source: `LOCAL_PROJECTS/ePublisher Express Projects/ePublisher Express Trial Project/`
    - Delete existing archive at destination if present
-   - Create archive from the project folder contents:
+   - `cd` into the source folder and create archive using `./*`:
      ```bash
-     "/c/Program Files/7-Zip/7z.exe" a -tzip -mx=9 "$SVN_LOCAL_PATH/products/Express/Evaluation/Exp_ePub.wez" "$LOCAL_PROJECTS/ePublisher Express Projects/ePublisher Express Trial Project/*"
+     rm -f "$SVN_LOCAL_PATH/products/Express/Evaluation/Exp_ePub.wez"
+     cd "$LOCAL_PROJECTS/ePublisher Express Projects/ePublisher Express Trial Project"
+     "/c/Program Files/7-Zip/7z.exe" a -tzip -mx=9 "$SVN_LOCAL_PATH/products/Express/Evaluation/Exp_ePub.wez" ./*
      ```
 
 4. **Package Stationery** (`Exp_Stationery.wez`) — **only if content exists:**
    - Look for the first sub-folder inside `LOCAL_PROJECTS/ePublisher Stationery/`
    - If a folder containing a `.wxsp` file is found:
      - Delete existing archive at destination if present
-     - Create archive from that folder's contents:
+     - `cd` into the stationery folder and create archive using `./*`:
        ```bash
-       "/c/Program Files/7-Zip/7z.exe" a -tzip -mx=9 "$SVN_LOCAL_PATH/products/Express/Evaluation/Exp_Stationery.wez" "$LOCAL_PROJECTS/ePublisher Stationery/<stationery-folder>/*"
+       rm -f "$SVN_LOCAL_PATH/products/Express/Evaluation/Exp_Stationery.wez"
+       cd "$LOCAL_PROJECTS/ePublisher Stationery/<stationery-folder>"
+       "/c/Program Files/7-Zip/7z.exe" a -tzip -mx=9 "$SVN_LOCAL_PATH/products/Express/Evaluation/Exp_Stationery.wez" ./*
        ```
    - If no stationery folder exists, skip with a note
 
