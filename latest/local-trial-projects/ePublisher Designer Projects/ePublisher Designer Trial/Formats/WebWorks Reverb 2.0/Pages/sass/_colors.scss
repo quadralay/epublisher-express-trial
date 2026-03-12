@@ -256,9 +256,10 @@ $share_popup_label_color: $_layout_color_2;
 $share_popup_input_background_color: $_layout_color_3;
 $share_popup_input_text_color: $_layout_color_2;
 $share_popup_input_border_color: darken($_layout_color_3, 10%);
-$share_popup_copy_button_background_color: $_layout_color_1;
-$share_popup_copy_button_text_color: $_layout_color_4;
-$share_popup_copy_button_background_color_hover: darken($_layout_color_1, 10%);
+$share_popup_copy_button_icon_color: $_layout_color_2;
+$share_popup_copy_button_copied_icon_color: #28a745;
+$share_popup_copy_button_background_color: $share_popup_background_color;
+$share_popup_copy_button_background_color_hover: darken($share_popup_copy_button_background_color, 10%);
 
 /* disqus */
 $disqus_background_color: $_layout_color_3;
