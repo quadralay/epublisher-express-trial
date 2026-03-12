@@ -464,7 +464,7 @@ a.ww_skin {
   font-size: 13px;
   font-family: inherit;
   font-weight: 500;
-  color: $share_popup_copy_button_text_color;
+  color: $share_popup_copy_button_icon_color;
   background: $share_popup_copy_button_background_color;
   border: 1px solid $share_popup_copy_button_background_color;
   border-radius: 0 4px 4px 0;
@@ -472,14 +472,24 @@ a.ww_skin {
   transition: background 0.15s ease;
   white-space: nowrap;
 
+  i:before {
+    content: $share_popup_copy_button_icon;
+  }
+
   &:hover, &:focus {
     background: $share_popup_copy_button_background_color_hover;
-    border-color: $share_popup_copy_button_background_color_hover;
   }
 
   &.ww_skin_share_popup_copy_button_copied {
-    background: #28a745;
-    border-color: #28a745;
+    color: $share_popup_copy_button_copied_icon_color;
+
+    &:hover, &:focus {
+      background: none;
+    }
+
+    i:before {
+      content: $share_popup_copy_button_copied_icon;
+    }
   }
 }
 
@@ -1722,10 +1732,9 @@ div.ww_skin_toolbar_logo {
   text-align: center;
 
   img {
-    width: 100%;
-    height: auto;
     max-width: 80vw;
     max-height: 80vh;
+    object-fit: contain;
   }
 }
 
