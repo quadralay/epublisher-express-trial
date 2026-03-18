@@ -209,6 +209,7 @@
         <Variable Name="Version" Value="2.0" UseDocumentValue="False" />
         <Variable Name="ProductGuideTitle" Value="User Manual" UseDocumentValue="False" />
       </Variables>
+      <XRefFormatSet />
       <FormatSettings>
         <FormatSetting Name="company-copyright" Value="© 2026 Quantum Sync" />
         <FormatSetting Name="company-email" Value="info@quantum-sync.com" />

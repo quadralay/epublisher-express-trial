@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Version="1.1.2.0" ProjectID="P03m6LWnOVw" ChangeID="7NsSTifm4TQ" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
+<Project Version="1.1.2.0" ProjectID="P03m6LWnOVw" ChangeID="88R2JBvh0_w" RuntimeVersion="2025.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
   <Origin>
-    <Path Checksum="1E1233F0E43A0A4CB6F611EBAF5E4C5A604EB289" LastModified="2026-02-15T22:59:36.1401854Z">..\..\ePublisher Stationery\ePublisher Express Trial Stationery\ePublisher Express Trial Stationery.wxsp</Path>
+    <Path Checksum="F7A152A5FB8C11BBD7B3D34834E49E209C5E428F" LastModified="2026-03-12T01:37:15.9748364Z">..\..\ePublisher Stationery\ePublisher Express Trial Stationery\ePublisher Express Trial Stationery.wxsp</Path>
   </Origin>
   <Formats>
     <Format TargetName="Web Help" Name="WebWorks Reverb 2.0" Type="Application" TargetID="Lf3DjZlhl_A">
@@ -14,7 +14,7 @@
   <Groups>
     <Group Name="Help" Type="normal" Included="true" GroupID="2dneiXg3AfI" ChangeID="1H0d0XMlE24" />
   </Groups>
-  <GlobalConfiguration ChangeID="wCs1exsrAd4">
+  <GlobalConfiguration ChangeID="1G71rlEycUw">
     <Rules Type="Paragraph" Default="{WWDefaultRule}" ChangeID="">
       <Rule Key="{WWDefaultRule}" />
       <Rule Key="Blockquote" />
@@ -42,7 +42,12 @@
           <Option Name="split-priority" Value="none" Source="Explicit" />
         </Options>
       </Rule>
-      <Rule Key="HTML" />
+      <Rule Key="Heading 4">
+        <Options>
+          <Option Name="dropdown" Value="break" Source="Explicit" />
+          <Option Name="split-priority" Value="none" Source="Explicit" />
+        </Options>
+      </Rule>
       <Rule Key="Issue">
         <Options>
           <Option Name="dropdown" Value="start-open" Source="Explicit" />
@@ -253,7 +258,6 @@
         <Variable Name="Version" Value="2.0" UseDocumentValue="False" />
         <Variable Name="ProductGuideTitle" Value="User Manual" UseDocumentValue="False" />
       </Variables>
-      <XRefFormatSet />
       <FormatSettings>
         <FormatSetting Name="generate-group-result" Value="false" />
         <FormatSetting Name="generate-project-result" Value="true" />

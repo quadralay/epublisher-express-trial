@@ -11,6 +11,9 @@ latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stati
 latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/Settings/*
 latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/ePublisher Express Trial Stationery.manifest
 
+# Node
+node_modules/
+
 # Windows
 nul
 Thumbs.db
