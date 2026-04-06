@@ -26,9 +26,7 @@ epublisher-express-trial/
 │           ├── express-trial-guide.md   # ~140 lines, 2 steps + done + explore more
 │           └── images/                  # Product-prefixed screenshots (express-*)
 ├── legacy/                              # ARCHIVED: Previous versions
-│   ├── local-express-trial-project/     # Sample project for trial users
-│   │   └── ePublisher Express Trial Project/
-│   │       └── Source Docs/             # FrameMaker, DITA, Markdown content
+│   ├── Source Docs/                     # Sample source docs (FrameMaker, DITA, Markdown)
 │   └── online-express-trial-guide/      # Original verbose guide
 │       ├── express-trial-guide.md       # 507 lines (reference only)
 │       └── images/                      # 40 PNG screenshots
@@ -85,8 +83,8 @@ The original 507-line guide is archived for reference. It includes:
 - 40 screenshots
 - Support for Word, FrameMaker, DITA (now focused on Markdown++ only)
 
-### legacy/local-express-trial-project/
-Contains the legacy sample ePublisher Express project with source documents in multiple formats (FrameMaker, DITA, Markdown).
+### legacy/Source Docs/
+Contains legacy sample source documents in multiple formats (FrameMaker, DITA, Markdown).
 
 ## Scalability
 
