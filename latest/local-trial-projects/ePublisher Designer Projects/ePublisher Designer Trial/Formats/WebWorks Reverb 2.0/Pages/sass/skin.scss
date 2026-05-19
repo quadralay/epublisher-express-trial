@@ -1059,6 +1059,15 @@ div.ww_skin_toolbar_logo {
 #menu_frame {
 }
 
+#menu_resize_handle {
+  background: transparent;
+  transition: background 0.15s;
+
+  &:hover, &.dragging, &:focus-visible {
+    background: $_layout_color_1;
+  }
+}
+
 .ww_skin_menu_nav {
 
 }
@@ -1124,39 +1133,34 @@ div.ww_skin_toolbar_logo {
 }
 
 .ww_skin_menu_nav_type_assistant {
-  // TODO: make these assistant SASS variables
-  border-style: $menu_nav_button_toc_border_style;
-  border-width: $menu_nav_button_toc_border_width;
-  border-color: $menu_nav_button_toc_border_color;
-  border-radius: $menu_nav_button_toc_border_radius;
+  border-style: $menu_nav_button_assistant_border_style;
+  border-width: $menu_nav_button_assistant_border_width;
+  border-color: $menu_nav_button_assistant_border_color;
+  border-radius: $menu_nav_button_assistant_border_radius;
 
   i:before {
     content: $menu_nav_button_assistant_icon;
   }
 
   &:hover, &:focus-within {
-    border-style: $menu_nav_button_toc_border_style_hover;
-    border-width: $menu_nav_button_toc_border_width_hover;
-    border-color: $menu_nav_button_toc_border_color_hover;
-    border-radius: $menu_nav_button_toc_border_radius_hover;
+    border-style: $menu_nav_button_assistant_border_style_hover;
+    border-width: $menu_nav_button_assistant_border_width_hover;
+    border-color: $menu_nav_button_assistant_border_color_hover;
+    border-radius: $menu_nav_button_assistant_border_radius_hover;
 
   }
 
   &:active {
-    border-style: $menu_nav_button_toc_border_style_click;
-    border-width: $menu_nav_button_toc_border_width_click;
-    border-color: $menu_nav_button_toc_border_color_click;
-    border-radius: $menu_nav_button_toc_border_radius_click;
+    border-style: $menu_nav_button_assistant_border_style_click;
+    border-width: $menu_nav_button_assistant_border_width_click;
+    border-color: $menu_nav_button_assistant_border_color_click;
+    border-radius: $menu_nav_button_assistant_border_radius_click;
 
   }
 }
 
 .ww_skin_menu_assistant {
   font-size: $menu_nav_buttons_icon_size;
-  display: table-cell;
-  vertical-align: middle;
-  width: $menu_nav_buttons_width_calculated;
-  height: $menu_nav_buttons_height_calculated;
 }
 
 .ww_skin_menu_nav_type_toc {
@@ -1186,18 +1190,10 @@ div.ww_skin_toolbar_logo {
 
 .ww_skin_menu_toc {
   font-size: $menu_nav_buttons_icon_size;
-  display: table-cell;
-  vertical-align: middle;
-  width: $menu_nav_buttons_width_calculated;
-  height: $menu_nav_buttons_height_calculated;
 }
 
 .ww_skin_menu_index {
   font-size: $menu_nav_buttons_icon_size;
-  display: table-cell;
-  vertical-align: middle;
-  width: $menu_nav_buttons_width_calculated;
-  height: $menu_nav_buttons_height_calculated;
 }
 
 .ww_skin_menu_nav_type_index {
@@ -2223,6 +2219,145 @@ div#disqus_thread {
   font-weight: bold;
   color: $no_javascript_text_color;
   background: $no_javascript_background_color;
+}
+
+/* Assistant Chat */
+
+// Assistant Role Label
+.ww_skin_assistant_role_label {
+  font-family: $assistant_font;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.ww_skin_assistant_message .ww_skin_assistant_message_content_container {
+  border-left: 2px solid $assistant_primary_color;
+}
+
+.ww_skin_assistant_message .ww_skin_assistant_role_label {
+  color: $assistant_primary_color;
+}
+
+.ww_skin_assistant_user_message .ww_skin_assistant_role_label {
+  color: $assistant_secondary_text_color;
+}
+
+// Assistant User Bubble
+.ww_skin_assistant_user_bubble {
+  background-color: $assistant_user_bubble_background_color;
+  color: $assistant_user_bubble_text_color;
+  border-radius: 0.875rem 0.875rem 0.1875rem 0.875rem;
+  line-height: 1.45;
+}
+
+// Assistant Avatar
+.ww_skin_assistant_avatar {
+  border-radius: $assistant_border_radius_round;
+  background-color: $assistant_avatar_background_color;
+
+  i {
+    color: $assistant_avatar_icon_color;
+    font-size: 0.875rem;
+
+    &:before {
+      content: $assistant_avatar_icon;
+    }
+  }
+}
+
+.ww_skin_assistant_welcome_screen .ww_skin_assistant_avatar i {
+  font-size: 1.5rem;
+}
+
+.ww_skin_assistant_info .ww_skin_assistant_avatar i {
+  font-size: 1.25rem;
+}
+
+// Assistant Bubble
+.ww_skin_assistant_bubble {
+  background-color: transparent;
+  border-radius: 0;
+  color: $assistant_bubble_text_color;
+  line-height: 1.55;
+
+  a {
+    color: $assistant_bubble_link_color;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-thickness 120ms ease-out;
+  }
+
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  ul { list-style-type: disc; }
+  ul ul { list-style-type: circle; }
+  ul ul ul { list-style-type: square; }
+
+  ol { list-style-type: decimal; }
+  ol ol { list-style-type: lower-alpha; }
+  ol ol ol { list-style-type: lower-roman; }
+
+  code {
+    font-family: monospace;
+    font-size: 0.875em;
+    background-color: $assistant_code_background_color;
+    border-radius: 0.1875rem;
+  }
+
+  pre {
+    background-color: $assistant_pre_background_color;
+    border: 1px solid $assistant_table_border_color;
+    border-radius: 0.375rem;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+  }
+
+  pre code {
+    background-color: transparent;
+    font-size: inherit;
+  }
+
+  table {
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  th,
+  td {
+    border: 1px solid $assistant_table_border_color;
+    text-align: left;
+  }
+
+  th {
+    background-color: $assistant_table_header_background_color;
+    font-weight: 600;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+    font-weight: 600;
+  }
+
+  h1 { font-size: 1.125rem; }
+  h2 { font-size: 1rem; }
+  h3 { font-size: 0.9375rem; }
+  h4, h5, h6 { font-size: 0.875rem; }
+
+  blockquote {
+    border-left: 2px solid $assistant_table_border_color;
+    color: $assistant_secondary_text_color;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid $assistant_table_border_color;
+  }
 }
 
 @import "custom-skin"; // WEBWORKS
