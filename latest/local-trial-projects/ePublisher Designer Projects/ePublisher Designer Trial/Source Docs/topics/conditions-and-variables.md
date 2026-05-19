@@ -1,10 +1,14 @@
 <!-- markers:{"Keywords": "settings, configuration, preferences, bandwidth, notifications, proxy, admin", "Description": "Configure Quantum Sync preferences including sync behavior, bandwidth limits, and notifications.", "IndexMarker": "settings:configuring,configuration:preferences"}; #settings -->
 ## Settings
 
+[settings]: #settings "Settings"
+
 $ProductName; $Version; provides extensive configuration options to customize sync behavior for your environment. Access settings through the system tray icon (Windows and Linux) or menu bar application (macOS).
 
 <!-- marker:IndexMarker="settings:general" ; #general-settings -->
 ### General Settings
+
+[general-settings]: #general-settings "General Settings"
 
 | Setting | Description | Default |
 |---------|-------------|---------|
@@ -17,6 +21,8 @@ $ProductName; $Version; provides extensive configuration options to customize sy
 <!-- marker:IndexMarker="settings:sync,bandwidth:limiting" ; #sync-settings -->
 ### Sync Settings
 
+[sync-settings]: #sync-settings "Sync Settings"
+
 | Setting | Description | Default |
 |---------|-------------|---------|
 | Sync folder location | Local directory for synchronized files | `Documents/$ProductName;` |
@@ -27,6 +33,8 @@ $ProductName; $Version; provides extensive configuration options to customize sy
 
 <!-- marker:IndexMarker="settings:network,proxy:configuration" ; #network-settings -->
 ### Network Settings
+
+[network-settings]: #network-settings "Network Settings"
 
 Configure proxy servers and network preferences for environments with restricted internet access.
 
@@ -44,6 +52,8 @@ Configure proxy servers and network preferences for environments with restricted
 <!-- condition:advanced -->
 <!-- marker:IndexMarker="settings:administrator,enterprise:deployment" ; #admin-settings -->
 ### Administrator Settings
+
+[admin-settings]: #admin-settings "Administrator Settings"
 
 The following settings are available only to users with administrator privileges or when $ProductName; is deployed through enterprise management tools.
 

@@ -1,10 +1,14 @@
 <!-- markers:{"Keywords": "getting started, setup, installation, quickstart, prerequisites", "Description": "Step-by-step guide to installing and configuring Quantum Sync on your device.", "IndexMarker": "installation,setup:initial"}; #getting-started -->
 ## Getting Started
 
+[getting-started]: #getting-started "Getting Started"
+
 This guide walks you through the initial setup of $ProductName; on your device. The entire process takes approximately five minutes.
 
 <!-- #prerequisites -->
 ### Prerequisites
+
+[prerequisites]: #prerequisites "Prerequisites"
 
 Before you begin, ensure you have the following:
 
@@ -22,6 +26,8 @@ Before you begin, ensure you have the following:
 
 <!-- style:Procedure Title ; #installation -->
 To install $ProductName; on your device:
+
+[installation]: #installation "Install Quantum Sync"
 
 1. **Download the installer**
 
@@ -59,12 +65,14 @@ To install $ProductName; on your device:
 
 5. **Configure initial sync**
 
-   Select which existing cloud folders to sync to this device. You can change these settings later in [Settings](conditions-and-variables.md#settings).
+   Select which existing cloud folders to sync to this device. You can change these settings later in [Settings][settings].
 
 > **Tip:** For the fastest initial sync, connect to a wired network. $ProductName; downloads large file sets significantly faster over Ethernet than Wi-Fi.
 
 <!-- #verify-installation -->
 ### Verifying Your Installation
+
+[verify-installation]: #verify-installation "Verifying Your Installation"
 
 After installation, confirm that $ProductName; is running correctly:
 
@@ -73,10 +81,12 @@ After installation, confirm that $ProductName; is running correctly:
 3. Verify the status reads **Connected** and your account email appears
 4. Create a test file in your sync folder and confirm it appears at quantumsync.example/files
 
-If the status shows **Disconnected** or **Error**, see [Troubleshooting](expandable-sections.md#troubleshooting) for solutions.
+If the status shows **Disconnected** or **Error**, see [Troubleshooting][troubleshooting] for solutions.
 
 <!-- style:Heading 3 ; #command-line-verification -->
 ### Command-Line Verification
+
+[command-line-verification]: #command-line-verification "Command-Line Verification"
 
 <!-- condition:advanced -->
 Advanced users can verify the installation from the command line:
@@ -95,6 +105,8 @@ The `--diagnose` command runs a connectivity test and reports any configuration 
 <!-- style:Procedure Title ; #configure-selective-sync -->
 To choose which cloud folders sync to this device:
 
+[configure-selective-sync]: #configure-selective-sync "Configure Selective Sync"
+
 1. Open $ProductName; settings
 2. Navigate to the **Selective Sync** tab
 3. Review the list of cloud folders and their sizes
@@ -107,4 +119,21 @@ $ProductName; frees the associated disk space immediately. To re-enable a folder
 
 ### Next Steps
 
-After installation, $ProductName; runs in the background and keeps your files synchronized automatically. To learn about available capabilities, see [Features](tables.md#features). To customize sync behavior, see [Settings](conditions-and-variables.md#settings).
+After installation, $ProductName; runs in the background and keeps your files synchronized automatically. To learn about available capabilities, see [Features][features]. To customize sync behavior, see [Settings][settings].
+
+<!--
+  Cross-file slug definitions (pattern-file artifact).
+
+  The Designer Trial source docs are pattern files for modular development.
+  Each topic file is registered as a separate source document in the .wep, not
+  assembled via includes. So `[Text][slug]` cross-references need each outgoing
+  slug defined locally per CommonMark scope rules. In a production setup where
+  topic files are assembled via include directives, these local defs would not
+  be needed — each target file's triple already places the slug in
+  document-global scope after Phase 1 assembly. Maintaining this block by hand
+  is not the expected real-world workflow.
+-->
+
+[settings]: conditions-and-variables.md#settings "Settings"
+[troubleshooting]: expandable-sections.md#troubleshooting "Troubleshooting"
+[features]: tables.md#features "Features"

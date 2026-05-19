@@ -1,6 +1,8 @@
-<!-- markers:{"Keywords": "quantum sync, documentation, cloud storage, file synchronization", "Description": "Complete documentation for Quantum Sync cloud synchronization service"} -->
+<!-- markers:{"Keywords": "quantum sync, documentation, cloud storage, file synchronization", "Description": "Complete documentation for Quantum Sync cloud synchronization service"}; #documentation -->
 Quantum Sync Documentation
 ==========================
+
+[documentation]: #documentation "Documentation"
 
 Welcome to the $ProductName; documentation. This guide covers everything you need to know about setting up and using $ProductName; for seamless cloud file synchronization.
 

@@ -1,10 +1,14 @@
 <!-- markers:{"Keywords": "features, real-time sync, version history, sharing, encryption, collaboration, offline access", "Description": "Comprehensive overview of Quantum Sync features including sync, sharing, and security capabilities."}; #features -->
 ## Features
 
+[features]: #features "Features"
+
 $ProductName; $Version; includes a comprehensive set of features designed for both individual users and enterprise teams. This section provides detailed information about each major capability.
 
 <!-- #core-capabilities -->
 ### Core Capabilities
+
+[core-capabilities]: #core-capabilities "Core Capabilities"
 
 <!-- multiline ; marker:IndexMarker="synchronization:real-time,version history,sharing:secure,encryption:end-to-end,offline access" -->
 | Feature | Description |
@@ -47,6 +51,8 @@ $ProductName; $Version; includes a comprehensive set of features designed for bo
 <!-- marker:IndexMarker="platform support,system requirements" ; #platform-support -->
 ### Platform Support
 
+[platform-support]: #platform-support "Platform Support"
+
 $ProductName; runs natively on all major operating systems:
 
 | Platform | Minimum Version | Architecture | Installer |
@@ -60,6 +66,8 @@ $ProductName; runs natively on all major operating systems:
 
 <!-- #plan-comparison -->
 ### Feature Comparison by Plan
+
+[plan-comparison]: #plan-comparison "Feature Comparison by Plan"
 
 Not all features are available on every subscription tier. The following table summarizes availability across plans.
 
@@ -94,6 +102,8 @@ Contact $SupportEmail; for information about upgrading your account.
 
 <!-- marker:IndexMarker="API:overview,command line:integration" ; #api-access -->
 #### REST API
+
+[api-access]: #api-access "REST API"
 
 $ProductName; provides a REST API for programmatic access to sync operations. Common use cases include:
 
