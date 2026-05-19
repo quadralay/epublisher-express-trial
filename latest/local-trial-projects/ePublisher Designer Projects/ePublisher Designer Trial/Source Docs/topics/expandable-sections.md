@@ -1,12 +1,16 @@
 <!-- markers:{"Keywords": "troubleshooting, errors, sync issues, conflicts, diagnostics, support, performance", "Description": "Resolve common Quantum Sync issues including sync failures, conflicts, connection problems, and performance."}; #troubleshooting -->
 ## Troubleshooting
 
+[troubleshooting]: #troubleshooting "Troubleshooting"
+
 This section covers common issues and their solutions. If you cannot resolve a problem using the steps below, contact support at $SupportEmail;.
 
 ### Common Issues
 
 <!-- style:Issue ; marker:IndexMarker="troubleshooting:files not syncing" ; #issue-files-not-syncing -->
 #### Files not syncing
+
+[issue-files-not-syncing]: #issue-files-not-syncing "Files not syncing"
 
 If files in your sync folder are not uploading or downloading:
 
@@ -24,7 +28,9 @@ quantumsync service restart
 <!-- style:Issue ; marker:IndexMarker="troubleshooting:sync conflicts,conflicts:resolving" ; #issue-sync-conflicts -->
 #### Sync conflicts
 
-[Conflicts](glossary.md#gloss-term-conflict) occur when the same file is modified on multiple devices before syncing completes. $ProductName; preserves both versions by renaming the conflicting copy with a timestamp suffix (for example, `report (conflicted 2026-03-01).docx`).
+[issue-sync-conflicts]: #issue-sync-conflicts "Sync conflicts"
+
+[Conflicts][gloss-term-conflict] occur when the same file is modified on multiple devices before syncing completes. $ProductName; preserves both versions by renaming the conflicting copy with a timestamp suffix (for example, `report (conflicted 2026-03-01).docx`).
 
 To resolve a conflict:
 
@@ -37,6 +43,8 @@ To resolve a conflict:
 <!-- style:Issue ; marker:IndexMarker="troubleshooting:connection errors,network:ports" ; #issue-connection-errors -->
 #### Connection errors
 
+[issue-connection-errors]: #issue-connection-errors "Connection errors"
+
 If $ProductName; cannot connect to the server, check your network settings and firewall configuration. The application requires outbound access on the following ports:
 
 | Port | Protocol | Purpose |
@@ -44,14 +52,16 @@ If $ProductName; cannot connect to the server, check your network settings and f
 | 443  | HTTPS    | API communication and file transfer |
 | 8443 | WebSocket| Real-time change notifications |
 
-If your organization uses a proxy server, configure it in [Network Settings](conditions-and-variables.md#network-settings).
+If your organization uses a proxy server, configure it in [Network Settings][network-settings].
 
 <!-- style:Issue ; marker:IndexMarker="troubleshooting:slow sync,performance:optimization" ; #issue-slow-performance -->
 #### Slow sync performance
 
+[issue-slow-performance]: #issue-slow-performance "Slow sync performance"
+
 If file synchronization is slower than expected:
 
-1. **Check bandwidth limits** — Open [Sync Settings](conditions-and-variables.md#sync-settings) and verify that upload and download limits are not set too low
+1. **Check bandwidth limits** — Open [Sync Settings][sync-settings] and verify that upload and download limits are not set too low
 2. **Reduce concurrent transfers** — If you are syncing thousands of small files, $ProductName; may perform better with fewer concurrent connections
 3. **Switch to a wired connection** — Ethernet connections provide more consistent throughput than Wi-Fi
 4. **Exclude unnecessary files** — Add large temporary files and build artifacts to your ignore patterns:
@@ -67,6 +77,8 @@ If file synchronization is slower than expected:
 <!-- style:Issue ; #issue-high-cpu-usage -->
 #### High CPU usage
 
+[issue-high-cpu-usage]: #issue-high-cpu-usage "High CPU usage"
+
 If $ProductName; uses excessive CPU resources:
 
 - Check whether a large initial sync is in progress (first sync after installation is resource-intensive)
@@ -75,6 +87,8 @@ If $ProductName; uses excessive CPU resources:
 
 <!-- marker:IndexMarker="diagnostics:commands,troubleshooting:diagnostic tools" ; #diagnostics -->
 ### Diagnostic Tools
+
+[diagnostics]: #diagnostics "Diagnostic Tools"
 
 Use the built-in diagnostic tool to gather information for support requests:
 
@@ -110,6 +124,8 @@ For additional troubleshooting steps, see the online knowledge base at quantumsy
 <!-- #getting-help -->
 ### Getting Help
 
+[getting-help]: #getting-help "Getting Help"
+
 If you cannot resolve your issue using the steps above:
 
 - Search the knowledge base at quantumsync.example/support
@@ -120,4 +136,22 @@ If you cannot resolve your issue using the steps above:
 When contacting support, include the output of `quantumsync --diagnose` to help the support team identify your issue quickly.
 <!-- /condition -->
 
-For definitions of technical terms used in this section, see the [Glossary](glossary.md#glossary).
+For definitions of technical terms used in this section, see the [Glossary][glossary].
+
+<!--
+  Cross-file slug definitions (pattern-file artifact).
+
+  The Designer Trial source docs are pattern files for modular development.
+  Each topic file is registered as a separate source document in the .wep, not
+  assembled via includes. So `[Text][slug]` cross-references need each outgoing
+  slug defined locally per CommonMark scope rules. In a production setup where
+  topic files are assembled via include directives, these local defs would not
+  be needed — each target file's triple already places the slug in
+  document-global scope after Phase 1 assembly. Maintaining this block by hand
+  is not the expected real-world workflow.
+-->
+
+[gloss-term-conflict]: glossary.md#gloss-term-conflict "Conflict"
+[network-settings]: conditions-and-variables.md#network-settings "Network Settings"
+[sync-settings]: conditions-and-variables.md#sync-settings "Sync Settings"
+[glossary]: glossary.md#glossary "Glossary"

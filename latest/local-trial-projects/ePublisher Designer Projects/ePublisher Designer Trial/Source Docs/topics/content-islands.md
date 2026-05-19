@@ -1,10 +1,14 @@
 <!-- markers:{"Keywords": "sync modes, automatic, manual, selective, bandwidth, callouts, tips, warnings", "Description": "Synchronization modes and bandwidth management for Quantum Sync.", "IndexMarker": "synchronization:modes"}; #sync-modes -->
 ## Sync Modes
 
+[sync-modes]: #sync-modes "Sync Modes"
+
 $ProductName; offers three synchronization modes to accommodate different workflows and network conditions. You can switch between modes at any time through the application settings or system tray menu.
 
 <!-- marker:IndexMarker="synchronization:automatic,real-time synchronization" ; #automatic-sync -->
 ### Automatic Sync
+
+[automatic-sync]: #automatic-sync "Automatic Sync"
 
 In automatic mode, $ProductName; monitors your sync folder continuously and uploads changes immediately. Downloads from other devices appear as soon as they are available. This mode is ideal for desktop computers with reliable internet connections.
 
@@ -14,12 +18,14 @@ Automatic sync uses intelligent scheduling to avoid interfering with your work:
 - **Idle periods** — Transfer speeds increase to synchronize queued changes quickly
 - **Metered connections** — Sync pauses automatically when your operating system reports a metered network
 
-> **Tip:** You can override the metered connection behavior in [Sync Settings](conditions-and-variables.md#sync-settings). Set **Pause sync on battery** to *Disabled* if you want sync to continue during battery-powered sessions.
+> **Tip:** You can override the metered connection behavior in [Sync Settings][sync-settings]. Set **Pause sync on battery** to *Disabled* if you want sync to continue during battery-powered sessions.
 
 ---
 
 <!-- marker:IndexMarker="synchronization:manual" ; #manual-sync -->
 ### Manual Sync
+
+[manual-sync]: #manual-sync "Manual Sync"
 
 Manual mode gives you complete control over when synchronization occurs. Changes are queued locally and transmitted only when you explicitly trigger a sync. This mode is useful when traveling or on metered cellular connections.
 
@@ -35,6 +41,8 @@ You can trigger a manual sync in three ways:
 
 <!-- marker:IndexMarker="synchronization:selective,storage:conservation" ; #selective-sync -->
 ### Selective Sync
+
+[selective-sync]: #selective-sync "Selective Sync"
 
 Selective sync allows you to choose which cloud folders appear on each device. Folders you exclude are hidden from your local sync folder but remain accessible through the web interface and on other devices.
 
@@ -56,6 +64,8 @@ Use selective sync to conserve disk space on laptops, separate work and personal
 <!-- #choosing-mode -->
 ### Choosing the Right Mode
 
+[choosing-mode]: #choosing-mode "Choosing the Right Mode"
+
 If you are unsure which mode to use, consider the following guidelines:
 
 - Use **Automatic** if you have a reliable, unmetered internet connection and want files available everywhere without intervention
@@ -69,6 +79,8 @@ If you are unsure which mode to use, consider the following guidelines:
 <!-- marker:IndexMarker="bandwidth:management,network:optimization" ; #bandwidth-management -->
 ### Bandwidth Management
 
+[bandwidth-management]: #bandwidth-management "Bandwidth Management"
+
 $ProductName; allows you to limit upload and download speeds to avoid saturating your network connection. This is especially useful in shared office environments or on connections with limited throughput.
 
 <!-- style:BQ Tip -->
@@ -81,7 +93,7 @@ $ProductName; allows you to limit upload and download speeds to avoid saturating
 > | Mobile hotspot  | 100 KB/s     | 250 KB/s       |
 > | Satellite       | 50 KB/s      | 100 KB/s       |
 >
-> Configure these values in [Sync Settings](conditions-and-variables.md#sync-settings). Set a limit to **0** for unlimited throughput.
+> Configure these values in [Sync Settings][sync-settings]. Set a limit to **0** for unlimited throughput.
 
 To check your current bandwidth usage, use the command-line tool:
 
@@ -102,4 +114,21 @@ To check your current bandwidth usage, use the command-line tool:
 >
 > Press `Ctrl+C` to stop monitoring.
 
-For additional information about network configuration, see [Network Settings](conditions-and-variables.md#network-settings). If you experience slow transfers, see [Slow sync performance](expandable-sections.md#issue-slow-performance) for optimization steps.
+For additional information about network configuration, see [Network Settings][network-settings]. If you experience slow transfers, see [Slow sync performance][issue-slow-performance] for optimization steps.
+
+<!--
+  Cross-file slug definitions (pattern-file artifact).
+
+  The Designer Trial source docs are pattern files for modular development.
+  Each topic file is registered as a separate source document in the .wep, not
+  assembled via includes. So `[Text][slug]` cross-references need each outgoing
+  slug defined locally per CommonMark scope rules. In a production setup where
+  topic files are assembled via include directives, these local defs would not
+  be needed — each target file's triple already places the slug in
+  document-global scope after Phase 1 assembly. Maintaining this block by hand
+  is not the expected real-world workflow.
+-->
+
+[sync-settings]: conditions-and-variables.md#sync-settings "Sync Settings"
+[network-settings]: conditions-and-variables.md#network-settings "Network Settings"
+[issue-slow-performance]: expandable-sections.md#issue-slow-performance "Slow sync performance"

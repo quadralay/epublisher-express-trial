@@ -1,12 +1,16 @@
 <!-- markers:{"Keywords": "troubleshooting, errors, sync issues, conflicts, diagnostics, support", "Description": "Resolve common Quantum Sync issues including sync failures, conflicts, and connection problems"}; #troubleshooting -->
 ## Troubleshooting
 
+[troubleshooting]: #troubleshooting "Troubleshooting"
+
 This section covers common issues and their solutions. If you cannot resolve a problem using these steps, contact support at $SupportEmail;.
 
 ### Common Issues
 
 <!-- style:Issue ; marker:IndexMarker="troubleshooting:files not syncing" ; #issue-files-not-syncing -->
 #### Files not syncing
+
+[issue-files-not-syncing]: #issue-files-not-syncing "Files not syncing"
 
 If files in your sync folder are not uploading or downloading:
 
@@ -18,7 +22,9 @@ If files in your sync folder are not uploading or downloading:
 <!-- style:Issue ; #issue-sync-conflicts -->
 #### Sync conflicts
 
-[Conflicts](#gloss-term-conflict) occur when the same file is modified on multiple devices before syncing completes. $ProductName; preserves both versions by renaming the conflicting copy with a timestamp suffix.
+[issue-sync-conflicts]: #issue-sync-conflicts "Sync conflicts"
+
+[Conflicts][gloss-term-conflict] occur when the same file is modified on multiple devices before syncing completes. $ProductName; preserves both versions by renaming the conflicting copy with a timestamp suffix.
 
 To resolve a conflict:
 
@@ -29,6 +35,8 @@ To resolve a conflict:
 
 <!-- style:Issue ; #issue-connection-errors -->
 #### Connection errors
+
+[issue-connection-errors]: #issue-connection-errors "Connection errors"
 
 If $ProductName; cannot connect to the server, check your network settings and firewall configuration. The application requires outbound access on ports 443 (HTTPS) and 8443 (WebSocket).
 
@@ -60,4 +68,4 @@ If you cannot resolve your issue using the steps above:
 - Post in the community forums at community.quantumsync.example
 - Contact support at $SupportEmail;
 
-For definitions of technical terms used in this section, see the [Glossary](#glossary).
+For definitions of technical terms used in this section, see the [Glossary][glossary].

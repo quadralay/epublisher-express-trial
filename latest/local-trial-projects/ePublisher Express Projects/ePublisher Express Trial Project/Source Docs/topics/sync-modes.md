@@ -1,6 +1,8 @@
 <!-- markers:{"Keywords": "sync modes, automatic, manual, selective, synchronization, bandwidth", "Description": "Choose the right synchronization mode for your workflow: automatic, manual, or selective sync", "IndexMarker": "synchronization:modes"}; #sync-modes -->
 ## Sync Modes
 
+[sync-modes]: #sync-modes "Sync Modes"
+
 $ProductName; offers three synchronization modes to accommodate different workflows and network conditions. You can switch between modes at any time through the application settings or system tray menu.
 
 ### Mode Comparison
@@ -35,4 +37,4 @@ Use selective sync to:
 
 To configure selective sync, open Settings and navigate to the **Selective Sync** tab. Check the folders you want to sync to this device.
 
-If you encounter sync issues after changing modes, see [Troubleshooting](#troubleshooting) for resolution steps.
+If you encounter sync issues after changing modes, see [Troubleshooting][troubleshooting] for resolution steps.

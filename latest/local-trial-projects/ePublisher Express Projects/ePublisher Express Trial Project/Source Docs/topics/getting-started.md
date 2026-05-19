@@ -1,6 +1,8 @@
 <!-- markers:{"Keywords": "getting started, setup, installation, quickstart, prerequisites", "Description": "Step-by-step guide to installing and configuring Quantum Sync on your device", "IndexMarker": "installation,setup:initial"}; #getting-started -->
 ## Getting Started
 
+[getting-started]: #getting-started "Getting Started"
+
 This guide walks you through the initial setup of $ProductName; on your device. The entire process takes approximately five minutes.
 
 ### Prerequisites
@@ -23,7 +25,7 @@ Follow these steps to install and configure $ProductName;:
 
 4. **Select your sync folder** - Choose the local folder where $ProductName; will store synchronized files. The default location is your Documents folder.
 
-5. **Configure initial sync** - Select which existing cloud folders to sync to this device. You can change these settings later in [Settings](#settings).
+5. **Configure initial sync** - Select which existing cloud folders to sync to this device. You can change these settings later in [Settings][settings].
 
 > **Tip:** For the fastest initial sync, connect to a wired network if available. $ProductName; can download large file sets significantly faster over ethernet than Wi-Fi.
 
@@ -43,4 +45,4 @@ Watch our 3-minute setup video for a visual walkthrough of the installation proc
 
 ### Next Steps
 
-After installation, $ProductName; runs in the background and keeps your files synchronized automatically. To learn about available features, see [Features](#features). To customize sync behavior, see [Settings](#settings).
+After installation, $ProductName; runs in the background and keeps your files synchronized automatically. To learn about available features, see [Features][features]. To customize sync behavior, see [Settings][settings].
