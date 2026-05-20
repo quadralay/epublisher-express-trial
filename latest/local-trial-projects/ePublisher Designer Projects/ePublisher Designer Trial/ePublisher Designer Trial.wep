@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Version="1.1.2.0" ProjectID="hMDzxVACF5I" ChangeID="JGPEqmOEyUU" RuntimeVersion="2026.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
+<Project Version="1.1.2.0" ProjectID="hMDzxVACF5I" ChangeID="a-BvQKIvg6c" RuntimeVersion="2026.1" FormatVersion="{Current}" xmlns="urn:WebWorks-Publish-Project">
   <Formats>
     <Format TargetName="Web Help" Name="WebWorks Reverb 2.0" Type="Application" TargetID="Lf3DjZlhl_A">
       <OutputDirectory>Output\Web Help</OutputDirectory>
@@ -20,9 +20,13 @@
       <Document Type="normal" Included="true" DocumentID="gOZ8DQsVw7C" ChangeID="" Path="Source Docs\topics\glossary.md" />
     </Group>
   </Groups>
-  <GlobalConfiguration ChangeID="wWx_Pl_wWm0">
+  <GlobalConfiguration ChangeID="aJl3ofWjfsM">
     <Rules Type="Paragraph" Default="{WWDefaultRule}" ChangeID="">
-      <Rule Key="{WWDefaultRule}" ChangeID="DdSLs2ByvOc" />
+      <Rule Key="{WWDefaultRule}" ChangeID="bz464kqN2Bc">
+        <Options>
+          <Option Name="landmark-id-format" Value="source-id" Source="Explicit" />
+        </Options>
+      </Rule>
       <Rule Key="Blockquote" />
       <Rule Key="Blockquote Paragraph" />
       <Rule Key="Code Fence" />
@@ -210,6 +214,7 @@
   </GlobalConfiguration>
   <FormatConfigurations>
     <FormatConfiguration TargetID="Lf3DjZlhl_A" ChangeID="W13XsKKBzKA">
+      <Rules Type="Paragraph" ChangeID="" />
       <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="True">
         <Condition Name="advanced" Value="Visible" Passthrough="False" UseDocumentValue="False" />
         <Condition Name="online_only" Value="Visible" Passthrough="False" UseDocumentValue="False" />

@@ -10,7 +10,11 @@
   </Formats>
   <GlobalConfiguration>
     <Rules Type="Paragraph" Default="{WWDefaultRule}" ChangeID="">
-      <Rule Key="{WWDefaultRule}" />
+      <Rule Key="{WWDefaultRule}">
+        <Options>
+          <Option Name="landmark-id-format" Value="source-id" Source="Explicit" />
+        </Options>
+      </Rule>
       <Rule Key="Blockquote" />
       <Rule Key="Blockquote Paragraph" />
       <Rule Key="Code Fence" />
@@ -198,6 +202,7 @@
   </GlobalConfiguration>
   <FormatConfigurations>
     <FormatConfiguration TargetID="Lf3DjZlhl_A">
+      <Rules Type="Paragraph" ChangeID="" />
       <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="True">
         <Condition Name="advanced" Value="Visible" Passthrough="False" UseDocumentValue="False" />
         <Condition Name="online_only" Value="Visible" Passthrough="False" UseDocumentValue="False" />
@@ -209,7 +214,6 @@
         <Variable Name="Version" Value="2.0" UseDocumentValue="False" />
         <Variable Name="ProductGuideTitle" Value="User Manual" UseDocumentValue="False" />
       </Variables>
-      <XRefFormatSet />
       <FormatSettings>
         <FormatSetting Name="company-copyright" Value="© 2026 Quantum Sync" />
         <FormatSetting Name="company-email" Value="info@quantum-sync.com" />
