@@ -39,7 +39,7 @@ Source documents are authored in [Markdown++](https://static.webworks.com/docs/e
 ## Resources
 
 - [ePublisher Documentation](https://static.webworks.com/docs/epublisher/latest/help/)
-- [WebWorks Claude Skills](https://github.com/quadralay/webworks-claude-skills) - AI skills for ePublisher
+- [WebWorks Agent Skills](https://github.com/quadralay/webworks-agent-skills) - AI agent skills for ePublisher
 - [WebWorks](https://www.webworks.com/)
 
 ## License

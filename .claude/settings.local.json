@@ -6,8 +6,8 @@
   },
   "permissions": {
     "allow": [
-      "Skill(webworks-claude-skills:automap)",
-      "Skill(webworks-claude-skills:automap:*)"
+      "Skill(webworks-agent-skills:automap)",
+      "Skill(webworks-agent-skills:automap:*)"
     ]
   }
 }
