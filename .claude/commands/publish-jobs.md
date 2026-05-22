@@ -30,7 +30,7 @@ Publish all AutoMap job files in the `automap-jobs/` directory.
       - `DEPLOY_PATH` = `$AUTOMAP_DEPLOY_PATH/$DEPLOY_FOLDER`
 
    d. **Execute the AutoMap build:**
-      Invoke the `webworks-claude-skills:automap` skill with:
+      Invoke the `webworks-agent-skills:automap` skill with:
       - Job file: `automap-jobs/<JOB_FILE>`
       - Deploy path: `<DEPLOY_PATH>`
       - Flags: `-l` (clean deploy folder before deploying)
