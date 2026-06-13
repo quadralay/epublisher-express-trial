@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "quantum sync, documentation, cloud storage, file synchronization", "Description": "Complete documentation for Quantum Sync cloud synchronization service"}; #documentation -->
+---
+mdpp-version: 1.0
+date: 2026-05-19
+description: Complete documentation for Quantum Sync cloud synchronization service
+keywords: quantum sync, documentation, cloud storage, file synchronization
+---
+
+<!-- #documentation -->
 Quantum Sync Documentation
 ==========================
 

@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "getting started, setup, installation, quickstart, prerequisites", "Description": "Step-by-step guide to installing and configuring Quantum Sync on your device", "IndexMarker": "installation,setup:initial"}; #getting-started -->
+---
+mdpp-version: 1.0
+date: 2026-05-19
+description: Step-by-step guide to installing and configuring Quantum Sync on your device
+keywords: getting started, setup, installation, quickstart, prerequisites
+---
+
+<!-- marker:IndexMarker="installation,setup:initial" ; #getting-started -->
 ## Getting Started
 
 [getting-started]: #getting-started "Getting Started"

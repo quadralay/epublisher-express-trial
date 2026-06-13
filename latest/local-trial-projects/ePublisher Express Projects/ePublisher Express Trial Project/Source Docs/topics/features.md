@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "features, real-time sync, version history, sharing, encryption, collaboration", "Description": "Comprehensive overview of Quantum Sync features including sync, sharing, and security capabilities"}; #features -->
+---
+mdpp-version: 1.0
+date: 2026-05-19
+description: Comprehensive overview of Quantum Sync features including sync, sharing, and security capabilities
+keywords: features, real-time sync, version history, sharing, encryption, collaboration
+---
+
+<!-- #features -->
 ## Features
 
 [features]: #features "Features"

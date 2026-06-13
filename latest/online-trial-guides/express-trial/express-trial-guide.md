@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "trial, getting started, quick start, ePublisher Express", "Description": "First-time user introduction to ePublisher Express"}; #quick-start -->
+---
+mdpp-version: 1.0
+date: 2026-03-03
+description: First-time user introduction to ePublisher Express
+keywords: trial, getting started, quick start, ePublisher Express
+---
+
+<!-- #quick-start -->
 # Quick Start
 
 Generate professional output from DITA, FrameMaker, Word, and Markdown source documents. This trial uses Markdown for transparency and ease of evaluation — every concept here applies to all authoring environments.
