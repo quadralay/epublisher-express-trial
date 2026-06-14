@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "troubleshooting, errors, sync issues, conflicts, diagnostics, support, performance", "Description": "Resolve common Quantum Sync issues including sync failures, conflicts, connection problems, and performance."}; #troubleshooting -->
+---
+mdpp-version: 1.0
+date: 2026-05-19
+description: Resolve common Quantum Sync issues including sync failures, conflicts, connection problems, and performance.
+keywords: troubleshooting, errors, sync issues, conflicts, diagnostics, support, performance
+---
+
+<!-- #troubleshooting -->
 ## Troubleshooting
 
 [troubleshooting]: #troubleshooting "Troubleshooting"

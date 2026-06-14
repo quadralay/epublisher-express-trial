@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "designer, trial, getting started, customization, branding, stationery, style designer", "Description": "ePublisher Designer trial — customize branding, content rules, and output formats"}; #quick-start -->
+---
+mdpp-version: 1.0
+date: 2026-03-09
+description: ePublisher Designer trial — customize branding, content rules, and output formats
+keywords: designer, trial, getting started, customization, branding, stationery, style designer
+---
+
+<!-- #quick-start -->
 # Quick Start
 
 Design custom publishing experiences for DITA, FrameMaker, Word, and Markdown source documents. This trial uses Markdown for transparency and ease of evaluation — every concept here applies to all authoring environments.

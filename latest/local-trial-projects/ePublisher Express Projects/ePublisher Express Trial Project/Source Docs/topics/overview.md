@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "quantum sync, overview, cloud storage, file synchronization, benefits", "Description": "Learn what Quantum Sync is and why it's the ideal solution for cloud file synchronization", "IndexMarker": "cloud synchronization"}; #overview -->
+---
+mdpp-version: 1.0
+date: 2026-05-19
+description: Learn what Quantum Sync is and why it's the ideal solution for cloud file synchronization
+keywords: quantum sync, overview, cloud storage, file synchronization, benefits
+---
+
+<!-- marker:IndexMarker="cloud synchronization" ; #overview -->
 ## Overview
 
 [overview]: #overview "Overview"

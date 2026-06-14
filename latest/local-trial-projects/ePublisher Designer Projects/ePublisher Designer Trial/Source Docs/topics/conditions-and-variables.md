@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "settings, configuration, preferences, bandwidth, notifications, proxy, admin", "Description": "Configure Quantum Sync preferences including sync behavior, bandwidth limits, and notifications.", "IndexMarker": "settings:configuring,configuration:preferences"}; #settings -->
+---
+mdpp-version: 1.0
+date: 2026-05-19
+description: Configure Quantum Sync preferences including sync behavior, bandwidth limits, and notifications.
+keywords: settings, configuration, preferences, bandwidth, notifications, proxy, admin
+---
+
+<!-- marker:IndexMarker="settings:configuring,configuration:preferences" ; #settings -->
 ## Settings
 
 [settings]: #settings "Settings"

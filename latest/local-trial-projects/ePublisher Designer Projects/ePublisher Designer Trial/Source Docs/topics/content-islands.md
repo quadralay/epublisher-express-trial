@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "sync modes, automatic, manual, selective, bandwidth, callouts, tips, warnings", "Description": "Synchronization modes and bandwidth management for Quantum Sync.", "IndexMarker": "synchronization:modes"}; #sync-modes -->
+---
+mdpp-version: 1.0
+date: 2026-05-19
+description: Synchronization modes and bandwidth management for Quantum Sync.
+keywords: sync modes, automatic, manual, selective, bandwidth, callouts, tips, warnings
+---
+
+<!-- marker:IndexMarker="synchronization:modes" ; #sync-modes -->
 ## Sync Modes
 
 [sync-modes]: #sync-modes "Sync Modes"

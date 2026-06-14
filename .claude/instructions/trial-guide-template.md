@@ -5,7 +5,14 @@ This template defines the pattern for all ePublisher trial guides (Express, Auto
 ## Structure
 
 ```markdown
-<!-- markers:{"Keywords": "[product], trial, getting started", "Description": "[Product] quick start guide"}; #quick-start -->
+---
+mdpp-version: 1.0
+date: YYYY-MM-DD
+description: [Product] quick start guide
+keywords: [product], trial, getting started
+---
+
+<!-- #quick-start -->
 # Quick Start
 
 [1 sentence: outcome user will achieve]
@@ -122,7 +129,8 @@ Your output opens automatically. Try these features:
 ### Markdown++ Features
 Use lightly to keep source simple:
 - **Aliases:** Required on all significant headings
-- **Markers:** Keywords and Description in header
+- **Frontmatter:** `description` and `keywords` for retrieval metadata, plus `mdpp-version` and `date` (the file's last content-commit date, `YYYY-MM-DD`), in a YAML block at the top of the file
+- **Markers:** `IndexMarker` only — on headings that should generate index entries (it has no frontmatter equivalent, so it stays an inline marker)
 - **Multiline tables:** For feature exploration
 - **Content islands:** One tip callout maximum
 - **Conditions:** Optional, for audience-specific content

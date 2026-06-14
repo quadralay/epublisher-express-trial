@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "glossary, definitions, terms, terminology, reference", "Description": "Definitions of technical terms used throughout the Quantum Sync documentation"}; #glossary -->
+---
+mdpp-version: 1.0
+date: 2026-05-19
+description: Definitions of technical terms used throughout the Quantum Sync documentation
+keywords: glossary, definitions, terms, terminology, reference
+---
+
+<!-- #glossary -->
 ## Glossary
 
 [glossary]: #glossary "Glossary"

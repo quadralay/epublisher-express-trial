@@ -1,4 +1,11 @@
-<!-- markers:{"Keywords": "sync modes, automatic, manual, selective, synchronization, bandwidth", "Description": "Choose the right synchronization mode for your workflow: automatic, manual, or selective sync", "IndexMarker": "synchronization:modes"}; #sync-modes -->
+---
+mdpp-version: 1.0
+date: 2026-05-19
+description: "Choose the right synchronization mode for your workflow: automatic, manual, or selective sync"
+keywords: sync modes, automatic, manual, selective, synchronization, bandwidth
+---
+
+<!-- marker:IndexMarker="synchronization:modes" ; #sync-modes -->
 ## Sync Modes
 
 [sync-modes]: #sync-modes "Sync Modes"
