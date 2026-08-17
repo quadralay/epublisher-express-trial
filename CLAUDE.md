@@ -106,3 +106,17 @@ For general Markdown++ syntax, use the `webworks-claude-skills:markdown-plus-plu
 
 - Full documentation: https://static.webworks.com/docs/epublisher/latest/help/
 - Markdown++ syntax: https://static.webworks.com/docs/epublisher/latest/help/Authoring%20Source%20Documents/_markdown.1.01.html
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked in GitHub Issues (`quadralay/epublisher-express-trial`) via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default vocabulary — `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context — `CONTEXT.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
