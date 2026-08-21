@@ -120,3 +120,11 @@ Default vocabulary — `needs-triage`, `needs-info`, `ready-for-agent`, `ready-f
 ### Domain docs
 
 Single-context — `CONTEXT.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+### Trial project workflow
+
+The clone is the source of truth for all trial-project content. Open ePublisher Designer directly against the `.wep`/`.wrp`/`.wxsp` files under `latest/local-trial-projects/` — do not use the OneDrive Documents copies. Refresh the dev repo's `.wez` packages with the `/package-trials` slash command (purge `Logs/`, `Output/`, `Reports/` first). See `docs/agents/trial-project-workflow.md`.
+
+### Release migration
+
+When ePublisher ships a new runtime release (e.g., 2025.1 → 2026.1), migrate the Designer project, reconfigure new Target Settings, save-as-Stationery to overwrite the `.wxsp`, then sync the Express `.wrp` to the updated Stationery. See `docs/agents/release-migration.md` for the step-by-step procedure and per-release notes.
