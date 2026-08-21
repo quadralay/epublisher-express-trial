@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Job name="trial-express" version="1.0">
-  <Project path="C:\Projects\epublisher-docs-publish\webworks\ePublisher Stationery 2025.1\ePublisher Stationery 2025.1.wxsp" />
+  <Project path="C:\Projects\epublisher-docs\webworks\design\design.wep" />
   <Files>
     <Group name="Express Trial Guide">
       <Document path="..\latest\online-trial-guides\express-trial\express-trial-guide.md" />
     </Group>
   </Files>
   <Targets>
-    <Target name="Online Guides" format="WebWorks Reverb 2.0" formatType="Application" build="True" deployTarget="" cleanOutput="True">
+    <Target name="Online Guides" format="WebWorks Reverb 2.0" formatType="Application" build="True" destination="DocsExpressTrial" cleanOutput="True">
       <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="True">
         <Condition name="AutomapOnly" value="True" Passthrough="False" UseDocumentValue="False" />
         <Condition name="DesignerOnly" value="True" Passthrough="False" UseDocumentValue="False" />
