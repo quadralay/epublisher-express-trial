@@ -52,6 +52,7 @@ Your output opens automatically in your default browser. Here's what you get:
 | Feature        | What You Get                            |
 |----------------|-----------------------------------------|
 | **Toolbar**    | Configurable features: menu, search, navigation buttons |
+| **Splash Page**| Major sections presented as clickable cards at the site root |
 | **Search**     | Instant answers with breadcrumb context |
 | **Responsive** | Perfect reading on any device           |
 | **Share**      | Share widget provides Stable links to any page |

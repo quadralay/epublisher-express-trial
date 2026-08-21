@@ -35,6 +35,8 @@ The Document Manager (left panel) shows your source documents already loaded. Ge
 <!-- style:Screenshot -->
 ![Document Manager with source documents and Generate All button](images/designer-doc-manager.png)
 
+Your output opens on a **splash page** with the top-level sections highlighted as cards — a friendly landing point for readers exploring the doc set.
+
 <!-- #content-rules -->
 ## Step 2: Customize Content Rules
 
@@ -84,6 +86,8 @@ The File Differences Viewer shows the installed default file on the left and you
 > **Tip:** Right-click any file and select **Edit File...** to open it in an external editor instead. Editors like VS Code show inline color swatches for hex values, making it easy to pick and preview brand colors.
 
 4. Click **Generate All** — the entire web theme transforms
+
+> **Beyond colors:** The `sass` folder also contains partials for borders (`_borders.scss`), sizes (`_sizes.scss`), and fonts (`_fonts.scss`) — same File Differences workflow. For custom CSS selectors targeting specific elements, edit `custom.scss` in the same folder — it's linked last on every page so your rules always win the cascade.
 
 **Replace the PDF cover:**
 
