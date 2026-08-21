@@ -202,7 +202,6 @@
   </GlobalConfiguration>
   <FormatConfigurations>
     <FormatConfiguration TargetID="Lf3DjZlhl_A">
-      <Rules Type="Paragraph" ChangeID="" />
       <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="True">
         <Condition Name="advanced" Value="Visible" Passthrough="False" UseDocumentValue="False" />
         <Condition Name="online_only" Value="Visible" Passthrough="False" UseDocumentValue="False" />
@@ -228,7 +227,7 @@
         <FormatSetting Name="google-translate" Value="true" />
         <FormatSetting Name="index-generate" Value="true" />
         <FormatSetting Name="seo-og-image" Value="og.png" />
-        <FormatSetting Name="show-first-document" Value="true" />
+        <FormatSetting Name="show-first-document" Value="false" />
         <FormatSetting Name="sitemap-base-url" Value="https://www.quantum-sync.com" />
         <FormatSetting Name="toc-front-page-behavior" Value="open" />
         <FormatSetting Name="toolbar-logo-linked" Value="false" />

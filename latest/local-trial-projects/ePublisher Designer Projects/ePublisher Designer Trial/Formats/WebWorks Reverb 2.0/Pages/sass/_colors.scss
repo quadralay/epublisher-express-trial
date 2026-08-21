@@ -96,6 +96,7 @@ $toolbar_button_menu_icon_color: $toolbar_button_icon_color;
 $toolbar_button_menu_icon_color_hover: darken($toolbar_button_menu_icon_color, 20%);
 $toolbar_button_menu_icon_color_click: lighten($toolbar_button_menu_icon_color, 20%);
 $toolbar_button_menu_icon_color_disabled: darken($theme_surface_toolbar, 50%);
+
 $toolbar_logo_section_background_color: $toolbar_background_color;
 $toolbar_logo_text_color: $toolbar_text_color;
 $toolbar_logo_link_text_color: $toolbar_logo_text_color;
@@ -175,6 +176,7 @@ $menu_nav_buttons_icon_color_click: lighten($theme_on_surface, 20%);
 $menu_nav_buttons_background_color: $theme_surface;
 $menu_nav_buttons_background_color_hover: darken($theme_surface, 5%);
 $menu_nav_buttons_background_color_click: lighten($theme_surface, 5%);
+
 $menu_nav_buttons_current_icon_color: $menu_nav_buttons_icon_color;
 $menu_nav_buttons_current_icon_color_hover: $menu_nav_buttons_icon_color;
 $menu_nav_buttons_current_icon_color_click: $menu_nav_buttons_icon_color;
@@ -365,6 +367,9 @@ $assistant_input_background_color: white;
 $assistant_input_border_color: #dee2e6;
 $assistant_input_text_color: $assistant_text_color;
 
+$assistant_powered_by_text_color: $assistant_secondary_text_color;
+$assistant_powered_by_link_color: $assistant_secondary_text_color;
+
 $assistant_thread_item_background_color: $assistant_starter_background_color;
 $assistant_thread_item_background_color_hover: $assistant_starter_background_color_hover;
 $assistant_thread_item_border_color: $assistant_starter_border_color;
@@ -381,3 +386,16 @@ $assistant_code_background_color: rgba(0, 0, 0, 0.05);
 $assistant_pre_background_color: #f8f9fa;
 $assistant_table_border_color: #dee2e6;
 $assistant_table_header_background_color: #f8f9fa;
+
+/*
+* splash groups grid
+*/
+
+$splash_groups_card_background_color: $theme_surface_nav;
+$splash_groups_card_border_color: rgba(0, 0, 0, 0.14);
+$splash_groups_card_border_color_hover: rgba(0, 0, 0, 0.22);
+$splash_groups_card_accent_color: $link_default_color;
+$splash_groups_card_title_text_color: #1a1a1a;
+$splash_groups_card_title_text_color_hover: $link_default_color;
+$splash_groups_card_member_text_color: #4a4a4a;
+$splash_groups_card_member_text_color_hover: $link_default_color;
