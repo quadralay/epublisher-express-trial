@@ -36,7 +36,7 @@ Everything lives under the **AutoMap product folder**, `<Documents>\WebWorks ePu
 | Quantum Sync Stationery | `Evaluation\Quantum Sync Stationery\` | #29 (this contract) |
 | Variant Stationery — working name **Quantum Sync Midnight**; this contract proposes the folder and `.wxsp` name `Quantum Sync Midnight Stationery` for symmetry with the base Stationery | `Evaluation\Quantum Sync Midnight Stationery\` | #31 settles the final name and updates this document and the `CONTEXT.md` glossary entry |
 | Quantum Sync book (source docs) | `Evaluation\Quantum Sync Source Docs\` | #29 |
-| Release Notes document | `Evaluation\Quantum Sync Source Docs\release-notes.md` (#30 confirms the file name) | #30 |
+| Release Notes document | `Evaluation\Quantum Sync Source Docs\release-notes.md` | #30 |
 | Seeded jobs: Quantum Sync Help, Quantum Sync Release Notes, Quantum Sync Site Shell | `Jobs\<name>\<name>.waj` | #32 |
 | Composition job Quantum Sync Site | Created by the trial user in-guide; nothing is seeded | #33 |
 
@@ -146,5 +146,5 @@ Last run: 2026-09-02 against AutoMap 2026.1.4755 via `Invoke-Automap.ps1` (skill
 
 - **Quantum Sync Stationery is a copy of ePublisher Express Trial Stationery** with the folder, `.wxsp`, and `.manifest` renamed (ADR-0002). The `.wxsp` content is byte-identical: same Web Help (WebWorks Reverb 2.0) and PDF (PDF - XSL-FO) targets, same style mappings, same Quantum Sync branding assets. Nothing inside a Stationery names it, so the rename is complete once the three file-system names change.
 - Both Stationeries are regenerated from the Designer Trial project by Save as Stationery; release migration therefore saves the Stationery twice (see `docs/agents/release-migration.md`). The variant Stationery's regeneration story is recorded by #31.
-- **Quantum Sync Source Docs is a verbatim copy** of the Express Trial Project's `Source Docs/`. Until the Express and Designer evaluations converge on the neutral asset (the future work ADR-0002 anticipates), an edit to the Quantum Sync book is made in both places by hand. The Release Notes document is added here by #30 and has no Express counterpart.
+- **Quantum Sync Source Docs is a verbatim copy** of the Express Trial Project's `Source Docs/`. Until the Express and Designer evaluations converge on the neutral asset (the future work ADR-0002 anticipates), an edit to the Quantum Sync book is made in both places by hand. The Release Notes document (`release-notes.md`, added by #30) lives only here and has no Express counterpart. The book does not include it; it is built as its own publication by the Quantum Sync Release Notes seeded job, so an edit to it is made in one place.
 - The Express and Designer trial materials, their `.wez` packaging, and `/package-trials` are untouched by this contract.
