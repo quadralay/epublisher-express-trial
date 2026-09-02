@@ -9,6 +9,7 @@ This git clone is the source of truth for all trial-project content:
 - Designer Trial: `latest/local-trial-projects/ePublisher Designer Projects/ePublisher Designer Trial/`
 - Express Trial: `latest/local-trial-projects/ePublisher Express Projects/ePublisher Express Trial Project/`
 - Express Stationery: `latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/`
+- AutoMap evaluation materials: `latest/local-trial-projects/WebWorks ePublisher AutoMap/` — Quantum Sync Stationery (ADR-0002) and the Quantum Sync source docs under `Evaluation/`, seeded jobs under `Jobs/`. The folder mirrors what the AutoMap installer extracts on a trial user's machine; see `docs/agents/extraction-layout.md`.
 
 Historical copies at `C:\Users\mcdow\OneDrive\Documents\ePublisher *` predate this convention. Do not edit them — they will drift silently and cause sync headaches later. Archive or delete them at your leisure.
 
@@ -26,6 +27,16 @@ Historical copies at `C:\Users\mcdow\OneDrive\Documents\ePublisher *` predate th
 Edit files directly in the clone. If Designer is open on the project, close and reopen it to pick up file-content changes.
 
 Commit source changes to git and open a PR per the usual repo conventions.
+
+## AutoMap evaluation materials
+
+The AutoMap trial ships its own copies of the Quantum Sync design and content so the AutoMap installer depends on neither Express nor Designer (ADR-0001). What the materials are, where they land on a trial user's machine, and how they relate to the Express and Designer materials is defined in `docs/agents/extraction-layout.md`. The maintenance rules:
+
+- **Quantum Sync Stationery** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Stationery/`) is not edited directly. Regenerate it from the Designer Trial project with Save as Stationery, alongside the Express Stationery (`docs/agents/release-migration.md` § 2).
+- **Quantum Sync Source Docs** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Source Docs/`) is a copy of the Express Trial Project's `Source Docs/`. An edit to the Quantum Sync book is made in both places until the evaluations converge (ADR-0002). The Release Notes document is added here by its own ticket and has no Express counterpart.
+- **Seeded jobs** (`WebWorks ePublisher AutoMap/Jobs/<name>/<name>.waj`) are authored by hand against the contract's relative-path rule and validated with the `automap` skill's scripts. Copy the folder's contents into `Documents\WebWorks ePublisher AutoMap\` to open them in AutoMap Administrator.
+
+These materials are **not** part of the three `.wez` archives below. Packaging them into the AutoMap installer payload is defined with the trunk handoff spec.
 
 ## Refreshing `.wez` packages in the dev repo
 
@@ -68,8 +79,10 @@ The `.gitignore` deliberately excludes baseline content that Designer regenerate
 - **Designer Trial** — everything under it is tracked (source + customizations)
 - **Express Trial** — only `.wrp` and `Source Docs/` are tracked; `Files/`, `Formats/`, `stationery.manifest` are ignored (they come from the Stationery)
 - **Express Stationery** — only `.wxsp` is tracked; `Files/`, `Formats/`, `Settings/`, `.manifest` are ignored (they come from adapter baselines)
+- **Quantum Sync Stationery** (and any Stationery placed under `WebWorks ePublisher AutoMap/Evaluation/`) — same rule as the Express Stationery; the `.gitignore` globs cover every Stationery folder under `Evaluation/`
+- **Quantum Sync Source Docs** and seeded jobs — tracked in full
 
-The ignored files still have to exist on disk for Designer to open the projects and for `/package-trials` to produce complete `.wez` archives. If any of them go missing, reopen the project in Designer and let it re-apply the Stationery or reset the baseline.
+The ignored files still have to exist on disk for Designer to open the projects, for AutoMap to build jobs against the Stationeries, and for `/package-trials` to produce complete `.wez` archives. If any of them go missing, reopen the project in Designer and let it re-apply the Stationery or reset the baseline; for a Stationery folder, re-run Save as Stationery from the Designer Trial project.
 
 ## When to package vs. when to commit
 
@@ -79,4 +92,5 @@ Every source-doc or project-file change goes to git (PR against `master`).
 
 ## Related workflows
 
-- **Release migration** — When ePublisher ships a new runtime release, follow `docs/agents/release-migration.md` to migrate `.wep`, save the updated Stationery, and sync the Express `.wrp`. Refresh the `.wez` archives per this doc's packaging steps once the migration is complete.
+- **Release migration** — When ePublisher ships a new runtime release, follow `docs/agents/release-migration.md` to migrate `.wep`, save the updated Stationeries, and sync the Express `.wrp`. Refresh the `.wez` archives per this doc's packaging steps once the migration is complete.
+- **Extraction-layout contract** — Where the AutoMap evaluation materials land on a trial user's machine and the relative-path rule seeded jobs follow: `docs/agents/extraction-layout.md`.

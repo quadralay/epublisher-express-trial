@@ -15,9 +15,13 @@ This is a **documentation-only project** for ePublisher trial experiences. It co
 ```
 epublisher-express-trial/
 ├── latest/                              # ACTIVE: Current versions
-│   ├── local-trial-projects/            # Sample ePublisher projects
-│   │   ├── ePublisher Designer Trial/   # Designer trial project
-│   │   └── ePublisher Express Trial Project/  # Express trial project
+│   ├── local-trial-projects/            # Evaluation materials (folders mirror the extracted layout)
+│   │   ├── ePublisher Designer Projects/ePublisher Designer Trial/       # Designer trial project
+│   │   ├── ePublisher Express Projects/ePublisher Express Trial Project/ # Express trial project
+│   │   ├── ePublisher Stationery/ePublisher Express Trial Stationery/    # Express trial Stationery
+│   │   └── WebWorks ePublisher AutoMap/ # AutoMap evaluation materials (docs/agents/extraction-layout.md)
+│   │       ├── Evaluation/              # Quantum Sync Stationery, Quantum Sync Source Docs
+│   │       └── Jobs/                    # Seeded jobs (added with the seeded-jobs ticket)
 │   └── online-trial-guides/             # Online quick-start guides
 │       ├── designer-trial/
 │       │   ├── designer-trial-guide.md  # ~212 lines, 5 steps + done + explore more
@@ -127,4 +131,8 @@ The clone is the source of truth for all trial-project content. Open ePublisher 
 
 ### Release migration
 
-When ePublisher ships a new runtime release (e.g., 2025.1 → 2026.1), migrate the Designer project, reconfigure new Target Settings, save-as-Stationery to overwrite the `.wxsp`, then sync the Express `.wrp` to the updated Stationery. See `docs/agents/release-migration.md` for the step-by-step procedure and per-release notes.
+When ePublisher ships a new runtime release (e.g., 2025.1 → 2026.1), migrate the Designer project, reconfigure new Target Settings, save-as-Stationery to overwrite both `.wxsp` files (Express Trial Stationery and Quantum Sync Stationery), then sync the Express `.wrp` to the updated Stationery. See `docs/agents/release-migration.md` for the step-by-step procedure and per-release notes.
+
+### Extraction-layout contract
+
+`docs/agents/extraction-layout.md` defines where the AutoMap evaluation materials (Quantum Sync Stationery, the variant Stationery, source docs, seeded jobs) land on a trial user's machine and the `..\..\Evaluation\` relative-path rule seeded jobs are authored against. Read it before touching anything under `latest/local-trial-projects/WebWorks ePublisher AutoMap/`.
