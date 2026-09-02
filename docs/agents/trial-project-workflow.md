@@ -30,11 +30,11 @@ Commit source changes to git and open a PR per the usual repo conventions.
 
 ## AutoMap evaluation materials
 
-The AutoMap trial reuses the Quantum Sync design and content, but ships its own copies so the AutoMap installer depends on neither Express nor Designer (ADR-0001):
+The AutoMap trial ships its own copies of the Quantum Sync design and content so the AutoMap installer depends on neither Express nor Designer (ADR-0001). What the materials are, where they land on a trial user's machine, and how they relate to the Express and Designer materials is defined in `docs/agents/extraction-layout.md`. The maintenance rules:
 
-- **Quantum Sync Stationery** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Stationery/`) is not edited directly. Like the Express Stationery, it is regenerated from the Designer Trial project with Save as Stationery — release migration now saves the Stationery twice (`docs/agents/release-migration.md`). Its `.wxsp` is byte-identical to the Express Trial Stationery's; only the folder and file names differ.
-- **Quantum Sync Source Docs** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Source Docs/`) is a verbatim copy of the Express Trial Project's `Source Docs/`. Until the Express and Designer evaluations converge on the neutral asset, an edit to the Quantum Sync book is made in both places by hand. The Release Notes document lives only here.
-- **Seeded jobs** (`WebWorks ePublisher AutoMap/Jobs/<name>/<name>.waj`) are authored by hand against the relative-path rule in the extraction-layout contract and validated with the `automap` skill's scripts; AutoMap Administrator can also open them if the folder contents are copied into `Documents\WebWorks ePublisher AutoMap\`.
+- **Quantum Sync Stationery** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Stationery/`) is not edited directly. Regenerate it from the Designer Trial project with Save as Stationery, alongside the Express Stationery (`docs/agents/release-migration.md` § 2).
+- **Quantum Sync Source Docs** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Source Docs/`) is a copy of the Express Trial Project's `Source Docs/`. An edit to the Quantum Sync book is made in both places until the evaluations converge (ADR-0002). The Release Notes document is added here by its own ticket and has no Express counterpart.
+- **Seeded jobs** (`WebWorks ePublisher AutoMap/Jobs/<name>/<name>.waj`) are authored by hand against the contract's relative-path rule and validated with the `automap` skill's scripts. Copy the folder's contents into `Documents\WebWorks ePublisher AutoMap\` to open them in AutoMap Administrator.
 
 These materials are **not** part of the three `.wez` archives below. Packaging them into the AutoMap installer payload is defined with the trunk handoff spec.
 

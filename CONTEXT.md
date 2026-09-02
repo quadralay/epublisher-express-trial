@@ -17,6 +17,9 @@ _Avoid_: sample files, trial collateral
 **Seeded job**:
 A `.waj` included in evaluation materials, present in AutoMap Administrator's job list before the user has created anything.
 
+**Trunk handoff spec**:
+The Trac-ready document this repo delivers for the product-side work of the AutoMap trial (installer evaluation payload, first-launch extraction, trial-URL auto-open). The dev team implements it in `trunk`; this repo does not.
+
 ### AutoMap
 
 **Job**:
@@ -39,7 +42,10 @@ A composition member contributing content — one publication slice of the compo
 The single composition member providing site chrome (normally a zero-document build). Exactly one per composition.
 
 **Chrome**:
-The shell-owned visual layer of a Reverb site — entry page, theme CSS, scripts, search page. What the second evaluation Stationery varies; parcel content styling is not chrome.
+The shell-owned visual layer of a Reverb site — entry page, theme CSS, scripts, search page. What the variant Stationery varies; parcel content styling is not chrome.
+
+**Variant Stationery**:
+The second evaluation Stationery: a copy of Quantum Sync Stationery that differs in chrome only, with identical style mappings. The asset behind the guide's re-skin step. Working name Quantum Sync Midnight until the final name is settled.
 
 **Derivative composition**:
 A composition whose members have Build checked: the composition builds each member itself, overriding the member's deploy scope and destination by role. The Administrator's default; what the trial demonstrates.

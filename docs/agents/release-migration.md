@@ -26,9 +26,9 @@ The Designer Trial project is the design source for two Stationeries (ADR-0002),
 2. Overwrite `latest\local-trial-projects\ePublisher Stationery\ePublisher Express Trial Stationery\ePublisher Express Trial Stationery.wxsp`.
 3. Confirm the overwrite when prompted.
 4. File → Save as Stationery again, and overwrite `latest\local-trial-projects\WebWorks ePublisher AutoMap\Evaluation\Quantum Sync Stationery\Quantum Sync Stationery.wxsp` (the AutoMap evaluation Stationery; see `docs/agents/extraction-layout.md`).
-5. Diff the two saved `.wxsp` files. They should match; a difference means one save picked up an edit the other did not — redo the later one.
+5. Diff the two saved `.wxsp` files. Apart from anything Designer regenerates on every save, they should match; a difference in rules, settings, variables, or conditions means one save picked up an edit the other did not — redo the later one.
 
-The variant Stationery (working name Quantum Sync Midnight) is regenerated per the procedure recorded when it is authored; it is not a plain re-save of the Designer Trial project.
+The variant Stationery (see `docs/agents/extraction-layout.md`) is not a plain re-save of the Designer Trial project; it is regenerated per the procedure recorded when it is authored.
 
 ### 3. Sync the Express project (`.wrp`)
 

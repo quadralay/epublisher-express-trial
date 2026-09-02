@@ -34,17 +34,17 @@ Everything lives under the **AutoMap product folder**, `<Documents>\WebWorks ePu
 | Material | Folder under the product folder | Delivered by |
 |----------|----------------------------------|--------------|
 | Quantum Sync Stationery | `Evaluation\Quantum Sync Stationery\` | #29 (this contract) |
-| Variant Stationery — working name **Quantum Sync Midnight**, folder and `.wxsp` `Quantum Sync Midnight Stationery` | `Evaluation\Quantum Sync Midnight Stationery\` | #31 settles the final name and updates this table and `CONTEXT.md` |
+| Variant Stationery — working name **Quantum Sync Midnight**; this contract proposes the folder and `.wxsp` name `Quantum Sync Midnight Stationery` for symmetry with the base Stationery | `Evaluation\Quantum Sync Midnight Stationery\` | #31 settles the final name and updates this document and the `CONTEXT.md` glossary entry |
 | Quantum Sync book (source docs) | `Evaluation\Quantum Sync Source Docs\` | #29 |
 | Release Notes document | `Evaluation\Quantum Sync Source Docs\release-notes.md` (#30 confirms the file name) | #30 |
 | Seeded jobs: Quantum Sync Help, Quantum Sync Release Notes, Quantum Sync Site Shell | `Jobs\<name>\<name>.waj` | #32 |
 | Composition job Quantum Sync Site | Created by the trial user in-guide; nothing is seeded | #33 |
 
-Job identity is the folder name: `Jobs\<name>\<name>.waj`, where `<name>` is also the `name` attribute of the `<Job>` element. The Administrator scans the Jobs folder live, so a seeded job appears in the job list the moment the folder exists.
+Job identity is the folder name: `Jobs\<name>\<name>.waj`, where `<name>` is also the `name` attribute of the `<Job>` element. The Administrator scans the Jobs folder live, so a seeded job appears in the job list as soon as its `.waj` lands there; there is no import step.
 
 ## Why the AutoMap product folder
 
-The choice is driven by localization. Facts from the dev repo (`trunk` = `C:\Repo\ePublisher_debug\trunk`):
+The choice is driven by localization. Facts from the ePublisher dev repo (`trunk` = `%EPUBLISHER_DEV_PATH%`, typically `C:\Repo\ePublisher_debug\trunk`):
 
 - The product-default Jobs and Staging folders are hard-coded, non-localized literals: `Path.Combine(<Documents>, @"WebWorks ePublisher AutoMap\Jobs")` and `...\Staging` (`trunk: dev/source/windows/dotnet/WebWorks/Automap/Core/AutomapPreferences.cs`, `DefaultJobsDirectory` / `DefaultStagingDirectory`). `<Documents>` is `Environment.SpecialFolder.Personal`, which follows Windows folder redirection (OneDrive included).
 - The AutoMap product name resource is the same string in every language file (`trunk: .../Automap/Core/Resources/SpecialStrings*.resx`, `ProductName` = `WebWorks ePublisher AutoMap` in en/de/fr/ja).
@@ -112,7 +112,7 @@ latest/local-trial-projects/WebWorks ePublisher AutoMap/
 
 ### Verification recipe (the end-to-end seam)
 
-Run from any location; the layout is relocatable. Use the `automap` skill's scripts (`<automap-skill>` is the skill's base directory).
+Run from any location; the layout is relocatable. Use the `automap` skill's scripts (`<automap-skill>` is the skill's base directory; the build wrapper is `Invoke-Automap.ps1` in skill 3.9 and later, `automap-wrapper.sh --all-targets` in earlier releases).
 
 ```bash
 # 1. Stage a mock of the extracted tree on a short path (the Stationery's deepest
@@ -128,18 +128,23 @@ python "<automap-skill>/scripts/validate-job.py" --check-documents --check-stati
   "Q:/WebWorks ePublisher AutoMap/Jobs/Quantum Sync Help/Quantum Sync Help.waj"
 
 # 4. End-to-end: both targets build exit-0 through the AutoMap 2026.1 CLI.
-#    (--all-targets is required when the shell is non-interactive, e.g. from an agent.)
-bash "<automap-skill>/scripts/automap-wrapper.sh" --all-targets -s "Q:\WebWorks ePublisher AutoMap\Staging" \
+#    (-AllTargets is required when the shell is non-interactive, e.g. from an agent;
+#    everything after -- is forwarded to WebWorks.Automap.exe verbatim.)
+powershell -ExecutionPolicy Bypass -File "<automap-skill>/scripts/Invoke-Automap.ps1" -AllTargets -- \
+  "--stagingdir=Q:\WebWorks ePublisher AutoMap\Staging" \
   "Q:/WebWorks ePublisher AutoMap/Jobs/Quantum Sync Help/Quantum Sync Help.waj"
 # Output: Q:\WebWorks ePublisher AutoMap\Staging\Quantum Sync Help\Output\{Web Help,PDF}\
 
-# 5. Tear down.
-subst Q: /D
+# 5. Tear down. (Git Bash turns a bare /D into a path, hence the env var; in cmd or
+#    PowerShell it is plain `subst Q: /D`.)
+MSYS_NO_PATHCONV=1 subst Q: /D
 ```
+
+Last run: 2026-09-02 against AutoMap 2026.1.4755 via `Invoke-Automap.ps1` (skill 3.9.4) — validation 8/8 checks passed; Web Help and PDF both built exit-0 (Web Help 0 warnings, PDF only stock Apache FOP font and table-layout warnings); the staged project's `<Origin>` recorded the contract-relative Stationery path; neither output contained an "Express" identifier.
 
 ## Relationship to the Express and Designer materials
 
 - **Quantum Sync Stationery is a copy of ePublisher Express Trial Stationery** with the folder, `.wxsp`, and `.manifest` renamed (ADR-0002). The `.wxsp` content is byte-identical: same Web Help (WebWorks Reverb 2.0) and PDF (PDF - XSL-FO) targets, same style mappings, same Quantum Sync branding assets. Nothing inside a Stationery names it, so the rename is complete once the three file-system names change.
 - Both Stationeries are regenerated from the Designer Trial project by Save as Stationery; release migration therefore saves the Stationery twice (see `docs/agents/release-migration.md`). The variant Stationery's regeneration story is recorded by #31.
-- **Quantum Sync Source Docs is a verbatim copy** of the Express Trial Project's `Source Docs/`. Until the Express and Designer evaluations converge on the neutral asset (the future work ADR-0002 anticipates), an edit to the Quantum Sync book is made in both places by hand. The Release Notes document exists only here.
+- **Quantum Sync Source Docs is a verbatim copy** of the Express Trial Project's `Source Docs/`. Until the Express and Designer evaluations converge on the neutral asset (the future work ADR-0002 anticipates), an edit to the Quantum Sync book is made in both places by hand. The Release Notes document is added here by #30 and has no Express counterpart.
 - The Express and Designer trial materials, their `.wez` packaging, and `/package-trials` are untouched by this contract.
