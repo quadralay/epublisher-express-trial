@@ -47,6 +47,12 @@ A composition whose members have Build checked: the composition builds each memb
 **Federated composition**:
 Members publish on their own cadence (`build="false"`); the composition only splices what is already deployed. Explore More depth, not a trial step.
 
+**AutoMap product folder**:
+`Documents\WebWorks ePublisher AutoMap` — the fixed, non-localized folder AutoMap owns under the user's Documents. Holds the product-default `Jobs` and `Staging` folders and, per the extraction-layout contract, the Evaluation folder.
+
+**Evaluation folder**:
+`Evaluation` under the AutoMap product folder — where the AutoMap installer's evaluation materials other than seeded jobs are extracted (Quantum Sync Stationery, the variant Stationery, the Quantum Sync source docs). Seeded jobs reach it as `..\..\Evaluation\`.
+
 **Workspace**:
 The Administrator's set of jobs. One moveable workspace per install today; the next release plans multiple workspaces, each a set of jobs to compose and publish. Roadmap context only — the 2026.1 trial guide does not use this term.
 

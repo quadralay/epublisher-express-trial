@@ -10,6 +10,11 @@ latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stati
 latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/Formats/*
 latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/Settings/*
 latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/ePublisher Express Trial Stationery.manifest
+# AutoMap evaluation Stationeries (Quantum Sync Stationery and its variant): track only the .wxsp
+latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/*/Files/*
+latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/*/Formats/*
+latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/*/Settings/*
+latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/*/*.manifest
 
 # Node
 node_modules/
