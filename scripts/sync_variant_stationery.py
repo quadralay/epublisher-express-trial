@@ -227,8 +227,10 @@ def sync(base: Path, variant: Path, *, check: bool = False) -> SyncReport:
         if not check:
             _copy(src, dst)
 
+    # The .wxsp is tracked in git (a checkout rewrites its mtime) and the manifest
+    # does not list it, so it is compared by content alone.
     variant_wxsp = variant / f"{variant.name}.wxsp"
-    if not _same_file(base_wxsp, variant_wxsp):
+    if not (variant_wxsp.is_file() and variant_wxsp.read_bytes() == base_wxsp.read_bytes()):
         plan_copy(report.mirrored, variant_wxsp.name, base_wxsp, variant_wxsp)
 
     for rel, src in base_files.items():
