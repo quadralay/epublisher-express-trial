@@ -253,6 +253,13 @@ class SyncFixture(unittest.TestCase):
         self.assertEqual((self.variant / "Files/pdf-cover.png").read_bytes(), b"cover v2")
         self.assertEqual((self.variant / "Files/toolbar-logo.svg").read_text(), "<svg>midnight</svg>")
 
+    def test_a_checked_out_wxsp_with_a_new_mtime_is_still_in_sync(self):
+        svs.sync(self.base, self.variant)
+        wxsp = self.variant / "Quantum Sync Midnight Stationery.wxsp"
+        os.utime(wxsp, ns=(self.MTIME + 40 * 10**9, self.MTIME + 40 * 10**9))
+
+        self.assertTrue(svs.sync(self.base, self.variant, check=True).in_sync)
+
     def test_check_mode_flags_a_stale_manifest(self):
         svs.sync(self.base, self.variant)
         write(self.variant / "Files/toolbar-logo.svg", "<svg>edited</svg>", self.MTIME + 9 * 10**9)
