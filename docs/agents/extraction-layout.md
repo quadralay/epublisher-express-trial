@@ -22,7 +22,7 @@ Everything lives under the **AutoMap product folder**, `<Documents>\WebWorks ePu
     │   ├── Files\
     │   ├── Formats\
     │   └── Settings\
-    ├── Quantum Sync Midnight Stationery\            variant Stationery (working name)
+    ├── Quantum Sync Midnight Stationery\            variant Stationery (chrome-only re-skin)
     │   └── Quantum Sync Midnight Stationery.wxsp    (+ .manifest, Files\, Formats\, Settings\)
     └── Quantum Sync Source Docs\
         ├── quantum-sync.md                          the Quantum Sync book (includes topics\*.md)
@@ -34,7 +34,7 @@ Everything lives under the **AutoMap product folder**, `<Documents>\WebWorks ePu
 | Material | Folder under the product folder | Delivered by |
 |----------|----------------------------------|--------------|
 | Quantum Sync Stationery | `Evaluation\Quantum Sync Stationery\` | #29 (this contract) |
-| Variant Stationery — working name **Quantum Sync Midnight**; this contract proposes the folder and `.wxsp` name `Quantum Sync Midnight Stationery` for symmetry with the base Stationery | `Evaluation\Quantum Sync Midnight Stationery\` | #31 settles the final name and updates this document and the `CONTEXT.md` glossary entry |
+| Variant Stationery — **Quantum Sync Midnight Stationery** (ADR-0003): Quantum Sync Stationery with midnight chrome and identical style mappings | `Evaluation\Quantum Sync Midnight Stationery\` | #31 |
 | Quantum Sync book (source docs) | `Evaluation\Quantum Sync Source Docs\` | #29 |
 | Release Notes document | `Evaluation\Quantum Sync Source Docs\release-notes.md` | #30 |
 | Seeded jobs: Quantum Sync Help, Quantum Sync Release Notes, Quantum Sync Site Shell | `Jobs\<name>\<name>.waj` | #32 |
@@ -101,12 +101,13 @@ How each consumer handles this:
 latest/local-trial-projects/WebWorks ePublisher AutoMap/
 ├── Evaluation/
 │   ├── Quantum Sync Stationery/           tracked: Quantum Sync Stationery.wxsp only
-│   ├── Quantum Sync Midnight Stationery/  (#31) tracked: the .wxsp only
+│   ├── Quantum Sync Midnight Stationery/  tracked: the .wxsp plus its chrome — three Files/ assets and Formats/WebWorks Reverb 2.0/Pages/sass/
 │   └── Quantum Sync Source Docs/          tracked in full
 └── Jobs/                                  (#32) tracked in full: <name>/<name>.waj
 ```
 
 - The `.gitignore` globs `Evaluation/*/Files/*`, `Evaluation/*/Formats/*`, `Evaluation/*/Settings/*`, and `Evaluation/*/*.manifest`, so any Stationery folder placed under `Evaluation/` follows the same track-only-the-`.wxsp` rule as the Express Trial Stationery. The ignored files must still exist on disk for builds and packaging; regenerate them per `docs/agents/release-migration.md` if they go missing.
+- Quantum Sync Midnight Stationery is the exception (ADR-0003): its chrome — `toolbar-logo.svg`, `footer-logo.svg` and `favicon.png` under `Files/`, and everything under `Formats/WebWorks Reverb 2.0/Pages/sass/` — is its design source and is tracked through `.gitignore` negations. Everything else in its folder, the PDF cover and Open Graph image included, is regenerated from Quantum Sync Stationery with `python scripts/sync_variant_stationery.py`; `--check` reports drift without writing.
 - Because every seeded-job path is relative to the job file, the seeded state can be hand-staged on any machine by copying the **contents** of this folder into `<Documents>\WebWorks ePublisher AutoMap\` (existing jobs and the Staging folder are unaffected). This is how the screenshots are captured (#35) and how a maintainer verifies the materials before the product-side extraction ships.
 - Packaging the materials into the installer payload is defined with the handoff spec (#37) and added to `docs/agents/trial-project-workflow.md` then.
 
@@ -142,9 +143,14 @@ MSYS_NO_PATHCONV=1 subst Q: /D
 
 Last run: 2026-09-02 against AutoMap 2026.1.4755 via `Invoke-Automap.ps1` (skill 3.9.4) — validation 8/8 checks passed; Web Help and PDF both built exit-0 (Web Help 0 warnings, PDF only stock Apache FOP font and table-layout warnings); the staged project's `<Origin>` recorded the contract-relative Stationery path; neither output contained an "Express" identifier.
 
+To verify the re-skin, build a second job whose `<Project path>` names Quantum Sync Midnight Stationery, or repoint the first job and re-run it (the guide's mechanic: AutoMap re-synchronizes the staged project against the new origin). Compare the two Web Help outputs: apart from per-build identifiers (generation hash, group and page IDs), only root `css/*.css`, `toolbar-logo.svg`, `footer-logo.svg` and `favicon.png` should differ; the per-document style-mapping CSS under `<Group>\css\` and the PDF text must be identical.
+
+Last re-skin run (#31): 2026-09-02 against AutoMap 2026.1.4755 — `Quantum Sync Help` (base) and `Quantum Sync Help Midnight` (variant) both built exit-0 for Web Help (0 warnings) and PDF (stock FOP warnings only); the reverb2 lint was clean; the outputs differed only as described above; repointing the already-staged base job at the variant and re-running produced the Midnight chrome.
+
 ## Relationship to the Express and Designer materials
 
 - **Quantum Sync Stationery is a copy of ePublisher Express Trial Stationery** with the folder, `.wxsp`, and `.manifest` renamed (ADR-0002). The `.wxsp` content is byte-identical: same Web Help (WebWorks Reverb 2.0) and PDF (PDF - XSL-FO) targets, same style mappings, same Quantum Sync branding assets. Nothing inside a Stationery names it, so the rename is complete once the three file-system names change.
-- Both Stationeries are regenerated from the Designer Trial project by Save as Stationery; release migration therefore saves the Stationery twice (see `docs/agents/release-migration.md`). The variant Stationery's regeneration story is recorded by #31.
+- Both Stationeries are regenerated from the Designer Trial project by Save as Stationery; release migration therefore saves the Stationery twice (see `docs/agents/release-migration.md`).
+- **Quantum Sync Midnight Stationery is Quantum Sync Stationery plus its own chrome** (ADR-0003). The `.wxsp` is byte-identical — same targets and target IDs, rules, variables, conditions and format settings — so the style mappings cannot differ. What differs is three files under `Files/` (midnight toolbar and footer logos, favicon) and `Formats/WebWorks Reverb 2.0/Pages/sass/` (`_colors.scss` with the midnight `$theme_` tokens, `custom.scss` with the toolbar accent). Those compile into the shell-owned root `css/`, which is exactly the chrome the re-skin step changes; the PDF target is untouched, and `og.png` and `pdf-cover.png` follow the base (they were already midnight compositions). `scripts/sync_variant_stationery.py` mirrors the `.wxsp`, format snapshots and Settings from the base, seeds any chrome file the variant lacks, and regenerates the manifest; it never overwrites the variant's chrome.
 - **Quantum Sync Source Docs mirrors the Express Trial Project's `Source Docs/`**: the book (`quantum-sync.md`, `topics\`, `images\`) is a verbatim copy. Until the Express and Designer evaluations converge on the neutral asset (the future work ADR-0002 anticipates), an edit to the book is made in both places by hand. The Release Notes document (`release-notes.md`, added by #30) exists only here: the book does not include it, and it is built as its own publication by the Quantum Sync Release Notes seeded job.
 - The Express and Designer trial materials, their `.wez` packaging, and `/package-trials` are untouched by this contract.

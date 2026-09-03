@@ -45,7 +45,8 @@ The single composition member providing site chrome (normally a zero-document bu
 The shell-owned visual layer of a Reverb site — entry page, theme CSS, scripts, search page. What the variant Stationery varies; parcel content styling is not chrome.
 
 **Variant Stationery**:
-The second evaluation Stationery: a copy of Quantum Sync Stationery that differs in chrome only, with identical style mappings. The asset behind the guide's re-skin step. Working name Quantum Sync Midnight until the final name is settled.
+The second evaluation Stationery, **Quantum Sync Midnight Stationery**: Quantum Sync Stationery with midnight chrome (dark toolbar, sidebar and page frame, cyan accent, light content card) and identical style mappings. The asset behind the guide's re-skin step; derived from the base by script rather than authored in Designer (ADR-0003).
+_Avoid_: dark theme, dark mode (it is a Stationery a job points at, not a toggle)
 
 **Derivative composition**:
 A composition whose members have Build checked: the composition builds each member itself, overriding the member's deploy scope and destination by role. The Administrator's default; what the trial demonstrates.

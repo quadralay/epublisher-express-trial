@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 60" width="300" height="60">
+  <defs>
+    <style>
+      .wordmark { font-family: 'Space Grotesk', 'Segoe UI', 'Arial', sans-serif; font-weight: 600; font-size: 24px; fill: #e6edf7; }
+    </style>
+  </defs>
+
+  <!-- Quantum Sync Symbol (Midnight): the same orbital rings, in white and cyan for dark chrome -->
+  <g transform="translate(30, 30)">
+    <!-- Central nucleus -->
+    <circle cx="0" cy="0" r="4" fill="#22d3ee"/>
+
+    <!-- Orbital ring 1 (horizontal ellipse) -->
+    <ellipse cx="0" cy="0" rx="18" ry="8" fill="none" stroke="#e6edf7" stroke-width="2.5"/>
+
+    <!-- Orbital ring 2 (tilted 60 degrees) -->
+    <ellipse cx="0" cy="0" rx="18" ry="8" fill="none" stroke="#22d3ee" stroke-width="2.5" transform="rotate(60)"/>
+
+    <!-- Orbital ring 3 (tilted -60 degrees) -->
+    <ellipse cx="0" cy="0" rx="18" ry="8" fill="none" stroke="#e6edf7" stroke-width="2.5" transform="rotate(-60)"/>
+
+    <!-- Electron dots on orbits -->
+    <circle cx="16" cy="0" r="3" fill="#22d3ee"/>
+    <circle cx="-8" cy="14" r="3" fill="#e6edf7"/>
+    <circle cx="-8" cy="-14" r="3" fill="#e6edf7"/>
+  </g>
+
+  <!-- Wordmark: Quantum Sync -->
+  <text x="65" y="38" class="wordmark">Quantum Sync</text>
+</svg>
