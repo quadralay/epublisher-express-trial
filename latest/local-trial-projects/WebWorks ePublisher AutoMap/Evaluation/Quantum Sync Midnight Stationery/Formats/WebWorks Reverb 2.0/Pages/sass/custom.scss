@@ -1,0 +1,76 @@
+// custom.scss - the user customization layer
+//
+// This file compiles to css/custom.css, which every page links as its LAST
+// stylesheet. Rules here win every equal-specificity cascade contest against
+// the stock stylesheets (webworks, skin, social, document, print, and the
+// menu-state sheets), on every page type including popups. Print rules
+// belong here too, inside @media print blocks.
+//
+// Two ways to customize styling:
+//   1. Override the SASS variables in _colors.scss, _borders.scss,
+//      _sizes.scss, and _fonts.scss - copy the partial into your project at
+//      Targets/<Target Name>/Pages/sass/ (or Formats/<format>/Pages/sass/)
+//      and edit the values.
+//   2. Add custom selectors to this file - copy it to the same project
+//      folder and edit the copy; it replaces this file entirely.
+//
+// The imports below provide the skin's variables (colors, fonts, sizes,
+// borders); they emit no CSS on their own, and project overrides of the
+// variable partials flow through here as well.
+
+@import "functions";
+@import "colors";
+@import "fonts";
+@import "icons";
+@import "sizes";
+@import "borders";
+
+// Quantum Sync Midnight: the same card layout as Quantum Sync Stationery.
+// The midnight frame, toolbar and sidebar come from the $theme_ tokens in
+// _colors.scss; the content card itself stays light.
+//
+// Create Card layout for page content excluding breadcrumbs
+//
+#page_div {
+  background: $theme_surface_nav;
+}
+
+#ww_content_container {
+  background: $theme_surface_nav;
+  padding: 8px 12px 12px 12px; // drop-shadow from toolbar may impact value of top padding
+}
+
+.ww_skin_breadcrumbs {
+  background: none;
+  text-align: left;
+}
+
+.ww_skin_page_toolbar {
+  border-radius: 12px 12px 0 0;
+  background: $theme_surface;
+}
+
+.ww_skin_was_this_helpful_container {
+  background: $theme_surface;
+}
+
+#page_content_container {
+  background: $theme_surface;
+  border-radius: 0 0 12px 12px;
+}
+//
+// End Card layout for page content excluding breadcrumbs
+
+#page_loading {
+  color: $theme_accent;
+}
+
+// Midnight signature: a cyan hairline under the toolbar (an inset shadow, so
+// the toolbar keeps its height) and deeper shadows that read on dark surfaces.
+#toolbar_div {
+  box-shadow: inset 0 -2px 0 $theme_accent, 0 6px 24px -8px rgba(0, 0, 0, 0.8);
+}
+
+#popup_div {
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.7);
+}

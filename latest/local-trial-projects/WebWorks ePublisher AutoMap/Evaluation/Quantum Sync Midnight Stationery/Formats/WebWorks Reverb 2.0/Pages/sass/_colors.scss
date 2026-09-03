@@ -1,0 +1,411 @@
+/*~~~~~ COLORS ~~~~~*/
+/*~~~~~~~~~~~~~~~~~~*/
+
+/* Quantum Sync Midnight — the chrome-only variant of      */
+/* Quantum Sync Stationery.                                */
+/*                                                         */
+/* The base Stationery's $theme_ tokens plus four of its   */
+/* own ($theme_on_primary, $theme_surface_inset,           */
+/* $theme_surface_card, $theme_on_surface_nav_muted). The  */
+/* values, and the wiring below that keeps light text on   */
+/* the midnight surfaces, are the whole difference. The    */
+/* content card stays light: content styling is not chrome.*/
+/* grep 'theme_' to find every customization.              */
+$theme_primary: #0e7490;                // Deep teal: links and accents on the light content card
+$theme_on_primary: #ffffff;             // Text on $theme_primary
+$theme_on_surface: #1a1a2e;             // Text on the light content surface
+$theme_surface: #f4f7fa;                // Content card background
+$theme_surface_inset: #dde6ef;          // Inset panels on the content card (mini TOC, share popup input)
+$theme_surface_card: #ffffff;           // Splash group cards on the content surface
+$theme_surface_toolbar: #0b1120;        // Midnight toolbar
+$theme_surface_menu: #111a2e;           // Midnight sidebar (TOC / index)
+$theme_surface_nav: #182238;            // Frame around the content card, breadcrumbs, footer
+$theme_on_surface_nav: #e6edf7;         // Text and icons on midnight surfaces
+$theme_on_surface_nav_muted: #9aa8bf;   // Secondary text on midnight surfaces (dates, copyright, TOC icons)
+$theme_accent: #22d3ee;                 // Electric cyan: highlights, hover states and links on midnight surfaces
+$theme_surface_footer_panel: $theme_surface_nav; // Footer background (matches the page frame)
+
+$neo_main_color: #008bff;
+$neo_main_text_color: #222222;
+$neo_secondary_color: #eeeeee;
+$neo_secondary_text_color: #fefefe;
+$neo_tertiary_color: #222222;
+$neo_page_color: #fefefe;
+
+$facebook_blue: #4267b2;
+$twitter_blue: #17a2f3;
+$linkedin_teal: #0077b5;
+
+
+/* NOTE: Gradients as background colors are supported through linear/radial-gradient property values.*/
+/*       It is suggested to put the gradient value only where it is needed, as it will cause errors  */
+/*       if it is used in the darken() or lighten() functions.                                       */
+/*       If a gradient value is set for a $_layout_color property, you must remove all darken() and  */
+/*       lighten() calls that derive from the gradient, or there will be no color output where those */
+/*       properties are used.                                                                        */
+/*                                                                                                   */
+/*       Usage documentation for Gradients: https://www.w3schools.com/css/css3_gradients.asp         */
+
+
+/* layout colors: set these for a quick application to the output.                                   */
+/*                                                                                                   */
+
+$_layout_color_1: $theme_primary;
+$_layout_color_2: $theme_on_surface;
+$_layout_color_3: $theme_surface_inset;
+$_layout_color_4: $theme_on_surface_nav;
+$_layout_color_5: $theme_accent;
+$_layout_color_6: $theme_surface;
+
+/* Defaults for structure items */
+/*                              */
+$link_default_color: $theme_primary;
+$link_visited_color: darken($theme_primary, 12%);
+$link_active_color: lighten($theme_primary, 15%);
+
+$table_border_color: #000000;
+
+/* Mini TOC */
+/*          */
+$mini_toc_background_color: $theme_surface_inset;
+$mini_toc_entry_background_color_hover: $theme_primary;
+$mini_toc_entry_text_color: $theme_on_surface;
+$mini_toc_entry_text_color_hover: $theme_on_primary;
+$mini_toc_entry_text_color_visited: $theme_on_surface;
+$mini_toc_entry_text_color_visited_hover: $theme_on_primary;
+
+/* Related Topics */
+/*                */
+$related_topics_title_background_color: $theme_primary;
+$related_topics_title_text_color: $theme_on_primary;
+$related_topics_dropdown_toggle_icon_color: $related_topics_title_text_color;
+$related_topics_entry_text_color: $theme_primary;
+$related_topics_entry_text_color_hover: lighten($theme_primary, 15%);
+$related_topics_entry_icon_color: $theme_on_surface;
+
+/* Search Result Highlight */
+/*                         */
+$search_result_highlight_color: yellow;
+
+
+/* colors for specific items */
+/*                           */
+/* toolbar */
+$toolbar_background_color: $theme_surface_toolbar;
+$toolbar_text_color: $theme_on_surface_nav;
+$toolbar_icon_color: $theme_on_surface_nav;
+
+$toolbar_button_background_color: $toolbar_background_color;
+$toolbar_button_icon_color: $toolbar_icon_color;
+$toolbar_button_icon_color_disabled: lighten($theme_surface_toolbar, 30%);
+
+$toolbar_button_menu_background_color: $toolbar_button_background_color;
+$toolbar_button_menu_background_color_hover: lighten($theme_surface_toolbar, 10%);
+$toolbar_button_menu_background_color_click: lighten($theme_surface_toolbar, 16%);
+$toolbar_button_menu_icon_color: $toolbar_button_icon_color;
+$toolbar_button_menu_icon_color_hover: $theme_accent;
+$toolbar_button_menu_icon_color_click: lighten($theme_accent, 15%);
+$toolbar_button_menu_icon_color_disabled: lighten($theme_surface_toolbar, 30%);
+
+$toolbar_logo_section_background_color: $toolbar_background_color;
+$toolbar_logo_text_color: $toolbar_text_color;
+$toolbar_logo_link_text_color: $toolbar_logo_text_color;
+$toolbar_logo_link_text_color_hover: $theme_accent;
+$toolbar_logo_link_text_color_click: lighten($theme_accent, 15%);
+
+$toolbar_search_section_background_color: $toolbar_background_color;
+
+$toolbar_search_scope_selector_background_color: lighten($theme_surface_toolbar, 12%);
+$toolbar_search_scope_selector_background_color_hover: lighten($theme_surface_toolbar, 18%);
+$toolbar_search_scope_selector_text_color: $toolbar_text_color;
+$toolbar_search_scope_selector_text_color_hover: $theme_accent;
+$toolbar_search_scope_selector_icon_color: $toolbar_search_scope_selector_text_color;
+$toolbar_search_scope_selector_icon_color_hover: $toolbar_search_scope_selector_text_color_hover;
+
+$toolbar_search_scope_options_text_color: $toolbar_search_scope_selector_text_color;
+$toolbar_search_scope_options_background_color: $toolbar_search_scope_selector_background_color;
+
+$toolbar_search_scope_option_background_color: $toolbar_search_scope_options_background_color;
+$toolbar_search_scope_option_background_color_hover: lighten($theme_surface_toolbar, 18%);
+$toolbar_search_scope_option_text_color: $toolbar_search_scope_options_text_color;
+$toolbar_search_scope_option_text_color_hover: $theme_accent;
+
+$toolbar_button_search_background_color: $toolbar_button_background_color;
+$toolbar_button_search_background_color_hover: lighten($theme_surface_toolbar, 10%);
+$toolbar_button_search_background_color_click: lighten($theme_surface_toolbar, 16%);
+$toolbar_button_search_icon_color: $toolbar_button_icon_color;
+$toolbar_button_search_icon_color_hover: $theme_accent;
+$toolbar_button_search_icon_color_click: lighten($theme_accent, 15%);
+
+$toolbar_button_previous_background_color: $toolbar_button_background_color;
+$toolbar_button_previous_background_color_hover: lighten($theme_surface_toolbar, 10%);
+$toolbar_button_previous_background_color_click: lighten($theme_surface_toolbar, 16%);
+$toolbar_button_previous_icon_color: $toolbar_button_icon_color;
+$toolbar_button_previous_icon_color_hover: $theme_accent;
+$toolbar_button_previous_icon_color_click: lighten($theme_accent, 15%);
+
+$toolbar_button_next_background_color: $toolbar_button_background_color;
+$toolbar_button_next_background_color_hover: lighten($theme_surface_toolbar, 10%);
+$toolbar_button_next_background_color_click: lighten($theme_surface_toolbar, 16%);
+$toolbar_button_next_icon_color: $toolbar_button_icon_color;
+$toolbar_button_next_icon_color_hover: $theme_accent;
+$toolbar_button_next_icon_color_click: lighten($theme_accent, 15%);
+
+$toolbar_button_home_background_color: $toolbar_button_background_color;
+$toolbar_button_home_background_color_hover: lighten($theme_surface_toolbar, 10%);
+$toolbar_button_home_background_color_click: lighten($theme_surface_toolbar, 16%);
+$toolbar_button_home_icon_color: $toolbar_button_icon_color;
+$toolbar_button_home_icon_color_hover: $theme_accent;
+$toolbar_button_home_icon_color_click: lighten($theme_accent, 15%);
+
+$toolbar_button_translate_background_color: $toolbar_button_background_color;
+$toolbar_button_translate_background_color_hover: lighten($theme_surface_toolbar, 10%);
+$toolbar_button_translate_background_color_click: lighten($theme_surface_toolbar, 16%);
+$toolbar_button_translate_icon_color: $toolbar_button_icon_color;
+$toolbar_button_translate_icon_color_hover: $theme_accent;
+$toolbar_button_translate_icon_color_click: lighten($theme_accent, 15%);
+
+$toolbar_tabs_container_background_color: $theme_surface_toolbar;
+$toolbar_tab_background_color: $theme_surface_toolbar;
+$toolbar_tab_background_color_hover: lighten($theme_surface_toolbar, 10%);
+$toolbar_tab_text_color: $theme_on_surface_nav;
+$toolbar_tab_text_color_hover: $theme_accent;
+$toolbar_tab_current_background_color: lighten($theme_surface_toolbar, 16%);
+$toolbar_tab_current_background_color_hover: $toolbar_tab_current_background_color;
+$toolbar_tab_current_text_color: $theme_accent;
+$toolbar_tab_current_text_color_hover: $toolbar_tab_current_text_color;
+
+
+/* menu (nav & toc/index) */
+$menu_background_color: $theme_surface_menu;
+$menu_text_color: $theme_on_surface_nav;
+
+$menu_nav_buttons_icon_color: $menu_text_color;
+$menu_nav_buttons_icon_color_hover: $theme_accent;
+$menu_nav_buttons_icon_color_click: lighten($theme_accent, 15%);
+$menu_nav_buttons_background_color: $theme_surface_toolbar;
+$menu_nav_buttons_background_color_hover: lighten($theme_surface_toolbar, 8%);
+$menu_nav_buttons_background_color_click: lighten($theme_surface_toolbar, 12%);
+
+$menu_nav_buttons_current_icon_color: $theme_accent;
+$menu_nav_buttons_current_icon_color_hover: $theme_accent;
+$menu_nav_buttons_current_icon_color_click: $theme_accent;
+$menu_nav_buttons_current_background_color: $menu_background_color;
+
+$menu_toc_background_color: $menu_background_color;
+$menu_toc_title_text_color: $menu_text_color;
+$menu_toc_item_background_color: $menu_toc_background_color;
+$menu_toc_item_background_color_hover: lighten($theme_surface_menu, 6%);
+$menu_toc_item_background_color_click: lighten($theme_surface_menu, 10%);
+$menu_toc_item_text_color: $menu_text_color;
+$menu_toc_item_text_color_hover: $theme_accent;
+$menu_toc_item_text_color_click: lighten($theme_accent, 15%);
+$menu_toc_item_icon_color: $theme_on_surface_nav_muted;
+$menu_toc_item_icon_color_hover: $theme_accent;
+$menu_toc_item_icon_color_click: lighten($theme_accent, 15%);
+$menu_toc_item_current_background_color: $menu_toc_item_background_color_hover;
+$menu_toc_item_current_background_color_hover: $menu_toc_item_current_background_color;
+$menu_toc_item_current_background_color_click: $menu_toc_item_current_background_color;
+$menu_toc_item_current_text_color: $theme_accent;
+$menu_toc_item_current_text_color_hover: $menu_toc_item_current_text_color;
+$menu_toc_item_current_text_color_click: $menu_toc_item_current_text_color;
+$menu_toc_item_current_icon_color: $menu_toc_item_current_text_color;
+$menu_toc_item_current_icon_color_hover: $menu_toc_item_current_icon_color;
+$menu_toc_item_current_icon_color_click: $menu_toc_item_current_icon_color;
+$menu_toc_item_current_highlight_color: $theme_accent;
+
+$menu_index_background_color: $menu_background_color;
+$menu_index_text_color: $menu_text_color;
+$menu_index_title_color: $menu_text_color;
+$menu_index_link_color: $menu_index_text_color;
+$menu_index_link_color_visited: $theme_on_surface_nav_muted;
+$menu_index_link_color_hover: $theme_accent;
+
+/* page */
+$page_background_color: $theme_surface;
+
+$page_breadcrumbs_background_color: $theme_surface_nav;
+$page_breadcrumbs_text_color: $theme_on_surface_nav;
+$page_breadcrumbs_link_color: $theme_accent;
+$page_breadcrumbs_link_color_hover: lighten($theme_accent, 15%);
+$page_breadcrumbs_link_color_visited: $theme_accent;
+$page_breadcrumbs_link_color_visited_hover: lighten($theme_accent, 15%);
+
+$page_toolbar_tool_icon_color: $theme_on_surface;
+$page_toolbar_tool_icon_color_hover: $theme_primary;
+$page_toolbar_tool_icon_color_click: darken($theme_primary, 10%);
+$page_toolbar_icon_divider_color: $page_toolbar_tool_icon_color;
+$page_toolbar_social_icon_color: $page_toolbar_tool_icon_color;
+$page_toolbar_social_icon_facebook_color: $page_toolbar_tool_icon_color;
+$page_toolbar_social_icon_facebook_color_hover: $facebook_blue;
+$page_toolbar_social_icon_twitter_color: $page_toolbar_tool_icon_color;
+$page_toolbar_social_icon_twitter_color_hover: $twitter_blue;
+$page_toolbar_social_icon_linkedin_color: $page_toolbar_tool_icon_color;
+$page_toolbar_social_icon_linkedin_color_hover: $linkedin_teal;
+$page_toolbar_dropdown_toggle_icon_disabled_color: lighten($theme_on_surface, 50%);
+
+$page_dropdown_arrow_color: $theme_on_surface;
+$page_dropdown_arrow_color_hover: $theme_primary;
+$page_dropdown_arrow_color_click: darken($theme_primary, 10%);
+
+$page_publish_date_color: $theme_on_surface;
+$page_modified_date_color: $theme_on_surface;
+
+$page_helpful_message_text_color: $theme_on_surface;
+$page_helpful_button_icon_color: $page_toolbar_tool_icon_color;
+$page_helpful_button_icon_color_hover: lighten($page_helpful_button_icon_color, 20%);
+$page_helpful_button_icon_color_click: darken($page_helpful_button_icon_color, 20%);
+$page_helpful_button_icon_color_selected: $theme_primary;
+
+/* popup */
+$popup_background_color: $theme_surface;
+$popup_border_color: $theme_accent;
+
+/* share popup */
+$share_popup_background_color: $theme_surface;
+$share_popup_border_color: $theme_accent;
+$share_popup_label_color: $theme_on_surface;
+$share_popup_input_background_color: $theme_surface_inset;
+$share_popup_input_text_color: $theme_on_surface;
+$share_popup_input_border_color: darken($theme_surface_inset, 10%);
+$share_popup_copy_button_icon_color: $theme_on_surface;
+$share_popup_copy_button_copied_icon_color: #28a745;
+$share_popup_copy_button_background_color: $share_popup_background_color;
+$share_popup_copy_button_background_color_hover: darken($share_popup_copy_button_background_color, 10%);
+
+/* disqus */
+$disqus_background_color: $theme_surface_inset;
+
+/* search */
+$search_background_color: $theme_surface;
+$search_link_text_color: $theme_primary;
+$search_plain_text_color: $theme_on_surface;
+
+$search_title_text_color: $search_plain_text_color;
+
+$search_filter_message_text_color: $search_plain_text_color;
+
+$search_result_count_message_text_color: $search_plain_text_color;
+
+$search_result_background_color: $search_background_color;
+$search_result_background_color_hover: darken($search_result_background_color, 5%);
+$search_result_title_text_color: $search_link_text_color;
+$search_result_title_text_color_hover: lighten($search_result_title_text_color, 20%);
+$search_result_title_text_color_click: darken($search_result_title_text_color, 10%);
+$search_result_title_text_color_visited: darken($search_result_title_text_color, 20%);
+$search_result_icon_color: $search_plain_text_color;
+$search_result_summary_text_color: $search_plain_text_color;
+$search_result_summary_highlight_background_color: $search_result_highlight_color;
+$search_result_summary_highlight_text_color: $search_result_summary_text_color;
+$search_result_group_name_background_color: $search_result_background_color_hover;
+$search_result_group_name_text_color: lighten($search_result_summary_text_color, 40%);
+$search_result_breadcrumbs_background_color: $search_result_background_color_hover;
+$search_result_breadcrumbs_text_color: lighten($search_result_summary_text_color, 40%);
+$search_result_separator_color: darken($search_result_background_color, 20%);
+
+/* header */
+$header_background_color: $theme_surface_toolbar;
+$header_text_color: $theme_on_surface_nav;
+$header_link_color: $theme_accent;
+$header_link_color_visited: $theme_accent;
+
+/* footer */
+$footer_background_color: $theme_surface_footer_panel;
+$footer_text_color: $theme_on_surface_nav;
+$footer_link_color: $theme_accent;
+$footer_link_color_visited: $theme_accent;
+$footer_hr_color: lighten($theme_surface_nav, 12%);
+$footer_publish_date_text_color: $theme_on_surface_nav_muted;
+$footer_copyright_message_text_color: $theme_on_surface_nav_muted;
+
+/* back-to-top button */
+$back_to_top_background_color: $theme_primary;
+$back_to_top_background_color_hover: darken($theme_primary, 12%);
+$back_to_top_caret_color: $theme_on_primary;
+$back_to_top_caret_color_hover: darken($theme_on_primary, 15%);
+
+/*
+ * lightbox
+*/
+$lightbox_background_color: rgba(0, 0, 0, 0.8);
+$lightbox_button_close_icon_color: $theme_on_surface_nav;
+
+/* no javascript warning */
+$no_javascript_background_color: #ae0000;
+$no_javascript_text_color: $theme_on_surface_nav;
+
+/* Assistant Chat */
+/*                */
+$assistant_primary_color: $theme_accent;
+$assistant_background_color: $theme_surface_menu;
+$assistant_text_color: $theme_on_surface_nav;
+$assistant_secondary_text_color: $theme_on_surface_nav_muted;
+
+$assistant_avatar_background_color: rgba($assistant_primary_color, 0.15);
+$assistant_avatar_icon_color: $assistant_primary_color;
+
+$assistant_user_bubble_background_color: rgba($assistant_primary_color, 0.22);
+$assistant_user_bubble_text_color: $assistant_text_color;
+
+$assistant_bubble_background_color: lighten($theme_surface_menu, 7%);
+$assistant_bubble_text_color: $assistant_text_color;
+$assistant_bubble_link_color: $assistant_primary_color;
+
+$assistant_thinking_background_color: lighten($theme_surface_menu, 5%);
+$assistant_thinking_text_color: $assistant_text_color;
+
+$assistant_error_color: #dc3545;
+$assistant_error_background_color: rgba(#dc3545, 0.15);
+$assistant_error_border_color: #dc3545;
+$assistant_error_text_color: lighten(#dc3545, 15%);
+
+$assistant_cost_badge_background_color: lighten($theme_surface_menu, 7%);
+$assistant_cost_badge_text_color: $assistant_secondary_text_color;
+$assistant_cost_badge_icon_color: $assistant_primary_color;
+
+$assistant_welcome_description_color: $assistant_secondary_text_color;
+
+$assistant_starter_background_color: lighten($theme_surface_menu, 5%);
+$assistant_starter_background_color_hover: lighten($theme_surface_menu, 10%);
+$assistant_starter_border_color: lighten($theme_surface_menu, 16%);
+$assistant_starter_text_color: $assistant_text_color;
+
+$assistant_chat_background_color: $assistant_background_color;
+$assistant_chat_text_color: $assistant_text_color;
+
+$assistant_input_background_color: $theme_surface_toolbar;
+$assistant_input_border_color: lighten($theme_surface_menu, 16%);
+$assistant_input_text_color: $assistant_text_color;
+
+$assistant_powered_by_text_color: $assistant_secondary_text_color;
+$assistant_powered_by_link_color: $assistant_secondary_text_color;
+
+$assistant_thread_item_background_color: $assistant_starter_background_color;
+$assistant_thread_item_background_color_hover: $assistant_starter_background_color_hover;
+$assistant_thread_item_border_color: $assistant_starter_border_color;
+
+$assistant_ghost_button_background_color: transparent;
+$assistant_ghost_button_background_color_hover: rgba($assistant_secondary_text_color, 0.15);
+$assistant_ghost_button_text_color: $assistant_secondary_text_color;
+
+$assistant_primary_button_background_color: $theme_primary;
+$assistant_primary_button_background_color_hover: lighten($theme_primary, 8%);
+$assistant_primary_button_text_color: $theme_on_primary;
+
+$assistant_code_background_color: rgba(255, 255, 255, 0.08);
+$assistant_pre_background_color: $theme_surface_toolbar;
+$assistant_table_border_color: lighten($theme_surface_menu, 16%);
+$assistant_table_header_background_color: lighten($theme_surface_menu, 7%);
+
+/*
+* splash groups grid
+*/
+
+$splash_groups_card_background_color: $theme_surface_card;
+$splash_groups_card_border_color: rgba(0, 0, 0, 0.14);
+$splash_groups_card_border_color_hover: rgba(0, 0, 0, 0.22);
+$splash_groups_card_accent_color: $theme_primary;
+$splash_groups_card_title_text_color: $theme_on_surface;
+$splash_groups_card_title_text_color_hover: $theme_primary;
+$splash_groups_card_member_text_color: #4a4a4a;
+$splash_groups_card_member_text_color_hover: $theme_primary;

@@ -10,14 +10,30 @@ latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stati
 latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/Formats/*
 latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/Settings/*
 latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/ePublisher Express Trial Stationery.manifest
-# AutoMap evaluation Stationeries (Quantum Sync Stationery and its variant): track only the .wxsp
+# AutoMap evaluation Stationeries: track only the .wxsp (Files/, Formats/, Settings/ and the
+# .manifest are regenerated — Quantum Sync Stationery by Save as Stationery from the Designer Trial)
 latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/*/Files/*
 latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/*/Formats/*
 latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/*/Settings/*
 latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/*/*.manifest
+# ...except the variant Stationery's chrome, which is its design source (ADR-0003): the three assets
+# Reverb shows and the sass partials. scripts/sync_variant_stationery.py regenerates everything else
+# from Quantum Sync Stationery. (Git cannot re-include below an excluded folder, hence the ladder.)
+!latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Files/toolbar-logo.svg
+!latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Files/footer-logo.svg
+!latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Files/favicon.png
+!latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Formats/WebWorks Reverb 2.0/
+latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Formats/WebWorks Reverb 2.0/*
+!latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Formats/WebWorks Reverb 2.0/Pages/
+latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Formats/WebWorks Reverb 2.0/Pages/*
+!latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Formats/WebWorks Reverb 2.0/Pages/sass/
 
 # Node
 node_modules/
+
+# Python (scripts/)
+__pycache__/
+.pytest_cache/
 
 # Windows
 nul

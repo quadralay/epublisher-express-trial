@@ -9,7 +9,7 @@ This git clone is the source of truth for all trial-project content:
 - Designer Trial: `latest/local-trial-projects/ePublisher Designer Projects/ePublisher Designer Trial/`
 - Express Trial: `latest/local-trial-projects/ePublisher Express Projects/ePublisher Express Trial Project/`
 - Express Stationery: `latest/local-trial-projects/ePublisher Stationery/ePublisher Express Trial Stationery/`
-- AutoMap evaluation materials: `latest/local-trial-projects/WebWorks ePublisher AutoMap/` — Quantum Sync Stationery (ADR-0002) and the Quantum Sync source docs under `Evaluation/`, seeded jobs under `Jobs/`. The folder mirrors what the AutoMap installer extracts on a trial user's machine; see `docs/agents/extraction-layout.md`.
+- AutoMap evaluation materials: `latest/local-trial-projects/WebWorks ePublisher AutoMap/` — Quantum Sync Stationery (ADR-0002), its chrome-only variant Quantum Sync Midnight Stationery (ADR-0003) and the Quantum Sync source docs under `Evaluation/`, seeded jobs under `Jobs/`. The folder mirrors what the AutoMap installer extracts on a trial user's machine; see `docs/agents/extraction-layout.md`.
 
 Historical copies at `C:\Users\mcdow\OneDrive\Documents\ePublisher *` predate this convention. Do not edit them — they will drift silently and cause sync headaches later. Archive or delete them at your leisure.
 
@@ -33,6 +33,7 @@ Commit source changes to git and open a PR per the usual repo conventions.
 The AutoMap trial ships its own copies of the Quantum Sync design and content so the AutoMap installer depends on neither Express nor Designer (ADR-0001). What the materials are, where they land on a trial user's machine, and how they relate to the Express and Designer materials is defined in `docs/agents/extraction-layout.md`. The maintenance rules:
 
 - **Quantum Sync Stationery** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Stationery/`) is not edited directly. Regenerate it from the Designer Trial project with Save as Stationery, alongside the Express Stationery (`docs/agents/release-migration.md` § 2).
+- **Quantum Sync Midnight Stationery** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/`) is the chrome-only variant (ADR-0003). Edit its chrome directly in the clone — the tracked toolbar logo, footer logo and favicon under `Files/`, and the `Formats/WebWorks Reverb 2.0/Pages/sass/` partials — then run `python scripts/sync_variant_stationery.py` to rewrite its manifest. Run the same command after every regeneration of Quantum Sync Stationery so the variant picks up the new `.wxsp`, format snapshots and Settings; `--check` verifies the two are in sync. Never edit anything else in the folder — the script overwrites it.
 - **Quantum Sync Source Docs** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Source Docs/`): an edit to the Quantum Sync book is made here and in the Express Trial Project's `Source Docs/` until the evaluations converge (ADR-0002); the Release Notes document (`release-notes.md`) is edited here only. What each file is and how the folder relates to the Express copy is defined in the extraction-layout contract. Every source doc here uses only styles Quantum Sync Stationery maps: the Helper Adapter emits `Italic` for `*text*` and `Code` for inline code, neither of which the Stationery maps, so use bold and code fences instead.
 - **Seeded jobs** (`WebWorks ePublisher AutoMap/Jobs/<name>/<name>.waj`) are authored by hand against the contract's relative-path rule and validated with the `automap` skill's scripts. Copy the folder's contents into `Documents\WebWorks ePublisher AutoMap\` to open them in AutoMap Administrator.
 
@@ -80,9 +81,10 @@ The `.gitignore` deliberately excludes baseline content that Designer regenerate
 - **Express Trial** — only `.wrp` and `Source Docs/` are tracked; `Files/`, `Formats/`, `stationery.manifest` are ignored (they come from the Stationery)
 - **Express Stationery** — only `.wxsp` is tracked; `Files/`, `Formats/`, `Settings/`, `.manifest` are ignored (they come from adapter baselines)
 - **Quantum Sync Stationery** (and any Stationery placed under `WebWorks ePublisher AutoMap/Evaluation/`) — same rule as the Express Stationery; the `.gitignore` globs cover every Stationery folder under `Evaluation/`
+- **Quantum Sync Midnight Stationery** — the exception: its chrome (`toolbar-logo.svg`, `footer-logo.svg`, `favicon.png` and `Formats/WebWorks Reverb 2.0/Pages/sass/`) is tracked as its design source through `.gitignore` negations; everything else, the rest of `Files/` included, is ignored and comes from `scripts/sync_variant_stationery.py`
 - **Quantum Sync Source Docs** and seeded jobs — tracked in full
 
-The ignored files still have to exist on disk for Designer to open the projects, for AutoMap to build jobs against the Stationeries, and for `/package-trials` to produce complete `.wez` archives. If any of them go missing, reopen the project in Designer and let it re-apply the Stationery or reset the baseline; for a Stationery folder, re-run Save as Stationery from the Designer Trial project.
+The ignored files still have to exist on disk for Designer to open the projects, for AutoMap to build jobs against the Stationeries, and for `/package-trials` to produce complete `.wez` archives. If any of them go missing, reopen the project in Designer and let it re-apply the Stationery or reset the baseline; for a Stationery folder, re-run Save as Stationery from the Designer Trial project; for the variant Stationery, run `python scripts/sync_variant_stationery.py`.
 
 ## When to package vs. when to commit
 
