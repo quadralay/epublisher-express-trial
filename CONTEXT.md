@@ -70,7 +70,7 @@ Members publish on their own cadence (`build="false"`); the composition only spl
 An inline deploy setting with `Action="file"`: AutoMap copies a target output to the folder named verbatim; the trial's only destination kind.
 
 **Explore Output / Preview Output in Browser**:
-The Administrator's two output commands: they act on a target deploy destination, opening its folder or its entry page over `file://`; there is nothing to show for a job without a destination, and they never open Staging.
+The Administrator's two output commands (the Job menu captions are **Explore Output for Target** and **Preview Output in Browser**): they act on a target deploy destination, opening its folder or its entry page over `file://`; there is nothing to show for a job without a destination, and they never open Staging.
 
 **Workspace**:
 The Administrator's set of jobs. One moveable workspace per install today; the next release plans multiple workspaces, each a set of jobs to compose and publish. Roadmap context only — the 2026.1 trial guide does not use this term.
