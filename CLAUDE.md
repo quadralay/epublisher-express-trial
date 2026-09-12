@@ -26,6 +26,10 @@ epublisher-express-trial/
 │       ├── designer-trial/
 │       │   ├── designer-trial-guide.md  # ~212 lines, 5 steps + done + explore more
 │       │   └── images/                  # Product-prefixed screenshots (designer-*)
+│       ├── automap-trial/
+│       │   ├── automap-trial-guide.md   # 5 steps + done (Explore More stub)
+│       │   ├── shot-list.md             # Screenshots to capture, one row per image
+│       │   └── images/                  # Product-prefixed screenshots (automap-*)
 │       └── express-trial/
 │           ├── express-trial-guide.md   # ~140 lines, 2 steps + done + explore more
 │           └── images/                  # Product-prefixed screenshots (express-*)
@@ -45,7 +49,7 @@ epublisher-express-trial/
 
 ## Active Guides: latest/online-trial-guides/
 
-Both guides use a dual-audience structure: fast activation for "just let me click" users, with deeper evaluation content for prospects deciding whether to buy.
+The guides use a dual-audience structure: fast activation for "just let me click" users, with deeper evaluation content for prospects deciding whether to buy.
 
 **Designer Trial Guide (primary, 5 steps, ~212 lines):**
 1. **Step 1: Open & Generate** - Launch project, observe Document Manager, generate, view output
@@ -55,6 +59,14 @@ Both guides use a dual-audience structure: fast activation for "just let me clic
 5. **Step 5: Multiple Targets** - Web Help vs PDF from same source
 6. **Done** - Inspiring CTA with output screenshot
 7. **Explore More** - What You Just Did, Try Features, Stationery, AutoMap, Product Family, AI Skills
+
+**AutoMap Trial Guide (5 steps, Explore More pending):**
+1. **Step 1: Run a Publication**
+2. **Step 2: Create a Publishing Job**
+3. **Step 3: Compose a Site**
+4. **Step 4: Make It Run Itself**
+5. **Step 5: Re-skin the Site**
+6. **Done**
 
 **Express Trial Guide (2 steps, ~145 lines):**
 1. **Step 1: Add Documents** - Drag Markdown++ files to Document Manager
@@ -93,10 +105,10 @@ Contains legacy sample source documents in multiple formats (FrameMaker, DITA, M
 
 ## Scalability
 
-Future trial guides (AutoMap) will follow the same dual-audience pattern:
+Every trial guide follows the same dual-audience pattern:
 - Product-prefixed image names: `automap-*.png`, `designer-*.png`
 - Self-contained directories within `latest/`
-- Step count varies by product (2 for Express, 5 for Designer)
+- Step count varies by product (2 for Express, 5 for Designer and AutoMap)
 - Each guide is fully standalone — no dependencies between guides
 
 ## Claude Instructions
