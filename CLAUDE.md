@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **documentation project** for ePublisher trial experiences: tutorial guides written in Markdown++ format, sample projects and evaluation materials for the Express, Designer and AutoMap trials, and one maintainer script under `scripts/`.
+This is a **documentation project** for ePublisher trial experiences: tutorial guides written in Markdown++ format, sample projects and evaluation materials for the Express, Designer and AutoMap trials, and maintainer scripts under `scripts/`.
 
-- **Type:** Static documentation / trial guides (plus a Python maintainer script with tests)
+- **Type:** Static documentation / trial guides (plus Python and PowerShell maintainer scripts with tests)
 - **Technology:** Markdown++ (backward compatible with Markdown)
 - **Primary File:** `latest/online-trial-guides/designer-trial/designer-trial-guide.md`
 
@@ -21,7 +21,7 @@ epublisher-express-trial/
 │   │   ├── ePublisher Stationery/ePublisher Express Trial Stationery/    # Express trial Stationery
 │   │   └── WebWorks ePublisher AutoMap/ # AutoMap evaluation materials (docs/agents/extraction-layout.md)
 │   │       ├── Evaluation/              # Quantum Sync Stationery, Quantum Sync Midnight Stationery, Quantum Sync Source Docs
-│   │       └── Jobs/                    # Seeded jobs (added with the seeded-jobs ticket)
+│   │       └── Jobs/                    # Seeded jobs (docs/agents/seeded-jobs.md)
 │   └── online-trial-guides/             # Online quick-start guides
 │       ├── designer-trial/
 │       │   ├── designer-trial-guide.md  # ~212 lines, 5 steps + done + explore more
@@ -38,7 +38,7 @@ epublisher-express-trial/
 │   ├── brainstorms/                     # Feature brainstorming documents
 │   ├── plans/                           # Implementation plans
 │   └── prompts/                         # Prompt history for guide rewrite
-├── scripts/                             # Maintainer scripts (sync_variant_stationery.py and its tests)
+├── scripts/                             # Maintainer scripts (sync_variant_stationery.py, stage_seeded_jobs.py, rehearse_seeded_jobs.ps1 + tests)
 └── .claude/
     └── instructions/                    # Claude authoring patterns
 ```
@@ -137,3 +137,7 @@ When ePublisher ships a new runtime release (e.g., 2025.1 → 2026.1), migrate t
 ### Extraction-layout contract
 
 `docs/agents/extraction-layout.md` defines where the AutoMap evaluation materials (Quantum Sync Stationery, the variant Stationery, source docs, seeded jobs) land on a trial user's machine and the `..\..\Evaluation\` relative-path rule seeded jobs are authored against. Read it before touching anything under `latest/local-trial-projects/WebWorks ePublisher AutoMap/`.
+
+### Seeded jobs
+
+The three AutoMap seeded jobs are documented in `docs/agents/seeded-jobs.md`, which you should read before touching anything under `latest/local-trial-projects/WebWorks ePublisher AutoMap/Jobs/`. The throwaway Quantum Sync Site composition that the trial guide has the user create is never committed to the repo.

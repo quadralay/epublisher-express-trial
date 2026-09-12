@@ -22,6 +22,9 @@ The Trac-ready document this repo delivers for the product-side work of the Auto
 
 ### AutoMap
 
+**Administrator**:
+AutoMap Administrator, the desktop application: the job list, the job and composition editors, Run, View Log, Explore Output and Preview Output in Browser. UI instructions say "the Administrator".
+
 **Job**:
 One `.waj` file: the tasks AutoMap performs from a single origin (Stationery or project) — run on demand, from the CLI, or on a schedule.
 
@@ -55,10 +58,19 @@ A composition whose members have Build checked: the composition builds each memb
 Members publish on their own cadence (`build="false"`); the composition only splices what is already deployed. Explore More depth, not a trial step.
 
 **AutoMap product folder**:
-`Documents\WebWorks ePublisher AutoMap` — the fixed, non-localized folder AutoMap owns under the user's Documents. Holds the product-default `Jobs` and `Staging` folders and, per the extraction-layout contract, the Evaluation folder.
+`Documents\WebWorks ePublisher AutoMap` — the fixed, non-localized folder AutoMap owns under the user's Documents. Holds the product-default `Jobs` and `Staging` folders and, per the extraction-layout contract, the `Evaluation` and `Output` folders.
 
 **Evaluation folder**:
 `Evaluation` under the AutoMap product folder — where the AutoMap installer's evaluation materials other than seeded jobs are extracted (Quantum Sync Stationery, the variant Stationery, the Quantum Sync source docs). Seeded jobs reach it as `..\..\Evaluation\`.
+
+**Output folder**:
+`Output` under the AutoMap product folder — where every seeded job and the in-guide Composition job deploy, `Output\<job name>\`; Explore Output opens the selected destination folder; created by the first run.
+
+**Folder destination**:
+An inline deploy setting with `Action="file"`: AutoMap copies a target output to the folder named verbatim; the trial's only destination kind.
+
+**Explore Output / Preview Output in Browser**:
+The Administrator's two output commands: they act on a target deploy destination, opening its folder or its entry page over `file://`; there is nothing to show for a job without a destination, and they never open Staging.
 
 **Workspace**:
 The Administrator's set of jobs. One moveable workspace per install today; the next release plans multiple workspaces, each a set of jobs to compose and publish. Roadmap context only — the 2026.1 trial guide does not use this term.

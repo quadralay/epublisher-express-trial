@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Job name="Quantum Sync Site Shell" version="1.0">
+  <Project path="..\..\Evaluation\Quantum Sync Stationery\Quantum Sync Stationery.wxsp" />
+  <Options skipReports="True" verboseLogging="True" />
+  <Files />
+  <DeploySettings>
+    <DeploySetting Name="Quantum Sync Site Shell" Action="file">
+      <Configuration Value="..\..\Output\Quantum Sync Site Shell" />
+    </DeploySetting>
+  </DeploySettings>
+  <Targets>
+    <Target name="Web Help" format="WebWorks Reverb 2.0" formatType="Application" build="True" cleanOutput="False" destination="Quantum Sync Site Shell">
+      <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="False" />
+      <MergeSettings title="" />
+    </Target>
+    <Target name="PDF" format="PDF - XSL-FO" formatType="Application" build="False" cleanOutput="False">
+      <Conditions Expression="" UseClassicConditions="False" UseDocumentExpression="False" />
+      <MergeSettings title="" />
+    </Target>
+  </Targets>
+</Job>
