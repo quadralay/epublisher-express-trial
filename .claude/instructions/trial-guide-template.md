@@ -157,7 +157,7 @@ Each step should open with 1-2 sentences that frame the business problem the ste
 |---------|-------|---------------------|
 | Express | 2 | Step 1: Add Documents → Step 2: Generate |
 | Designer | 5 | Step 1: Open & Generate → Step 2: Content Rules → Step 3: Brand Output → Step 4: Style Designer → Step 5: Multiple Targets |
-| AutoMap | 2 | Step 1: Select source files → Step 2: Generate |
+| AutoMap | 5 | Step 1: Run a Publication → Step 2: Create a Publishing Job → Step 3: Compose a Site → Step 4: Make It Run Itself → Step 5: Re-skin the Site |
 
 ## Directory Structure
 
