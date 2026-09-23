@@ -28,6 +28,10 @@ latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync 
 latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Formats/WebWorks Reverb 2.0/Pages/*
 !latest/local-trial-projects/WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Midnight Stationery/Formats/WebWorks Reverb 2.0/Pages/sass/
 
+# /publish-jobs: AutoMap run logs and harvested AI Assistant knowledge archives
+automap-jobs/*-log.txt
+automap-jobs/knowledge/
+
 # Node
 node_modules/
 
