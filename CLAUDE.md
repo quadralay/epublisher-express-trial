@@ -27,7 +27,7 @@ epublisher-express-trial/
 │       │   ├── designer-trial-guide.md  # ~212 lines, 5 steps + done + explore more
 │       │   └── images/                  # Product-prefixed screenshots (designer-*)
 │       ├── automap-trial/
-│       │   ├── automap-trial-guide.md   # 5 steps + done (Explore More stub)
+│       │   ├── automap-trial-guide.md   # ~210 lines, 5 steps + done + explore more
 │       │   ├── shot-list.md             # Screenshots to capture, one row per image
 │       │   └── images/                  # Product-prefixed screenshots (automap-*)
 │       └── express-trial/
@@ -60,13 +60,14 @@ The guides use a dual-audience structure: fast activation for "just let me click
 6. **Done** - Inspiring CTA with output screenshot
 7. **Explore More** - What You Just Did, Try Features, Stationery, AutoMap, Product Family, AI Skills
 
-**AutoMap Trial Guide (5 steps, Explore More pending):**
+**AutoMap Trial Guide (5 steps, ~210 lines):**
 1. **Step 1: Run a Publication**
 2. **Step 2: Create a Publishing Job**
 3. **Step 3: Compose a Site**
 4. **Step 4: Make It Run Itself**
 5. **Step 5: Re-skin the Site**
 6. **Done**
+7. **Explore More** - What You Just Did, S3 + CloudFront, CLI & CI, Scheduling, Scripts, AI Assistant, Custom Merge, VCS/CMS, Product Family
 
 **Express Trial Guide (2 steps, ~145 lines):**
 1. **Step 1: Add Documents** - Drag Markdown++ files to Document Manager

@@ -1,6 +1,6 @@
 ---
 mdpp-version: 1.0
-date: 2026-09-12
+date: 2026-09-22
 description: ePublisher AutoMap trial — run, create, compose, schedule, and re-skin publishing jobs
 keywords: automap, trial, getting started, publishing job, composition, scheduling, stationery
 ---
@@ -86,7 +86,7 @@ Release notes change every sprint; nobody should have to remember to republish t
 <!-- style:Screenshot -->
 ![AutoMap Administrator job list showing Last Result OK, Scheduled Yes, and Next Run](images/automap-last-result.png)
 
-> **No scheduled tasks allowed?** If your organization blocks them on this machine, skip the trigger and use **Job** > **Run** whenever the release notes change; the result is the same publication, run by hand.
+> **Can't leave a recurring schedule in place?** Skip the trigger and use **Job** > **Run** whenever the release notes change; the result is the same publication, run by hand.
 
 <!-- #re-skin-the-site -->
 ## Step 5: Re-skin the Site
@@ -118,3 +118,94 @@ You ran, created, composed, scheduled, and re-skinned a documentation site witho
 ## Explore More
 
 You have seen the whole loop; here is how the pieces fit and what else AutoMap does.
+
+<!-- #what-you-just-did -->
+### What You Just Did
+
+The five steps map onto four ideas:
+
+1. **Publishing job** (Steps 1 and 2) — a publication manifest: one recipe of Stationery, documents and per-target overrides that AutoMap runs on demand, on a schedule or from a pipeline
+2. **Composition job** (Step 3) — assembles a site from the deployed output of its members: the shell brings the chrome, each parcel brings its content, and the combined contents are stitched from the parcels
+3. **Schedule** (Step 4) — for high-velocity content, the parcel that changes every sprint
+4. **Stationery** (Step 5) — the design lives there, not in the jobs, so re-pointing the jobs re-skins everything
+
+In the trial every member had **Build** checked, so each composition run rebuilt all three jobs in about two and a half minutes. In production, clear **Build** on the slow members and let each job publish on its own cadence: the composition then reads the deployed parcels, splices the combined contents and advances the site's cache key in seconds, without rebuilding the slow ones.
+
+<!-- #deploy-s3-cloudfront -->
+### Deploy to S3 + CloudFront
+
+The trial deploys to folders; production deploys to Amazon S3 behind CloudFront, where the 2026.1 deploy features matter. This needs an AWS account, so it is not part of the trial:
+
+- **Amazon S3 destinations** — **Edit** > **Deploy Destinations...** > **Add** > **Amazon S3**: **Bucket URI:**, **Region:**, **Credential profile:**, **CloudFront distribution:**; AutoMap stores no access keys, credentials come from the standard AWS credential chain
+- **Built for caching** — versioned assets are cached immutably while pages and maps are always revalidated; each deploy invalidates its own pages, and each composition advances the site's cache key in one invalidation, so a re-skin or a new parcel reaches readers without a manual cache flush
+
+<!-- #cli-ci -->
+### CLI & CI
+
+Everything the Administrator runs, the command line runs headless:
+
+```
+"C:\Program Files\WebWorks\ePublisher\2026.1\ePublisher AutoMap\WebWorks.Automap.exe" "<your Documents folder>\WebWorks ePublisher AutoMap\Jobs\Quantum Sync Help\Quantum Sync Help.waj"
+```
+
+- **Exit codes** — 0 on success, 1 on errors (warnings still exit 0), so a pipeline step fails when the build fails
+- **Flags** — `-t` builds only the named targets, `-n` builds without deploying, `--skip-reports`, `--stagingdir`
+- **Drop-in jobs** — a job is a folder, `Jobs\<name>\<name>.waj`, and the Administrator lists it the moment the job file lands there; a pipeline copies jobs into place with no import step
+- **Version control** — job files are small XML with paths relative to the job and can carry their own deploy destination, as the seeded jobs do, so keep them beside the documents; ignore the `<name>-log.txt` next to each job
+
+<!-- #scheduling-depth -->
+### Scheduling Depth
+
+Step 4 used the Windows Task Scheduler; AutoMap leans on it fully:
+
+- **Run whether user is logged on or not** needs the Windows user name and password (`DOMAIN\user` on a domain); this is how a build server publishes unattended
+- **Last Run Result** `0x0` means success and `0x1` errors; the Administrator shows the same as **Last Result** **OK** or **Error**
+- **Job** > **Suspend Job Schedule** pauses a job without deleting its triggers; **Resume Job Schedule** brings it back
+- `WebWorks.Automap.Administrator.restricted.bat` starts the Administrator without elevation; there you can create and configure jobs but not run or schedule them (both go through Task Scheduler), so build with the command line above instead
+
+<!-- #scripts-build-options -->
+### Scripts and Build Options
+
+Jobs can run your scripts around the build:
+
+- **Job Info** has **Pre-build:** and **Post-build:** scripts for the whole job, the **Info** tab of **Target Configuration** has the same pair per target, and each document group can have a **Script to retrieve documents:** that fetches sources first
+- Scripts are batch files run from the job folder, with variables for the job name and folder, the target name and output folder, and the group name; the script editor lists them
+- **Build options** on **Job Info**: **Skip reports** skips the QA reports and shortens large builds; **Verbose logging** (on by default) keeps step-by-step progress in the log
+
+<!-- #try-ai-assistant -->
+### Try This: AI Assistant
+
+A Reverb site can carry an AI assistant that answers questions from the site's own content. It needs a free WebWorks Platform login, and here is what to expect:
+
+1. Sign in to the [WebWorks Platform](https://platform.webworks.com) (free), create an assistant, and copy its **Assistant ID**
+2. Select **Quantum Sync Help**, choose **Job** > **Edit...**, open **Target Configuration**, select **Web Help** in the target list, then the **Target Settings** tab; under **AI Features** set **Generate Assistant** to true, paste the ID into **Assistant ID**, leave **Hide AI Tab when file local** off, and click **OK**
+3. Choose **Job** > **Run**, then **Job** > **Preview Output in Browser** > **Web Help**: the site has an AI tab
+4. Ask it something. The chat returns an error, and that is expected: live answers need the output hosted on an Internet domain listed in the assistant's **Origin Domains**, and a local folder is not one
+
+<!-- #try-custom-merge -->
+### Try This: Custom Merge Settings
+
+Automatic merge lists parcels as found; Custom lets you shape the combined contents:
+
+1. Select **Quantum Sync Site** and choose **Job** > **Edit...**
+2. Under **Merge Settings** choose **Custom**; click **Add Container...** and name it **Quantum Sync**; with the container selected, click **Add Group...** and add **Release Notes**, then again for **Help** (a container is a folder in the contents; only groups carry content)
+3. Tick **Also include newly published parcels not listed above**, so a parcel you add later still appears after the declared ones
+4. Click **OK**, choose **Job** > **Run**, and preview: Release Notes now leads, and both parcels sit under one folder in the contents
+
+<!-- #vcs-cms -->
+### Version Control and CMS
+
+The per-group **Script to retrieve documents:** is the hook for pulling sources from Git, Subversion, Perforce, Mercurial or any command-line-scriptable VCS, and from CMSs such as Vasont and SDL LiveContent. See the [full documentation](https://static.webworks.com/docs/epublisher/latest/help/).
+
+<!-- #product-family -->
+### The ePublisher Product Family
+
+| | **Express** | **Designer** | **AutoMap** |
+|---|---|---|---|
+| **Who it's for** | Authors publishing content | Teams controlling brand and design | DevOps automating builds |
+| **What it does** | Generate output from Stationery | Create and customize Stationery | CLI and scheduled builds |
+| **Source formats** | Markdown++, Word, FrameMaker, DITA | Same | Same |
+| **Output formats** | Reverb 2.0, PDF, others | Same + full skin editing | Same |
+| **Key capability** | One-click publish | Pixel-level design control | CI/CD and AI agent access |
+
+AutoMap is the everyday publishing UI and the automation engine. To create your own Stationery, the design your jobs publish with, you need Designer: [Download ePublisher Designer](https://webworks.com/products/epublisher/download). ePublisher Express is the low-cost entry point for an author who only needs to publish with existing Stationery on their own desktop.
