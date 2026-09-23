@@ -47,6 +47,14 @@ The Designer Trial project is the design source for two Stationeries (ADR-0002),
 - Refresh the `.wez` archives per `docs/agents/trial-project-workflow.md` § "Refreshing `.wez` packages in the dev repo", then commit them to SVN. The AutoMap evaluation materials are packaged separately (defined with the trunk handoff spec).
 - Open a PR against `master` bundling the `.wep`, all three `.wxsp` files, the `.wrp`, and any migration-triggered SCSS or asset updates.
 
+### 5. Publish the online trial guides
+
+The Designer and Express online guides publish per release, to `static.webworks.com/docs/epublisher/<release>/{designer,express}/trial/`. Nothing publishes them automatically, and 2026.1 went unpublished for a month because this step was missing. Their design lives in the sibling epublisher-docs repo, not here:
+
+1. In epublisher-docs, check that `webworks/deploy-targets.xml` points `DocsDesignerTrial` and `DocsExpressTrial` at the new release's prefixes. In `webworks/design/design.wep`, update the `Designer Trial` and `Express Trial` targets for the release: `sitemap-base-url`, the `ProductVersion` variable, and `ai-assistant-id` if the release gets new WebWorks Platform assistants.
+2. Run `/publish-jobs --dryrun`, then `/publish-jobs`. It builds `automap-jobs/*.waj` and deploys to the S3 prefixes.
+3. Upload each harvested `automap-jobs/knowledge/<job>/knowledge-parcel-*.zip` to its guide's assistant in WebWorks Platform. Confirm the assistant is **In Deployment** with `static.webworks.com` among its **Origin Domains**, then open both guides and ask each assistant a question.
+
 ## Release-specific notes
 
 Track release-specific migration decisions here so they do not get lost.

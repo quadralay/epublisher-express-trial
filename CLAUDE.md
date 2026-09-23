@@ -132,7 +132,7 @@ The clone is the source of truth for all trial-project content. Open ePublisher 
 
 ### Release migration
 
-When ePublisher ships a new runtime release (e.g., 2025.1 → 2026.1), migrate the Designer project, reconfigure new Target Settings, save-as-Stationery to overwrite both `.wxsp` files (Express Trial Stationery and Quantum Sync Stationery), regenerate Quantum Sync Midnight Stationery with `python scripts/sync_variant_stationery.py`, then sync the Express `.wrp` to the updated Stationery. See `docs/agents/release-migration.md` for the step-by-step procedure and per-release notes.
+When ePublisher ships a new runtime release (e.g., 2025.1 → 2026.1), migrate the Designer project, reconfigure new Target Settings, save-as-Stationery to overwrite both `.wxsp` files (Express Trial Stationery and Quantum Sync Stationery), regenerate Quantum Sync Midnight Stationery with `python scripts/sync_variant_stationery.py`, then sync the Express `.wrp` to the updated Stationery, and publish the online guides for the new release with `/publish-jobs`. See `docs/agents/release-migration.md` for the step-by-step procedure and per-release notes.
 
 ### Extraction-layout contract
 
