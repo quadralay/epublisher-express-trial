@@ -1,6 +1,6 @@
 # /publish-jobs
 
-Build the Designer and Express online trial guides with AutoMap and deploy each one to its named S3 destination.
+Build the Designer, Express and AutoMap online trial guides with AutoMap and deploy each one to its named S3 destination.
 
 ## Usage
 
@@ -8,17 +8,18 @@ Build the Designer and Express online trial guides with AutoMap and deploy each 
 /publish-jobs [JOB] [--dryrun]
 ```
 
-- `JOB` — `trial-designer` or `trial-express`. Omit to publish both.
+- `JOB` — `trial-designer`, `trial-express` or `trial-automap`. Omit to publish all three.
 - `--dryrun` — appends the AutoMap `--dryrun` switch: the S3 deploy prints its would-be DELETE / PUT / INVALIDATE sets and makes no AWS call. Rehearse with it after any change to a job, a trial target in `design.wep`, or a destination.
 
 | Job | `design.wep` target | Destination | Published at |
 |---|---|---|---|
 | `automap-jobs/trial-designer.waj` | `Designer Trial` | `DocsDesignerTrial` | https://static.webworks.com/docs/epublisher/2026.1/designer/trial/ |
 | `automap-jobs/trial-express.waj` | `Express Trial` | `DocsExpressTrial` | https://static.webworks.com/docs/epublisher/2026.1/express/trial/ |
+| `automap-jobs/trial-automap.waj` | `Automap Trial` | `DocsAutomapTrial` | https://static.webworks.com/docs/epublisher/2026.1/automap/trial/ |
 
 ## Prerequisites
 
-- **The sibling epublisher-docs clone at `C:\Projects\epublisher-docs`** (the jobs' `<Project path>`). Its `webworks\design\design.wep` is used as a stationery (`useAsStationery="True"`): the `Designer Trial` and `Express Trial` targets there supply every setting, condition and variable, including each guide's own AI Assistant ID. Its `webworks\deploy-targets.xml` defines both destinations. AutoMap reads that working copy as it is on disk, uncommitted edits included, so check `git status` there before a live run.
+- **The sibling epublisher-docs clone at `C:\Projects\epublisher-docs`** (the jobs' `<Project path>`). Its `webworks\design\design.wep` is used as a stationery (`useAsStationery="True"`): the `Designer Trial`, `Express Trial` and `Automap Trial` targets there supply every setting, condition and variable, including each guide's own AI Assistant ID (the `Automap Trial` target's is empty until an assistant for that guide exists in the WebWorks Platform, so its knowledge archive is produced but no assistant is wired yet). Its `webworks\deploy-targets.xml` defines all three destinations. AutoMap reads that working copy as it is on disk, uncommitted edits included, so check `git status` there before a live run.
 - **A federation-capable 2026.1 AutoMap** (2026.1.4737.0+). Resolve the CLI from the registry: `HKLM\SOFTWARE\WebWorks\ePublisher AutoMap\<ver>\Path` + `\WebWorks.Automap.exe` (the `ExePath` value names the Administrator, not the CLI). Use `AUTOMAP_EXE_PATH` only when it is set explicitly.
 - **AWS credentials** for a live run: AutoMap resolves them from the default profile/role chain; `deploy-targets.xml` holds none.
 
@@ -46,4 +47,4 @@ Build the Designer and Express online trial guides with AutoMap and deploy each 
 ## Success Criteria
 
 - Each job exits 0 with 0 errors, and its destination resolves from `deploy-targets.xml`.
-- On a live run, both URLs serve the rebuilt guides and the knowledge archives are harvested.
+- On a live run, all three URLs serve the rebuilt guides and the knowledge archives are harvested.

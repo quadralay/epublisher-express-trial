@@ -49,11 +49,11 @@ The Designer Trial project is the design source for two Stationeries (ADR-0002),
 
 ### 5. Publish the online trial guides
 
-The Designer and Express online guides publish per release, to `static.webworks.com/docs/epublisher/<release>/{designer,express}/trial/`. Nothing publishes them automatically, and 2026.1 went unpublished for a month because this step was missing. Their design lives in the sibling epublisher-docs repo, not here:
+The Designer, Express and AutoMap online guides publish per release, to `static.webworks.com/docs/epublisher/<release>/{designer,express,automap}/trial/`. Nothing publishes them automatically, and 2026.1 went unpublished for a month because this step was missing. Their design lives in the sibling epublisher-docs repo, not here:
 
-1. In epublisher-docs, check that `webworks/deploy-targets.xml` points `DocsDesignerTrial` and `DocsExpressTrial` at the new release's prefixes. In `webworks/design/design.wep`, update the `Designer Trial` and `Express Trial` targets for the release: `sitemap-base-url`, the `ProductVersion` variable, and `ai-assistant-id` if the release gets new WebWorks Platform assistants.
+1. In epublisher-docs, check that `webworks/deploy-targets.xml` points `DocsDesignerTrial`, `DocsExpressTrial` and `DocsAutomapTrial` at the new release's prefixes. In `webworks/design/design.wep`, update the `Designer Trial`, `Express Trial` and `Automap Trial` targets for the release: `sitemap-base-url`, the `ProductVersion` variable, and `ai-assistant-id` if the release gets new WebWorks Platform assistants.
 2. Run `/publish-jobs --dryrun`, then `/publish-jobs`. It builds `automap-jobs/*.waj` and deploys to the S3 prefixes.
-3. Upload each harvested `automap-jobs/knowledge/<job>/knowledge-parcel-*.zip` to its guide's assistant in WebWorks Platform. Confirm the assistant is **In Deployment** with `static.webworks.com` among its **Origin Domains**, then open both guides and ask each assistant a question.
+3. Upload each harvested `automap-jobs/knowledge/<job>/knowledge-parcel-*.zip` to its guide's assistant in WebWorks Platform. Confirm the assistant is **In Deployment** with `static.webworks.com` among its **Origin Domains**, then open all three guides and ask each assistant a question.
 
 ## Release-specific notes
 
