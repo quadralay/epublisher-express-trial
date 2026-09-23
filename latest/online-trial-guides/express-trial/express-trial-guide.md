@@ -25,7 +25,7 @@ The **ePublisher Express Trial Project** opens automatically on first launch.
 Add the sample source document to the Document Manager:
 
 1. Click **View** > **Project Directory**
-2. Open `Source-Docs`
+2. Open `Source Docs`
 3. Drag `quantum-sync.md` to the Document Manager
 
 <!-- style:Screenshot -->
