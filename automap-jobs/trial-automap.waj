@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Job name="trial-automap" version="1.0">
+  <!-- The epublisher-docs design project used as a stationery (mode 3): design.wep supplies the
+       "Automap Trial" target's settings, conditions and variables (including its AI Assistant ID);
+       this job supplies only the guide. Publish with /publish-jobs, which resolves the
+       DocsAutomapTrial destination from epublisher-docs\webworks\deploy-targets.xml. -->
+  <Project path="C:\Projects\epublisher-docs\webworks\design\design.wep" useAsStationery="True" />
+  <Files>
+    <Group name="AutoMap Trial Guide">
+      <Document path="..\latest\online-trial-guides\automap-trial\automap-trial-guide.md" />
+    </Group>
+  </Files>
+  <Targets>
+    <Target name="Automap Trial" format="WebWorks Reverb 2.0" formatType="Application" build="True" destination="DocsAutomapTrial" cleanOutput="True">
+      <MergeSettings title="AutoMap Trial Guide">
+        <Group name="AutoMap Trial Guide" />
+      </MergeSettings>
+    </Target>
+  </Targets>
+</Job>
