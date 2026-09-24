@@ -2,7 +2,7 @@
 <Job name="trial-automap" version="1.0">
   <!-- The epublisher-docs design project used as a stationery (mode 3): design.wep supplies the
        "Automap Trial" target's settings, conditions and variables (including its AI Assistant ID);
-       this job supplies only the guide. The target's AI Assistant ID is empty until an assistant for this guide exists in the WebWorks Platform. Publish with /publish-jobs, which resolves the
+       this job supplies only the guide. Publish with /publish-jobs, which resolves the
        DocsAutomapTrial destination from epublisher-docs\webworks\deploy-targets.xml. -->
   <Project path="C:\Projects\epublisher-docs\webworks\design\design.wep" useAsStationery="True" />
   <Files>
