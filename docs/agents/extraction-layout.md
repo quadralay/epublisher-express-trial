@@ -111,7 +111,8 @@ latest/local-trial-projects/WebWorks ePublisher AutoMap/
 - The `.gitignore` globs `Evaluation/*/Files/*`, `Evaluation/*/Formats/*`, `Evaluation/*/Settings/*`, and `Evaluation/*/*.manifest`, so any Stationery folder placed under `Evaluation/` follows the same track-only-the-`.wxsp` rule as the Express Trial Stationery. The ignored files must still exist on disk for builds and packaging; regenerate them per `docs/agents/release-migration.md` if they go missing.
 - Quantum Sync Midnight Stationery is the exception (ADR-0003): its chrome — `toolbar-logo.svg`, `footer-logo.svg` and `favicon.png` under `Files/`, and everything under `Formats/WebWorks Reverb 2.0/Pages/sass/` — is its design source and is tracked through `.gitignore` negations. Everything else in its folder, the PDF cover and Open Graph image included, is regenerated from Quantum Sync Stationery with `python scripts/sync_variant_stationery.py`; `--check` reports drift without writing.
 - Because every seeded-job path is relative to the job file, the seeded state can be hand-staged on any machine by copying the **contents** of this folder into `<Documents>\WebWorks ePublisher AutoMap\` (existing jobs and the Staging folder are unaffected). This is how the screenshots are captured (#35) and how a maintainer verifies the materials before the product-side extraction ships.
-- Packaging the materials into the installer payload is defined with the handoff spec (#37) and added to `docs/agents/trial-project-workflow.md` then.
+- Packaging the materials into the installer payload is `/package-trials` step 5, which builds `Exp_AutoMap.wez` for `products/AutoMap/Evaluation/` in trunk (`docs/agents/trial-project-workflow.md`, "Refreshing `.wez` packages in the dev repo").
+The product-side installer and first-launch extraction work is specified in `docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md` and filed as Trac #2975.
 
 ### Verification recipe (the end-to-end seam)
 

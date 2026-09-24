@@ -37,21 +37,22 @@ The AutoMap trial ships its own copies of the Quantum Sync design and content so
 - **Quantum Sync Source Docs** (`WebWorks ePublisher AutoMap/Evaluation/Quantum Sync Source Docs/`): an edit to the Quantum Sync book is made here and in the Express Trial Project's `Source Docs/` until the evaluations converge (ADR-0002); the Release Notes document (`release-notes.md`) is edited here only. What each file is and how the folder relates to the Express copy is defined in the extraction-layout contract. Every source doc here uses only styles Quantum Sync Stationery maps: the Helper Adapter emits `Italic` for `*text*` and `Code` for inline code, neither of which the Stationery maps, so use bold and code fences instead.
 - **Seeded jobs** (`WebWorks ePublisher AutoMap/Jobs/<name>/<name>.waj`) are authored by hand against the contract's relative-path rule and validated with the `automap` skill's scripts. Copy the folder's contents into `Documents\WebWorks ePublisher AutoMap\` to open them in AutoMap Administrator.
 
-These materials are **not** part of the three `.wez` archives below. Packaging them into the AutoMap installer payload is defined with the trunk handoff spec.
+These materials ship as a fourth archive, `Exp_AutoMap.wez`, the AutoMap installer's evaluation payload, produced by the same `/package-trials` run as the other three (see the table below). The product-side work that installs and extracts it is specified in `docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md`.
 
 ## Refreshing `.wez` packages in the dev repo
 
-The ePublisher dev repo at `%EPUBLISHER_DEV_PATH%` (typically `C:\Repo\ePublisher_debug\trunk`) ships three `.wez` archives that become the sample projects users see in the installed trial:
+The ePublisher dev repo at `%EPUBLISHER_DEV_PATH%` (typically `C:\Repo\ePublisher_debug\trunk`) ships four `.wez` archives that become the sample projects users see in the installed trial:
 
 | Archive | Destination under `%SVN_LOCAL_PATH%\` |
 |---------|----------------------------------------|
 | `Exp_Design.wez` | `products\ePublisher\Evaluation\` |
 | `Exp_ePub.wez` | `products\Express\Evaluation\` |
 | `Exp_Stationery.wez` | `products\Express\Evaluation\` |
+| `Exp_AutoMap.wez` | `products\AutoMap\Evaluation\` (new folder; `/package-trials` creates it when absent) |
 
 To refresh them:
 
-1. **Purge generated dirs.** ePublisher writes `Logs/`, `Output/`, and `Reports/` into each project folder when it runs. These are gitignored and must not ship inside the `.wez`. Delete them from each of the three clone project folders before packaging:
+1. **Purge generated dirs.** ePublisher writes `Logs/`, `Output/`, and `Reports/` into each project folder when it runs. These are gitignored and must not ship inside the `.wez`. Delete them from each of the three clone project folders before packaging. The AutoMap materials folder needs no purge (jobs run from the extracted copy, never from the clone), but `python scripts/sync_variant_stationery.py --check` must exit 0 before packaging:
 
    ```bash
    for p in \
@@ -62,12 +63,14 @@ To refresh them:
    done
    ```
 
-2. **Run `/package-trials`.** This zips each project folder (contents at archive root) and writes the `.wez` directly to the three SVN evaluation directories. See `.claude/commands/package-trials.md` for the full mechanics.
+2. **Run `/package-trials`.** This zips each project folder (contents at archive root) and writes the `.wez` directly to the SVN evaluation directories. See `.claude/commands/package-trials.md` for the full mechanics.
 
 3. **Sanity-check sizes.** Rough expected sizes:
    - `Exp_Design.wez` — ~1.6 MB (customizations + source docs only)
    - `Exp_ePub.wez` — ~3.0 MB (full baseline + source docs)
    - `Exp_Stationery.wez` — ~3.0 MB (full baseline)
+   - `Exp_AutoMap.wez` — 6.4 MB (two Stationeries + source docs + three jobs)
+
 
    A meaningfully larger archive usually means generated dirs crept back in — re-check step 1.
 
