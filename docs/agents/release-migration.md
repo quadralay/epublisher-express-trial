@@ -44,7 +44,7 @@ The Designer Trial project is the design source for two Stationeries (ADR-0002),
 
 ### 4. Package and commit
 
-- Refresh the `.wez` archives per `docs/agents/trial-project-workflow.md` § "Refreshing `.wez` packages in the dev repo", then commit them to SVN. The AutoMap evaluation materials are packaged separately (defined with the trunk handoff spec).
+- Refresh the `.wez` archives per `docs/agents/trial-project-workflow.md` § "Refreshing `.wez` packages in the dev repo", then commit them to SVN. The same `/package-trials` run refreshes `Exp_AutoMap.wez` for the AutoMap installer after the variant Stationery regeneration; the `.waj` files need no migration because they name the Stationery by relative path, not by version.
 - Open a PR against `master` bundling the `.wep`, all three `.wxsp` files, the `.wrp`, and any migration-triggered SCSS or asset updates.
 
 ### 5. Publish the online trial guides

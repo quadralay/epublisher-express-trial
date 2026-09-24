@@ -18,7 +18,7 @@ _Avoid_: sample files, trial collateral
 A `.waj` included in evaluation materials, present in AutoMap Administrator's job list before the user has created anything.
 
 **Trunk handoff spec**:
-The Trac-ready document this repo delivers for the product-side work of the AutoMap trial (installer evaluation payload, first-launch extraction, trial-URL auto-open). The dev team implements it in `trunk`; this repo does not.
+The Trac-ready document this repo delivers for the product-side work of the AutoMap trial (installer evaluation payload, first-launch extraction, trial-URL auto-open). The dev team implements it in `trunk`; this repo does not. Written as `docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md` and filed as Trac #2975 (2026-09-23).
 
 ### AutoMap
 
