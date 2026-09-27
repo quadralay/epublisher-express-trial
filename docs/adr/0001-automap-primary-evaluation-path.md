@@ -7,3 +7,5 @@ The Express trial has been the simple evaluation entry point, but as of 2026.1 D
 - Funnel roles: AutoMap is the upsell target and preferred UI; Designer is the conversion CTA (you need it to create your own Stationery — the real adoption hurdle); Express remains a low-cost publish/deploy entry point for price-sensitive newcomers, and its trial ships unchanged.
 - New dev work in `trunk`: AutoMap installer evaluation payload, first-launch `.wez` extraction in `AutomapApplication.OnInitializePreferences`, and trial-guide URL auto-open — mirroring the existing Express implementation (see `docs/research/automap-trial-features.md` for the exact template).
 - Evaluation Contract IDs must be configured to include the AutoMap component (confirmed configurable).
+
+Update 2026-09-26: ADR-0005 moves extraction from first launch to install time, makes Reset Evaluation Materials required, and replaces the trial-guide auto-open and Help-menu item with an installer Finish-page link and a Getting Started topic in the AutoMap help.

@@ -1,6 +1,6 @@
 # Extraction-layout contract (AutoMap evaluation materials)
 
-Where every piece of AutoMap evaluation material lands on a trial user's machine, and the relative-path rule seeded jobs are authored against. The AutoMap installer carries these materials and AutoMap Administrator extracts them on first launch (ADR-0001); the product-side work that realizes this layout is specified in the trunk handoff spec. Everything downstream — the seeded jobs, the variant Stationery, the trial guide and its screenshots, the handoff spec — is written against this document.
+Where every piece of AutoMap evaluation material lands on a trial user's machine, and the relative-path rule seeded jobs are authored against. The AutoMap installer carries these materials and its registration step extracts them into the installing user's Documents during an interactive install, with Reset Evaluation Materials restoring them for any user (ADR-0005); the product-side work that realizes this layout is specified in the trunk handoff spec. Everything downstream — the seeded jobs, the variant Stationery, the trial guide and its screenshots, the handoff spec — is written against this document.
 
 Vocabulary follows `CONTEXT.md` (evaluation materials, seeded job, publishing job, shell, chrome). Naming follows ADR-0002.
 
@@ -42,7 +42,9 @@ Everything lives under the **AutoMap product folder**, `<Documents>\WebWorks ePu
 | Seeded jobs: Quantum Sync Help, Quantum Sync Release Notes, Quantum Sync Site Shell | `Jobs\<name>\<name>.waj` | #32 |
 | Composition job Quantum Sync Site | Created by the trial user in-guide; nothing is seeded | #33 |
 
-Job identity is the folder name: `Jobs\<name>\<name>.waj`, where `<name>` is also the `name` attribute of the `<Job>` element. The Administrator scans the Jobs folder live, so a seeded job appears in the job list as soon as its `.waj` lands there; there is no import step.
+Job identity is the folder name: `Jobs\<name>\<name>.waj`, where `<name>` is also the `name` attribute of the `<Job>` element. The Administrator loads every job folder under Jobs when it starts and when the Jobs folder preference changes, so a seeded job appears in the job list without an import step; a job folder added while the Administrator is running appears after the next reload.
+
+The tree shows the default extraction root. If AutoMap Workspaces (Trac #2919) ship in the same build as seeding, the same tree sits under a dedicated Quantum Sync Trial workspace folder instead, and the relative paths are unchanged; see the handoff spec.
 
 ## Why the AutoMap product folder
 
@@ -75,7 +77,7 @@ Rules:
 
 1. Every `<Project path>` and `<Document path>` is relative, uses backslashes, and starts with exactly `..\..\Evaluation\`. Never absolute; never climb above the product folder; never reference an Express or Designer folder.
 2. The job folder name, the `.waj` file name, and the `<Job name="...">` attribute are the same string.
-3. The invariant the paths depend on is that **`Jobs` and `Evaluation` are siblings under the product folder**. Extraction targets the product-default Jobs folder; the handoff spec decides how to handle a surviving relocated Jobs-folder preference (only possible after a reinstall) while keeping the siblings invariant. A user who relocates the Jobs folder afterwards breaks seeded jobs exactly as they would break any relative-path job; the guide does not cover that case.
+3. The invariant the paths depend on is that **`Jobs` and `Evaluation` are siblings under the product folder**. Extraction targets the Jobs folder of the extraction root: the product-default folder, or a dedicated trial workspace folder if AutoMap Workspaces (Trac #2919) ship in the same build; the layout inside the root is the same either way. Install-time seeding skips a machine whose Jobs folder already holds jobs or has been relocated. A user who relocates the Jobs folder afterwards breaks seeded jobs exactly as they would break any relative-path job; the guide does not cover that case.
 4. Stationery-based jobs build in the Staging folder (`Staging\<name>\Output\<Target>\`); the guide never sends a trial user there. Each seeded job deploys through a local Folder destination written as `..\..\Output\<name>` in the repo `.waj`; extraction absolutizes that value under the AutoMap product folder. See `docs/agents/seeded-jobs.md` and ADR-0004.
 
 ## Localized Documents folder names
@@ -92,7 +94,7 @@ What varies by Windows UI language or configuration, and what does not:
 How each consumer handles this:
 
 - **Seeded jobs** are unaffected: no path in a seeded job contains a localized segment.
-- **First-launch extraction (handoff spec)** resolves `<Documents>` the way AutoMap already resolves the Jobs folder and treats every name below it as a fixed literal — no new resource strings, no per-language folder names.
+- **Install-time extraction and Reset (handoff spec)** resolve `<Documents>` the way AutoMap already resolves the Jobs folder and treats every name below it as a fixed literal — no new resource strings, no per-language folder names.
 - **Guide and screenshot prose** writes locations as `Documents\WebWorks ePublisher AutoMap\...`, introduces `Documents` once as "your Documents folder" with a note that Windows may show it under a localized name or inside OneDrive, and prefers the Administrator's own navigation (the job list, the job's folder, Explore Output) over typed paths. The guide never names an Express or Designer folder.
 
 ## The repo mirror
@@ -112,7 +114,7 @@ latest/local-trial-projects/WebWorks ePublisher AutoMap/
 - Quantum Sync Midnight Stationery is the exception (ADR-0003): its chrome — `toolbar-logo.svg`, `footer-logo.svg` and `favicon.png` under `Files/`, and everything under `Formats/WebWorks Reverb 2.0/Pages/sass/` — is its design source and is tracked through `.gitignore` negations. Everything else in its folder, the PDF cover and Open Graph image included, is regenerated from Quantum Sync Stationery with `python scripts/sync_variant_stationery.py`; `--check` reports drift without writing.
 - Because every seeded-job path is relative to the job file, the seeded state can be hand-staged on any machine by copying the **contents** of this folder into `<Documents>\WebWorks ePublisher AutoMap\` (existing jobs and the Staging folder are unaffected). This is how the screenshots are captured (#35) and how a maintainer verifies the materials before the product-side extraction ships.
 - Packaging the materials into the installer payload is `/package-trials` step 5, which builds `Exp_AutoMap.wez` for `products/AutoMap/Evaluation/` in trunk (`docs/agents/trial-project-workflow.md`, "Refreshing `.wez` packages in the dev repo").
-The product-side installer and first-launch extraction work is specified in `docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md` and filed as Trac #2975.
+The product-side installer, install-time extraction and Reset work is specified in `docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md` and filed as Trac #2975.
 
 ### Verification recipe (the end-to-end seam)
 
@@ -165,4 +167,4 @@ Last re-skin run (#31): 2026-09-02 against AutoMap 2026.1.4755 — `Quantum Sync
 
 ## The trial guide's URL
 
-The AutoMap trial guide publishes to https://static.webworks.com/docs/epublisher/2026.1/automap/trial/ through this repo's `automap-jobs/trial-automap.waj` job (`/publish-jobs trial-automap`), the same versioned path pattern as the Designer and Express guides. This is the URL the product-side first-launch auto-open (trunk handoff spec, #37) targets. The path is versioned per release, so a release migration updates it along with the others (see `docs/agents/release-migration.md`).
+The AutoMap trial guide publishes to https://static.webworks.com/docs/epublisher/2026.1/automap/trial/ through this repo's `automap-jobs/trial-automap.waj` job (`/publish-jobs trial-automap`), the same versioned path pattern as the Designer and Express guides. The AutoMap installer's Finish-page link and the Getting Started topic in the AutoMap help target this URL (trunk handoff spec, ADR-0005). The path is versioned per release, so a release migration updates it along with the others (see `docs/agents/release-migration.md`).
