@@ -12,16 +12,18 @@ Create `.wez` zip archives from local trial projects and copy them to the SVN ev
 
 - Environment variable `SVN_LOCAL_PATH` must be set to the SVN trunk path
 - 7-Zip must be installed at `C:/Program Files/7-Zip/7z.exe`
+- `python scripts/sync_variant_stationery.py --check` must exit 0 (Quantum Sync Midnight Stationery in sync with Quantum Sync Stationery) before the AutoMap archive is built.
 
 ## Archive Mapping
 
-Each archive is created by zipping the **contents** of a project folder (no parent folder wrapper):
+Each archive is created by zipping the **contents** of a project folder (no parent folder wrapper). The AutoMap archive zips the contents of the materials folder, so `Evaluation/` and `Jobs/` are its top-level entries:
 
 | Source (under `latest/local-trial-projects/`) | Archive | SVN Destination (under `$SVN_LOCAL_PATH/`) |
 |---|---|---|
 | `ePublisher Designer Projects/ePublisher Designer Trial/` | `Exp_Design.wez` | `products/ePublisher/Evaluation/` |
 | `ePublisher Express Projects/ePublisher Express Trial Project/` | `Exp_ePub.wez` | `products/Express/Evaluation/` |
 | `ePublisher Stationery/<first folder>/` | `Exp_Stationery.wez` | `products/Express/Evaluation/` |
+| `WebWorks ePublisher AutoMap/` | `Exp_AutoMap.wez` | `products/AutoMap/Evaluation/` |
 
 ## Steps
 
@@ -62,7 +64,23 @@ Each archive is created by zipping the **contents** of a project folder (no pare
        ```
    - If no stationery folder exists, skip with a note
 
-5. **Report results** in a table showing each archive, its size, and status.
+5. **Package AutoMap evaluation materials** (`Exp_AutoMap.wez`):
+   - Source: `LOCAL_PROJECTS/WebWorks ePublisher AutoMap/`
+   - Return to the repo root (earlier steps `cd` into project folders), run the variant check and abort this step if it fails
+   - Create the destination directory if absent, delete the existing archive, then archive the folder contents so `Evaluation/` and `Jobs/` sit at the archive root:
+     ```bash
+     cd "$(git rev-parse --show-toplevel)"
+     python scripts/sync_variant_stationery.py --check
+     mkdir -p "$SVN_LOCAL_PATH/products/AutoMap/Evaluation"
+     rm -f "$SVN_LOCAL_PATH/products/AutoMap/Evaluation/Exp_AutoMap.wez"
+     cd "$LOCAL_PROJECTS/WebWorks ePublisher AutoMap"
+     "/c/Program Files/7-Zip/7z.exe" a -tzip -mx=9 "$SVN_LOCAL_PATH/products/AutoMap/Evaluation/Exp_AutoMap.wez" ./*
+     "/c/Program Files/7-Zip/7z.exe" l "$SVN_LOCAL_PATH/products/AutoMap/Evaluation/Exp_AutoMap.wez" | grep -E "Quantum Sync Help.waj|Quantum Sync Stationery.wxsp"
+     ```
+   - The archive is built from the working tree: git tracks only 20 of its 1,083 files; regenerated Stationery parts (`.manifest`, `Files/`, `Settings/`, `Formats/`) are gitignored, so the folder must be complete on disk, as with the Express Trial Stationery.
+   - Confirm the listing contains `Jobs/Quantum Sync Help/Quantum Sync Help.waj` and `Evaluation/Quantum Sync Stationery/Quantum Sync Stationery.wxsp`.
+
+6. **Report results** in a table showing each archive, its size, and status.
 
 **IMPORTANT:**
 - Do NOT use TodoWrite or task tracking tools
@@ -77,6 +95,7 @@ Each archive is created by zipping the **contents** of a project folder (no pare
 | `Exp_Design.wez` | `products/ePublisher/Evaluation/` | Created |
 | `Exp_ePub.wez` | `products/Express/Evaluation/` | Created |
 | `Exp_Stationery.wez` | `products/Express/Evaluation/` | Created / Skipped (no stationery) |
+| `Exp_AutoMap.wez` | `products/AutoMap/Evaluation/` | Created |
 
 ## Success Criteria
 
@@ -84,3 +103,4 @@ Each archive is created by zipping the **contents** of a project folder (no pare
 - Stationery archive is created only when stationery content exists
 - Archives are written directly to the SVN evaluation directories
 - Each archive contains project contents at the root level (matching existing `.wez` structure)
+- AutoMap archive is always created; its root holds `Evaluation/` and `Jobs/`, and the variant check passed first
