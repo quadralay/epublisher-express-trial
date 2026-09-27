@@ -58,13 +58,16 @@ A composition whose members have Build checked: the composition builds each memb
 Members publish on their own cadence (`build="false"`); the composition only splices what is already deployed. Explore More depth, not a trial step.
 
 **AutoMap product folder**:
-`Documents\WebWorks ePublisher AutoMap` — the fixed, non-localized folder AutoMap owns under the user's Documents. Holds the product-default `Jobs` and `Staging` folders and, per the extraction-layout contract, the `Evaluation` and `Output` folders.
+`Documents\WebWorks ePublisher AutoMap` -- the fixed, non-localized folder AutoMap owns under the user's Documents. Holds the Default workspace's `Jobs` and `Staging` folders. The AutoMap evaluation materials live in the Quantum Sync Trial evaluation workspace instead; see **Evaluation workspace** below.
+
+**Evaluation workspace**:
+The AutoMap workspace named "Quantum Sync Trial" that holds the AutoMap evaluation materials: `<Public Documents>\WebWorks ePublisher AutoMap\Quantum Sync Trial\`, shared by every user of the computer, seeded by the installer and restored by "Reset Evaluation Materials" (ADR-0006). Distinct from the Default workspace.
 
 **Evaluation folder**:
-`Evaluation` under the AutoMap product folder — where the AutoMap installer's evaluation materials other than seeded jobs are extracted (Quantum Sync Stationery, the variant Stationery, the Quantum Sync source docs). Seeded jobs reach it as `..\..\Evaluation\`.
+`Evaluation` under the Quantum Sync Trial evaluation workspace -- where the AutoMap installer's evaluation materials other than seeded jobs are extracted (Quantum Sync Stationery, the variant Stationery, the Quantum Sync source docs). Seeded jobs reach it as `..\..\Evaluation\`.
 
 **Output folder**:
-`Output` under the AutoMap product folder — where every seeded job and the in-guide Composition job deploy, `Output\<job name>\`; Explore Output opens the selected destination folder; created by the first run.
+`Output` under the Quantum Sync Trial evaluation workspace (`<Public Documents>\WebWorks ePublisher AutoMap\Quantum Sync Trial\Output\`) -- where every seeded job and the in-guide Composition job deploy, `Output\<job name>\`; Explore Output opens the selected destination folder; created by the first run.
 
 **Folder destination**:
 An inline deploy setting with `Action="file"`: AutoMap copies a target output to the folder named verbatim; the trial's only destination kind.
@@ -73,7 +76,7 @@ An inline deploy setting with `Action="file"`: AutoMap copies a target output to
 The Administrator's two output commands (the Job menu captions are **Explore Output for Target** and **Preview Output in Browser**): they act on a target deploy destination, opening its folder or its entry page over `file://`; there is nothing to show for a job without a destination, and they never open Staging.
 
 **Workspace**:
-The Administrator's set of jobs. One moveable workspace per install today; the next release plans multiple workspaces, each a set of jobs to compose and publish. Roadmap context only — the 2026.1 trial guide does not use this term.
+A named, switchable set of jobs in AutoMap Administrator: a jobs folder plus a staging folder, chosen from the File menu (Trac #2919, SVN r36120). The unnamed Default workspace is the Administrator's original Jobs and Staging pair. The AutoMap trial's materials live in their own workspace, the evaluation workspace. The trial guide adopts the term once a build seeds that workspace.
 
 ### Content
 

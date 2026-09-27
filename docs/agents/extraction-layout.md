@@ -1,20 +1,20 @@
 # Extraction-layout contract (AutoMap evaluation materials)
 
-Where every piece of AutoMap evaluation material lands on a trial user's machine, and the relative-path rule seeded jobs are authored against. The AutoMap installer carries these materials and its registration step extracts them into the installing user's Documents during an interactive install, with Reset Evaluation Materials restoring them for any user (ADR-0005); the product-side work that realizes this layout is specified in the trunk handoff spec. Everything downstream — the seeded jobs, the variant Stationery, the trial guide and its screenshots, the handoff spec — is written against this document.
+Where every piece of AutoMap evaluation material lands on a trial user's machine, and the relative-path rule seeded jobs are authored against. The AutoMap installer carries these materials and its registration step extracts them into the shared Quantum Sync Trial workspace under Public Documents during an interactive install, with Reset Evaluation Materials restoring them for any user (ADR-0006); the product-side work that realizes this layout is specified in the trunk handoff spec. Everything downstream — the seeded jobs, the variant Stationery, the trial guide and its screenshots, the handoff spec — is written against this document.
 
 Vocabulary follows `CONTEXT.md` (evaluation materials, seeded job, publishing job, shell, chrome). Naming follows ADR-0002.
 
 ## The layout on a trial user's machine
 
-Everything lives under the **AutoMap product folder**, `<Documents>\WebWorks ePublisher AutoMap\`, next to the product-default Jobs and Staging folders:
+Everything lives under the **Quantum Sync Trial evaluation workspace**, `<Public Documents>\WebWorks ePublisher AutoMap\Quantum Sync Trial\`, with Jobs as the workspace's Jobs folder and Staging as its Staging folder:
 
 ```
-<Documents>\WebWorks ePublisher AutoMap\            AutoMap product folder
-├── Jobs\                                            product-default Jobs folder (seeded jobs land here)
+<Public Documents>\WebWorks ePublisher AutoMap\Quantum Sync Trial\  evaluation workspace
+├── Jobs\                                            workspace Jobs folder (seeded jobs land here)
 │   ├── Quantum Sync Help\Quantum Sync Help.waj
 │   ├── Quantum Sync Release Notes\Quantum Sync Release Notes.waj
 │   └── Quantum Sync Site Shell\Quantum Sync Site Shell.waj
-├── Staging\                                         product-default Staging folder (untouched)
+├── Staging\                                         workspace Staging folder
 ├── Output\                                          seeded jobs and the in-guide composition deploy here (Output\<job name>\, created by the first run)
 └── Evaluation\                                      AutoMap evaluation materials
     ├── Quantum Sync Stationery\
@@ -32,7 +32,7 @@ Everything lives under the **AutoMap product folder**, `<Documents>\WebWorks ePu
         └── release-notes.md                         the Release Notes document
 ```
 
-| Material | Folder under the product folder | Delivered by |
+| Material | Folder under the workspace folder | Delivered by |
 |----------|----------------------------------|--------------|
 | Quantum Sync Stationery | `Evaluation\Quantum Sync Stationery\` | #29 (this contract) |
 | Variant Stationery — **Quantum Sync Midnight Stationery** (ADR-0003): Quantum Sync Stationery with midnight chrome and identical style mappings | `Evaluation\Quantum Sync Midnight Stationery\` | #31 |
@@ -42,29 +42,25 @@ Everything lives under the **AutoMap product folder**, `<Documents>\WebWorks ePu
 | Seeded jobs: Quantum Sync Help, Quantum Sync Release Notes, Quantum Sync Site Shell | `Jobs\<name>\<name>.waj` | #32 |
 | Composition job Quantum Sync Site | Created by the trial user in-guide; nothing is seeded | #33 |
 
-Job identity is the folder name: `Jobs\<name>\<name>.waj`, where `<name>` is also the `name` attribute of the `<Job>` element. The Administrator loads every job folder under Jobs when it starts and when the Jobs folder preference changes, so a seeded job appears in the job list without an import step; a job folder added while the Administrator is running appears after the next reload.
+Job identity is the folder name: `Jobs\<name>\<name>.waj`, where `<name>` is also the `name` attribute of the `<Job>` element. The Administrator loads every job folder under Jobs when it starts and when the active workspace's Jobs folder changes, so a seeded job appears in the job list without an import step; a job folder added while the Administrator is running appears after the next reload.
 
-The tree shows the default extraction root. If AutoMap Workspaces (Trac #2919) ship in the same build as seeding, the same tree sits under a dedicated Quantum Sync Trial workspace folder instead, and the relative paths are unchanged; see the handoff spec.
+The folder is registered as the Quantum Sync Trial workspace (jobs folder "Jobs", staging folder "Staging"); the Administrator lists that workspace's jobs when it is active.
 
-## Why the AutoMap product folder
+## Why a shared workspace under Public Documents
 
-The choice is driven by localization. Facts from the ePublisher dev repo (`trunk` = `%EPUBLISHER_DEV_PATH%`, typically `C:\Repo\ePublisher_debug\trunk`):
+ADR-0006 records the full reasoning; this summarizes it for the extraction contract.
 
-- The product-default Jobs and Staging folders are hard-coded, non-localized literals: `Path.Combine(<Documents>, @"WebWorks ePublisher AutoMap\Jobs")` and `...\Staging` (`trunk: dev/source/windows/dotnet/WebWorks/Automap/Core/AutomapPreferences.cs`, `DefaultJobsDirectory` / `DefaultStagingDirectory`). `<Documents>` is `Environment.SpecialFolder.Personal`, which follows Windows folder redirection (OneDrive included).
-- The AutoMap product name resource is the same string in every language file (`trunk: .../Automap/Core/Resources/SpecialStrings*.resx`, `ProductName` = `WebWorks ePublisher AutoMap` in en/de/fr/ja).
-- The Express and Designer evaluation folders are **localized** resource strings: `ePublisher Express Projects` is `ePublisher Express-Projekte` / `Projets ePublisher Express` / `ePublisher Express プロジェクト` (`trunk: .../Publish/Redstone/Resources/SpecialStrings.{de,fr,ja}.resx`, `ProjectsFolder`), and `ePublisher Stationery` is `ePublisher Briefpapier` / `Papeterie ePublisher` / `ePublisher ステーショナリー` (`trunk: .../Publish/Core/Resources/strings.{de,fr,ja}.resx`, `StationeryFolder`). Only the leaf names Express extracts (`ePublisher Express Trial Project`, `ePublisher Express Trial Stationery`) are fixed English literals (`trunk: .../Publish/Redstone/RedstoneApplication.cs`, `ResetEvaluationMaterials`).
-
-Consequences:
-
-- A seeded job authored with `..\..\Evaluation\...` paths never spells a localized folder name, so one set of job files works on every Windows UI language and under OneDrive redirection.
-- The evaluation is self-contained (ADR-0001): nothing lands in a folder the Express or Designer installers own, so installing those products alongside neither collides with nor is required by the AutoMap trial.
-- `Evaluation` matches the product code's naming for this material (the installer payload folder is also `Evaluation`).
-
-Rejected alternative: placing the Stationery in Express's `<Documents>\ePublisher Stationery\` folder. It reads naturally on an English machine, but a seeded job would have to climb to `<Documents>` and descend into a localized folder name — either breaking on de/fr/ja, or forcing the extraction to create an English-named folder beside localized siblings.
+- The AutoMap Workspaces registry (Trac #2919, r36120) is machine-wide, so one shared evaluation workspace matches its scope better than a per-user folder.
+- `<Public Documents>` resolves through `Environment.SpecialFolder.CommonDocuments` at extraction time, so Windows handles its localized display name; no new resource strings are needed for the workspace path itself.
+- The default Public Documents ACL grants inheritable Modify to INTERACTIVE, SERVICE, and BATCH, so every interactive user and any scheduled task can read and write the shared materials.
+- Public Documents is not redirected to OneDrive, avoiding the placeholder-file extraction problem ADR-0001 and ADR-0005 already worked around for per-user Documents.
+- One shared path gives each seeded job exactly one job path and one machine-wide scheduled task (`waj <job name>`), instead of competing per-user copies.
+- The full workspace path stays within MAX_PATH for the deepest payload file.
+- The evaluation remains self-contained (ADR-0001): nothing lands in a folder the Express or Designer installers own.
 
 ## Relative-path rule for seeded jobs
 
-AutoMap resolves a job's `<Project path>` and every `<Document path>` relative to the folder containing the `.waj` (`trunk: .../Automap/Core/JobInfo.cs`, `ProjectPath` setter; `.../Automap/Core/DocumentNode.cs`, `Path`). From `Jobs\<name>\<name>.waj`, exactly two `..\` segments reach the product folder, and everything else is under `Evaluation\`:
+AutoMap resolves a job's `<Project path>` and every `<Document path>` relative to the folder containing the `.waj` (`trunk: .../Automap/Core/JobInfo.cs`, `ProjectPath` setter; `.../Automap/Core/DocumentNode.cs`, `Path`). From `Jobs\<name>\<name>.waj`, exactly two `..\` segments reach the workspace folder, and everything else is under `Evaluation\`:
 
 | Reference | Path as written in the `.waj` |
 |-----------|-------------------------------|
@@ -75,31 +71,30 @@ AutoMap resolves a job's `<Project path>` and every `<Document path>` relative t
 
 Rules:
 
-1. Every `<Project path>` and `<Document path>` is relative, uses backslashes, and starts with exactly `..\..\Evaluation\`. Never absolute; never climb above the product folder; never reference an Express or Designer folder.
+1. Every `<Project path>` and `<Document path>` is relative, uses backslashes, and starts with exactly `..\..\Evaluation\`. Never absolute; never climb above the workspace folder; never reference an Express or Designer folder.
 2. The job folder name, the `.waj` file name, and the `<Job name="...">` attribute are the same string.
-3. The invariant the paths depend on is that **`Jobs` and `Evaluation` are siblings under the product folder**. Extraction targets the Jobs folder of the extraction root: the product-default folder, or a dedicated trial workspace folder if AutoMap Workspaces (Trac #2919) ship in the same build; the layout inside the root is the same either way. Install-time seeding skips a machine whose Jobs folder already holds jobs or has been relocated. A user who relocates the Jobs folder afterwards breaks seeded jobs exactly as they would break any relative-path job; the guide does not cover that case.
-4. Stationery-based jobs build in the Staging folder (`Staging\<name>\Output\<Target>\`); the guide never sends a trial user there. Each seeded job deploys through a local Folder destination written as `..\..\Output\<name>` in the repo `.waj`; extraction absolutizes that value under the AutoMap product folder. See `docs/agents/seeded-jobs.md` and ADR-0004.
+3. The invariant the paths depend on is that **`Jobs` and `Evaluation` are siblings under the workspace folder**. Extraction targets the workspace folder; seeding never touches the Default workspace's Jobs folder. Seeding runs whenever the workspace folder is absent; jobs in the Default workspace only keep the installer from activating the trial workspace. A user who relocates the Jobs folder afterwards breaks seeded jobs exactly as they would break any relative-path job; the guide does not cover that case.
+4. Stationery-based jobs build in the Staging folder (`Staging\<name>\Output\<Target>\`); the guide never sends a trial user there. Each seeded job deploys through a local Folder destination written as `..\..\Output\<name>` in the repo `.waj`; extraction absolutizes that value under the Quantum Sync Trial workspace folder. See `docs/agents/seeded-jobs.md` and ADR-0004.
 
-## Localized Documents folder names
+## Localized folder names
 
 What varies by Windows UI language or configuration, and what does not:
 
 | Segment | Varies? |
 |---------|---------|
-| `<Documents>` (the Windows Documents known folder) | Display name is localized; the folder may be redirected to OneDrive. AutoMap resolves it via `Environment.SpecialFolder.Personal`. |
-| `WebWorks ePublisher AutoMap`, `Jobs`, `Staging` | Fixed literals in AutoMap. |
-| `Evaluation` and every folder and file name under it, and every seeded job folder name | Fixed literals defined by this contract, not resource strings. |
+| `<Public Documents>` (the Windows Public Documents known folder) | Display name is localized; AutoMap resolves it via `Environment.SpecialFolder.CommonDocuments`. It is not redirected to OneDrive. |
+| `WebWorks ePublisher AutoMap`, `Quantum Sync Trial`, `Jobs`, `Staging`, `Output`, `Evaluation`, and every folder name below | Fixed literals, not localized. |
 | `ePublisher Express Projects`, `ePublisher Stationery`, `ePublisher Designer Projects` | Localized. The AutoMap evaluation never places anything there and never references them. |
 
 How each consumer handles this:
 
 - **Seeded jobs** are unaffected: no path in a seeded job contains a localized segment.
-- **Install-time extraction and Reset (handoff spec)** resolve `<Documents>` the way AutoMap already resolves the Jobs folder and treats every name below it as a fixed literal — no new resource strings, no per-language folder names.
-- **Guide and screenshot prose** writes locations as `Documents\WebWorks ePublisher AutoMap\...`, introduces `Documents` once as "your Documents folder" with a note that Windows may show it under a localized name or inside OneDrive, and prefers the Administrator's own navigation (the job list, the job's folder, Explore Output) over typed paths. The guide never names an Express or Designer folder.
+- **Install-time extraction and Reset (handoff spec)** resolve `<Public Documents>` via `Environment.SpecialFolder.CommonDocuments` and treat every name below it as a fixed literal.
+- **Guide and screenshot prose** introduces the location once as "Public Documents"; afterward it prefers navigation via the Administrator's UI over repeating the raw path. The guide never names an Express or Designer folder.
 
 ## The repo mirror
 
-`latest/local-trial-projects/WebWorks ePublisher AutoMap/` mirrors the product folder one-to-one, the same way `ePublisher Express Projects/`, `ePublisher Designer Projects/`, and `ePublisher Stationery/` mirror the Express and Designer extraction folders:
+`latest/local-trial-projects/WebWorks ePublisher AutoMap/` mirrors the contents of the evaluation workspace folder (`<Public Documents>\WebWorks ePublisher AutoMap\Quantum Sync Trial\`) one-to-one, the same way `ePublisher Express Projects/`, `ePublisher Designer Projects/`, and `ePublisher Stationery/` mirror the Express and Designer extraction folders. `Staging\` and `Output\` are created on the trial user's machine and have no mirror:
 
 ```
 latest/local-trial-projects/WebWorks ePublisher AutoMap/
@@ -112,13 +107,13 @@ latest/local-trial-projects/WebWorks ePublisher AutoMap/
 
 - The `.gitignore` globs `Evaluation/*/Files/*`, `Evaluation/*/Formats/*`, `Evaluation/*/Settings/*`, and `Evaluation/*/*.manifest`, so any Stationery folder placed under `Evaluation/` follows the same track-only-the-`.wxsp` rule as the Express Trial Stationery. The ignored files must still exist on disk for builds and packaging; regenerate them per `docs/agents/release-migration.md` if they go missing.
 - Quantum Sync Midnight Stationery is the exception (ADR-0003): its chrome — `toolbar-logo.svg`, `footer-logo.svg` and `favicon.png` under `Files/`, and everything under `Formats/WebWorks Reverb 2.0/Pages/sass/` — is its design source and is tracked through `.gitignore` negations. Everything else in its folder, the PDF cover and Open Graph image included, is regenerated from Quantum Sync Stationery with `python scripts/sync_variant_stationery.py`; `--check` reports drift without writing.
-- Because every seeded-job path is relative to the job file, the seeded state can be hand-staged on any machine by copying the **contents** of this folder into `<Documents>\WebWorks ePublisher AutoMap\` (existing jobs and the Staging folder are unaffected). This is how the screenshots are captured (#35) and how a maintainer verifies the materials before the product-side extraction ships.
+- Because every seeded-job path is relative to the job file, the seeded state can be hand-staged on any machine by copying the folder's contents into `<Public Documents>\WebWorks ePublisher AutoMap\Quantum Sync Trial\`, then adding a workspace in the Administrator via File > Workspace > Manage Workspaces named "Quantum Sync Trial" pointing at that folder's Jobs and Staging subfolders. The verification recipe's staging and absolutizing step still applies unchanged.
 - Packaging the materials into the installer payload is `/package-trials` step 5, which builds `Exp_AutoMap.wez` for `products/AutoMap/Evaluation/` in trunk (`docs/agents/trial-project-workflow.md`, "Refreshing `.wez` packages in the dev repo").
 The product-side installer, install-time extraction and Reset work is specified in `docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md` and filed as Trac #2975.
 
 ### Verification recipe (the end-to-end seam)
 
-Run from any location; the layout is relocatable. Rehearse the seeded jobs and the composition end-to-end with `scripts/rehearse_seeded_jobs.ps1`. Use the `automap` skill's scripts (`<automap-skill>` is the skill's base directory; the build wrapper is `Invoke-Automap.ps1` in skill 3.9 and later, `automap-wrapper.sh --all-targets` in earlier releases).
+Run from any location; the layout is relocatable. Rehearse the seeded jobs and the composition end-to-end with `scripts/rehearse_seeded_jobs.ps1`. Use the `automap` skill's scripts (`<automap-skill>` is the skill's base directory; the build wrapper is `Invoke-Automap.ps1` in skill 3.9 and later, `automap-wrapper.sh --all-targets` in earlier releases). The `Q:\WebWorks ePublisher AutoMap\` mock below stands for the workspace folder itself; relative paths make the exact mount point arbitrary.
 
 ```bash
 # 1. Stage a mock of the extracted tree on a short path (the Stationery's deepest
@@ -129,7 +124,7 @@ mkdir -p "/q/WebWorks ePublisher AutoMap/Jobs/Quantum Sync Help" "/q/WebWorks eP
 
 # 2. Stage the seeded jobs and absolutize their Folder destinations.
 #    Without this, the relative Folder destination in the repo .waj is used
-#    verbatim against the CLI's working directory, not the product folder.
+#    verbatim against the CLI's working directory, not the workspace folder.
 python scripts/stage_seeded_jobs.py "Q:/WebWorks ePublisher AutoMap"
 
 # 3. Static checks: relative paths resolve, format names match the Stationery.

@@ -293,4 +293,16 @@ From `trunk: docs/guides/federated-parcel-composition.md`, `epublisher-docs: leg
 - The shared Finish page already uses `MUI_FINISHPAGE_RUN` (Launch) and `MUI_FINISHPAGE_SHOWREADME` (readme) (`products/common/windows/NSIS Installer/resources.nsh:150-166`); its strings are LangStrings in `i18n/{english,french,german,japanese}.nlf` (`english.nlf:40-41`). `MUI_FINISHPAGE_LINK` is the free slot for a trial-guide link.
 - The Administrator already deletes jobs with a confirmation prompt (`Automap/AutomapUI/UI/JobsForm.cs:1973`, `DeleteSelectedJobs` at 1454); what is missing is a way to restore seeded jobs.
 - Scheduled tasks embed the quoted absolute job path (`Automap/Core/TaskSchedulerManager.cs:258-263`), disown a task whose argument no longer matches the job (188-197), and rewrite only a missing exe path, never the job argument (417-430). Moving a seeded job therefore orphans any task created for it.
-- Trac #2919 (AutoMap Workspaces, milestone 2026.2) makes jobs/staging roots named and switchable with a per-user registry; the existing pair becomes the Default workspace.
+- Trac #2919 (AutoMap Workspaces, milestone 2026.2) makes jobs/staging roots named and switchable with a registry (described here as per-user; the fifth pass below corrects this: it is machine-wide); the existing pair becomes the Default workspace.
+
+## Fifth verification pass (2026-09-27): AutoMap Workspaces (r36120)
+
+- The registry (`Workspaces.prefs`) and active-selection (`ActiveWorkspace` in `AdminUI.prefs`) are both machine-wide under `%ProgramData%\WebWorks\ePublisher AutoMap\2026.1\`.
+- The workspace model (Name, JobsDirectory, StagingDirectory) and the Administrator API callable from an installer's `--register` step: `AutomapAdmin.AutomapUIWorkspaces` (Validate, Store, Activate, Remove).
+- Folder destinations, inline in a job or in a workspace manifest, are used verbatim, never resolved relative, so extraction still absolutizes them (`Publish/Core/Deployment/FolderDeploySetting.cs:80-104`, `FolderDeployTarget.cs:67-77`).
+- The CLI chooses a job's staging folder by matching the job path to registered workspaces, else Default's (`Automap/Core/AutomapCLI.cs:744-820`).
+- The Administrator loads jobs on startup and when the active workspace's jobs folder changes; `JobManager.LoadAllJobs` also loads loose `.waj`/`.wacj` files at the Jobs root; the Changed handler at `JobsForm.cs:2243-2253` only reloads when the folder actually changes.
+- Scheduled task names are machine-wide (`waj <job name>`, `TaskSchedulerManager.cs:25, 156-159`); Run Now re-points a same-named task silently without triggers, and after a warning with triggers.
+- Default Public Documents ACL grants inheritable Modify to INTERACTIVE, SERVICE and BATCH; `%ProgramData%\WebWorks` grants BUILTIN\Users full control inheritably; Public Documents is not redirected to OneDrive.
+- Deepest payload file is 126 characters relative, 199 characters under the full Quantum Sync Trial path.
+- Trac #2974 (r36117) widened the New Job dialog and kept the caption wording.

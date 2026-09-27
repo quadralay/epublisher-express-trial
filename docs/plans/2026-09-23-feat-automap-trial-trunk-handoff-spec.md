@@ -1,9 +1,9 @@
 ---
-title: "feat: AutoMap Trial trunk handoff spec (installer payload, install-time seeding, trial guide link)"
+title: "feat: AutoMap Trial trunk handoff spec (installer payload, evaluation workspace, trial guide link)"
 type: feat
 status: draft
 date: 2026-09-23
-origin: docs/research/automap-trial-features.md
+origin: `docs/research/automap-trial-features.md`
 ---
 
 # AutoMap Trial trunk handoff spec
@@ -12,69 +12,69 @@ origin: docs/research/automap-trial-features.md
 
 ### Goal
 
-Implement the product-side work that makes the AutoMap evaluation self-contained: package one Evaluation archive in the AutoMap installer, seed it for the installing user during interactive registration, link to the versioned trial guide from the installer Finish page, add a required reset action, and add a Getting Started topic to online AutoMap help. This is a trunk implementation handoff; no product source is changed by this document.
+Implement the product-side work that makes the AutoMap evaluation self-contained: package one Evaluation archive in the AutoMap installer, seed it into one shared machine-wide workspace during interactive registration, link to the versioned trial guide from the installer Finish page, add a required reset action, and add a Getting Started topic to online AutoMap help. This is a trunk implementation handoff; no product source is changed by this document.
 
-This revision is dated 2026-09-26 and adopts the maintainer-approved design in docs/adr/0005-install-time-evaluation-seeding.md.
+This revision is dated 2026-09-27 and records the maintainer-approved workspace-only design. The decision record is `docs/adr/0006-evaluation-workspace-in-public-documents.md`.
 
-### Superseded design
+### Design history
 
-The 2026-09-23 revision specified extraction on each user's first Administrator launch, a one-shot per-user trial-guide auto-open, and a Help-menu item. ADR-0005 (docs/adr/0005-install-time-evaluation-seeding.md) replaces that design with install-time seeding, an installer Finish-page guide link, and a Getting Started topic in online help.
+The 2026-09-23 revision specified first-launch extraction (superseded by ADR-0005); the 2026-09-26 revision specified install-time seeding with a choice of default-root or workspace modes; the 2026-09-27 revision (this one) moved to workspace-only under Public Documents per ADR-0006, after AutoMap Workspaces landed as SVN r36120.
 
 ### Template and design
 
-Express seeds in its application constructor, which runs before its --register branch (Redstone/Program.cs:58; branch at :143-162). The Express installer runs --register during installation, so its materials in practice land during installation for the installing account. AutoMap mirrors that install-time timing in its own explicit --register branch, rather than a shared constructor also used by CLI and scheduled-task launches. Those non-installer runs therefore never seed.
+Express seeds in its application constructor, which runs before its `--register` branch (`Redstone/Program.cs:58`; branch at :143-162). The Express installer runs `--register` during installation, so its materials in practice land during installation for the installing account. AutoMap mirrors that install-time timing in its own explicit `--register` branch, rather than a shared constructor also used by CLI and scheduled-task launches. Those non-installer runs therefore never seed.
 
-See docs/research/automap-trial-features.md, "Gap 7 informed" and "No evaluation seeding or trial-URL exists in AutoMap today". The primary evaluation path and product independence are recorded in docs/adr/0001-automap-primary-evaluation-path.md. The on-disk contract is docs/agents/extraction-layout.md; seeded job behavior and rehearsal evidence are in docs/agents/seeded-jobs.md. Destination rewriting follows docs/adr/0004-seeded-job-folder-destinations.md and scripts/stage_seeded_jobs.py.
+See `docs/research/automap-trial-features.md`, "Gap 7 informed" and "No evaluation seeding or trial-URL exists in AutoMap today". The primary evaluation path and product independence are recorded in `docs/adr/0001-automap-primary-evaluation-path.md`. The on-disk contract is `docs/agents/extraction-layout.md`; seeded job behavior and rehearsal evidence are in `docs/agents/seeded-jobs.md`. Destination rewriting follows `docs/adr/0004-seeded-job-folder-destinations.md` and `scripts/stage_seeded_jobs.py`.
 
 ### What already exists (verified against trunk)
 
 | Capability | Existing source or state | Handoff consequence |
 |---|---|---|
-| AutoMap Help archive | Express template paths.json 142-144; AutoMap Help key x64 paths.json 149-151, x86 paths_x86.json 125-127 | Add Evaluation entries alongside Help. |
-| Installer file list | install_files.nsh 393-394 (generated) | Edit paths.json and regenerate; do not hand-edit generated output. |
-| Registration step | products/AutoMap/Installer_Helper/Installer_Helper/Installer_Helper.cs:194-210 runs Administrator exe with --register, appending --silent for silent installs and --update for repairs/updates; invoked from products/common/windows/NSIS Installer/install.nsh:112; installer declares RequestExecutionLevel admin (resources.nsh:124) | Seed only in the interactive registration branch; elevated identity determines whose Documents folder is used. |
-| --register branch | Automap/AutomapUI/AutomapUI.cs:151-171 constructs AutomapApplication.Instance, calls OnRegistration, shows LicensingInfoForm unless --silent, and returns without disposing the app | Place extraction after OnRegistration and before the licensing form. |
-| Evaluation extraction helper | Publish/Core/PublisherApplication.cs:391-425 | Wrap the protected ExtractEvaluationWEZ in one public AutomapApplication method shared by --register and Reset; verify sentinels because it reports no result. |
-| Finish page | products/common/windows/NSIS Installer/resources.nsh:150-166 uses MUI_FINISHPAGE_RUN for Launch and MUI_FINISHPAGE_SHOWREADME for the readme; strings are LangStrings in i18n/{english,french,german,japanese}.nlf, e.g. english.nlf:40-41 | Add an AutoMap-only Finish-page link in the free link slot. |
-| Job deletion | Administrator Delete command with confirmation prompt, Automap/AutomapUI/UI/JobsForm.cs:1973, DeleteSelectedJobs at 1454 | Reset restores the three seeded folders after a user deletes one. |
-| Preferences Miscellaneous group | Automap/AutomapUI/UI/PrefEditorPanel.resx:292 | Place required Reset Evaluation Materials here. |
-| Scheduled tasks | Automap/Core/TaskSchedulerManager.cs: task action embeds quoted absolute job path (258-263); mismatching argument disowns task (188-197); UpdateTask rewrites only a missing exe path, never job argument (417-430) | Keep seeded job paths stable; never migrate seeded jobs between roots. |
-| Workspaces | Trac #2919, milestone 2026.2, component User Interface: named switchable jobs/staging roots with a per-user registry; existing pair becomes the "Default" workspace, unchanged until a second is added | Use workspace root if the trial-minimal workspace slice ships in the same build. |
+| AutoMap Help archive | Express template `paths.json` 142-144; AutoMap Help key x64 `paths.json` 149-151, x86 `paths_x86.json` 125-127 | Add Evaluation entries alongside Help. |
+| Installer file list | `install_files.nsh` 393-394 (generated) | Edit `paths.json` and regenerate; do not hand-edit generated output. |
+| Registration step | `products/AutoMap/Installer_Helper/Installer_Helper/Installer_Helper.cs:194-210` runs Administrator exe with `--register`, appending `--silent` for silent installs and `--update` for repairs/updates; invoked from `products/common/windows/NSIS Installer/install.nsh:112`; installer declares RequestExecutionLevel admin (`resources.nsh:124`) | Seed only in the interactive registration branch; workspace content is shared. |
+| `--register` branch | `Automap/AutomapUI/AutomapUI.cs:151-171` constructs `AutomapApplication.Instance`, calls OnRegistration, shows LicensingInfoForm unless `--silent`, and returns without disposing the app | Place extraction after OnRegistration and before the licensing form. |
+| Evaluation extraction helper | `Publish/Core/PublisherApplication.cs:391-425` | Wrap the `protected` `ExtractEvaluationWEZ` in one public `AutomapApplication` method shared by `--register` and Reset; verify sentinels because it reports no result. |
+| Finish page | `products/common/windows/NSIS Installer/resources.nsh:150-166` uses `MUI_FINISHPAGE_RUN` for Launch and `MUI_FINISHPAGE_SHOWREADME` for the readme; strings are LangStrings in i18n/{english,french,german,japanese}.nlf, e.g. `english.nlf`:40-41 | Add an AutoMap-only Finish-page link in the free link slot. |
+| Job deletion | Administrator Delete command with confirmation prompt, `Automap/AutomapUI/UI/JobsForm.cs:1973`, DeleteSelectedJobs at 1454 | Reset restores the three seeded folders after a user deletes one. |
+| Preferences Miscellaneous group | `Automap/AutomapUI/UI/PrefEditorPanel.resx:292` | Place required Reset Evaluation Materials here. |
+| Scheduled tasks | `Automap/Core/TaskSchedulerManager.cs`: task action embeds quoted absolute job path (258-263); mismatching argument disowns task (188-197); UpdateTask rewrites only a missing exe path, never job argument (417-430) | Keep seeded job paths stable. |
+| Workspaces | Trac #2919, committed as SVN r36120: named switchable jobs/staging roots with a machine-wide registry and active workspace | Seed into one registered workspace shared by all users. |
 
-All trunk references below use paths relative to `C:\Repo\ePublisher_debug\trunk\dev\source\windows\dotnet\WebWorks\` unless a path starts with products/ or another stated root. Line numbers are current verified anchors, not a claim that adjacent generated files should be edited by hand.
+All trunk references below use paths relative to trunk's dev\source\windows\dotnet\WebWorks\ unless a path starts with products/ or another stated root. Line numbers are current verified anchors, not a claim that adjacent generated files should be edited by hand.
 
 ## Installer Evaluation payload
 
 ### Archive contract
 
-Create a single plain ZIP-format .wez archive named `Exp_AutoMap.wez`, using 7-Zip `-tzip -mx=9`, from the CONTENTS of `latest/local-trial-projects/WebWorks ePublisher AutoMap/`. Do not add a wrapping directory. Root entries are `Evaluation/` and `Jobs/`. Add the packaging command to `/package-trials`; destination is `SVN_LOCAL_PATH/products/AutoMap/Evaluation/Exp_AutoMap.wez`, beside a README.md, matching `products/Express/Evaluation/`.
+Create a single plain ZIP-format .wez archive named `Exp_AutoMap.wez`, using 7-Zip `-tzip -mx=9`, from the CONTENTS of `latest/local-trial-projects/WebWorks ePublisher AutoMap/`. Do not add a wrapping directory. Root entries are `Evaluation/` and `Jobs/`. Add the packaging command to `/package-trials`; destination is `SVN_LOCAL_PATH/products/AutoMap/Evaluation/Exp_AutoMap.wez`, beside a `README.md`, matching `products/Express/Evaluation/`.
 
-The archive contains 1,083 files and 21,379,809 uncompressed bytes. The prebuilt path manifest is [docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec-manifest.txt](2026-09-23-feat-automap-trial-trunk-handoff-spec-manifest.txt); it lists every archive member relative to the mirror root. Do not create the archive from git ls-files or another tracked-file-only list.
+The archive contains 1,083 files and 21,379,809 uncompressed bytes. The prebuilt path manifest is [`docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec-manifest.txt`](2026-09-23-feat-automap-trial-trunk-handoff-spec-manifest.txt); it lists every archive member relative to the mirror root. Do not create the archive from git ls-files or another tracked-file-only list.
 
 | Archive subtree | Files | Contents |
 |---|---:|---|
-| Evaluation/Quantum Sync Stationery/ | 535 | Stationery package, including generated snapshots and baseline. |
-| Evaluation/Quantum Sync Midnight Stationery/ | 535 | Variant package, including generated snapshots and baseline. |
-| Evaluation/Quantum Sync Source Docs/ | 10 | Book, Release Notes, topics, and architecture image. |
-| Jobs/ | 3 | One .waj per seeded job. |
+| `Evaluation/Quantum Sync Stationery/` | 535 | Stationery package, including generated snapshots and baseline. |
+| `Evaluation/Quantum Sync Midnight Stationery/` | 535 | Variant package, including generated snapshots and baseline. |
+| `Evaluation/Quantum Sync Source Docs/` | 10 | Book, Release Notes, topics, and architecture image. |
+| `Jobs/` | 3 | One .waj per seeded job. |
 | Total | 1,083 | 21,379,809 bytes uncompressed. |
 
 The 521 files under each `Formats/WebWorks Reverb 2.0.base/` and `Formats/PDF - XSL-FO.base/` tree are verbatim copies of shipped format packages; preserve them in the ZIP but do not enumerate them here. Each Stationery's other 14 files are:
 
-- `Quantum Sync Stationery.wxsp` or `Quantum Sync Midnight Stationery.wxsp` and the matching `.manifest`.
+- Quantum Sync `Stationery.wxsp` or Quantum Sync Midnight `Stationery.wxsp` and the matching .manifest.
 - `Files/favicon.png`, `Files/footer-logo.png`, `Files/footer-logo.svg`, `Files/og.png`, `Files/pdf-cover.png`, and `Files/toolbar-logo.svg`.
 - `Settings/PDF/schema.json`, `Settings/PDF/settings.json`, `Settings/Web Help/schema.json`, and `Settings/Web Help/settings.json`.
 - `Formats/WebWorks Reverb 2.0/Pages/sass/_colors.scss` and `custom.scss`.
 
-The source docs' 10 named files are `quantum-sync.md`, `release-notes.md`, `images/quantum-sync-architecture.svg`, and `topics/features.md`, `topics/getting-started.md`, `topics/glossary.md`, `topics/overview.md`, `topics/settings.md`, `topics/sync-modes.md`, and `topics/troubleshooting.md`. Jobs are `Quantum Sync Help/Quantum Sync Help.waj`, `Quantum Sync Release Notes/Quantum Sync Release Notes.waj`, and `Quantum Sync Site Shell/Quantum Sync Site Shell.waj`.
+The source docs' 10 named files are `quantum-sync.md`, `release-notes.md`, `images/quantum-sync-architecture.svg`, and `topics/features.md`, `topics/getting-started.md`, `topics/glossary.md`, `topics/overview.md`, `topics/settings.md`, `topics/sync-modes.md`, and `topics/troubleshooting.md`. The jobs are `Quantum Sync Help/Quantum Sync Help.waj`, `Quantum Sync Release Notes/Quantum Sync Release Notes.waj`, and `Quantum Sync Site Shell/Quantum Sync Site Shell.waj`.
 
 ### Packaging source and generated content
 
-Build the archive from the packaging machine's complete WORKING TREE, not git alone. Git tracks only 20 of the 1,083 files: three .waj files, two .wxsp files, ten source-doc files, and five variant chrome sources (three Files assets and two Sass partials). The other 1,063 files are regenerated: Quantum Sync Stationery by Save as Stationery from the Designer Trial project (docs/agents/release-migration.md); Quantum Sync Midnight Stationery by `scripts/sync_variant_stationery.py` (ADR-0003).
+Build the archive from the packaging machine's complete WORKING TREE, not git alone. Git tracks only 20 of the 1,083 files: three .waj files, two .wxsp files, ten source-doc files, and five variant chrome sources (three Files assets and two Sass partials). The other 1,063 files are regenerated: Quantum Sync Stationery by Save as Stationery from the Designer Trial project (`docs/agents/release-migration.md`); Quantum Sync Midnight Stationery by `scripts/sync_variant_stationery.py` (ADR-0003).
 
 Before packaging, run `python scripts/sync_variant_stationery.py --check` from repo root and require exit code 0. This is a read-only drift check. The ignored Files/, Formats/, Settings/, and .manifest content must still be present when 7-Zip runs. The Express Trial Stationery package uses the same arrangement; its Files/, Formats/, Settings/, and .manifest are gitignored too (.gitignore lines 9-12; line 8 is the Express project's manifest).
 
-The archive and README.md now exist in the trunk working copy at `C:\Repo\ePublisher_debug\trunk\products\AutoMap\Evaluation\Exp_AutoMap.wez` (6,448,174 bytes, about 6.4 MB compressed); `7z l` reports 1083 files and 246 folders, matching the manifest count. Archive and README.md are unversioned in that SVN working copy (`svn status` shows a question mark for each), awaiting maintainer `svn add` and commit.
+The archive and `README.md` now exist in the trunk working copy at `C:\Repo\ePublisher_debug\trunk\products\AutoMap\Evaluation\Exp_AutoMap.wez` (6,448,174 bytes, about 6.4 MB compressed); 7z l reports 1083 files and 246 folders, matching the manifest count. Archive and `README.md` are unversioned in that SVN working copy (svn status shows a question mark for each), awaiting maintainer svn add and commit.
 
 ### Installer wiring
 
@@ -83,62 +83,61 @@ Add an `"ePublisher AutoMap\\Evaluation"` entry to both AutoMap installer manife
 - `products/AutoMap/AutoMapInstaller/NSIS Installer/Include/paths.json` (x64), next to Help key at lines 149-151.
 - `products/AutoMap/AutoMapInstaller/NSIS Installer/Include/paths_x86.json`, next to Help key at lines 125-127.
 
-Express template entry is at Express paths.json 142-144 (research note's "143-145" drifted by one); copy its shape next to AutoMap Help. `collector.py` regenerates install_files.nsh and uninstall_files.nsh from these JSON files. Do not hand-edit generated .nsh output. AutoMap `install_files.nsh` lines 393-394 show today's Help SetOutPath/File pair as the output sanity-check anchor.
+Express template entry is at Express `paths.json` 142-144 (research note's "143-145" drifted by one); copy its shape next to AutoMap Help. `collector.py` regenerates `install_files.nsh` and `uninstall_files.nsh` from these JSON files. Do not hand-edit generated .nsh output. AutoMap `install_files.nsh` lines 393-394 show today's Help SetOutPath/File pair as the output sanity-check anchor.
 
-No App.config change is needed. EvaluationFolder falls back to executable directory plus `Evaluation`. Installed archive path is `C:\Program Files\WebWorks\ePublisher\2026.1\ePublisher AutoMap\Evaluation\Exp_AutoMap.wez`.
+No `App.config` change is needed. `EvaluationFolder` falls back to executable directory plus `Evaluation`. Installed archive path is `C:\Program Files\WebWorks\ePublisher\2026.1\ePublisher AutoMap\Evaluation\Exp_AutoMap.wez`.
 
-## Install-time extraction
+## Evaluation workspace
 
-### Where it runs
+### Definition and registration
 
-Run extraction in the `--register` branch of `Automap/AutomapUI/AutomapUI.cs` (151-171), right after `OnRegistration(...)` and before the licensing form, only when `--silent` is absent. Do not place it in `AutomapApplication.OnInitializePreferences` (463-474), which also runs for CLI and scheduled-task initialization, or at Administrator startup.
+Define `<ws>` as Environment.SpecialFolder.CommonDocuments plus "WebWorks ePublisher AutoMap\Quantum Sync Trial"; on a default Windows install this resolves to `C:\Users\Public\Documents\WebWorks ePublisher AutoMap\Quantum Sync Trial`. There is one `<ws>` per machine, shared by every user.
 
-The installer requests admin, so this runs with the elevated token. `Environment.SpecialFolder.Personal` resolves to that account's Documents: the installing user under a UAC consent prompt, or the admin's own Documents when a credentialed admin installs on someone's behalf using over-the-shoulder elevation.
+Register it as an AutoMap workspace: Name "Quantum Sync Trial", `JobsDirectory` `<ws>\Jobs`, `StagingDirectory` `<ws>\Staging`. The model is `Automap/Core/AutomapWorkspace.cs:28-165` (Name, `JobsDirectory`, `StagingDirectory`). There is no workspace manifest file (`automap-workspace.xml`); seeded jobs keep their inline Folder destinations exactly as before.
 
-Repairs and updates re-run `--register` with `--update`; existence conditions below make that a no-op in the ordinary case. Silent installs skip seeding; these are typically enterprise/SYSTEM deployments, where materials would land in the system profile. This deliberately diverges from Express, which seeds unconditionally. The narrower alternative gate, if parity is wanted later, is to skip only when `WindowsIdentity.GetCurrent().IsSystem`, not for all silent installs.
+### Why shared
 
-### Conditions (existence checks, not the one-shot guard)
+The workspace registry `Workspaces.prefs` (`Automap/Core/AutomapWorkspaceRegistry.cs:37`, 51-59) and active-workspace selection (`AutomapUIPrefs`.`ActiveWorkspace`, key `ActiveWorkspace` in `AdminUI.prefs`, `Automap/AutomapUI/AutomapUIPrefs.cs:153-163`) both live in %ProgramData%\WebWorks\ePublisher AutoMap\2026.1\ and are machine-wide, because AutoMap constructs its preferences with base(true) (`Automap/Core/AutomapApplication.cs:275-276`; `Publish/Core/PublisherPrefences.cs:613-630`). A per-user Documents folder would put one user's profile path into every user's workspace list, and two per-user copies of a seeded job would fight over one machine-wide scheduled task name "waj `<job name>`" (`Automap/Core/TaskSchedulerManager.cs:25`, 156-159).
 
-An earlier revision claimed the installer's `--register` run flips and persists the `DefaultDirectoriesCreated` guard. That claim is WRONG. The `--register` stub sets the value in memory, but `SetProperty` only marks the store dirty (`Common/Preferences.cs:465-469`); preferences reach disk only through a flush, which happens in `PublisherApplication.Dispose` (`Publish/Core/PublisherApplication.cs:274-312`, Flush at line 297) and when the Administrator's Preferences dialog is confirmed (`Automap/AutomapUI/UI/PrefEditorPanel.cs:609-614`). The `--register` branch does neither: it returns without disposing the app. The guard is first persisted by the first Administrator session or CLI run that disposes the app -- machine-wide, not per-user or per-install. Do not use this guard for seeding gating.
+A shared folder matches the registry's scope: one job path per seeded job, one task per seeded job, and any user can run it. Public Documents is not redirected to OneDrive, so the placeholder problem that drove the create-only-when-absent rule does not arise here.
 
-Seed into `<root>` only when ALL of these conditions hold:
+### Access control
 
-(a) `<root>\Evaluation` is absent.
+Default Public Documents grants inheritable Modify to INTERACTIVE, SERVICE and BATCH (checked with icacls on a developer machine), so files the elevated installer extracts stay writable for interactive users and scheduled tasks. %ProgramData%\WebWorks grants BUILTIN\Users full control inheritably (`Publish/Core/PublisherPrefences.cs:803-853`), so any user's Reset can update `Workspaces.prefs`. The acceptance test must confirm these permissions on a clean machine.
 
-(b) None of the three seeded job folders exist under `<root>\Jobs`.
+### Path length, upgrades, and title bar
 
-(c) In default-root mode only, the Jobs folder is absent or holds no job folders (a subfolder containing a .waj or .wacj).
+The deepest payload file is 126 characters relative to the archive root; under the default `<ws>` it is 199 characters, inside MAX_PATH.
 
-(d) In default-root mode only, no Jobs-folder override is set: `AutomapUIPrefs.JobDir` (`Automap/AutomapUI/AutomapUIPrefs.cs:130`) equals the product default. `JobDir` lives in `AdminUI.prefs`, which is machine-wide (ProgramData, because AutoMap constructs with `base(true)`; `Publish/Core/PublisherPrefences.cs:619-621`), and the Preferences dialog stores it on every OK (`PrefEditorPanel.cs:609`), so a Jobs folder confirmed by one user applies to every user on the machine. It is readable in the `--register` branch because `AutomapApplication.Instance` has already registered `AutomapPreferences` and `AutomapUIPrefs` is in the same assembly. Compare normalized full paths, case-insensitively.
+`Workspaces.prefs` is carried forward to the next version's preferences folder (`Publish/Core/PublisherPrefences.cs:709`), copied only when the target is missing.
 
-Conditions (c) and (d) protect an existing customer's upgrade from getting trial jobs mixed into a real job list; Express has an analogous carried-forward guard. If any condition fails, do nothing during installation. Reset Evaluation Materials is the later recovery. Never overwrite or delete anything during install.
+With a named workspace registered, the Administrator shows "Quantum Sync Trial - `<product>`" when it is active (`Automap/AutomapUI/UI/JobsForm.cs:262-273`). The workspace name is data, not a resource, so it is the same string in every UI language.
 
-### Extraction root
+### Staging selection
 
-`<root>` is one value computed in one place and used by install-time seeding, Reset, and the destination rewrite alike. It has two modes:
+The CLI picks a job's staging folder by matching the job path against registered workspaces (`Automap/Core/AutomapCLI.cs:744-820`, AutomapWorkspaceRegistry.FindForJobFile at :196-220), so seeded jobs, their scheduled tasks, and the guide's own composition all stage under `<ws>\Staging`.
 
-- Default-root mode (no Workspaces in the build): `<root>` is `<Documents>\WebWorks ePublisher AutoMap`, whose Jobs and Staging are product defaults (`Automap/Core/AutomapPreferences.cs:93-109`).
-- Workspace mode (Trac #2919 ships in the same build): `<root>` is a dedicated trial workspace folder, suggested `<Documents>\WebWorks ePublisher AutoMap\Workspaces\Quantum Sync Trial` (name/location are #2919's call), registered for the installing user as "Quantum Sync Trial" with jobs root `<root>\Jobs`, staging root `<root>\Staging`, and no deploy-settings overlay. Conditions (c)/(d) do not apply because this root is new.
+### Localized names
 
-Because the #2919 workspace registry is a per-user preference and `--register` never disposes the app, seeding must explicitly Flush the registry itself rather than rely on Dispose. Layout inside `<root>` is identical in both modes, so payload, seeded jobs' relative paths, and destination rewrite do not change between modes.
+| Segment | Varies? |
+|---|---|
+| `<Public Documents>` display name | Localized, but resolved with CommonDocuments rather than by display name. |
+| WebWorks ePublisher AutoMap | No; fixed literal in every UI language. |
+| Quantum Sync Trial | No; fixed literal in every UI language. |
+| `Jobs`, `Staging`, `Output`, `Evaluation` | No; fixed literals in every UI language. |
+| Every name below those folders | No; fixed literal in every UI language. |
 
-### Verify, then rewrite
+### Workspace layout, folders, and relative paths
 
-Seeding and Reset share one public `AutomapApplication` method, modelled on Express's `RedstoneApplication.ResetEvaluationMaterials`, because `ExtractEvaluationWEZ` is `protected` on `PublisherApplication` and `AutomapUI.Main` cannot call it directly. That method calls `ExtractEvaluationWEZ(<archive>, <root>)`, extracting into `<root>` itself (not `<root>\Evaluation`) so `Evaluation\` and `Jobs\` land as siblings. Extracting into `<root>\Evaluation` nests them wrongly and breaks every relative path.
-
-The helper reports nothing. `ExtractEvaluationWEZ` (`Publish/Core/PublisherApplication.cs:391-425`) creates the destination only when absent, then extracts. Do not delete and recreate it: redirected Documents may be in OneDrive, where deletion can leave an empty cloud placeholder. `ZipFile.ExtractToDirectory` throws on any pre-existing file. Its catch near 420-424 is empty ("Silently fail!"); Express also uses bare catches and does not log extraction failures. After extraction, check sentinels: the three seeded .waj files and `Evaluation\Quantum Sync Stationery\Quantum Sync Stationery.wxsp`. Only when all exist, run the destination rewrite. If they do not, stop; Reset is the recovery.
-
-### Layout, localized folders, and relative paths
-
-This tree reproduces `docs/agents/extraction-layout.md`, "The layout on a trial user's machine". `<Documents>` is the Windows Personal known folder and may be redirected to OneDrive. Jobs, Staging, Evaluation, Output, and all child names are fixed literals. In default-root mode, `<root>` is `<Documents>\WebWorks ePublisher AutoMap`.
+This tree reproduces `docs/agents/extraction-layout.md`, "The layout on a trial user's machine". `<ws>` is the shared Public Documents evaluation workspace.
 
 ```
-<root>\                                           extraction root
+<ws>\                                           evaluation workspace
 +-- Jobs\                                           seeded jobs land here
 |   +-- Quantum Sync Help\Quantum Sync Help.waj
 |   +-- Quantum Sync Release Notes\Quantum Sync Release Notes.waj
 |   +-- Quantum Sync Site Shell\Quantum Sync Site Shell.waj
-+-- Staging\                                        default Staging folder (untouched)
++-- Staging\                                        this workspace's staging folder
 +-- Output\                                         seeded jobs and in-guide composition deploy here (Output\<job name>\, created by first run)
 +-- Evaluation\                                     AutoMap evaluation materials
     +-- Quantum Sync Stationery\
@@ -160,50 +159,49 @@ This tree reproduces `docs/agents/extraction-layout.md`, "The layout on a trial 
         +-- release-notes.md                          Release Notes document
 ```
 
-Folder contract: job identity is folder name = .waj name = `<Job name>`; the Administrator loads every job folder under Jobs when it starts and when the Jobs folder preference changes (`JobManager.SetJobDirectory`, called from `JobsForm.cs:129` and from the `JobsDirectoryChanged` handler at `JobsForm.cs:2065-2069`), so no import is needed. There is no file-system watcher: a job folder added while the Administrator runs appears only after a reload. `Output\<name>` is created by first run. Seeded jobs' Folder destinations deploy there; Staging remains the active workspace's staging folder and is not replaced or moved.
+Folder contract: job identity is folder name = .waj name = `<Job name>`. The Administrator loads every job folder under Jobs when it starts and when `JobManager` sets the jobs folder (`JobsForm.cs:129`, 2065-2069), so no import is needed. There is no file-system watcher: a job folder added while the Administrator runs appears only after a reload. `Output\<name>` is created by first run. Seeded jobs' Folder destinations deploy there; Staging remains the active workspace's staging folder.
 
-Relative-path rule: AutoMap resolves `<Project path>` and every `<Document path>` from the directory containing the .waj. Exactly two `..\` segments from `Jobs\<name>\<name>.waj` reach `<root>`. Keep project and document paths relative, with backslashes, starting `..\..\Evaluation\`; never reference Express/Designer folders or climb above `<root>`. Examples: `..\..\Evaluation\Quantum Sync Stationery\Quantum Sync Stationery.wxsp`, `..\..\Evaluation\Quantum Sync Midnight Stationery\Quantum Sync Midnight Stationery.wxsp`, `..\..\Evaluation\Quantum Sync Source Docs\quantum-sync.md`, and corresponding `release-notes.md` path.
-
-Jobs and Evaluation remain siblings under `<root>`. Extraction targets the selected `<root>` Jobs folder. In default-root mode, a `JobsDirectory` override is outside fresh-install scope; relocating Jobs afterwards breaks seeded jobs' relative paths, as with any relative-path job. A Stationery job stages under `Staging\<name>\Output\<Target>\`; the guide does not send users there.
-
-#### Localized Documents folder names
-
-| Segment | Varies? |
-|---|---|
-| `<Documents>` known folder | Display name is localized and directory may redirect to OneDrive. Resolve with `Environment.SpecialFolder.Personal`. |
-| `WebWorks ePublisher AutoMap`, `Jobs`, `Staging` | No; fixed AutoMap literals in default-root mode. |
-| `Evaluation` and every descendant name | No; fixed evaluation-material contract names. |
-| Express and Designer folders such as `ePublisher Express Projects` and `ePublisher Stationery` | Yes; those folders are localized and must not be used by AutoMap. |
-
-Seeded jobs are unaffected by UI language because no job path contains a localized segment. Extraction uses the same Personal known-folder lookup and treats names below `<root>` as fixed literals; do not add language-specific folder resources. Guide and screenshot prose should say "your Documents folder", note that Windows may display a localized name or redirect it into OneDrive, and prefer Administrator navigation (job list, job folder, Explore Output) over typed paths.
+Relative-path rule: AutoMap resolves `<Project path>` and every `<Document path>` from the directory containing the .waj. Exactly two `..\` segments from `Jobs\<name>\<name>.waj` reach `<ws>`. Keep project and document paths relative, with backslashes, starting `..\..\Evaluation\`; never reference Express/Designer folders or climb above `<ws>`. Examples: `..\..\Evaluation\Quantum Sync Stationery\Quantum Sync Stationery.wxsp`, `..\..\Evaluation\Quantum Sync Midnight Stationery\Quantum Sync Midnight Stationery.wxsp`, `..\..\Evaluation\Quantum Sync Source Docs\quantum-sync.md`, and the corresponding `release-notes.md` path.
 
 ### Job destination rewrite
 
-Repo .waj files carry a Folder destination Configuration Value of `..\..\Output\<name>`. After extraction, rewrite only each relative Folder destination value to an absolute `<root>\Output\<name>`. `Publish/Core/Deployment/FolderDeployTarget.cs:75` uses that value verbatim. The scheduler's working directory is System32, so leaving it relative is not reliable (ADR-0004; `docs/agents/seeded-jobs.md`, "Destination strategy").
+Repo .waj files carry a Folder destination Configuration Value of `..\..\Output\<name>`. After extraction, rewrite only each relative Folder destination value to an absolute `<ws>\Output\<name>`. `Publish/Core/Deployment/FolderDeployTarget.cs:75` uses that value verbatim. The scheduler's working directory is System32, so leaving it relative is not reliable (ADR-0004; `docs/agents/seeded-jobs.md`, "Destination strategy").
 
-Use `scripts/stage_seeded_jobs.py` as reference: identify inline `DeploySetting` elements with `Action="file"`, rewrite relative Configuration Value paths against the destination job directory, preserve absolute values, and leave XML Project and Document paths relative. Scheduled tasks stay valid because job and Evaluation paths do not change.
+Use `scripts/stage_seeded_jobs.py` as reference: identify inline `DeploySetting` elements with Action="file", rewrite relative Configuration Value paths against the destination job directory, preserve absolute values, and leave XML Project and Document paths relative. Scheduled tasks stay valid because job and Evaluation paths do not change.
 
 `scripts/rehearse_seeded_jobs.ps1` rehearses this layout and rewrite; `docs/agents/seeded-jobs.md`, "Rehearsal results", records the passing run. The rehearsal supports the archive contract but does not replace Windows installer checks.
 
-## Relationship to AutoMap Workspaces (Trac #2919)
+## Install-time seeding
 
-Workspaces is the preferred end state: Default stays clean, Reset re-extracts one folder, and removing the trial means removing the workspace.
+### Where it runs
 
-Ship seeding with a trial-minimal slice of #2919 in the same 2026.1 point build IF ready: workspace registry, switcher, active workspace in the title bar, re-rooting of the jobs list, live-update watcher, staging, composition editor Add-member list, and task-name collision warning. The trial does not need the per-workspace deploy-settings overlay or CLI manifest discovery; seeded jobs carry inline Folder destinations already.
+Run seeding in the `--register` branch of `Automap/AutomapUI/AutomapUI.cs` (151-171), right after OnRegistration(...) and before the licensing form, only when `--silent` is absent. Do not place it in `AutomapApplication.OnInitializePreferences` (463-474), which also runs for CLI and scheduled-task initialization, or at Administrator startup.
 
-Costs include German/French/Japanese strings, a preferences registry format that 2026.2 inherits, and help and glossary updates. 2026.1 point builds already added AutoMap features; federation and composition jobs need 2026.1.4737+.
+The installer requests admin, so seeding runs under the elevated installing account. The installer calls RequireNoRunningEPublisherProducts before installing (products/common/windows/NSIS `Installer/install.nsh:54`, 131, 203, 264), so no Administrator is running to overwrite the registry from its cached copy.
 
-If the slice is not ready for the build that ships seeding, ship default-root mode rather than hold up the trial: the published trial guide already assumes seeded jobs exist.
+Silent installs skip seeding; this is a deliberate break from Express. The narrower alternative, if ever wanted, is to skip only as SYSTEM. `DefaultDirectoriesCreated` is not usable for seeding gating: `--register` only marks its preference dirty and returns without disposing or flushing the app.
 
-Never migrate seeded jobs between roots. Moving a seeded job orphans any scheduled task a trial user created against it; guide Step 4 schedules "Quantum Sync Release Notes". A later build switching to workspace mode seeds that workspace only for new installs and Reset. Earlier default-root materials stay where they are.
+### Extraction and sentinels
 
-Published guide paths are default-root paths ("Where things live" callout, Steps 1-2). If workspace mode ships, epublisher-express-trial must update the guide callout, add a line saying trial jobs live in the "Quantum Sync Trial" workspace, and replace screenshots whose title bar shows the workspace. This is a follow-up, not implemented here.
+The public `AutomapApplication` wrapper calls `protected` `ExtractEvaluationWEZ` on `PublisherApplication` (`Publish/Core/PublisherApplication.cs:391-425`), modeled on Designer's `Publish/Publisher/PublisherProApplication.cs:475-587` ResetEvaluationMaterials. It extracts `Exp_AutoMap.wez` into `<ws>` itself so Evaluation and Jobs are siblings. The helper creates the destination only when absent, then extracts; its catch around lines 420-424 is empty. Never overwrite an existing workspace during installation. After extraction, verify all sentinels: the three seeded .waj files and `Evaluation\Quantum Sync Stationery\Quantum Sync Stationery.wxsp`. Stop if any sentinel is missing.
+
+The job Folder destination rewrite follows `scripts/stage_seeded_jobs.py`. Rewrite only relative Action="file" Configuration Value destinations to absolute `<ws>\Output\<name>`; preserve absolute values and leave Project and Document paths relative. `Publish/Core/Deployment/FolderDeployTarget.cs:75` uses the Folder value verbatim. The scheduler's working directory is System32, so relative Folder destinations are not reliable (ADR-0004). `scripts/rehearse_seeded_jobs.ps1` rehearses the layout and rewrite.
+
+### Steps
+
+1. If `<ws>` already exists, skip steps 2 and 3 and never overwrite anything in it. Steps 4 and 5 still run, so a workspace folder whose registry entry was lost is registered again.
+2. Extract `Exp_AutoMap.wez` into `<ws>` through the public `AutomapApplication` method; verify the sentinels; stop if any sentinel is missing.
+3. Absolutize the three seeded .waj Folder destinations to `<ws>\Output\<name>` (the rewrite rule itself is unchanged from this spec's Job destination rewrite).
+4. Register or update the "Quantum Sync Trial" entry through AutomapAdmin.AutomapUIWorkspaces (`Automap/AutomapUI/AutomapUIWorkspaces.cs`); this is callable from `--register` because it needs only the `AutomapPreferences` service, registered in the `AutomapApplication` constructor at `AutomapApplication.cs`:278-281. Call `Validate`(ws, originalName) (:251-292) with originalName = "Quantum Sync Trial" when an entry with that name already exists, and null when adding a new entry; `Validate` otherwise rejects the entry's own name (:275) and its own jobs folder (:280). If validation fails (for example, a customer workspace already uses that folder), stop without storing anything. Then call `Store`(originalName, ws) (:169-212), which saves `Workspaces.prefs` immediately but does not itself validate or create folders.
+5. Activate the workspace only on a fresh machine: no named workspace other than Quantum Sync Trial is registered AND Default's Jobs folder holds no jobs. Count both job subfolders and loose .waj/.wacj files at the Jobs root, because `JobManager.LoadAllJobs` loads both (`Automap/Core/JobManager.cs:296-304`). Default's Jobs folder is `AutomapUIWorkspaces.Default.JobsDirectory` (:75-83); when unset it resolves to the elevated installing account's Documents folder, which is acceptable for this gate only. `Activate` (:155-161) sets `ActiveWorkspace` and flushes `AdminUI.prefs`; activation is machine-wide. On an upgrade, or a machine with existing jobs, the trial workspace is registered but NOT activated, so an existing customer's Administrator keeps its current view; the user picks Quantum Sync Trial from the workspace switcher when ready.
+
+Seeding is harmless on upgrades because it lands in its own workspace; activation is what would take over an existing customer's view, hence the split between registering and activating. After uninstall and reinstall, `<ws>` still exists, so nothing is re-extracted; steps 4 and 5 re-register it if its entry was lost with the ProgramData preferences. If `<ws>` was deleted while its entry remains, steps 2 to 4 re-seed it and update the entry.
 
 ## Trial guide link and Getting Started topic
 
 Canonical URL: `https://static.webworks.com/docs/epublisher/{VersionDirectoryName}/automap/trial/`; for 2026.1: `https://static.webworks.com/docs/epublisher/2026.1/automap/trial/`. The pattern is also in `docs/agents/extraction-layout.md`, "The trial guide's URL".
 
-In the shared `DEFINE_PAGES` macro (`products/common/windows/NSIS Installer/resources.nsh:127`), which all three product installers invoke, gate the addition with `!if "${productName}" == "${AUTOMAP_STR}"` and add `MUI_FINISHPAGE_LINK` with a new LangString such as `open_trial_guide = "Open the AutoMap Trial Guide"`, added to all four `.nlf` files. Set `MUI_FINISHPAGE_LINK_LOCATION` to the versioned URL built from the installer's existing version defines. Both Finish-page checkboxes (Launch and Show Readme) are already used, so the link element is the free slot. Express and Designer Finish pages stay unchanged.
+In the shared `DEFINE_PAGES` macro (`products/common/windows/NSIS Installer/resources.nsh:127`), which all three product installers invoke, gate the addition with `!if "${productName}" == "${AUTOMAP_STR}"` and add `MUI_FINISHPAGE_LINK` with a new `LangString` such as `open_trial_guide` = "Open the AutoMap Trial Guide", added to all four .nlf files. Set `MUI_FINISHPAGE_LINK_LOCATION` to the versioned URL built from the installer's existing version defines. Both Finish-page checkboxes (Launch and Show Readme) are already used, so the link element is the free slot. Express and Designer Finish pages stay unchanged.
 
 The link appears only on interactive installs (silent installs show no Finish page), at the same time and for the same user as seeding. The browser launches with the installer's elevated token, as does the existing Launch checkbox.
 
@@ -213,73 +211,101 @@ Add a Getting Started topic in the AutoMap help's "Welcome to ePublisher AutoMap
 
 ## Reset Evaluation Materials (required)
 
-Reset Evaluation Materials is REQUIRED, not optional. It serves a second Windows user on a shared machine; a user whose install ran elevated under a different admin account; a silent-install user; a user skipped by condition (c); and anyone who deleted seeded jobs. Administrator Delete already removes jobs, so Reset is its natural counterpart that restores them.
+Reset Evaluation Materials is REQUIRED, not optional. It serves a second Windows user on a shared machine; a user whose install ran elevated under a different admin account; a user skipped by a silent install; an existing customer who wants the trial activated; anyone who deleted or broke the seeded jobs; and a machine where validation stopped seeding.
 
-Place the action in Preferences > General > Miscellaneous (`PrefEditorPanel.resx:292`). Adapt captions from Express `Redstone/UserInterface/Dialogs/ApplicationPrefDialog.*.resx` (de/fr/ja exist for Express; add them for AutoMap), plus a new confirmation prompt translated into German, French, and Japanese.
+Placement is unchanged: Preferences > General > Miscellaneous (`Automap/AutomapUI/UI/PrefEditorPanel.resx:292`); captions adapted from Express ApplicationPrefDialog.*.resx; add new prompt strings in de/fr/ja.
 
-Reset runs as the current user into that user's Documents, and refuses while a seeded job is running. It deletes ONLY `<root>\Evaluation` and the three seeded job folders under `<root>\Jobs`, removing the folders directly rather than through `JobManager.DeleteJob`, which also deletes the job's scheduled task (`Automap/Core/JobManager.cs:389-422`); it never deletes Output, Staging, or any other job. It then re-extracts, verifies sentinels, re-runs the destination rewrite, and reloads the job list the same way a Jobs-folder change does (`JobManager.SetJobDirectory(AutomapUIPrefs.JobDir)` plus a grid refresh, `JobsForm.cs:2065-2069`), so the restored jobs appear without a restart. Conditions (a) to (c) do not apply because this is an explicit request. Condition (d) still applies in default-root mode: when `JobDir` is not the current user's product-default Jobs folder, restored jobs would land where the Administrator does not look, so Reset shows a message naming the current Jobs folder and the default and stops. Workspace mode has no such limit because the trial workspace registers its own jobs root. Scheduled tasks stay valid because job paths do not change. Reset never opens a browser.
+On confirmation, the prompt states that Reset replaces the shared trial materials for every user of this computer. Reset refuses while a seeded job is running: it checks the three seeded names in `JobManager.Manager.Jobs` and tests `JobInfo.Running` (`Automap/Core/JobInfo.cs:292`), which reflects the scheduled task's running state, so another account's scheduled run counts. It deletes only `<ws>\Evaluation` and the three seeded job folders under `<ws>\Jobs`, deleting them directly rather than through `JobManager.DeleteJob`, which also deletes the job's scheduled task (`Automap/Core/JobManager.cs:397-432`, task deletion at :430). It keeps Output, Staging, and every other job in the trial workspace, including jobs a guide reader creates there (Step 2's publishing job and Step 3's Quantum Sync Site composition). It creates `<ws>` if it is missing; extracts, verifies sentinels, and absolutizes destinations; registers or updates the entry as in seeding step 4; Activates it; then reloads the job list explicitly: `JobsForm.EditPrefs` (`Automap/AutomapUI/UI/JobsForm.cs:1593-1599`) calls `ShowJobsFolder(AutomapUIWorkspaces.Active.JobsDirectory)` (:275-293) when the Preferences panel reports a reset, and `JobManager.SetJobDirectory` (`Automap/Core/JobManager.cs:206`) clears and reloads the list even when the folder is unchanged. The Changed handler reloads only when the jobs folder differs (`Automap/AutomapUI/UI/JobsForm.cs:2243-2253`, ShowJobsFolder at :275-293); Reset keeps the same folder, so the handler alone would not fire. Reset never opens a browser. It works for any user under the Public Documents and ProgramData access facts above. Scheduled tasks stay valid because job paths do not change.
 
-In workspace mode, Reset targets the running build's `<root>` and re-registers the workspace if it was removed. Default-root materials seeded by an earlier build are left alone.
+### Scheduled tasks
 
-Express Reset (`Publish/Redstone/RedstoneApplication.cs:396-468`, button handler `ApplicationPrefDialog.cs:749-760`) deletes and re-extracts without a prompt. AutoMap adds the prompt and narrower scope because AutoMap job folders are user-editable in a way Express evaluation folders are not.
+Task names are machine-wide and tasks belong to the account that created them. The guide's Step 4 schedules Quantum Sync Release Notes; another user's Run Now on that job finds a task owned by another account and gets the Schedule dialog and collision warning (v1 Workspaces behavior, `TaskSchedulerManager.cs`:389-414, 446-649). One shared job path per seeded job means the task never points at a different copy.
 
 ## Licensing note
 
-Evaluation Contract IDs must include the AutoMap component (application ID 21). AutoMap does not reuse Express `.licinfo`. The user enters a Contract ID in AutoMap LicensingInfoForm during installer `--register` or through Help > License Keys (`Automap/AutomapUI/AutomapUI.cs:151-171`; `Automap/AutomapUI/UI/JobsForm.cs:2008-2013`).
+Evaluation Contract IDs must include the AutoMap component (application ID 21). AutoMap does not reuse Express .licinfo. The user enters a Contract ID in AutoMap LicensingInfoForm during installer `--register` or through Help > License Keys (`Automap/AutomapUI/AutomapUI.cs:151-171`; `Automap/AutomapUI/UI/JobsForm.cs:2008-2013`).
 
 Seeding, the Finish-page link, and Reset are not license-gated. The evaluation engine limits output to 8 generated documents, applies a Ghostscript-image watermark, and blocks XSL exec. Current seeded jobs are within the generation cap: Quantum Sync Help contains 1 Document element, Quantum Sync Release Notes contains 1, and Quantum Sync Site Shell contains 0 (the intended zero-document shell job).
 
 These engine-level limits refine, rather than reverse, the research note's "Gap 2 CLOSED" conclusion. That finding concerned the absence of a format-level watermark call in shipped transforms. The engine's Ghostscript watermark and generation cap are a separate, narrower mechanism; do not claim that trial output is wholly unconstrained.
 
+## Implementation plan
+
+1. Payload. svn add `products/AutoMap/Evaluation/Exp_AutoMap.wez` and `products/AutoMap/Evaluation/README.md`; add the `"ePublisher AutoMap\\Evaluation"` entry to AutoMap `paths.json` and `paths_x86.json`; let `collector.py` regenerate the .nsh files from those.
+2. Core. In `Automap/Core/AutomapApplication.cs`, add a public method that extracts `EvaluationFolder\Exp_AutoMap.wez` into a given workspace folder using the `protected` `ExtractEvaluationWEZ` and returns whether the sentinels exist. Add a small Core helper (for example `Automap/Core/EvaluationMaterials.cs`) that absolutizes relative Action="file" Configuration Values in seeded .waj files, mirroring `scripts/stage_seeded_jobs.py`.
+3. Administrator. Add a static orchestrator in Automap/AutomapUI/ (for example `AutomapUIEvaluation.cs`) with SeedAtInstall() and Reset(): it computes `<ws>`, calls the Core pieces, and does register-or-update plus conditional `Activate` through AutomapUIWorkspaces.
+4. Registration. In `Automap/AutomapUI/AutomapUI.cs`, the `--register` branch calls SeedAtInstall() after OnRegistration when `--silent` is absent.
+5. Preferences. Add a Reset button and handler in `PrefEditorPanel`. The running-job check reads the static `JobManager.Manager` (`Automap/Core/JobManager.cs:170`; `Jobs` at :133) and tests `JobInfo.Running` for the three seeded names. After a reset the panel reports it to `JobsForm.EditPrefs` (`Automap/AutomapUI/UI/JobsForm.cs:1593-1599`), which today discards the dialog result; have it call `ShowJobsFolder(AutomapUIWorkspaces.Active.JobsDirectory)` (:275-293). Add resource strings in AutomapUI strings/ErrorsAndAlert resx files for en, de, fr, ja.
+6. Installer Finish page. Add the AutoMap-only `MUI_FINISHPAGE_LINK` in `resources.nsh` and the `LangString` in the four .nlf files.
+7. Tests. In the existing `WebWorks.test` project, add tests for destination absolutizing (relative rewritten, absolute kept, Project/Document paths untouched), sentinel verification, the fresh-machine activation rule, and register-or-update with `Validate` originalName. Write the activation rule as a pure function of the named workspaces and Default's Jobs folder path (`AutomapUIWorkspaces.Default.JobsDirectory`, which resolves to `AutomapPreferences.DefaultJobsDirectory`, `Automap/Core/AutomapPreferences.cs:102-108`, when unset), so the test needs no preferences files.
+8. Docs and release note. Add the release-note block given below, a glossary entry for the evaluation workspace if the glossary lists product folders, and the AutoMap guides workspace section (external, tracked as Remaining work below, not implemented here).
+
 ## Acceptance tests
 
-Run these checks on a clean Windows machine with no WebWorks products installed. Use an evaluation Contract ID that includes AutoMap. Unless noted, `<root>` means the selected extraction root for the installing user.
+Run these checks on a clean Windows machine with no WebWorks products installed. Use an evaluation Contract ID that includes AutoMap.
 
-1. Interactive install: confirm `C:\Program Files\WebWorks\ePublisher\2026.1\ePublisher AutoMap\Evaluation\Exp_AutoMap.wez` exists. Confirm archive root entries are `Evaluation/` and `Jobs/`, with no wrapper folder.
-2. Before ever launching Administrator, confirm the installing user's `<root>` already holds the exact extracted tree. Each seeded .waj has an absolute Folder destination under `<root>\Output\<name>`; Project and Document paths stay relative and begin `..\..\Evaluation\`.
-3. Confirm AutoMap Finish page shows "Open the AutoMap Trial Guide" and opens the correct versioned URL. Confirm Express and Designer Finish pages are unchanged.
-4. First Administrator launch: three seeded jobs list without import; no browser opens; nothing extracts at launch because installation already seeded it.
-5. Run each seeded job and confirm exit code 0 and `<root>\Output\<name>\index.html`; Explore Output opens it.
-6. Repair or reinstall over existing materials: edit a seeded .waj first. Confirm the edit survives and nothing is overwritten.
-7. Upgrade on a machine whose Jobs folder already holds a real job, or is relocated: confirm no trial materials are added.
-8. Silent install (`/S`), including as SYSTEM: confirm no materials appear in any profile and no Finish page is shown.
-9. CLI and scheduled-task runs never extract: run WebWorks.Automap.exe against a job and run a scheduled task; confirm no new Evaluation folder appears anywhere.
-10. Second Windows account, with no Jobs folder preference stored (condition (d)): first Administrator launch shows no seeded jobs. Preferences > Reset Evaluation Materials prompts; cancel changes nothing. Confirm Reset seeds that account's own `<root>`, jobs appear without restart, and no browser opens.
-11. On installing account, delete a seeded job via Delete, then Reset. Confirm it returns; Output, Staging, other jobs, and existing task for "Quantum Sync Release Notes" are untouched, and the task still runs the restored job. Start Reset while a seeded job is running and confirm it refuses.
-12. Default-root mode with the Jobs folder preference pointing elsewhere: Reset shows a message naming the current Jobs folder and changes nothing.
-13. Uninstall: confirm Program Files payload is removed and Documents is left alone.
-14. German, French, and Japanese UIs: folder names remain the same literals; Reset caption, confirmation prompt, and Finish-page link text are translated.
-15. Workspace mode only: after install, "Quantum Sync Trial" is registered for installing user. On a fresh machine Default job list is empty; switching to "Quantum Sync Trial" lists the three jobs.
-16. Packaging: `python scripts/sync_variant_stationery.py --check` exits 0; `scripts/rehearse_seeded_jobs.ps1` and `scripts/stage_seeded_jobs.py` agree with extracted paths and rewritten destinations.
-17. Docs: AutoMap help Getting Started topic is live and links to the versioned trial guide.
+1. Confirm the AutoMap installer installs `Evaluation\Exp_AutoMap.wez` under Program Files.
+2. After interactive install, confirm `<ws>` exists under Public Documents with the exact tree below; each absolute Folder destination is under `<ws>\Output\<name>`, while Project and Document paths stay relative.
+3. Confirm `Workspaces.prefs` lists Quantum Sync Trial with jobs `<ws>\Jobs` and staging `<ws>\Staging`.
+4. On a fresh machine, confirm the first Administrator launch shows title "Quantum Sync Trial - ..." and the three jobs; no browser opens.
+5. Confirm the Finish-page link opens the versioned URL; Express and Designer Finish pages are unchanged.
+6. Run each seeded job and confirm exit 0, staging under `<ws>\Staging` (the log names the workspace as the staging source), and `<ws>\Output\<name>\index.html`; Explore Output opens it.
+7. Sign in as a second, standard (non-admin) Windows user; confirm the same workspace is visible and that user can run a seeded job and Reset (ACL check).
+8. Upgrade/install on a machine whose Default Jobs folder holds a job: confirm the workspace is registered but Default stays active.
+9. Repair or reinstall with `<ws>` present: edit a .waj first and confirm nothing is overwritten.
+10. Silent install: confirm nothing is seeded and no Finish page appears.
+11. Confirm CLI and scheduled runs never seed.
+12. Reset: confirm the prompt appears; Cancel changes nothing; Confirm restores a deleted seeded job; keeps a user-created job in the workspace; keeps Output and Staging; keeps the existing Release Notes task working; refuses while a seeded job runs; reloads the list without restart; activates the workspace; and opens no browser.
+13. Delete `<ws>` then Reset; confirm it recreates the workspace and updates the registry entry.
+14. Uninstall removes the Program Files payload and leaves `<ws>` and its registry entry.
+15. In de/fr/ja UIs, confirm literal names are unchanged, Reset caption and prompt are translated, and Finish link text is translated.
+16. Packaging checks: `sync_variant_stationery.py` --check, `rehearse_seeded_jobs.ps1`, and `stage_seeded_jobs.py` agree with the payload and paths.
+17. Confirm the Getting Started topic is live.
+
+## Remaining work
+
+### Product (trunk)
+
+Implement this spec as Trac #2975; commit the staged archive and README; add the release-note entry.
+
+### Docs (epublisher-docs)
+
+Add the Getting Started topic in AutoMap help. The Workspaces article is tracked in quadralay/epublisher-docs#142 and should mention the Quantum Sync Trial workspace.
+
+### Trial guide (this repo, once a build with #2975 exists)
+
+Move the "Where things live" callout and Steps 1-3 paths to `Public Documents\WebWorks ePublisher AutoMap\Quantum Sync Trial`. Step 1 notes the title bar and workspace switcher. Re-capture the Administrator screenshots (title bar shows the workspace) and `automap-new-job.png` for GitHub https://github.com/quadralay/epublisher-express-trial/issues/52 (Trac #2974, r36117 widened the dialog and kept the caption wording, so only the screenshot needs to change). Consider an Explore More line about workspaces.
+
+### Maintainer tooling (this repo)
+
+Update `scripts/rehearse_seeded_jobs.ps1` and the extraction-layout verification recipe to stage under a mock of `<ws>`. Hand-staging now means copying into `<ws>` and registering the workspace in the Administrator.
 
 ## Trac ticket #2975
 
-Filed 2026-09-23 (https://factory.webworks.com/ePublisher_Platform/ticket/2975; enhancement, component Evaluation, milestone 2026.1, priority major) with the original first-launch design. The revised description below replaces it and should be applied via a ticket comment linking Trac #2919 and ADR-0005 (docs/adr/0005-install-time-evaluation-seeding.md).
+State: filed 2026-09-23; description replaced 2026-09-26 (install-time seeding with a choice between two root modes); the description below (workspace-only, dated 2026-09-27) is meant to replace it again, via a ticket comment citing SVN r36120 and ADR-0006.
 
-The wiki markup below follows `trunk: .claude/commands/trac/create-ticket.md` (the recipe lives in the trunk working copy, not in this repo):
+Summary: AutoMap - Seed a shared evaluation workspace at install time and link the trial guide from the installer
 
-Summary: AutoMap - Seed evaluation materials at install time and link the trial guide from the installer
+'''Goal:''' Make the AutoMap trial self-contained: install a shared Quantum Sync Trial workspace under Public Documents, seed it during interactive installation, link to the online trial guide from the Finish page, and provide a reset action.
 
-'''Goal:''' Make the AutoMap trial self-contained: ship an Evaluation archive in the AutoMap installer, seed materials during interactive installation, link to the online trial guide from the Finish page, and provide a required reset action.
-
-'''Context:''' AutoMap has no evaluation payload or trial guide entry point today, and the published AutoMap trial guide (https://static.webworks.com/docs/epublisher/2026.1/automap/trial/) assumes seeded jobs already exist. Archive Exp_AutoMap.wez contains Quantum Sync Stationery, Quantum Sync Midnight Stationery, Quantum Sync source docs, and three seeded publishing jobs (1,083 files). It is generated by epublisher-express-trial and staged, unversioned, at products/AutoMap/Evaluation/ beside README.md. The full handoff spec with trunk anchors, payload manifest, and acceptance checks is docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md in quadralay/epublisher-express-trial (GitHub #37). The design follows docs/adr/0005-install-time-evaluation-seeding.md.
+'''Context:''' AutoMap Workspaces (Trac #2919) landed as SVN r36120. The workspace registry and active workspace are machine-wide, so evaluation materials need one shared job path and staging folder for all users. Evaluation archive Exp_AutoMap.wez contains the Quantum Sync Stationery packages, source docs, and three seeded publishing jobs (1,083 files). It is staged beside README.md in products/AutoMap/Evaluation. The full handoff spec and archive manifest are in docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md and docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec-manifest.txt. Decision record: docs/adr/0006-evaluation-workspace-in-public-documents.md. Published trial guide: https://static.webworks.com/docs/epublisher/2026.1/automap/trial/.
 
 '''Acceptance Criteria:'''
- * Installer manifests install Exp_AutoMap.wez beside AutoMap Help; collector.py regenerates file lists and uninstall removes payload while leaving Documents alone.
- * Interactive --register seeds only when the Evaluation folder and the three seeded job folders are absent and, in default-root mode, the Jobs folder holds no jobs and the Jobs folder preference is the product default; extracts into the single <root> so Evaluation and Jobs are siblings, verifies sentinels, then rewrites Folder destinations. CLI and scheduled-task runs never seed.
- * AutoMap-only Finish-page link opens the versioned trial guide; text is translated in all four installer languages. Express and Designer Finish pages are unchanged.
- * Required Reset prompts, refuses while a seeded job is running, deletes only Evaluation and the three seeded job folders (directly, so their scheduled tasks survive), then extracts, verifies, rewrites and reloads the job list without touching Output, Staging or other jobs. In default-root mode it stops with a message when the Jobs folder preference points elsewhere.
- * Extraction root is one parameter; workspace mode is available when #2919 ships in the same build. Never migrate seeded jobs between roots.
- * Each seeded job runs with exit 0. Uninstall leaves Documents alone. Literal folder names remain the same in localized UIs.
- * AutoMap help Getting Started topic links to the versioned trial guide and explains seeded materials and Reset.
+ * Installer manifests install Exp_AutoMap.wez beside AutoMap Help; collector.py regenerates file lists and uninstall removes the payload while leaving the shared workspace.
+ * Interactive --register extracts to Public Documents\WebWorks ePublisher AutoMap\Quantum Sync Trial only when that folder is absent and never overwrites it, verifies sentinels and rewrites the seeded Folder destinations under its Output folder, then registers or updates the Quantum Sync Trial entry, also when the folder already exists. Project and Document paths remain relative.
+ * Seeding activates the workspace only on a fresh machine with no other named workspace and no jobs in Default; upgrades preserve the active view. CLI and scheduled runs never seed.
+ * The AutoMap-only Finish-page link opens the versioned trial guide; text is translated in all four installer languages. Express and Designer Finish pages are unchanged.
+ * Required Reset prompts, refuses while a seeded job runs, restores only Evaluation and the three seeded job folders, keeps Output, Staging, other jobs and scheduled tasks, registers or updates the workspace, activates it, and reloads the list.
+ * Any standard Windows user can access the shared workspace and Reset can update its machine-wide registry entry; confirm ACLs on a clean machine.
+ * Each seeded job runs with exit 0 and stages under the workspace; localized UIs keep literal folder names and translate Reset and Finish-link strings.
+ * AutoMap help Getting Started topic links to the versioned trial guide and explains workspace location and Reset; uninstall leaves the workspace and registry entry.
 
-'''Technical notes:''' Add one public AutomapApplication method, shared by --register and Reset, that wraps the protected PublisherApplication.ExtractEvaluationWEZ (Publish/Core/PublisherApplication.cs:391-425), and verify sentinels because the helper swallows errors. The Administrator has no Jobs-folder watcher, so Reset reloads the job list itself (JobsForm.cs:2065-2069). DefaultDirectoriesCreated is not usable for gating: --register returns without disposing the app, so its dirty preference is not flushed there. Use scripts/stage_seeded_jobs.py and scripts/rehearse_seeded_jobs.ps1 for destination rewriting and rehearsal. Full spec: docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md in quadralay/epublisher-express-trial.
+'''Technical notes:''' Add a public AutomapApplication method that wraps protected PublisherApplication.ExtractEvaluationWEZ (Publish/Core/PublisherApplication.cs:391-425), verifies sentinels, and a helper that absolutizes only relative Action="file" Folder destinations. Register or update and conditionally activate through AutomapUIWorkspaces; Validate receives the existing name or null for an addition. Reset reloads the job list explicitly because the folder does not change. Workspaces.prefs is machine-wide and carried forward when the next version's target is missing. Full implementation details: docs/plans/2026-09-23-feat-automap-trial-trunk-handoff-spec.md.
 
-Release note addition, modeled on products/common/resources/readme.html:804-806:
+Release note addition, modeled on `products/common/resources/readme.html:804-806`:
 
 {{{
 <li id="wwli202975" class="UList_Item" value="1">
-  <div class="UList_Paragraph"><a name="p202975">Seeded the AutoMap Trial evaluation materials during installation and added a link to the trial guide on the installer's Finish page (EPUB2975).</a></div>
+  <div class="UList_Paragraph"><a name="p202975">Seeded a shared AutoMap Trial evaluation workspace during installation and added a link to the trial guide on the installer's Finish page (EPUB2975).</a></div>
 </li>
 }}}

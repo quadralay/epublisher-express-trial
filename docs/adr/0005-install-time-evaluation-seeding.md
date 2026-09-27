@@ -44,3 +44,5 @@ installs break Express parity deliberately. If workspace mode ships, the
 published guide's paths and screenshots are updated in this repo.
 
 This supersedes the first-launch part of ADR-0001.
+
+Update 2026-09-27: ADR-0006 places the materials in a shared "Quantum Sync Trial" workspace under Public Documents, drops the default-root mode, and now seeds whenever that workspace folder is absent, activating only on a fresh machine. This ADR's install-time timing, silent-install skip, required Reset, and Finish-page link all still stand.
